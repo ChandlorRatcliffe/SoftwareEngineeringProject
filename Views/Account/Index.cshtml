@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Account>
+
+@{
+    ViewBag.Title = "Account Table";
+}
+
+    <table>
+        <tr>
+            <th>Id</th>
+        </tr>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                </tr>
+            }
+        </tbody>
+    </table>

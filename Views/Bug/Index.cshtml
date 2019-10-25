@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Bug>
+
+@{
+    ViewBag.Title = "Bug Table";
+}
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Priority</th>
+        <th>Description</th>
+        <th>User</th>
+    </tr>
+
+    <tbody>
+        @foreach (var bug in Model)
+        {
+            <tr>
+                <td>@bug.Id</td>
+                <td>@bug.Name</td>
+                <td>@bug.Priority</td>
+                <td>@bug.Description</td>
+                <td>@bug.User</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,28 @@
+﻿@model BugDetailsViewModel
+
+@{
+    ViewBag.Title = "Bug Details";
+}
+
+<div>
+    <h3>@Model.PageTitle</h3>
+
+
+    <div>
+        Name: @Model.Bug.Name
+    </div>
+
+    <div>
+        Priority: @Model.Bug.Priority
+    </div>
+
+    <div>
+        Description: @Model.Bug.Description
+    </div>
+
+    <div>
+        User: @Model.Bug.User
+    </div>
+</div>
+
+
