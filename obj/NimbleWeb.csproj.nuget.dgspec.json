@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nxjone\\source\\repos\\NimbleWeb\\NimbleWeb.csproj": {}
+    "C:\\Users\\armyj\\Desktop\\CashewDesign\\Implementation\\SoftwareEngineeringProject\\NimbleWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nxjone\\source\\repos\\NimbleWeb\\NimbleWeb.csproj": {
+    "C:\\Users\\armyj\\Desktop\\CashewDesign\\Implementation\\SoftwareEngineeringProject\\NimbleWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nxjone\\source\\repos\\NimbleWeb\\NimbleWeb.csproj",
+        "projectUniqueName": "C:\\Users\\armyj\\Desktop\\CashewDesign\\Implementation\\SoftwareEngineeringProject\\NimbleWeb.csproj",
         "projectName": "NimbleWeb",
-        "projectPath": "C:\\Users\\nxjone\\source\\repos\\NimbleWeb\\NimbleWeb.csproj",
-        "packagesPath": "C:\\Users\\nxjone\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nxjone\\source\\repos\\NimbleWeb\\obj\\",
+        "projectPath": "C:\\Users\\armyj\\Desktop\\CashewDesign\\Implementation\\SoftwareEngineeringProject\\NimbleWeb.csproj",
+        "packagesPath": "C:\\Users\\armyj\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\armyj\\Desktop\\CashewDesign\\Implementation\\SoftwareEngineeringProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\nxjone\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\armyj\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -27,8 +27,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://nuget.commercial.insperity.com/nuget": {},
-          "http://nuget.its.insperity.com/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
