@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace NimbleWeb.Views.TestRunner
+namespace CashewWeb.Views.TestRunner
 {
     public class IndexModel : PageModel
     {

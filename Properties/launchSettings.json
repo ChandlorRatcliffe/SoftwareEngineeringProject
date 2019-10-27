@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "NimbleWeb": {
+    "CashewWeb": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace NimbleWeb.Views.Automation
+namespace CashewWeb.Views.Automation
 {
     public class IndexModel : PageModel
     {

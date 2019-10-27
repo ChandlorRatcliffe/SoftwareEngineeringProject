@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NimbleWeb.Models
+namespace CashewWeb.Models
 {
     public class HomeRepository : IHomeRepository
     {
@@ -14,6 +14,7 @@ namespace NimbleWeb.Models
         {
             _homeList = new List<Home>()
             {
+
                 new Home() { Id = 1, Name = "This is the home Content!"},
             };
 
@@ -23,6 +24,8 @@ namespace NimbleWeb.Models
         {
             return _homeList.FirstOrDefault(e => e.Id == Id);
         }
+
+
 
     }
 }

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using NimbleWeb.Models;
+using CashewWeb.Models;
 using Microsoft.AspNetCore.Mvc;
-using NimbleWeb.ViewModels;
+using CashewWeb.ViewModels;
 
-namespace NimbleWeb.Controllers
+namespace CashewWeb.Controllers
 {
     public class TestRunnerController : Controller
     {

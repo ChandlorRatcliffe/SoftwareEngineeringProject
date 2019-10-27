@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace NimbleWeb.Views.SqlScripts
+namespace CashewWeb.Views.SqlScripts
 {
     public class IndexModel : PageModel
     {

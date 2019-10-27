@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace NimbleWeb.Views.Bug
+namespace CashewWeb.Views.Bug
 {
     public class DetailsModel : PageModel
     {

@@ -14,20 +14,20 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 #line 1 "C:\Users\armyj\Desktop\CashewDesign\Implementation\SoftwareEngineeringProject\Views\_ViewImports.cshtml"
-using NimbleWeb.ViewModels;
+using CashewWeb.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\armyj\Desktop\CashewDesign\Implementation\SoftwareEngineeringProject\Views\_ViewImports.cshtml"
-using NimbleWeb.Models;
+using CashewWeb.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bb96027269cb1893c1cbf2b926a1a5dd24ff0b74", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1f32711a15edfe4b8d76e8ea81467849dcf32197", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

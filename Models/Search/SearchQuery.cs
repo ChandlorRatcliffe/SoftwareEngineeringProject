@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace NimbleWeb.Models
+namespace CashewWeb.Models
 {
     public class SearchQuery
     {

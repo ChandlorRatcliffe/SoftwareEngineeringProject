@@ -1,10 +1,10 @@
-﻿using NimbleWeb.Models;
+﻿using CashewWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NimbleWeb.ViewModels
+namespace CashewWeb.ViewModels
 {
     public class ReportsViewModel
     {
