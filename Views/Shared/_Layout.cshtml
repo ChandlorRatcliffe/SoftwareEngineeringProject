@@ -64,7 +64,9 @@
     <div class="col-12 d-sm-block d-md-block d-lg-none bg-dark px-0">
         <div class="row">
             <div class="col-2">
-                <button class="btn btn-dark rounded-0 px-2" data-toggle="collapse" href="#sidebar" type="button" onclick=""><i class="fas fa-ellipsis-v fa-2x fa-fw"></i></button>
+                <button id="kebab" class="btn btn-dark rounded-0 px-2" type="button">
+                    <i class="fas fa-ellipsis-v fa-2x fa-fw"></i>
+                </button>
             </div>
 
             <form class="col-9 px-0 pt-1">
@@ -73,9 +75,11 @@
         </div>
     </div>
 
-    <div id="sidebar" class="collaspe" style="height: 875px;">
-        <button class="btn btn-dark" type="button" onclick="">Create Project</button>
-        <button class="btn btn-dark" type="button" onclick="">Create Task</button>
+    <div id="sidebar" class="d-lg-none btn-group mx-2" role="group" style="display: none;">
+        <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Project</button>
+        <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Objective</button>
+        <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Task</button>
+        <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Note</button>
     </div>
 
     <div class="row">
@@ -90,5 +94,18 @@
     </div>
 
 </body>
-
  </html>
+
+<script>
+    var kebabSwitch = false;
+    $("#kebab").click(function () {
+        if (kebabSwitch) {
+            $("#sidebar").css("display", "none");
+            kebabSwitch = false;
+        }
+        else {
+            $("#sidebar").css("display", "block");
+            kebabSwitch = true;
+        }
+    });
+</script>
