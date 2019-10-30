@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CashewWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using CashewWeb.ViewModels;
+using System.Diagnostics;
 
 namespace CashewWeb.Controllers
 {
@@ -18,39 +19,66 @@ namespace CashewWeb.Controllers
             _accountRepository = accountRepository;
         }
 
-        public ViewResult Index()
+        [HttpGet]
+        [ActionName("Index")]
+        public ViewResult IndexGet()
         {
-            var model = _accountRepository.GetAll();
-
-            return View(model);
+            return View();
         }
 
-        public ViewResult Details()
+        [HttpPost]
+        [ActionName("Index")]
+        public IActionResult IndexPost(Account account)
+        {
+            Debug.WriteLine(account.Username);
+            Debug.WriteLine(account.Password);
+            //Debug.WriteLine(Request["Username"]);
+            Debug.WriteLine("TESFDDDDDDDDDDDDDDDD");
+
+
+            Account newAccount = _accountRepository.Add(account);
+            return RedirectToAction("Details", new { id = newAccount.Id });
+        }
+
+        [HttpGet]
+        [ActionName("Details")]
+        public ViewResult DetailsGet(Account account)
         {
             AccountViewModel accountDetailsViewModel = new AccountViewModel()
             {
-                Account = _accountRepository.Get(1),
+                Account = _accountRepository.Get(2),
                 PageTitle = "Account Details"
             };
             return View(accountDetailsViewModel);
         }
 
         [HttpGet]
-        public ViewResult Create()
+        [ActionName("Recovery")]
+        public ViewResult RecoveryGet()
         {
             return View();
         }
 
         [HttpPost]
-        public RedirectToActionResult Create(Account account)
+        [ActionName("Recovery")]
+        public ViewResult RecoveryPost()
         {
-            Account newAccount = _accountRepository.Add(account);
-            return RedirectToAction("details", new { id = newAccount.Id });
+            return View();
         }
 
+        [HttpGet]
+        [ActionName("Create")]
+        public ViewResult CreateGet()
+        {
+            return View();
+        }
 
-
-
+        [HttpPost]
+        [ActionName("Create")]
+        public IActionResult CreatePost()
+        {
+            return RedirectToAction("Index");
+        }
 
 
     }

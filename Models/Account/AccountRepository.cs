@@ -13,9 +13,7 @@ namespace CashewWeb.Models
         {
             _accountList = new List<Account>()
             {
-                new Account() { Id = 1 },
-                new Account() { Id = 2 },
-                new Account() { Id = 3 },
+                new Account{ Id=1, FirstName="Bob", LastName="Doyle", Username="test", Password="pass"}
             };
         }
 

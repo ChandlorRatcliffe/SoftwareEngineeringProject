@@ -18,15 +18,14 @@ namespace CashewWeb
         {
             services.AddControllersWithViews();
             services.AddSingleton<IAccountRepository, AccountRepository>();
-            services.AddSingleton<IAutomationRepository, AutomationRepository>();
-            services.AddSingleton<IBugRepository, BugRepository>();
+            services.AddSingleton<IChatRepository, ChatRepository>();
+            services.AddSingleton<IContactsRepository, ContactsRepository>();
             services.AddSingleton<IHomeRepository, HomeRepository>();
-            services.AddSingleton<ILinksRepository, LinksRepository>();
-            services.AddSingleton<IReportsRepository, ReportsRepository>();
+            services.AddSingleton<INotesRepository, NotesRepository>();
+            services.AddSingleton<IProgressRepository, ProgressRepository>();
             services.AddSingleton<ISearchRepository, SearchRepository>();
-            services.AddSingleton<ISqlScriptsRepository, SqlScriptsRepository>();
-            services.AddSingleton<ITestRunnerRepository, TestRunnerRepository>();
-
+            services.AddSingleton<IProjectsRepository, ProjectsRepository>();
+            services.AddSingleton<ITasksRepository, TasksRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -21,32 +21,12 @@ namespace CashewWeb.Controllers
 
         public ViewResult Index()
         {
-            HomeViewModel homeDetailsViewModel = new HomeViewModel()
+            HomeViewModel homeViewModel = new HomeViewModel()
             {
-                Home = _homeRepository.GetHome(1),
-                PageTitle = "Home"
+                PageTitle = "Home Page"
             };
-
-            return View(homeDetailsViewModel);
+            return View(homeViewModel);
         }
-
-        
 
     }
 }
-
-/*
-            public JsonResult Details()
-        {
-            Bug bug = _bugRepository.GetBug(1);
-            return Json(bug);
-        }
-        */
-/* FOR REST API
- public ObjectResult Details()
-{
-    Bug bug = _bugRepository.GetBug(1);
-    return new ObjectResult(bug);
-} 
-
-*/
