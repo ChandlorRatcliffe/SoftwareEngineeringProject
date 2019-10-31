@@ -5,27 +5,25 @@
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-sm-12 col-md-8 col-lg-6 text-center p-5 bg-dark rounded border border-primary">
-            @using (Html.BeginForm("Index", "Account", FormMethod.Post))
-            {
-                <form class="text-center">
-                    <div class="form-group text-center mt-2">
-                        <label class="text-center text-light" for="Username">Email&nbsp;or&nbsp;Username</label>
-                        <input class="form-control text-center text-light bg-dark" asp-for="Username" type="text" id="idInput" aria-describedby="idHelp" placeholder="Enter Email or Username">
-                        <small class="form-text text-muted text-center text-light" id="idHelp">Secured</small>
-                    </div>
-                    <div class="form-group mt-2">
-                        <label class="text-center text-light" for="Password">Password</label>
-                        <input class="form-control text-center text-light bg-dark" type="password" asp-for="Password" id="passwordInput" placeholder="Password">
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input text-center text-light" type="checkbox" id="exampleCheck1">
-                        <label class="form-check-label text-center font-co text-light" for="exampleCheck1">Remember&nbsp;Me?</label>
-                    </div>
-                    <div class="mt-2">
-                        <button id="LoginButton" type="submit" class="btn btn-primary text-light text-center mt-2 border border-secondary" style="width: 150px;">Sign&nbsp;In</button>
-                    </div>
-                </form>
-            }
+            
+            <form class="text-center" asp-controller="Account" asp-action="Index" method="post">
+                <div class="form-group text-center mt-2">
+                    <label class="text-center text-light" for="Username">Email&nbsp;or&nbsp;Username</label>
+                    <input class="form-control text-center text-light bg-dark" type="text" id="idInput" aria-describedby="idHelp" placeholder="Enter Email or Username"> <!-- asp-for="Username" -->
+                    <small class="form-text text-muted text-center text-light" id="idHelp">Secured</small>
+                </div>
+                <div class="form-group mt-2">
+                    <label class="text-center text-light" for="Password">Password</label>
+                    <input class="form-control text-center text-light bg-dark" type="password" id="passwordInput" placeholder="Password"> <!--asp-for="Password" -->
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input text-center text-light" type="checkbox" id="exampleCheck1">
+                    <label class="form-check-label text-center font-co text-light" for="exampleCheck1">Remember&nbsp;Me?</label>
+                </div>
+                <div class="mt-2">
+                    <button id="LoginButton" type="submit" class="btn btn-primary text-light text-center mt-2 border border-secondary" style="width: 150px;">Sign&nbsp;In</button>
+                </div>
+            </form>
             <hr style="border-color: gray;" />
             <div class="mt-3">
 

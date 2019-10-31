@@ -4,27 +4,42 @@
     ViewBag.Title = "Account Details";
 }
 
-<div>
-    <h3>@Model.PageTitle</h3>
     <div>
-        User Name: @Model.Account.Username
-    </div>
+        <h3>@Model.PageTitle</h3>
 
-    <div>
-        First Name: @Model.Account.FirstName
-    </div>
+        <div>
+            User Id: @Model.Account.Id
+        </div>
 
-    <div>
-        Last Name: @Model.Account.LastName
-    </div>
+        <div>
+            User Name: @Model.Account.Username
+        </div>
 
-    <div>
-        Email: @Model.Account.Email
-    </div>
+        <div>
+            First Name: @Model.Account.FirstName
+        </div>
 
-    <div>
-        Password: @Model.Account.Password
+        <div>
+            Last Name: @Model.Account.LastName
+        </div>
+
+        <div>
+            Password: @Model.Account.Password
+        </div>
+
+        <div>
+            Password2: @Model.Account.Password2
+        </div>
+
+        <div>
+            Email: @Model.Account.Email
+        </div>
+
+        <div>
+            AccountType: @Model.Account.AccountType;
+        </div>
+
+
     </div>
-</div>
 
 

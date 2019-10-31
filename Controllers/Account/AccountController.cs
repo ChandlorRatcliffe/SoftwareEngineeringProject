@@ -46,7 +46,7 @@ namespace CashewWeb.Controllers
         {
             AccountViewModel accountDetailsViewModel = new AccountViewModel()
             {
-                Account = _accountRepository.Get(2),
+                Account = _accountRepository.Get(account.Id),
                 PageTitle = "Account Details"
             };
             return View(accountDetailsViewModel);
@@ -75,9 +75,15 @@ namespace CashewWeb.Controllers
 
         [HttpPost]
         [ActionName("Create")]
-        public IActionResult CreatePost()
+        public IActionResult CreatePost(Account account)
         {
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                Account newAccount = _accountRepository.Add(account);
+                return RedirectToAction("Details", new { id = newAccount.Id });
+            }
+            else
+                return View();
         }
 
 
