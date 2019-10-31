@@ -33,11 +33,8 @@ namespace CashewWeb.Models
                 command.Parameters.AddWithValue("@username", username);
                 try
                 {
-                    command.Connection.OpenAsync();
-
-                    IAsyncResult result = command.BeginExecuteReader();
-
-                    MySqlDataReader reader = command.EndExecuteReader(result);
+                    command.Connection.Open();
+                    MySqlDataReader reader = command.ExecuteReader();
                     if (reader.Read())
                     {
                         account = new Account
@@ -69,7 +66,7 @@ namespace CashewWeb.Models
         }
 
         public Account Add(Account account)
-        { //Asynchronous Processing=true
+        {
             using (MySqlConnection sqlConnection = new MySqlConnection(SqlDatabase))
             {
                 MySqlCommand command = sqlConnection.CreateCommand();
@@ -81,18 +78,15 @@ namespace CashewWeb.Models
                 command.Parameters.AddWithValue("@email", account.Email);
                 try
                 {
-                    command.Connection.OpenAsync();
-
-                    IAsyncResult result = command.BeginExecuteNonQuery();
-
-                    if (command.EndExecuteNonQuery(result) == 0)
+                    command.Connection.Open();
+                    if (command.ExecuteNonQuery() == 0)
                     {
-                        Debug.WriteLine($"Unable To Insert Add Account to Database. No Error Generated.");
+                        Debug.WriteLine($"-----Unable To Insert Add Account to Database. No Error Generated.");
                     }
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine($"{ex.Message}");
+                    Debug.WriteLine($"-----{ex.Message}");
                     return null;
                 }
                 finally
