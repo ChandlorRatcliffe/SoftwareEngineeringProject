@@ -53,6 +53,7 @@ namespace CashewWeb.Models
                     {
                         account = null;
                     }
+                    sqlConnection.Close();
                 }
             }
             catch
@@ -85,6 +86,7 @@ namespace CashewWeb.Models
                     {
                         success = true;
                     }
+                    sqlConnection.Close();
                 }
             }
             catch
