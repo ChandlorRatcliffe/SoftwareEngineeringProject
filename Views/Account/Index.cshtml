@@ -6,6 +6,12 @@
     <div class="row justify-content-center">
         <div class="col-sm-12 col-md-8 col-lg-6 text-center p-5 bg-dark rounded border border-primary">
             
+            @if (ViewBag.Error != null)
+            {
+                <div>Error has occured</div>
+            }
+
+
             <form class="text-center" asp-controller="Account" asp-action="Index" method="post">
                 <div class="form-group text-center mt-2">
                     <label class="text-center text-light" for="Username">Email&nbsp;or&nbsp;Username</label>

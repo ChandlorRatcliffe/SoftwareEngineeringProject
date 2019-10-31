@@ -21,9 +21,12 @@ namespace CashewWeb.Controllers
 
         [HttpGet]
         [ActionName("Index")]
-        public ViewResult IndexGet()
+        public ViewResult IndexGet(string error)
         {
-            return View();
+            if (error != null)
+                return View();
+            else
+                return View(error);
         }
 
         [HttpPost]
@@ -80,7 +83,14 @@ namespace CashewWeb.Controllers
             if (ModelState.IsValid)
             {
                 Account newAccount = _accountRepository.Add(account);
-                return RedirectToAction("Details", new { username = newAccount.Username });
+                if (newAccount != null)
+                {
+                    return RedirectToAction("Details", new { username = newAccount.Username });
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Account", "Error has occured");
+                }
             }
             else
                 return View();
