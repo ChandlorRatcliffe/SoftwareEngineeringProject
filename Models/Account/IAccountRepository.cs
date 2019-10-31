@@ -8,7 +8,9 @@ namespace CashewWeb.Models
     public interface IAccountRepository
     {
         IEnumerable<Account> GetAll();
-        Account Get(int Id);
+
+        Account Get(string username);
+
         Account Add(Account acount);
     }
 }

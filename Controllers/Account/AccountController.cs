@@ -37,7 +37,7 @@ namespace CashewWeb.Controllers
 
 
             Account newAccount = _accountRepository.Add(account);
-            return RedirectToAction("Details", new { id = newAccount.Id });
+            return RedirectToAction("Details", new { username = newAccount.Username });
         }
 
         [HttpGet]
@@ -46,7 +46,7 @@ namespace CashewWeb.Controllers
         {
             AccountViewModel accountDetailsViewModel = new AccountViewModel()
             {
-                Account = _accountRepository.Get(account.Id),
+                Account = _accountRepository.Get(account.Username),
                 PageTitle = "Account Details"
             };
             return View(accountDetailsViewModel);
@@ -80,7 +80,7 @@ namespace CashewWeb.Controllers
             if (ModelState.IsValid)
             {
                 Account newAccount = _accountRepository.Add(account);
-                return RedirectToAction("Details", new { id = newAccount.Id });
+                return RedirectToAction("Details", new { username = newAccount.Username });
             }
             else
                 return View();

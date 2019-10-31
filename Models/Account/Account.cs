@@ -9,8 +9,6 @@ namespace CashewWeb.Models
 {
     public class Account
     {
-        public int Id { get; set; }
-
         [BindProperty]
         [Required]
         [MaxLength(50, ErrorMessage = "Username may not exceed 50 characters.")]
@@ -43,15 +41,6 @@ namespace CashewWeb.Models
         [Required]
         [RegularExpression(@"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", ErrorMessage = "Invalid Email Format")]
         public string Email { get; set; }
-
-        [Required]
-        public AccountType AccountType { get; set; }
-    }
-
-    public enum AccountType
-    {
-        Manager,
-        Employee
     }
 
 }

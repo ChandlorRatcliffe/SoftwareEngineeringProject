@@ -1,39 +1,104 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static CashewWeb.Models.Sql;
+
+using MySql.Data.MySqlClient;
+
 
 namespace CashewWeb.Models
 {
     public class AccountRepository : IAccountRepository
     {
-        private readonly List<Account> _accountList;
-
         public AccountRepository()
         {
-            _accountList = new List<Account>()
-            {
-                new Account{ Id=1, FirstName="Bob", LastName="Doyle", Username="test", Password="pass"}
-            };
+            
         }
 
         public IEnumerable<Account> GetAll()
         {
-            return _accountList;
+            return null;
         }
 
-        public Account Get(int Id)
+        public Account Get(string username)
         {
-            return _accountList.FirstOrDefault(e => e.Id == Id);
+
+            Account account;
+
+            string sql = $"SELECT * FROM user WHERE username = @username;";
+
+            try
+            {
+                using (MySqlConnection sqlConnection = new MySqlConnection(SqlDatabase))
+                {
+                    using MySqlCommand command = new MySqlCommand(sql, sqlConnection);
+                    command.Connection.Open();
+                    command.Parameters.AddWithValue("@username", username);
+
+                    using MySqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        account = new Account
+                        {
+                            Username = reader["username"].ToString(),
+                            FirstName = reader["first name"].ToString(),
+                            LastName = reader["last name"].ToString(),
+                            Password = reader["password"].ToString(),
+                            Email = reader["email"].ToString()
+                        };
+                    }
+                    else
+                    {
+                        account = null;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
+
+            return account;
         }
 
         public Account Add(Account account)
         {
-            account.Id = _accountList.Max(e => e.Id) + 1;
-            _accountList.Add(account);
+            bool success = false;
+
+            string sql = $"INSERT INTO user (username, `first name`, `last name`, password, email) VALUES (@username, @firstname, @lastname, @password, @email);";
+
+            try
+            {
+                using (MySqlConnection sqlConnection = new MySqlConnection(SqlDatabase))
+                {
+                    using MySqlCommand command = new MySqlCommand(sql, sqlConnection);
+                    command.Connection.Open();
+                    command.Parameters.AddWithValue("@username", account.Username);
+                    command.Parameters.AddWithValue("@firstname", account.FirstName);
+                    command.Parameters.AddWithValue("@lastname", account.LastName);
+                    command.Parameters.AddWithValue("@password", account.Password);
+                    command.Parameters.AddWithValue("@email", account.Email);
+
+                    if (command.ExecuteNonQuery() != 0)
+                    {
+                        success = true;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
+
+            if (!success)
+            {
+                //Generate Error
+            }
+
             return account;
         }
-
 
     }
 }
