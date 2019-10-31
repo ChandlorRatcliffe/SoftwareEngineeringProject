@@ -33,7 +33,7 @@ namespace CashewWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                return RedirectToAction("Results", new { Query = search.Query });
+                return RedirectToAction("Results", search.Query);
             }
 
             return View();

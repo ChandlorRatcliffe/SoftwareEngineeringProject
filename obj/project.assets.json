@@ -8043,11 +8043,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\armyj\\Desktop\\CashewDesign\\Implementation\\SoftwareEngineeringProject\\CashewWeb.csproj",
+      "projectUniqueName": "C:\\Users\\armyj\\Desktop\\Dev\\CashewWeb.csproj",
       "projectName": "CashewWeb",
-      "projectPath": "C:\\Users\\armyj\\Desktop\\CashewDesign\\Implementation\\SoftwareEngineeringProject\\CashewWeb.csproj",
+      "projectPath": "C:\\Users\\armyj\\Desktop\\Dev\\CashewWeb.csproj",
       "packagesPath": "C:\\Users\\armyj\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\armyj\\Desktop\\CashewDesign\\Implementation\\SoftwareEngineeringProject\\obj\\",
+      "outputPath": "C:\\Users\\armyj\\Desktop\\Dev\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

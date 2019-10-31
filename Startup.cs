@@ -44,10 +44,10 @@ namespace CashewWeb
             app.UseStaticFiles();
 
             app.UseRouting();
-            //app.UseCors();
+            app.UseCors();
 
-            //app.UseAuthentication();
-            //app.UseAuthorization();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
