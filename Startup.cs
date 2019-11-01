@@ -8,16 +8,29 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using CashewWeb.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Pomelo.EntityFrameworkCore.MySql;
+
+
 
 namespace CashewWeb
 {
     public class Startup
     {
+        private IConfiguration _config;
+
+        public Startup(IConfiguration config)
+        {
+            _config = config;
+        }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContextPool<AppDbContext>(options => options.UseMySql(_config.GetConnectionString("CashewMySqlConnection")));
             services.AddControllersWithViews();
-            services.AddSingleton<IAccountRepository, AccountRepository>();
+            //services.AddSingleton<IAccountRepository, AccountRepository>();
+            services.AddScoped<IAccountRepository, SQLAccountRepository>();
             services.AddSingleton<IChatRepository, ChatRepository>();
             services.AddSingleton<IContactsRepository, ContactsRepository>();
             services.AddSingleton<IHomeRepository, HomeRepository>();

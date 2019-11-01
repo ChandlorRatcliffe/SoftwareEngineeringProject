@@ -5,12 +5,19 @@ using System.Threading.Tasks;
 
 namespace CashewWeb.Models
 {
+    /// <summary>
+    /// User Account Interface Creator: Nicholas Jones
+    /// </summary>
     public interface IAccountRepository
     {
-        IEnumerable<Account> GetAll();
-
         Account Get(string username);
 
+        IEnumerable<Account> GetAll();
+
         Account Add(Account acount);
+
+        Account Update(Account accountChanges);
+
+        Account Delete(string username);
     }
 }

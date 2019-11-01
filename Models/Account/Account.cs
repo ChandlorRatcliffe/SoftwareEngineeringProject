@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace CashewWeb.Models
 {
+    /// <summary>
+    /// User Account Creator: Nicholas Jones
+    /// </summary>
     public class Account
     {
+        [Key]
         [BindProperty]
         [Required]
         [MaxLength(50, ErrorMessage = "Username may not exceed 50 characters.")]

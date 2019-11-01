@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using static CashewWeb.Models.Sql;
+using static CashewWeb.Models.AppDbContext;
 
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
@@ -17,84 +17,43 @@ namespace CashewWeb.Models
 
         }
 
+        /// <summary>
+        /// Gets Account Information from Database Creator: Nicholas Jones
+        /// </summary>
+        /// <param name="username">The username of the user you wish to retrieve</param>
+        /// <returns>Account Object blank if errors</returns>
+        public Account Get(string username)
+        {
+            return new Account();
+        }
+
+        /// <summary>
+        /// Gets All Accounts from the user Database Table Creator: Nicholas Jones
+        /// </summary>
+        /// <returns>IEnumerable Account</returns>
         public IEnumerable<Account> GetAll()
         {
             return null;
         }
 
-        public Account Get(string username)
+        /// <summary>
+        /// Adds Account to Database
+        /// </summary>
+        /// <param name="account">Account Object to Store</param>
+        /// <returns>Account for Reference or null if unsuccessful</returns>
+        public Account Add(Account account)
         {
-            Account account = new Account();
-
-            using (MySqlConnection sqlConnection = new MySqlConnection(SqlDatabase))
-            {
-                MySqlCommand command = sqlConnection.CreateCommand();
-                command.CommandText = $"SELECT * FROM user WHERE username = @username;";
-                command.Parameters.AddWithValue("@username", username);
-                try
-                {
-                    command.Connection.Open();
-                    MySqlDataReader reader = command.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        account = new Account
-                        {
-                            Username = reader["username"].ToString(),
-                            FirstName = reader["first name"].ToString(),
-                            LastName = reader["last name"].ToString(),
-                            Password = reader["password"].ToString(),
-                            Email = reader["email"].ToString()
-                        };
-                    }
-                    else
-                    {
-                        Debug.WriteLine($"Unable To Read Account from Database. No Error Generated.");
-                    }
-                    reader.Dispose();
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"{ex.Message}");
-                }
-                finally
-                {
-                    command.Dispose();
-                }
-            }
-
             return account;
         }
 
-        public Account Add(Account account)
+        public Account Update(Account accountChanges)
         {
-            using (MySqlConnection sqlConnection = new MySqlConnection(SqlDatabase))
-            {
-                MySqlCommand command = sqlConnection.CreateCommand();
-                command.CommandText = $"INSERT INTO user (username, `first name`, `last name`, password, email) VALUES (@username, @firstname, @lastname, @password, @email);";
-                command.Parameters.AddWithValue("@username", account.Username);
-                command.Parameters.AddWithValue("@firstname", account.FirstName);
-                command.Parameters.AddWithValue("@lastname", account.LastName);
-                command.Parameters.AddWithValue("@password", account.Password);
-                command.Parameters.AddWithValue("@email", account.Email);
-                try
-                {
-                    command.Connection.Open();
-                    if (command.ExecuteNonQuery() == 0)
-                    {
-                        Debug.WriteLine($"-----Unable To Insert Add Account to Database. No Error Generated.");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"-----{ex.Message}");
-                    return null;
-                }
-                finally
-                {
-                    command.Dispose();
-                }
-            }
-            return account;
+            return accountChanges;
+        }
+
+        public Account Delete(string username)
+        {
+            return new Account();
         }
 
     }
