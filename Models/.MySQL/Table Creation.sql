@@ -1,18 +1,17 @@
-DROP TABLE User;
-CREATE TABLE User(
-    `username`		VARCHAR(20),
-    `email`		VARCHAR(50),
-    `first name`  VARCHAR(20),
-    `last name`  VARCHAR(20),
-    `password`		VARCHAR(20),
-    `role`		VARCHAR(256),
-    `skills`		VARCHAR(6000),
-    `theme`		VARCHAR(1000),
-    `picturepath`	VARCHAR(5000),
-    PRIMARY KEY(`username`, `email`)
+DROP TABLE Account;
+CREATE TABLE Account(
+    `Username`		VARCHAR(20),
+    `Email`		VARCHAR(50),
+    `FirstName`  VARCHAR(20),
+    `LastName`  VARCHAR(20),
+    `Password`		VARCHAR(20),
+    `Role`		VARCHAR(256),
+    `Skills`		VARCHAR(6000),
+    `Theme`		VARCHAR(1000),
+    `Picturepath`	VARCHAR(5000),
+    PRIMARY KEY(`Username`, `Email`)
 );
 
-select * from user;
 
 DROP TABLE Organizations;
 CREATE TABLE Organizations(
@@ -25,55 +24,55 @@ CREATE TABLE Organizations(
 
 DROP TABLE Project;
 CREATE TABLE Project(
-    `project id`	VARCHAR(50),
-    `task id`		VARCHAR(50),
-    `task deadline`	DATETIME,
-    `task description`	VARCHAR(65335),
-    PRIMARY KEY(`project id`)
+    `ProjectId`	VARCHAR(50),
+    `TaskId`		VARCHAR(50),
+    `TaskDeadline`	DATETIME,
+    `TaskDescription`	VARCHAR(65335),
+    PRIMARY KEY(`ProjectId`)
 );
 
 DROP TABLE Task;
 CREATE TABLE Task(
-    `task id`		VARCHAR(50),
-    `task deadline`	DATETIME,
-    `task description`  VARCHAR(65335),
-    PRIMARY KEY(`task id`)
+    `TaskId`		VARCHAR(50),
+    `TaskDeadline`	DATETIME,
+    `TaskDescription`  VARCHAR(65335),
+    PRIMARY KEY(`TaskId`)
 );
 
 DROP TABLE Parents;
 CREATE TABLE Parents(
-    `parent id`		VARCHAR(50),
-    `child id`		VARCHAR(50),
-     PRIMARY KEY(`parent id`)
+    `ParentId`		VARCHAR(50),
+    `ChildId`		VARCHAR(50),
+     PRIMARY KEY(`ParentId`)
 );
 
 DROP TABLE OrganizationAbilities;
 CREATE TABLE OrganizationAbilities(
-    `username`		VARCHAR(20),
-    `email`		VARCHAR(50),
-    `name`		VARCHAR(20),
-    `remove user`	INT,
-    `invite user`	INT,
-    `permissions editing` INT,
-    PRIMARY KEY(`username`, `email`, `name`)
+    `Username`		VARCHAR(20),
+    `Email`		VARCHAR(50),
+    `Name`		VARCHAR(20),
+    `RemoveUser`	INT,
+    `InviteUser`	INT,
+    `PermissionsEditing` INT,
+    PRIMARY KEY(`Username`, `Email`, `Name`)
 );
  
 DROP TABLE ProjectAbilities;
 CREATE TABLE ProjectAbilities(
-    `username`		VARCHAR(20),
-    `email`		VARCHAR(50),
-    `project id`	VARCHAR(50),
-    `assignment editing` INT,
-    `project editing`	INT,
-    `create project`	INT,
-    PRIMARY KEY(`username`, `email`, `project id`)
+    `Username`		VARCHAR(20),
+    `Email`		VARCHAR(50),
+    `ProjectId`	VARCHAR(50),
+    `AssignmentEditing` INT,
+    `ProjectEditing`	INT,
+    `CreateProject`	INT,
+    PRIMARY KEY(`Username`, `Email`, `ProjectId`)
 );
 
 DROP TABLE TaskAbilities;
 CREATE TABLE TaskAbilities(
-    `username`		VARCHAR(20),
-    `email`		VARCHAR(50),
-    `task id`		VARCHAR(50),
-    `assignment editing` INT, 
-    PRIMARY KEY(`username`, `email`, `task id`)   
+    `Username`		VARCHAR(20),
+    `Email`		VARCHAR(50),
+    `TaskId`		VARCHAR(50),
+    `AssignmentEditing` INT, 
+    PRIMARY KEY(`Username`, `Email`, `TaskId`)   
 );
