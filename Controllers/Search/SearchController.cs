@@ -28,14 +28,14 @@ namespace CashewWeb.Controllers
         }
 
         /// <summary>
-        /// Search Landing Page, Gets all Search Results... Not Fully Implemented Yet
+        /// Search Landing Page, Gets all Search Results... TODO
         /// </summary>
+        /// /// <param name="query">Query</param>
         /// <returns>ViewResult</returns>
         [HttpGet]
         public ViewResult Index(string query)
         {
-            var model = _searchRepository.GetAll();
-            return View(model);
+            return View();
         }
 
         /// <summary>

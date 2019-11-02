@@ -13,6 +13,7 @@ namespace CashewWeb.Models
     /// Temporary Model Binings: Nicholas Jones
     /// </summary>
     /// 
+
     public class OrganizationAbilities
     {
         [BindProperty]

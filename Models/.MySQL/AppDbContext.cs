@@ -7,13 +7,25 @@ using System.Threading.Tasks;
 
 namespace CashewWeb.Models
 {
+    /// <summary>
+    /// Represents a Session with the database, Creator: Nicholas Jones
+    /// </summary>
     public class AppDbContext : DbContext
     {
+        private readonly DbContextOptions<AppDbContext> _options;
+
+        /// <summary>
+        /// Constructor that Inherits Base DBContextOptions
+        /// </summary>
+        /// <param name="options"></param>
         public AppDbContext(DbContextOptions<AppDbContext> options) : base (options)
         {
-
+            _options = options;
         }
 
+        /// <summary>
+        /// Translations to Queries in the Database Definitions
+        /// </summary>
         public DbSet<Accounts> Accounts { get; set; }
         public DbSet<Accounts> Organizations { get; set; }
         public DbSet<Accounts> Projects { get; set; }
@@ -26,7 +38,7 @@ namespace CashewWeb.Models
         /// <summary>
         /// Overrides the EntityFrameworkCore OnModelCreating Method to Include Compound Keys.. Creator: Nicholas Jones
         /// </summary>
-        /// <param name="modelBuilder"></param>
+        /// <param name="modelBuilder">MetaData Handling for Models</param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Assign Primary Keys and Compound Keys
