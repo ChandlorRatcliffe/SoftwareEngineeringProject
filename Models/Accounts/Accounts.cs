@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -42,6 +43,11 @@ namespace CashewWeb.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
+        [NotMapped]
+        [Required]
+        [Display(Name = "Confirm")]
+        public string Password2 { get; set; }
+
         [MaxLength(250, ErrorMessage = "Role may not exceed 250 characters.")]
         [BindProperty]
         public string Role { get; set; }
@@ -54,16 +60,10 @@ namespace CashewWeb.Models
         [BindProperty]
         public string Theme { get; set; }
 
+        //TODO Add this after Uploads are added
         [MaxLength(5000, ErrorMessage = "PicturePath may not exceed 5000 characters.")]
         [BindProperty]
         public string PicturePath { get; set; }
-
-        /*
-        //[BindProperty]
-        [Required]
-        [Display(Name = "Confirm")]
-        public string Password2 { get; set; }
-        */
 
     }
 

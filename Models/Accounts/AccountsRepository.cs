@@ -10,6 +10,9 @@ using System.Diagnostics;
 
 namespace CashewWeb.Models
 {
+    /// <summary>
+    /// Accounts Repository ... Been Migrated to SQL: Nicholas Jones
+    /// </summary>
     public class AccountsRepository : IAccountsRepository
     {
         public AccountsRepository()

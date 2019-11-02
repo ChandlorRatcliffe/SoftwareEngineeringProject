@@ -9,16 +9,27 @@ using System.Diagnostics;
 
 namespace CashewWeb.Controllers
 {
+    /// <summary>
+    /// Controls Pipline for Account Related Pages, Creator: Nicholas Jones
+    /// </summary>
     public class AccountsController : Controller
     {
-
         private readonly IAccountsRepository _AccountsRepository;
 
+        /// <summary>
+        /// Constuctor For Chat Controller, Gets Defined IChatRepository From Startup.cs
+        /// </summary>
+        /// <param name="AccountsRepository"></param>
         public AccountsController(IAccountsRepository AccountsRepository)
         {
             _AccountsRepository = AccountsRepository;
         }
 
+        /// <summary>
+        /// Landing Page For Account
+        /// </summary>
+        /// <param name="error">Add Error Message if Account Issue Occurs</param>
+        /// <returns>ViewResult</returns>
         [HttpGet]
         [ActionName("Index")]
         public ViewResult IndexGet(string error)
@@ -29,20 +40,24 @@ namespace CashewWeb.Controllers
                 return View(error);
         }
 
+        /// <summary>
+        /// Post Request from Landing Page To Request Authentication ... Not Fully Implemented Yet
+        /// </summary>
+        /// <param name="Accounts">Account to Authenticate</param>
+        /// <returns>IActionResult</returns>
         [HttpPost]
         [ActionName("Index")]
         public IActionResult IndexPost(Accounts Accounts)
         {
-            Debug.WriteLine(Accounts.Username);
-            Debug.WriteLine(Accounts.Password);
-            //Debug.WriteLine(Request["Username"]);
-            Debug.WriteLine("TESFDDDDDDDDDDDDDDDD");
-
-
             Accounts newAccounts = _AccountsRepository.Add(Accounts);
             return RedirectToAction("Details", new { username = newAccounts.Username });
         }
 
+        /// <summary>
+        /// Gets the details of the account and displays them on the screen... Debugging Only
+        /// </summary>
+        /// <param name="Accounts">Account to get Details</param>
+        /// <returns>ViewResult</returns>
         [HttpGet]
         [ActionName("Details")]
         public ViewResult DetailsGet(Accounts Accounts)
@@ -55,20 +70,54 @@ namespace CashewWeb.Controllers
             return View(AccountsDetailsViewModel);
         }
 
+        /// <summary>
+        /// Landing Page for Password Recovery .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
         [HttpGet]
-        [ActionName("Recovery")]
-        public ViewResult RecoveryGet()
+        [ActionName("PasswordRecovery")]
+        public ViewResult PasswordRecoveryGet()
         {
             return View();
         }
 
+        /// <summary>
+        /// Password Recovery Post Request .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
         [HttpPost]
-        [ActionName("Recovery")]
-        public ViewResult RecoveryPost()
+        [ActionName("PasswordRecovery")]
+        public ViewResult PasswordRecoveryPost()
         {
             return View();
         }
 
+        /// <summary>
+        /// Landing Page for Username Recovery .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpGet]
+        [ActionName("UsernameRecovery")]
+        public ViewResult UsernameRecoveryGet()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Username Recovery Post Request .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpPost]
+        [ActionName("UsernameRecovery")]
+        public ViewResult UsernameRecoveryPost()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Create Account Landing Page
+        /// </summary>
+        /// <returns>ViewResult</returns>
         [HttpGet]
         [ActionName("Create")]
         public ViewResult CreateGet()
@@ -76,6 +125,11 @@ namespace CashewWeb.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Account Creation Post Request .. Adds to Database .. If Unsuccessful redirect to Index with Error
+        /// </summary>
+        /// <param name="Accounts">Account to add</param>
+        /// <returns>IActionResult</returns>
         [HttpPost]
         [ActionName("Create")]
         public IActionResult CreatePost(Accounts Accounts)
@@ -95,6 +149,9 @@ namespace CashewWeb.Controllers
             else
                 return View();
         }
+
+
+
 
 
     }

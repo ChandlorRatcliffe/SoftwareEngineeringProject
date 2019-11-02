@@ -1,5 +1,5 @@
-﻿using Pomelo.EntityFrameworkCore.MySql;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +15,21 @@ namespace CashewWeb.Models
         }
 
         public DbSet<Accounts> Accounts { get; set; }
+        public DbSet<Accounts> Organizations { get; set; }
+        public DbSet<Accounts> Projects { get; set; }
+        public DbSet<Accounts> Tasks { get; set; }
+        public DbSet<Accounts> Parents { get; set; }
+        public DbSet<Accounts> OrganizationAbilities { get; set; }
+        public DbSet<Accounts> ProjectAbilities { get; set; }
+        public DbSet<Accounts> TaskAbilities { get; set; }
 
+        /// <summary>
+        /// Overrides the EntityFrameworkCore OnModelCreating Method to Include Compound Keys.. Creator: Nicholas Jones
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Assign Primary Keys and Compound Keys
             modelBuilder.Entity<Accounts>().HasKey(c => new { c.Username, c.Email });
             modelBuilder.Entity<Organizations>().HasKey(c => new { c.Name });
             modelBuilder.Entity<Projects>().HasKey(c => new { c.ProjectId });
@@ -28,8 +40,6 @@ namespace CashewWeb.Models
             modelBuilder.Entity<TaskAbilities>().HasKey(c => new { c.Username, c.Email, c.TaskId });
 
         }
-
-        //Eventually remove this as its in appsettings.json
-        public static readonly string SqlDatabase = "server=shsuse.mysql.database.azure.com;user=cashewclub@shsuse;database=shsuse;port=3306;password=D1ipDan*gDelux5e;";
+        
     }
 }

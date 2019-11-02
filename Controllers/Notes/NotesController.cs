@@ -8,15 +8,26 @@ using CashewWeb.ViewModels;
 
 namespace CashewWeb.Controllers
 {
+    /// <summary>
+    /// Controls Pipline for Notes Related Pages, Creator: Nicholas Jones
+    /// </summary>
     public class NotesController : Controller
     {
         private readonly INotesRepository _notesRepository;
 
+        /// <summary>
+        /// Constuctor For Notes Controller, Gets Defined INotesRepository From Startup.cs
+        /// </summary>
+        /// <param name="notesRepository"></param>
         public NotesController(INotesRepository notesRepository)
         {
             _notesRepository = notesRepository;
         }
 
+        /// <summary>
+        /// Notes Landing Page, Passes NotesViewModel to Page for Dependency Checking
+        /// </summary>
+        /// <returns>ViewResult</returns>
         public ViewResult Index()
         {
             NotesViewModel notesViewModel = new NotesViewModel()
