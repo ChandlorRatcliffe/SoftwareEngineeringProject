@@ -17,6 +17,8 @@ namespace CashewWeb.Models
         public DbSet<Account> Account { get; set; }
 
 
+
+
         //Eventually remove this as its in appsettings.json
         public static readonly string SqlDatabase = "server=shsuse.mysql.database.azure.com;user=cashewclub@shsuse;database=shsuse;port=3306;password=D1ipDan*gDelux5e;";
     }

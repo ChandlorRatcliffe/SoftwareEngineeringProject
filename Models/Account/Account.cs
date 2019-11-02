@@ -21,6 +21,11 @@ namespace CashewWeb.Models
 
         [BindProperty]
         [Required]
+        [RegularExpression(@"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", ErrorMessage = "Invalid Email Format")]
+        public string Email { get; set; }
+
+        [BindProperty]
+        [Required]
         [MaxLength(50, ErrorMessage = "First Name may not exceed 50 characters.")]
         [Display(Name = "First Name")]
         public string FirstName{ get; set; }
@@ -36,15 +41,29 @@ namespace CashewWeb.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [BindProperty]
+        /*
+        //[BindProperty]
         [Required]
         [Display(Name = "Confirm")]
         public string Password2 { get; set; }
+        */
 
+        [MaxLength(250, ErrorMessage = "")]
         [BindProperty]
-        [Required]
-        [RegularExpression(@"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", ErrorMessage = "Invalid Email Format")]
-        public string Email { get; set; }
+        public string Role { get; set; }
+
+        [MaxLength(1024, ErrorMessage = "")]
+        [BindProperty]
+        public string Skills { get; set; }
+
+        [MaxLength(1024, ErrorMessage = "")]
+        [BindProperty]
+        public string Theme { get; set; }
+
+        [MaxLength(1024, ErrorMessage = "")]
+        [BindProperty]
+        public string PicturePath { get; set; }
+
     }
 
 }
