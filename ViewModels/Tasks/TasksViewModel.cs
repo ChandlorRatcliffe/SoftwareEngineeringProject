@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CashewWeb.ViewModels
 {
+    /// <summary>
+    /// Data Dependencies for Tasks Index View, Creator: Nicholas Jones
+    /// </summary>
     public class TasksViewModel
     {
         public Tasks Tasks { get; set; }

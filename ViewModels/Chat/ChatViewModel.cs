@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CashewWeb.ViewModels
 {
+    /// <summary>
+    /// Data Dependencies for Chat Index View, Creator: Nicholas Jones
+    /// </summary>
     public class ChatViewModel
     {
         public Chat Chat { get; set; }

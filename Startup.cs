@@ -12,10 +12,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Pomelo.EntityFrameworkCore.MySql;
 
-
-
 namespace CashewWeb
 {
+    /// <summary>
+    /// Startup Configuration File, Creator: Nicholas Jones
+    /// </summary>
     public class Startup
     {
         private IConfiguration _config;
@@ -25,6 +26,10 @@ namespace CashewWeb
             _config = config;
         }
 
+        /// <summary>
+        /// Configuration Servers.. Adds MVC Structures, Model Repositorys .. 
+        /// </summary>
+        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContextPool<AppDbContext>(options => options.UseMySql(_config.GetConnectionString("CashewMySqlConnection")));
@@ -41,6 +46,11 @@ namespace CashewWeb
             services.AddSingleton<ITasksRepository, TasksRepository>();
         }
 
+        /// <summary>
+        /// Application Configuration Settings
+        /// </summary>
+        /// <param name="app">Configurations app pipeline</param>
+        /// <param name="env">Configurations app environment</param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

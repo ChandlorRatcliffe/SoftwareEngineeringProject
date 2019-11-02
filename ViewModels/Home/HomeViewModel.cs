@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CashewWeb.ViewModels
 {
+    /// <summary>
+    /// Data Dependencies for Home Index View, Creator: Nicholas Jones
+    /// </summary>
     public class HomeViewModel
     {
         public Home Home { get; set; }

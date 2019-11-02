@@ -1,13 +1,20 @@
-﻿@model Accounts
+﻿<!-- Creator: Nicholas Jones-->
+
+
+@model Accounts
 
 @{
     ViewBag.Title = "Create Accounts";
 }
 
 <div class="container my-5">
+
     <form asp-controller="Accounts" asp-action="Create" method="post" class="mt-3">
+
         <h4>Create an Accounts</h4>
+
         <div asp-validation-summary="All" class="text-danger"></div>
+
         <div class="form-group row">
             <label asp-for="Username" class="col-sm-2 col-form-label"></label>
             <div class="col-sm-10">
@@ -15,6 +22,7 @@
                 <span asp-validation-for="Username" class="text-danger"></span>
             </div>
         </div>
+
         <div class="form-group row">
             <label asp-for="FirstName" class="col-sm-2 col-form-label"></label>
             <div class="col-sm-10">
@@ -23,6 +31,7 @@
 
             </div>
         </div>
+
         <div class="form-group row">
             <label asp-for="LastName" class="col-sm-2 col-form-label"></label>
             <div class="col-sm-10">
@@ -31,6 +40,7 @@
 
             </div>
         </div>
+
         <div class="form-group row">
             <label asp-for="Password" class="col-sm-2 col-form-label"></label>
             <div class="col-sm-10">
@@ -40,25 +50,53 @@
             </div>
         </div>
 
-        <!--
-            <div class="form-group row">
-                <label asp-for="Password2" class="col-sm-2 col-form-label"></label>
-                <div class="col-sm-10">
-                    <input asp-for="Password2" class="form-control" placeholder="Confirm Password" />
-                </div>
-            </div>
-        -->
-
         <div class="form-group row">
-            <label asp-for="Email" class="col-sm-2 col-form-label"></label>
+            <label asp-for="Password2" class="col-sm-2 col-form-label"></label>
             <div class="col-sm-10">
-                <input asp-for="Email" class="form-control" placeholder="Email" />
+                <input asp-for="Password2" class="form-control" placeholder="Confirm Password" />
             </div>
         </div>
+
+        <!-- Temporary Placeholders -->
+        <!-- Enumeration of Roles -->
+        <div class="form-group row">
+            <label asp-for="Role" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Role" class="form-control" placeholder="Role" />
+            </div>
+        </div>
+
+        <!-- Enumeration of Skills or Similar-->
+        <div class="form-group row">
+            <label asp-for="Skills" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Skills" class="form-control" placeholder="Skills" />
+            </div>
+        </div>
+
+        <!-- Enumeration of Themes -->
+        <div class="form-group row">
+            <label asp-for="Theme" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Theme" class="form-control" placeholder="Theme" />
+            </div>
+        </div>
+
+        <!-- File Selector TODO -->
+        <div class="form-group row">
+            <label asp-for="PicturePath" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="PicturePath" class="form-control" placeholder="PicturePath" />
+            </div>
+        </div>
+        <!-- End Temporary -->
+
         <div class="form-group row">
             <div class="col-sm-10">
                 <button type="submit" class="btn btn-primary">Register</button>
             </div>
         </div>
+
     </form>
+
 </div>

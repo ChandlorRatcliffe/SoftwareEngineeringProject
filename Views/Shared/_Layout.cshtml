@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿<!-- Creator: Nicholas Jones -->
+<!-- Purpose: A Global Layout for the Website, initialized by _ViewStart -->
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -43,7 +46,7 @@
             </button>
         </span>
 
-        
+
 
         <div class="collapse navbar-collapse mt-1 mt-sm-0 mx-1 mx-md-0" id="collapsibleNavbar">
             <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Chat")'">Chat</button>
@@ -58,8 +61,8 @@
             <form method="post" action="@Url.Action("Index", "Search")" defaultbutton="SubmitButton" runat="server">
                 <input asp-form="query" class="form-control" type="text" placeholder="Search" name="Query">
                 <!--
-                    <span asp-validation-for="query"></span>
-            -->
+                        <span asp-validation-for="query"></span>
+                -->
                 <button id="SubmitButton" type="submit" style="display:none;">Test</button>
             </form>
         </div>
@@ -100,12 +103,12 @@
         </div>
 
         <div class="col-sm-12 col-md-12 col-lg-10 bg-light" style="height: 875px;">
-            @RenderBody() 
+            @RenderBody()
         </div>
     </div>
 
 </body>
- </html>
+</html>
 
 <script>
     var kebabSwitch = false;

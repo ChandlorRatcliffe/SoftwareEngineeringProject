@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CashewWeb.ViewModels
 {
+    /// <summary>
+    /// Data Dependencies for Accounts Index View, Creator: Nicholas Jones
+    /// </summary>
     public class AccountsViewModel
     {
         public Accounts Accounts { get; set; }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CashewWeb.ViewModels
 {
+    /// <summary>
+    /// Data Dependencies for Progress Index View, Creator: Nicholas Jones
+    /// </summary>
     public class ProgressViewModel
     {
         public Progress Progress { get; set; }

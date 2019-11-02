@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CashewWeb.ViewModels
 {
+    /// <summary>
+    /// Data Dependencies for Search Index View, Creator: Nicholas Jones
+    /// </summary>
     public class SearchViewModel
     {
         public Search Search { get; set; }
