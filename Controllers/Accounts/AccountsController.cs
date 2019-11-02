@@ -9,14 +9,14 @@ using System.Diagnostics;
 
 namespace CashewWeb.Controllers
 {
-    public class AccountController : Controller
+    public class AccountsController : Controller
     {
 
-        private readonly IAccountRepository _accountRepository;
+        private readonly IAccountsRepository _AccountsRepository;
 
-        public AccountController(IAccountRepository accountRepository)
+        public AccountsController(IAccountsRepository AccountsRepository)
         {
-            _accountRepository = accountRepository;
+            _AccountsRepository = AccountsRepository;
         }
 
         [HttpGet]
@@ -31,28 +31,28 @@ namespace CashewWeb.Controllers
 
         [HttpPost]
         [ActionName("Index")]
-        public IActionResult IndexPost(Account account)
+        public IActionResult IndexPost(Accounts Accounts)
         {
-            Debug.WriteLine(account.Username);
-            Debug.WriteLine(account.Password);
+            Debug.WriteLine(Accounts.Username);
+            Debug.WriteLine(Accounts.Password);
             //Debug.WriteLine(Request["Username"]);
             Debug.WriteLine("TESFDDDDDDDDDDDDDDDD");
 
 
-            Account newAccount = _accountRepository.Add(account);
-            return RedirectToAction("Details", new { username = newAccount.Username });
+            Accounts newAccounts = _AccountsRepository.Add(Accounts);
+            return RedirectToAction("Details", new { username = newAccounts.Username });
         }
 
         [HttpGet]
         [ActionName("Details")]
-        public ViewResult DetailsGet(Account account)
+        public ViewResult DetailsGet(Accounts Accounts)
         {
-            AccountViewModel accountDetailsViewModel = new AccountViewModel()
+            AccountsViewModel AccountsDetailsViewModel = new AccountsViewModel()
             {
-                Account = _accountRepository.Get(account.Username),
-                PageTitle = "Account Details"
+                Accounts = _AccountsRepository.Get(Accounts.Username),
+                PageTitle = "Accounts Details"
             };
-            return View(accountDetailsViewModel);
+            return View(AccountsDetailsViewModel);
         }
 
         [HttpGet]
@@ -78,18 +78,18 @@ namespace CashewWeb.Controllers
 
         [HttpPost]
         [ActionName("Create")]
-        public IActionResult CreatePost(Account account)
+        public IActionResult CreatePost(Accounts Accounts)
         {
             if (ModelState.IsValid)
             {
-                Account newAccount = _accountRepository.Add(account);
-                if (newAccount != null)
+                Accounts newAccounts = _AccountsRepository.Add(Accounts);
+                if (newAccounts != null)
                 {
-                    return RedirectToAction("Details", new { username = newAccount.Username });
+                    return RedirectToAction("Details", new { username = newAccounts.Username });
                 }
                 else
                 {
-                    return RedirectToAction("Index", "Account", "Error has occured");
+                    return RedirectToAction("Index", "Accounts", "Error has occured");
                 }
             }
             else

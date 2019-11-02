@@ -1,11 +1,11 @@
-DROP TABLE Account;
-CREATE TABLE Account(
-    `Username`		VARCHAR(20),
-    `Email`		VARCHAR(50),
-    `FirstName`  VARCHAR(20),
-    `LastName`  VARCHAR(20),
-    `Password`		VARCHAR(20),
-    `Role`		VARCHAR(256),
+DROP TABLE Accounts;
+CREATE TABLE Accounts(
+    `Username`		VARCHAR(50),
+    `Email`		VARCHAR(150),
+    `FirstName`  VARCHAR(50),
+    `LastName`  VARCHAR(150),
+    `Password`		VARCHAR(150),
+    `Role`		VARCHAR(250),
     `Skills`		VARCHAR(6000),
     `Theme`		VARCHAR(1000),
     `Picturepath`	VARCHAR(5000),
@@ -22,8 +22,8 @@ CREATE TABLE Organizations(
     PRIMARY KEY(Name)
 );
 
-DROP TABLE Project;
-CREATE TABLE Project(
+DROP TABLE Projects;
+CREATE TABLE Projects(
     `ProjectId`	VARCHAR(50),
     `TaskId`		VARCHAR(50),
     `TaskDeadline`	DATETIME,
@@ -31,8 +31,8 @@ CREATE TABLE Project(
     PRIMARY KEY(`ProjectId`)
 );
 
-DROP TABLE Task;
-CREATE TABLE Task(
+DROP TABLE Tasks;
+CREATE TABLE Tasks(
     `TaskId`		VARCHAR(50),
     `TaskDeadline`	DATETIME,
     `TaskDescription`  VARCHAR(65335),
@@ -48,9 +48,9 @@ CREATE TABLE Parents(
 
 DROP TABLE OrganizationAbilities;
 CREATE TABLE OrganizationAbilities(
-    `Username`		VARCHAR(20),
+    `Username`		VARCHAR(50),
     `Email`		VARCHAR(50),
-    `Name`		VARCHAR(20),
+    `Name`		VARCHAR(50),
     `RemoveUser`	INT,
     `InviteUser`	INT,
     `PermissionsEditing` INT,

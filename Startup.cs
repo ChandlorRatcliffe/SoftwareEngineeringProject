@@ -29,8 +29,8 @@ namespace CashewWeb
         {
             services.AddDbContextPool<AppDbContext>(options => options.UseMySql(_config.GetConnectionString("CashewMySqlConnection")));
             services.AddControllersWithViews();
-            //services.AddSingleton<IAccountRepository, AccountRepository>();
-            services.AddScoped<IAccountRepository, SQLAccountRepository>();
+            //services.AddSingleton<IAccountsRepository, AccountsRepository>();
+            services.AddScoped<IAccountsRepository, SQLAccountsRepository>();
             services.AddSingleton<IChatRepository, ChatRepository>();
             services.AddSingleton<IContactsRepository, ContactsRepository>();
             services.AddSingleton<IHomeRepository, HomeRepository>();

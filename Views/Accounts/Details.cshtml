@@ -1,0 +1,36 @@
+﻿@model AccountsViewModel
+
+@{
+    ViewBag.Title = "Accounts Details";
+}
+
+    <div>
+        <h3>@Model.PageTitle</h3>
+
+        <div>
+            User Name: @Model.Accounts.Username
+        </div>
+
+        <div>
+            First Name: @Model.Accounts.FirstName
+        </div>
+
+        <div>
+            Last Name: @Model.Accounts.LastName
+        </div>
+
+        <div>
+            Password: @Model.Accounts.Password
+        </div>
+
+        <div>
+            Password2: 
+        </div>
+
+        <div>
+            Email: @Model.Accounts.Email
+        </div>
+
+    </div>
+
+

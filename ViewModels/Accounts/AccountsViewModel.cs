@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CashewWeb.ViewModels
 {
-    public class AccountViewModel
+    public class AccountsViewModel
     {
-        public Account Account { get; set; }
+        public Accounts Accounts { get; set; }
         public string PageTitle { get; set; }
 
     }
