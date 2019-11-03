@@ -25,7 +25,7 @@ namespace CashewWeb.Models
         /// </summary>
         /// <param name="username">The username of the user you wish to retrieve</param>
         /// <returns>Accounts Object blank if errors</returns>
-        public Accounts Get(string username)
+        public Accounts Get(string username, string email)
         {
             return new Accounts();
         }
@@ -54,7 +54,7 @@ namespace CashewWeb.Models
             return AccountsChanges;
         }
 
-        public Accounts Delete(string username)
+        public Accounts Delete(string username, string email)
         {
             return new Accounts();
         }

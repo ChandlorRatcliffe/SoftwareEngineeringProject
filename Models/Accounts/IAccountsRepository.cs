@@ -10,7 +10,7 @@ namespace CashewWeb.Models
     /// </summary>
     public interface IAccountsRepository
     {
-        Accounts Get(string username);
+        Accounts Get(string username, string email);
 
         IEnumerable<Accounts> GetAll();
 
@@ -18,6 +18,6 @@ namespace CashewWeb.Models
 
         Accounts Update(Accounts AccountsChanges);
 
-        Accounts Delete(string username);
+        Accounts Delete(string username, string email);
     }
 }

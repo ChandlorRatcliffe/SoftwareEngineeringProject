@@ -64,7 +64,7 @@ namespace CashewWeb.Controllers
         {
             AccountsViewModel AccountsDetailsViewModel = new AccountsViewModel()
             {
-                Accounts = _AccountsRepository.Get(Accounts.Username),
+                Accounts = _AccountsRepository.Get(Accounts.Username, Accounts.Email),
                 PageTitle = "Accounts Details"
             };
             return View(AccountsDetailsViewModel);
@@ -139,7 +139,7 @@ namespace CashewWeb.Controllers
                 Accounts newAccounts = _AccountsRepository.Add(Accounts);
                 if (newAccounts != null)
                 {
-                    return RedirectToAction("Details", new { username = newAccounts.Username });
+                    return RedirectToAction("Details", new { username = newAccounts.Username, email = newAccounts.Email });
                 }
                 else
                 {

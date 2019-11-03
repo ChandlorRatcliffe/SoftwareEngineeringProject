@@ -40,6 +40,7 @@ namespace CashewWeb.Models
         [BindProperty]
         [Required]
         [MaxLength(150, ErrorMessage = "Password may not exceed 150 characters.")]
+        [MinLength(8, ErrorMessage = "Password may not be less than 8 characters.")]
         [Display(Name = "Password")]
         public string Password { get; set; }
 

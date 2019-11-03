@@ -38,9 +38,9 @@ namespace CashewWeb.Models
         /// </summary>
         /// <param name="username"></param>
         /// <returns></returns>
-        public Accounts Delete(string username)
+        public Accounts Delete(string username, string email)
         {
-            Accounts Accounts = context.Accounts.Find(username);
+            Accounts Accounts = context.Accounts.Find(username, email);
             if (Accounts != null)
             {
                 context.Accounts.Remove(Accounts);
@@ -54,9 +54,9 @@ namespace CashewWeb.Models
         /// </summary>
         /// <param name="username"></param>
         /// <returns></returns>
-        public Accounts Get(string username)
+        public Accounts Get(string username, string email)
         {
-            return context.Accounts.Find(username);
+            return context.Accounts.Find(username, email);
         }
 
         /// <summary>
