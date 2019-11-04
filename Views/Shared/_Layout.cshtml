@@ -1,4 +1,5 @@
 ﻿<!-- Creator: Nicholas Jones -->
+<!-- Travis Idle - Edits: commented chat, contacts, and notes buttons on navbar. commented create note buttons on sidebar. -->
 <!-- Purpose: A Global Layout for the Website, initialized by _ViewStart -->
 
 <!DOCTYPE html>
@@ -49,9 +50,9 @@
 
 
         <div class="collapse navbar-collapse mt-1 mt-sm-0 mx-1 mx-md-0" id="collapsibleNavbar">
-            <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Chat")'">Chat</button>
+            <!-- <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Chat")'">Chat</button>
             <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Contacts")'">Contacts</button>
-            <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Notes")'">Notes</button>
+            <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Notes")'">Notes</button> -->
             <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Progress")'">Progress</button>
             <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Projects")'">Projects</button>
             <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Tasks")'">Tasks</button>
@@ -67,6 +68,7 @@
             </form>
         </div>
 
+        <!-- what does this button do that the button within the span above doesn't? -->
         <button class="btn btn-dark mx-1 d-none d-md-block d-lg-block mr-2" type="button" onclick="location.href='@Url.Action("Index", "Accounts")'">
             <i class="far fa-user-circle fa-2x"></i>
         </button>
@@ -91,7 +93,7 @@
         <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Project</button>
         <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Objective</button>
         <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Task</button>
-        <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Note</button>
+        <!-- <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Note</button> -->
     </div>
 
     <div class="row">
@@ -99,7 +101,7 @@
             <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Project</button>
             <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Objective</button>
             <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Task</button>
-            <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Note</button>
+            <!-- <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Note</button> -->
         </div>
 
         <div class="col-sm-12 col-md-12 col-lg-10 bg-light" style="height: 875px;">
