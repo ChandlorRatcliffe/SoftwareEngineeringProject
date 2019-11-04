@@ -67,14 +67,14 @@
         </div>
 
         <!-- Temporary Placeholders -->
-        <!-- Enumeration of Roles -->
-        <div class="form-group row">
-            <label asp-for="Role" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-10">
-                <input asp-for="Role" class="form-control" placeholder="Role" />
-            </div>
+        <!-- Enumeration of Roles
+         Roles are not used, permissions are determined by permissions tables ~ Travis Idle
+    <div class="form-group row">
+        <label asp-for="Role" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Role" class="form-control" placeholder="Role" />
         </div>
-
+    </div> -->
         <!-- Enumeration of Skills or Similar-->
         <div class="form-group row">
             <label asp-for="Skills" class="col-sm-2 col-form-label"></label>
@@ -84,14 +84,17 @@
         </div>
 
         <!-- Enumeration of Themes -->
-        <div class="form-group row">
-            <label asp-for="Theme" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-10">
-                <input asp-for="Theme" class="form-control" placeholder="Theme" />
-            </div>
+        <!-- should only be accessible within Profile Settings page ~Travis Idle
+    <div class="form-group row">
+        <label asp-for="Theme" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Theme" class="form-control" placeholder="Theme" />
         </div>
-
+    </div> -->
         <!-- File Selector TODO -->
+        <!-- opinion: should only be accessible via Profile Settings Page.
+        Also, PicturePath refers to the path within our server's storage directories.
+        This is to avoid storing direct image files within our database, improve query speed. ~Travis Idle -->
         <div class="form-group row">
             <label asp-for="PicturePath" class="col-sm-2 col-form-label"></label>
             <div class="col-sm-10">
