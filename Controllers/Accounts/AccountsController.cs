@@ -70,17 +70,6 @@ namespace CashewWeb.Controllers
         }
 
         /// <summary>
-        /// Landing Page for Recovery Options .. TODO
-        /// </summary>
-        /// <returns>ViewResult</returns>
-        [HttpGet]
-        [ActionName("Recovery")]
-        public ViewResult RecoveryGet()
-        {
-            return View();
-        }
-
-        /// <summary>
         /// Landing Page for Password Recovery .. TODO
         /// </summary>
         /// <returns>ViewResult</returns>
