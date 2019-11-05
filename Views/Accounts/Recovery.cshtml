@@ -1,0 +1,13 @@
+﻿<!-- Creator: Nicholas Jones-->
+@model Accounts
+@{
+    ViewBag.Title = "Username Recovery";
+}
+<!-- Let's make this the landing page for all recovery options... Needs some love -->
+    <div class="container my-5" style="max-width: 700px;">
+        <h2 class="text-center">Which Would You Like to Recover?</h2>
+        <div class="text-center">
+            <button class="btn btn-primary text-light text-center mt-2 border mx-2" style="width: 175px;" onclick="location.href='@Url.Action("RecoveryUsername", "Accounts")'">Recover&nbsp;Username</button>
+            <button class="btn btn-primary text-light text-center mt-2 border mx-2" style="width: 175px;" onclick="location.href='@Url.Action("RecoveryPassword", "Accounts")'">Recover&nbsp;Password</button>
+        </div>
+    </div>

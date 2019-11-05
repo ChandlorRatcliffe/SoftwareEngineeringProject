@@ -1,40 +1,62 @@
 ﻿<!-- Creator: Nicholas Jones-->
-
+@model Accounts
 @{
-    ViewBag.Title = "Accounts Table";
+    ViewBag.Title = "Authentication";
 }
-
-<!-- User Authorizaton Table & Navigation-->
-
-<div class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-sm-12 col-md-8 col-lg-6 text-center p-5 bg-dark rounded border border-primary">
-
-            <form class="text-center" asp-controller="Accounts" asp-action="Index" method="post">
-                <div class="form-group text-center mt-2">
-                    <label class="text-center text-light" for="Username">Email&nbsp;or&nbsp;Username</label>
-                    <input class="form-control text-center text-light bg-dark" type="text" id="idInput" aria-describedby="idHelp" placeholder="Enter Email or Username"> <!-- asp-for="Username" -->
-                    <a class="form-text text-muted text-right text-light" id="forgot" onclick="location.href='@Url.Action("UsernameRecovery", "Accounts")'">Forgot Username?</a>
-                    <small class="form-text text-muted text-center text-light" id="idHelp">Secured</small>
+    <div class="container my-5" style="max-width: 700px;">
+        <form asp-controller="Accounts" asp-action="Index" method="post" class="mt-3">
+            <h2 class="text-center mb-2">Authentication</h2>
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group row">
+                <label asp-for="Username" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input asp-for="Username" class="form-control"  placeholder="Enter a Valid Username or Email" />
+                    <a class="form-text text-muted text-right text-light" onclick="location.href='@Url.Action("UsernameRecovery", "Accounts")'">Forgot&nbsp;Username?</a>
+                    <span asp-validation-for="Username" class="text-danger"></span>
                 </div>
-                <div class="form-group mt-2">
-                    <label class="text-center text-light" for="Password">Password</label>
-                    <input class="form-control text-center text-light bg-dark" type="password" id="passwordInput" placeholder="Password"> <!--asp-for="Password" -->
-                    <a class="form-text text-muted text-right text-light" id="forgot" onclick="location.href='@Url.Action("PasswordRecovery", "Accounts")'">Forgot Password?</a>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input text-center text-light" type="checkbox" id="exampleCheck1">
-                    <label class="form-check-label text-center font-co text-light" for="exampleCheck1">Remember&nbsp;Me?</label>
-                </div>
-                <div class="mt-2">
-                    <button id="LoginButton" type="submit" class="btn btn-primary text-light text-center mt-2 border border-secondary" style="width: 150px;">Sign&nbsp;In</button>
-                </div>
-            </form>
-            <hr style="border-color: gray;" />
-            <div class="mt-3">
-                <button class="btn btn-primary text-light text-center mt-2 border border-secondary mx-1" style="width: 150px;" onclick="location.href='@Url.Action("Create", "Accounts")'">Create&nbsp;Accounts</button>
-                <!-- <button class="btn btn-primary text-light text-center mt-2 border border-secondary mx-1" style="width: 150px;" onclick="location.href='@Url.Action("UsernameRecovery", "Accounts")'">Username&nbsp;Recovery</button> -->
             </div>
+            <div class="form-group row">
+                <label asp-for="Password" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input asp-for="Password" class="form-control" type="password" />
+                    <a class="form-text text-muted text-right text-light" onclick="location.href='@Url.Action("PasswordRecovery", "Accounts")'">Forgot&nbsp;Password?</a>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row text-center">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <button type="submit" class="btn btn-primary mt-2 mx-2" style="width: 175px;">Sign&nbsp;In</button>
+                </div>
+            </div>
+        </form>
+        <hr style="border-color: gray;" />
+        <!-- Authentication Navigation -->
+        <div class="mt-3 text-center">
+            <button class="btn btn-primary text-light text-center mt-2 border mx-2" style="width: 175px;" onclick="location.href='@Url.Action("Create", "Accounts")'">Create&nbsp;An&nbsp;Account</button>
+            <button class="btn btn-primary text-light text-center mt-2 border mx-2" style="width: 175px;" onclick="location.href='@Url.Action("Recovery", "Accounts")'">Recover&nbsp;An&nbsp;Account</button>
         </div>
     </div>
-</div>
+
+<!--
+
+        <div class="form-group row">
+            <label asp-for="Role" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+            <input asp-for="Role" class="form-control" placeholder="Role" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Skills" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Skills" class="form-control" placeholder="Skills" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="PicturePath" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="PicturePath" class="form-control" placeholder="PicturePath" />
+            </div>
+        </div>
+
+        -->

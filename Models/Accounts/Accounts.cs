@@ -44,10 +44,7 @@ namespace CashewWeb.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [NotMapped]
-        [Required]
-        [Display(Name = "Confirm")]
-        public string Password2 { get; set; }
+        
 
         [MaxLength(250, ErrorMessage = "Role may not exceed 250 characters.")]
         [BindProperty]
@@ -65,6 +62,15 @@ namespace CashewWeb.Models
         [MaxLength(5000, ErrorMessage = "PicturePath may not exceed 5000 characters.")]
         [BindProperty]
         public string PicturePath { get; set; }
+
+
+
+        //Unbound to Database Data
+        [NotMapped]
+        [Required]
+        [Display(Name = "Confirm")]
+        public string Password2 { get; set; }
+
 
     }
 

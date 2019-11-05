@@ -49,8 +49,7 @@ namespace CashewWeb.Controllers
         [ActionName("Index")]
         public IActionResult IndexPost(Accounts Accounts)
         {
-            Accounts newAccounts = _AccountsRepository.Add(Accounts);
-            return RedirectToAction("Details", new { username = newAccounts.Username });
+            return RedirectToAction("Error");
         }
 
         /// <summary>
@@ -71,12 +70,23 @@ namespace CashewWeb.Controllers
         }
 
         /// <summary>
+        /// Landing Page for Recovery Options .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpGet]
+        [ActionName("Recovery")]
+        public ViewResult RecoveryGet()
+        {
+            return View();
+        }
+
+        /// <summary>
         /// Landing Page for Password Recovery .. TODO
         /// </summary>
         /// <returns>ViewResult</returns>
         [HttpGet]
-        [ActionName("PasswordRecovery")]
-        public ViewResult PasswordRecoveryGet()
+        [ActionName("RecoveryPassword")]
+        public ViewResult RecoveryPasswordGet()
         {
             return View();
         }
@@ -86,10 +96,10 @@ namespace CashewWeb.Controllers
         /// </summary>
         /// <returns>ViewResult</returns>
         [HttpPost]
-        [ActionName("PasswordRecovery")]
-        public ViewResult PasswordRecoveryPost()
+        [ActionName("RecoveryPassword")]
+        public RedirectToActionResult RecoveryPasswordPost()
         {
-            return View();
+            return RedirectToAction("Error");
         }
 
         /// <summary>
@@ -97,8 +107,8 @@ namespace CashewWeb.Controllers
         /// </summary>
         /// <returns>ViewResult</returns>
         [HttpGet]
-        [ActionName("UsernameRecovery")]
-        public ViewResult UsernameRecoveryGet()
+        [ActionName("RecoveryUsername")]
+        public ViewResult RecoveryUsernameGet()
         {
             return View();
         }
@@ -108,10 +118,11 @@ namespace CashewWeb.Controllers
         /// </summary>
         /// <returns>ViewResult</returns>
         [HttpPost]
-        [ActionName("UsernameRecovery")]
-        public ViewResult UsernameRecoveryPost()
+        [ActionName("RecoveryUsername")]
+        public RedirectToActionResult RecoveryUsernamePost()
         {
-            return View();
+            return RedirectToAction("Error");
+
         }
 
         /// <summary>
@@ -148,6 +159,11 @@ namespace CashewWeb.Controllers
             }
             else
                 return View();
+        }
+
+        public ViewResult Error()
+        {
+            return View();
         }
 
 
