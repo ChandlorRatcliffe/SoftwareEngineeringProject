@@ -8,16 +8,35 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using CashewWeb.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Pomelo.EntityFrameworkCore.MySql;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace CashewWeb
 {
+    /// <summary>
+    /// Startup Configuration File, Creator: Nicholas Jones
+    /// </summary>
     public class Startup
     {
+        private IConfiguration _config;
 
+        public Startup(IConfiguration config)
+        {
+            _config = config;
+        }
+
+        /// <summary>
+        /// Configuration Servers.. Adds MVC Structures, Model Repositorys .. 
+        /// </summary>
+        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContextPool<AppDbContext>(options => options.UseMySql(_config.GetConnectionString("CashewMySqlConnection")));
             services.AddControllersWithViews();
-            services.AddSingleton<IAccountRepository, AccountRepository>();
+            //services.AddSingleton<IAccountsRepository, AccountsRepository>();
+            services.AddScoped<IAccountsRepository, SQLAccountsRepository>();
             services.AddSingleton<IChatRepository, ChatRepository>();
             services.AddSingleton<IContactsRepository, ContactsRepository>();
             services.AddSingleton<IHomeRepository, HomeRepository>();
@@ -28,6 +47,11 @@ namespace CashewWeb
             services.AddSingleton<ITasksRepository, TasksRepository>();
         }
 
+        /// <summary>
+        /// Application Configuration Settings
+        /// </summary>
+        /// <param name="app">Configurations app pipeline</param>
+        /// <param name="env">Configurations app environment</param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -44,10 +68,16 @@ namespace CashewWeb
             app.UseStaticFiles();
 
             app.UseRouting();
-            //app.UseCors();
+            app.UseCors();
 
-            //app.UseAuthentication();
-            //app.UseAuthorization();
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

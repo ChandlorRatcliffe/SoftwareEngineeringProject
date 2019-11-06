@@ -7,8 +7,6 @@ namespace CashewWeb.Models
 {
     public interface ISearchRepository
     {
-        IEnumerable<Search> GetAll();
-
 
     }
 }
