@@ -1,20 +1,11 @@
-﻿@model IEnumerable<Search>
+﻿<!-- Creator: Nicholas Jones-->
+
+@model SearchViewModel
 
 @{
     ViewBag.Title = "Search Table";
 }
 
-    <table>
-        <tr>
-            <th>Id</th>
-        </tr>
-
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.Id</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+<div>
+    <h2>This is the Search Results</h2>
+</div>

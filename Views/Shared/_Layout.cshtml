@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<!-- Creator: Nicholas Jones -->
+<!-- Travis Idle - Edits: commented chat, contacts, and notes buttons on navbar. commented create note buttons on sidebar. -->
+<!-- Purpose: A Global Layout for the Website, initialized by _ViewStart -->
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,15 +14,15 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/css/fontawesome.css">
         <link rel="stylesheet" href="~/lib/css/bootstrap.css" />
+        <script src="~/lib/js/jquery-3.4.1.js"></script>
         <script src="~/lib/js/all.js"></script>
         <script src="~/lib/js/bootstrap.bundle.js"></script>
-        <script src="~/lib/js/jquery-3.4.1.js"></script>
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="~/lib/css/fontawesome.min.css">
         <link rel="stylesheet" href="~/lib/css/bootstrap.min.css" />
-        <script src="~/lib/js/bootstrap.bundle.min.js"></script>
         <script src="~/lib/js/jquery-3.4.1.min.js"></script>
+        <script src="~/lib/js/bootstrap.bundle.min.js"></script>
     </environment>
 </head>
 
@@ -34,28 +38,33 @@
             </div>
         </button>
 
-        <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <span>
+            <button class="btn btn-dark mx-1 d-sm-inline-block d-md-none d-lg-none" type="button" onclick="location.href='@Url.Action("Index", "Account")'">
+                <i class="far fa-user-circle fa-2x"></i>
+            </button>
+            <button class="btn btn-dark mx-1 d-sm-inline-block d-md-none d-lg-none navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </span>
 
         <div class="collapse navbar-collapse mt-1 mt-sm-0 mx-1 mx-md-0" id="collapsibleNavbar">
-            <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Chat")'">Chat</button>
-            <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Contacts")'">Contacts</button>
-            <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Notes")'">Notes</button>
             <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Progress")'">Progress</button>
             <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Projects")'">Projects</button>
             <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Tasks")'">Tasks</button>
         </div>
 
         <div class="col-3 d-none d-lg-block px-0">
-            <form method="post" action="@Url.Action("Index", "Search")" defaultbutton="SubmitButton" runat="server">
+            <form asp-action="Index" asp-controller="Search" method="post" defaultbutton="SubmitButton" runat="server">
                 <input asp-form="query" class="form-control" type="text" placeholder="Search" name="Query">
-                <span asp-validation-for="query"></span>
+                <!--
+                        <span asp-validation-for="query"></span>
+                -->
                 <button id="SubmitButton" type="submit" style="display:none;">Test</button>
             </form>
         </div>
 
-        <button class="btn btn-dark mx-1 d-none d-md-block d-lg-block mr-2" type="button" onclick="location.href='@Url.Action("Index", "Account")'">
+        <!-- what does this button do that the button within the span above doesn't? Answer: It displays on medium and large but, not small -->
+        <button class="btn btn-dark mx-1 d-none d-md-block d-lg-block mr-2" type="button" onclick="location.href='@Url.Action("Index", "Accounts")'">
             <i class="far fa-user-circle fa-2x"></i>
         </button>
 
@@ -75,26 +84,28 @@
         </div>
     </div>
 
-    <div id="sidebar" class="d-lg-none btn-group mx-2" role="group" style="display: none;">
-        <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Project</button>
-        <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Objective</button>
-        <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Task</button>
-        <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="" style="min-width: 145px;">Create Note</button>
+    <!-- Accounts Error is just letting us know its not setup -->
+    <div id="sidebar" class="d-lg-none btn-group mx-2 mb-1" role="group" style="display: none;">
+        <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="location.href='@Url.Action("Error", "Accounts")'"  style="min-width: 145px;">Create Project</button>
+        <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="location.href='@Url.Action("Error", "Accounts")'" style="min-width: 145px;">Create Objective</button>
+        <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="location.href='@Url.Action("Error", "Accounts")'" style="min-width: 145px;">Create Task</button>
     </div>
 
+    <!-- Accounts Error is just letting us know its not setup -->
     <div class="row">
         <div class="d-none col-lg-2 d-lg-block bg-dark pt-1" style="height: 875px;">
-            <button class="btn btn-dark" type="button" onclick="">Create Project</button>
-            <button class="btn btn-dark" type="button" onclick="">Create Task</button>
+            <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="location.href='@Url.Action("Error", "Accounts")'" style="min-width: 145px;">Create Project</button>
+            <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="location.href='@Url.Action("Error", "Accounts")'" style="min-width: 145px;">Create Objective</button>
+            <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="location.href='@Url.Action("Error", "Accounts")'" style="min-width: 145px;">Create Task</button>
         </div>
 
         <div class="col-sm-12 col-md-12 col-lg-10 bg-light" style="height: 875px;">
-            @RenderBody() 
+            @RenderBody()
         </div>
     </div>
 
 </body>
- </html>
+</html>
 
 <script>
     var kebabSwitch = false;
