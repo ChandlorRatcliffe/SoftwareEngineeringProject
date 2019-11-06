@@ -8,5 +8,43 @@
 }
 
 <div class="container my-5">
-    Create ...
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-8 col-lg-6 text-center p-5 bg-dark rounded border border-primary">
+            @using (Html.BeginForm("Create", "Account", FormMethod.Post))
+            {
+                <h2 class="font-weight-bold, text-light">Karbon Create<br /></h2>
+                <div class="form-row text-left">
+                    <div class="col text-left">
+                        <label class="text-left text-light" for="Username">First Name</label>
+                        <input type="text" class="form-control text-light bg-dark" placeholder="First Name" />
+                    </div>
+                    <div class="col text-left">
+                        <label class="text-left text-light" for="Username">Last Name</label>
+                        <input type="text" class="form-control text-light bg-dark" placeholder="Last Name" />
+                    </div>
+                </div>
+                <div class="form-group text-left">
+                    <div class="form-group text-left mt-2">
+                        <label class="text-left text-light" for="Username">Email</label>
+                        <input class="form-control text-left text-light bg-dark" asp-for="Email" type="text" id="idInput" aria-describedby="idHelp" placeholder="Email">
+                    </div>
+                    <div class="form-group text-left mt-2">
+                        <label class="text-left text-light" for="Username">Username</label>
+                        <input class="form-control text-left text-light bg-dark" asp-for="Username" type="text" id="idInput" aria-describedby="idHelp" placeholder="Username">
+                    </div>
+                    <div class="form-group mt-2">
+                        <label class="text-left text-light" for="Password">Password</label>
+                        <input class="form-control text-left text-light bg-dark" type="password" asp-for="Password" id="passwordInput" placeholder="Password">
+                    </div>
+                    <div class="mt-2 text-center">
+                        <button id="CreateButton" type="submit" class="btn btn-primary text-light text-center mt-2 border border-secondary" style="width: 150px;">Create Account</button>
+                    </div>
+                </div>
+            }
+            <div class="text-center text-light">
+                Already have an account?<br />
+                <a href='@Url.Action("Index","Account")'>Click here to return to login</a>
+            </div>
+        </div>
+    </div>
 </div>
