@@ -46,10 +46,10 @@ namespace CashewWeb.Controllers
         [HttpPost]
         public IActionResult Index(Search search)
         {
-            if (ModelState.IsValid)
-            {
-                return RedirectToAction("Index", search.Query);
-            }
+            //if (ModelState.IsValid)
+            //{
+            //    return RedirectToAction("Index", search.Query);
+            //}
             return View();
         }
 

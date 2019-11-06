@@ -11,6 +11,7 @@ using CashewWeb.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Pomelo.EntityFrameworkCore.MySql;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace CashewWeb
 {
@@ -68,6 +69,12 @@ namespace CashewWeb
 
             app.UseRouting();
             app.UseCors();
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+
 
             app.UseAuthentication();
             app.UseAuthorization();

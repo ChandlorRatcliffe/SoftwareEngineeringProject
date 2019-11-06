@@ -36,4 +36,8 @@
     <None Include="Models\.MySQL\Table Creation.sql" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\static\" />
+  </ItemGroup>
+
 </Project>
