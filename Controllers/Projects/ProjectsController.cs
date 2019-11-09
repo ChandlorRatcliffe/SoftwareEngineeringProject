@@ -24,7 +24,10 @@ namespace CashewWeb.Controllers
         }
 
         /// <summary>
-        /// Tasks Landing Page, Passes TasksViewModel to Page for Dependency Checking
+        /// Tasks Landing Page, Passes TasksViewModel to Page for Dependency Checking - Nick
+        /// By the wireframe, Dashboard (Projects Page) does not show tasks and so should not
+        /// pass the TasksViewModel. It shows the list of projects a user is assigned to, and 
+        /// so should pass the ProjectsViewModel or something similar. - Travis
         /// </summary>
         /// <returns>ViewResult</returns>
         public ViewResult Index()
