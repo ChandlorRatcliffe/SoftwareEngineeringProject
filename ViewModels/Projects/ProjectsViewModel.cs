@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Text.Json;
+using Microsoft.AspNetCore.Html;
+using System.IO;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace CashewWeb.ViewModels
 {
@@ -45,22 +47,24 @@ namespace CashewWeb.ViewModels
 
     public static class JavaScriptConvert
     {
-        public static IHtmlString SerializeObject(object value)
+        public static HtmlString SerializeObject(object value)
         {
-            using (var stringWriter = new StringWriter())
-            using (var jsonWriter = new JsonTextWriter(stringWriter))
+            using (StringWriter stringWriter = new StringWriter())
             {
-                var serializer = new JsonSerializer
+                using (JsonTextWriter jsonWriter = new JsonTextWriter(stringWriter))
                 {
-                    // Let's use camelCasing as is common practice in JavaScript
-                    ContractResolver = new CamelCasePropertyNamesContractResolver()
-                };
+                    JsonSerializer serializer = new JsonSerializer
+                    {
+                        // Let's use camelCasing as is common practice in JavaScript
+                        ContractResolver = new CamelCasePropertyNamesContractResolver()
+                    };
 
-                // We don't want quotes around object names
-                jsonWriter.QuoteName = false;
-                serializer.Serialize(jsonWriter, value);
+                    // We don't want quotes around object names
+                    jsonWriter.QuoteName = false;
+                    serializer.Serialize(jsonWriter, value);
 
-                return new HtmlString(stringWriter.ToString());
+                    return new HtmlString(stringWriter.ToString());
+                }
             }
         }
     }

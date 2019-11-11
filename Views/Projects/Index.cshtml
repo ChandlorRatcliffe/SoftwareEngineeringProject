@@ -10,7 +10,7 @@
 <div>
 
     <p>
-        @Html.Raw(JsonConvert.SerializeObject(Model.CalendarEvents))
+        @Html.Raw(@JavaScriptConvert.SerializeObject(Model.CalendarEvents))
     </p>
 
     <h1 class="text-center">Dashboard</h1>
@@ -175,19 +175,6 @@
     document.addEventListener('DOMContentLoaded', function () {
         var calendarEl = document.getElementById('calendar');
 
-        var _events = [{}];
-
-        for (x in @Model.CalendarEvents) {
-            _events.push({
-                title: x.'start',
-                start: x.start,
-                end: x.end
-            })
-
-        }
-
-
-
         var calendar = new FullCalendar.Calendar(calendarEl, {
             plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
             header: {
@@ -200,7 +187,8 @@
             navLinks: true,
             businessHours: true,
             editable: false,
-            events: _events
+            events: @JavaScriptConvert.SerializeObject(Model.CalendarEvents),
+
         });
         calendar.render();
     });

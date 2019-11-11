@@ -14,7 +14,7 @@ namespace CashewWeb.Controllers
     {
         private readonly IProjectsRepository _projectsRepository;
         private readonly string DateFormat = "yyyy-MM-dd";
-        private readonly string DateFormatCustom = "yyyy-MM-ddTH:mm:ss";
+        private readonly string DateFormatCustom = "yyyy-MM-ddTHH:mm:ss";
 
         /// <summary>
         /// Constuctor For Projects Controller, Gets Defined IProjectsRepository From Startup.cs
@@ -41,9 +41,9 @@ namespace CashewWeb.Controllers
                 CalendarEvents = new List<CalendarEvent> 
                 {
                     new CalendarEvent("Title00", DateTime.Now.AddDays(10).ToString(DateFormatCustom)),// "Do Stuff Now"),
-                    new CalendarEvent("Title01", DateTime.Now.AddDays(10).ToString(DateFormatCustom)),// "Do Stuff then"),
-                    new CalendarEvent("Title02", DateTime.Now.AddDays(10).ToString(DateFormatCustom)),// "Do Stuff there"),
-                    new CalendarEvent("Title03", DateTime.Now.AddDays(10).ToString(DateFormatCustom))// "Do Stuff where?"),
+                    new CalendarEvent("Title01", DateTime.Now.AddDays(11).ToString(DateFormatCustom)),// "Do Stuff then"),
+                    new CalendarEvent("Title02", DateTime.Now.AddDays(12).ToString(DateFormatCustom)),// "Do Stuff there"),
+                    new CalendarEvent("Title03", DateTime.Now.AddDays(13).ToString(DateFormatCustom))// "Do Stuff where?"),
                     //new CalendarEvent("Title04", DateTime.Now.AddDays(10).ToString(DateFormatCustom), "Do Stuff find out"),
                     //new CalendarEvent("Title05", DateTime.Now.AddDays(10).ToString(DateFormatCustom), "Do Stuff idk"),
                     //new CalendarEvent("Title06", DateTime.Now.AddDays(10).ToString(DateFormatCustom), "Do Stuff idc"),
