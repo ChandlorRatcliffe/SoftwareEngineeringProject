@@ -115,6 +115,29 @@ namespace CashewWeb.Controllers
         }
 
         /// <summary>
+        /// Landing Page for Username Recovery .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpGet]
+        [ActionName("RecoveryUsernameFailure")]
+        public ViewResult RecoveryUsernameFailureGet()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Username Recovery Post Request .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpPost]
+        [ActionName("RecoveryUsernameFailure")]
+        public RedirectToActionResult RecoveryUsernameFailurePost()
+        {
+            return RedirectToAction("Error");
+
+        }
+
+        /// <summary>
         /// Create Account Landing Page
         /// </summary>
         /// <returns>ViewResult</returns>
