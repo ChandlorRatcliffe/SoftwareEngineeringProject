@@ -115,7 +115,7 @@ namespace CashewWeb.Controllers
         }
 
         /// <summary>
-        /// Landing Page for Username Recovery .. TODO
+        /// Landing Page for Username Recovery Failure .. TODO
         /// </summary>
         /// <returns>ViewResult</returns>
         [HttpGet]
@@ -126,12 +126,81 @@ namespace CashewWeb.Controllers
         }
 
         /// <summary>
-        /// Username Recovery Post Request .. TODO
+        /// Username Recovery Failure Post Request .. TODO
         /// </summary>
         /// <returns>ViewResult</returns>
         [HttpPost]
         [ActionName("RecoveryUsernameFailure")]
         public RedirectToActionResult RecoveryUsernameFailurePost()
+        {
+            return RedirectToAction("Error");
+
+        }
+
+        /// <summary>
+        /// Landing Page for Username Recovery Success .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpGet]
+        [ActionName("RecoveryUsernameSuccess")]
+        public ViewResult RecoveryUsernameSuccessGet()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Username Recovery Success Post Request .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpPost]
+        [ActionName("RecoveryUsernameSuccess")]
+        public RedirectToActionResult RecoveryUsernameSuccessPost()
+        {
+            return RedirectToAction("Error");
+
+        }
+
+        /// <summary>
+        /// Landing Page for Password Recovery Failure .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpGet]
+        [ActionName("RecoveryPasswordFailure")]
+        public ViewResult RecoveryPasswordFailureGet()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Password Recovery Failure Post Request .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpPost]
+        [ActionName("RecoveryPasswordFailure")]
+        public RedirectToActionResult RecoveryPasswordFailurePost()
+        {
+            return RedirectToAction("Error");
+
+        }
+
+        /// <summary>
+        /// Landing Page for Password Recovery Success .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpGet]
+        [ActionName("RecoveryPasswordSuccess")]
+        public ViewResult RecoveryPasswordSuccessGet()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Password Recovery Success Post Request .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpPost]
+        [ActionName("RecoveryPasswordSuccess")]
+        public RedirectToActionResult RecoveryPasswordSuccessPost()
         {
             return RedirectToAction("Error");
 
