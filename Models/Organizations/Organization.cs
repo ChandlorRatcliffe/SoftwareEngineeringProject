@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CashewWeb.Models
 {
-    public class Tasks
+    public class Organization
     {
 
     }

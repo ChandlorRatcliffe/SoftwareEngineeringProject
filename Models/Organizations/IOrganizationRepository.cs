@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace CashewWeb.Models
 {
-    public class Notes
+    public interface IOrganizationRepository
     {
-
+       
     }
 }

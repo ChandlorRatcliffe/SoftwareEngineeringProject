@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 
 namespace CashewWeb.Models
 {
-    public class ProjectsRepository : IProjectsRepository
+    public class OrganizationAbility
     {
-        
-
 
     }
 }
