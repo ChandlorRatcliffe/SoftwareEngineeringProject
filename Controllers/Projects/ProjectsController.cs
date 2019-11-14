@@ -27,6 +27,8 @@ namespace CashewWeb.Controllers
         /// Tasks Landing Page, Passes TasksViewModel to Page for Dependency Checking
         /// </summary>
         /// <returns>ViewResult</returns>
+        [HttpGet]
+        [ActionName("Index")]
         public ViewResult Index()
         {
             ProjectsViewModel projectsViewModel = new ProjectsViewModel()
@@ -35,6 +37,19 @@ namespace CashewWeb.Controllers
             };
             return View(projectsViewModel);
         }
+
+        /// <summary>
+        /// Post Request from Landing Page To Request Authentication ... Not Fully Implemented Yet
+        /// </summary>
+        /// <param name="Project">Project to Authenticate</param>
+        /// <returns>IActionResult</returns>
+        [HttpPost]
+        [ActionName("Index")]
+        public IActionResult IndexPost(Accounts Accounts)
+        {
+            return RedirectToAction("Error");
+        }
+
 
         /// <summary>
         /// Landing Page for Permission Management .. TODO
@@ -56,6 +71,12 @@ namespace CashewWeb.Controllers
         public RedirectToActionResult PermissionManagementPost()
         {
             return RedirectToAction("Error");
+        }
+
+
+        public ViewResult Error()
+        {
+            return View();
         }
     }
 }
