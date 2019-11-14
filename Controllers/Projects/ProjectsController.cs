@@ -73,6 +73,28 @@ namespace CashewWeb.Controllers
             return RedirectToAction("Error");
         }
 
+        /// <summary>
+        /// Landing Page for Team Management .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpGet]
+        [ActionName("TeamManagement")]
+        public ViewResult TeamManagementGet()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Team Management Post Request .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpPost]
+        [ActionName("TeamManagement")]
+        public RedirectToActionResult TeamManagementPost()
+        {
+            return RedirectToAction("Error");
+        }
+
 
         public ViewResult Error()
         {
