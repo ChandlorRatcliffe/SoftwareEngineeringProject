@@ -8946,23 +8946,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\idlet\\.nuget\\packages\\": {},
+    "C:\\Users\\Minh Dang\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\OneDrive - Sam Houston State University\\Docs\\_Software-Engeneering\\ProjectFiles\\CashewWeb\\CashewWeb.csproj",
+      "projectUniqueName": "C:\\Users\\Minh Dang\\Desktop\\SoftwareEngineeringProject\\SoftwareEngineeringProject\\CashewWeb.csproj",
       "projectName": "CashewWeb",
-      "projectPath": "E:\\OneDrive - Sam Houston State University\\Docs\\_Software-Engeneering\\ProjectFiles\\CashewWeb\\CashewWeb.csproj",
-      "packagesPath": "C:\\Users\\idlet\\.nuget\\packages\\",
-      "outputPath": "E:\\OneDrive - Sam Houston State University\\Docs\\_Software-Engeneering\\ProjectFiles\\CashewWeb\\obj\\",
+      "projectPath": "C:\\Users\\Minh Dang\\Desktop\\SoftwareEngineeringProject\\SoftwareEngineeringProject\\CashewWeb.csproj",
+      "packagesPath": "C:\\Users\\Minh Dang\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Minh Dang\\Desktop\\SoftwareEngineeringProject\\SoftwareEngineeringProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\idlet\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Minh Dang\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

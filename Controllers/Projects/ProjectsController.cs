@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CashewWeb.Models;
@@ -38,5 +39,20 @@ namespace CashewWeb.Controllers
             };
             return View(projectsViewModel);
         }
+
+        [HttpGet]
+        [ActionName("CreateProject")]
+        public ViewResult CreateProjectGet()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ActionName("CreateProject")]
+        public ViewResult CreateProjectPost()
+        {
+            return View();
+        }
+
     }
 }
