@@ -8843,27 +8843,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Hamza Super PC\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\Hamza\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hamza Super PC\\Documents\\GitHub\\SoftwareEngineeringProject\\CashewWeb.csproj",
+      "projectUniqueName": "C:\\Users\\Hamza\\eclipse-workspace\\MatrixArith\\SoftwareEngineeringProject\\CashewWeb.csproj",
       "projectName": "CashewWeb",
-      "projectPath": "C:\\Users\\Hamza Super PC\\Documents\\GitHub\\SoftwareEngineeringProject\\CashewWeb.csproj",
-      "packagesPath": "C:\\Users\\Hamza Super PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hamza Super PC\\Documents\\GitHub\\SoftwareEngineeringProject\\obj\\",
+      "projectPath": "C:\\Users\\Hamza\\eclipse-workspace\\MatrixArith\\SoftwareEngineeringProject\\CashewWeb.csproj",
+      "packagesPath": "C:\\Users\\Hamza\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Hamza\\eclipse-workspace\\MatrixArith\\SoftwareEngineeringProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Hamza Super PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Hamza\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
