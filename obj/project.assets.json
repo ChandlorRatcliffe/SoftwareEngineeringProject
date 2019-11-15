@@ -8856,10 +8856,6 @@
       "packagesPath": "C:\\Users\\Hamza Super PC\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Hamza Super PC\\Documents\\GitHub\\SoftwareEngineeringProject\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
         "C:\\Users\\Hamza Super PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
