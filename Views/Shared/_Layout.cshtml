@@ -63,24 +63,27 @@
 
         <span>
             <button class="btn btn-dark mx-1 d-sm-inline-block d-md-none d-lg-none" type="button" onclick="location.href='@Url.Action("Index", "Accounts")'">
-                <i class="far fa-user-circle fa-2x"></i>
+                Logout <i class="far fa-user-circle fa-2x" style="vertical-align:middle"></i>
             </button>
             <button class="btn btn-dark mx-1 d-sm-inline-block d-md-none d-lg-none navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </span>
 
-        <div class="collapse navbar-collapse mt-1 mt-sm-0 mx-1 mx-md-0" id="collapsibleNavbar">
-            <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Progress")'">Progress</button>
-            <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Projects")'">Projects</button>
-            <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Tasks")'">Tasks</button>
+        <div class="collapse navbar-collapse d-lg-none" id="collapsibleNavbar">
+            <a class="btn btn-dark nav-link @Html.Raw(Url.Action().Equals("/Projects") ? "active" : "") d-lg-none ml-1" href="@Url.Action("Index","Projects")">Dashboard</a>
+            <a class="btn btn-dark nav-link d-lg-none" href="#">Project</a>
+            <a class="btn btn-dark nav-link d-lg-none" href="#">Task</a>
+            <a class="btn btn-dark nav-link d-lg-none" href="#">Notes</a>
+            <a class="btn btn-dark nav-link d-lg-none" href="#">Permissions</a>
+            <a class="btn btn-dark nav-link d-lg-none" href="#">Settings</a>
         </div>
 
         <div class="col-3 d-none d-lg-block px-0">
             <form asp-action="Index" asp-controller="Search" method="post" defaultbutton="SubmitButton" runat="server">
                 <input asp-form="query" class="form-control" type="text" placeholder="Search" name="Query">
                 <!--
-                        <span asp-validation-for="query"></span>
+                        <span asp-validation-for="query"></span>    
                 -->
                 <button id="SubmitButton" type="submit" style="display:none;">Test</button>
             </form>
@@ -88,62 +91,37 @@
 
         <!-- what does this button do that the button within the span above doesn't? Answer: It displays on medium and large but, not small -->
         <button class="btn btn-dark mx-1 d-none d-md-block d-lg-block mr-2" type="button" onclick="location.href='@Url.Action("Index", "Accounts")'">
-            <i class="far fa-user-circle fa-2x"></i>
+            <i class="far fa-user-circle fa-2x" style="vertical-align:middle"></i>
         </button>
 
     </nav>
 
-    <script>
-        $(document).ready(function() {     
-            $('#proj1').hide(); 
-            $('#proj').click(function () {
-                $("#proj1").slideDown();
-            });
-            $("a").click(function () {
-                $("#proj1").slideUp();
-            });
-        })
-    </script>
-
     <div class="container-fluid h-100">
         <div class="row justify-content-center h-100">
+            <!--Display for XL to Large-->
             <div class="col-lg-2 order-first d-none d-lg-block d-xl-block bg-dark">
-                <ul class="nav nav-pills flex-column mt-2">
-                    <li class="nav-item">
-                        <a class="nav-link @Html.Raw(Url.Action().Equals("/Projects") ? "active" : "")" href="@Url.Action("Index","Projects")">Dashboard Home</a>
-                        <div class="border-top my-1"></div>
+                <ul class="nav nav-pills flex-column mt-3">
+                    <li class="nav-item mb-1">
+                        <a class="btn btn-dark nav-link @Html.Raw(Url.Action().Equals("/Projects") ? "active" : "") text-left" href="@Url.Action("Index","Projects")">Dashboard</a>
                     </li>
-                    <li class="nav-item" id="proj">
-                        <a class="nav-link" href="#">Project</a>
-                        <ul class="show1" id="proj1">
-                            <li>
-                                <a class="nav-link show1" href="#">Project1</a>
-                            </li>
-                            <li>
-                                <a class="nav-link show1" href="#">Project2</a>
-                            </li>
-                        </ul>
-                        <div class="border-top my-1"></div>
+                    <li class="nav-item my-1" id="proj">
+                        <a class="btn btn-dark nav-link text-left" href="#">Project</a>
                     </li>
-                    <li class="nav-item" id="task">
-                        <a class="nav-link" href="#">Task</a>
-                        <div class="border-top my-1"></div>
+                    <li class="nav-item my-1" id="task">
+                        <a class="btn btn-dark nav-link text-left" href="#">Task</a>
                     </li>
-                    <li class="nav-item" id="notes">
-                        <a class="nav-link" href="#">Notes</a>
-                        <div class="border-top my-1"></div>
+                    <li class="nav-item my-1" id="notes">
+                        <a class="btn btn-dark nav-link text-left" href="#">Notes</a>
                     </li>
-                    <li class="nav-item" id="perm">
-                        <a class="nav-link" href="#">Permissions</a>
-                        <div class="border-top my-1"></div>
+                    <li class="nav-item my-1" id="perm">
+                        <a class="btn btn-dark nav-link text-left" href="#">Permissions</a>
                     </li>
-                    <li class="nav-item" id="sett">
-                        <a class="nav-link" href="#">Settings</a>
-                        <div class="border-top my-1"></div>
+                    <li class="nav-item my-1" id="sett">
+                        <a class="btn btn-dark nav-link text-left" href="#">Settings</a>
                     </li>
                 </ul>
             </div>
-            <div class="col-lg-10 order-last d-none d-lg-block d-xl-block bg-darkcontainer-fluid mt-3">
+            <div class="col order-last bg-darkcontainer-fluid mt-3">
                 @RenderBody()
             </div>
         </div>
