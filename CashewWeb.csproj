@@ -39,10 +39,7 @@
 
   <ItemGroup>
     <None Include="Models\.MySQL\Table Creation.sql" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\static\" />
+    <None Include="wwwroot\static\tempBanner.jpg" />
   </ItemGroup>
 
 </Project>
