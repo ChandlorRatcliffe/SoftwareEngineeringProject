@@ -8845,23 +8845,26 @@
   },
   "packageFolders": {
     "C:\\Users\\idlet\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\OneDrive - Sam Houston State University\\Docs\\_Software-Engeneering\\ProjectFiles\\CashewWeb\\CashewWeb.csproj",
+      "projectUniqueName": "S:\\OneDrive - Sam Houston State University\\Docs\\_Software-Engeneering\\ProjectFiles\\CashewWeb\\SoftwareEngineeringProject\\CashewWeb.csproj",
       "projectName": "CashewWeb",
-      "projectPath": "E:\\OneDrive - Sam Houston State University\\Docs\\_Software-Engeneering\\ProjectFiles\\CashewWeb\\CashewWeb.csproj",
+      "projectPath": "S:\\OneDrive - Sam Houston State University\\Docs\\_Software-Engeneering\\ProjectFiles\\CashewWeb\\SoftwareEngineeringProject\\CashewWeb.csproj",
       "packagesPath": "C:\\Users\\idlet\\.nuget\\packages\\",
-      "outputPath": "E:\\OneDrive - Sam Houston State University\\Docs\\_Software-Engeneering\\ProjectFiles\\CashewWeb\\obj\\",
+      "outputPath": "S:\\OneDrive - Sam Houston State University\\Docs\\_Software-Engeneering\\ProjectFiles\\CashewWeb\\SoftwareEngineeringProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\idlet\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
