@@ -28,17 +28,54 @@ namespace CashewWeb.Controllers
         /// Tasks Landing Page, Passes TasksViewModel to Page for Dependency Checking
         /// </summary>
         /// <returns>ViewResult</returns>
+        [HttpGet]
+        [ActionName("Index")]
         public ViewResult Index()
         {
-            TasksViewModel tasksViewModel = new TasksViewModel()
+            TasksViewModel taskViewModel = new TasksViewModel()
             {
                 PageTitle = "Tasks Page"
             };
-            return View(tasksViewModel);
+            return View(taskViewModel);
         }
 
+        /// <summary>
+        /// Post Request from Landing Page To Request Authentication ... Not Fully Implemented Yet
+        /// </summary>
+        /// <param name="Project">Project to Authenticate</param>
+        /// <returns>IActionResult</returns>
+        [HttpPost]
+        [ActionName("Index")]
+        public IActionResult IndexPost(Accounts Accounts)
+        {
+            return RedirectToAction("Error");
+        }
 
+        /// <summary>
+        /// Landing Page for Task Page .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpGet]
+        [ActionName("TaskPage")]
+        public ViewResult TaskPageGet()
+        {
+            return View();
+        }
 
+        /// <summary>
+        /// Task Page Post Request .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpPost]
+        [ActionName("TaskPage")]
+        public RedirectToActionResult TaskPagePost()
+        {
+            return RedirectToAction("Error");
+        }
 
+        public ViewResult Error()
+        {
+            return View();
+        }
     }
 }

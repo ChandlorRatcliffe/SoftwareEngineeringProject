@@ -95,6 +95,27 @@ namespace CashewWeb.Controllers
             return RedirectToAction("Error");
         }
 
+        /// <summary>
+        /// Landing Page for Permission Management .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpGet]
+        [ActionName("ProjectPage")]
+        public ViewResult ProjectPageGet()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Permission Management Post Request .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpPost]
+        [ActionName("ProjectPage")]
+        public RedirectToActionResult ProjectPagePost()
+        {
+            return RedirectToAction("Error");
+        }
 
         public ViewResult Error()
         {
