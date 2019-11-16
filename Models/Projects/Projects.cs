@@ -18,7 +18,7 @@ namespace CashewWeb.Models
         public string ProjectName { get; set; }
 
         [BindProperty]
-        [MaxLength(500, ErrorMessage = "Project Description may not exceed 500 characters.")]
+        [MaxLength(150, ErrorMessage = "Project Description may not exceed 150 characters.")]
         public string ProjectDescription { get; set; }
 
         [BindProperty]

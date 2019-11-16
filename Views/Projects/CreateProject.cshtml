@@ -6,12 +6,30 @@
     ViewData["Title"] = "IndividualPrioject";
 }
 
+<style>
+    #TeammatesPicker {
+        border: 1px solid #c3c3c3;
+        width: 700px;
+        height: 150px;
+        overflow-y: scroll;
+    }
+
+    /*#PermissionsPicker {
+        border: 1px solid #c3c3c3;
+        width: 700px;
+        height: 150px;
+        overflow-y: scroll;
+    }*/
+</style>
+
 <div class="container my-5" style="max-width: 700px;">
     <h3 class="text-center mb-2">Create New Project</h3>
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="row">
         <input asp-for="ProjectName" class="form-control col" placeholder="Enter a Project's Name" />
-        <span asp-validation-for="ProjectName" class="text-danger"></span>
+        <small id="ProjectNameHelpBlock" class="form-text text-muted">
+            Project name must be less than or equal to 50 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+        </small>
     </div>
     <br />
     <div class="row">
@@ -28,21 +46,61 @@
     </div>
     <br />
     <div class="row">
-        <textarea class="col" id="ProjectDescription" style="max-height:1000px;min-height:400px;" asp-for="ProjectDescription" placeholder="Project's Description (500 characters)"></textarea>
+        <textarea class="col" id="ProjectDescription" style="max-height:300px;min-height:100px;" asp-for="ProjectDescription" placeholder="Project's Description (150 characters)"></textarea>
     </div>
     <br />
     <div class="row float-right">
         <p id="Counter"></p>
         <script type="text/javascript">
-            $('#ProjectDescription').keyup(function ()
-            {
-                var left = 500 - $(this).val().length;
-                if (left < 0)
-                {
+            $('#ProjectDescription').keyup(function () {
+                var left = 150 - $(this).val().length;
+                if (left < 0) {
                     left = 0;
                 }
                 $('#Counter').text('Characters left: ' + left);
             });
         </script>
     </div>
+    <br />
+    <div class="row">
+        <h5>Assemble your Team</h5>
+    </div>
+    <h6>Choose your Teammates Permissions</h6>
+    <div class="container" id="PermissionsPicker">
+        <div class="row">
+            <input class="col-sm-2" type="checkbox" />Create Project<br />
+            <input class="col-sm-2" type="checkbox" />Delete Project<br />
+            <input class="col-sm-2" type="checkbox" />Create Notes<br />
+        </div>
+        <div class="row">
+            <input class="col-sm-2" type="checkbox" />Invite Users<br />
+            <input class="col-sm-2" type="checkbox" />Remove Users<br />
+            <input class="col-sm-2" type="checkbox" />Edit Project<br />
+        </div>
+        <div class="row">
+            <input class="col-sm-2" type="checkbox" />Edit Task<br />
+            <input class="col-sm-2" type="checkbox" />Assign To Project <br />
+            <input class="col-sm-2" type="checkbox" />Assign to Task <br />
+        </div>
+    </div>
+    <br />
+    <h6>Choose your Teammates</h6>
+    <div class="container" id="TeammatesPicker">
+        <input type="checkbox" />This is checkbox<br />
+        <input type="checkbox" />This is checkbox<br />
+        <input type="checkbox" />This is checkbox<br />
+        <input type="checkbox" />This is checkbox<br />
+        <input type="checkbox" />This is checkbox<br />
+        <input type="checkbox" />This is checkbox<br />
+        <input type="checkbox" />This is checkbox<br />
+        <input type="checkbox" />This is checkbox<br />
+        <input type="checkbox" />This is checkbox<br />
+        <input type="checkbox" />This is checkbox<br />
+    </div>
+    <br />
+    <div class="row float-right">
+        <button id="ConfirmInvite" type="button" class="btn btn-primary">Invite selected members</button>
+    </div>
 </div>
+
+
