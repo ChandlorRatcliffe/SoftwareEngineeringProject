@@ -13,18 +13,12 @@
         height: 150px;
         overflow-y: scroll;
     }
-
-    /*#PermissionsPicker {
-        border: 1px solid #c3c3c3;
-        width: 700px;
-        height: 150px;
-        overflow-y: scroll;
-    }*/
 </style>
 
 <div class="container my-5" style="max-width: 700px;">
     <h3 class="text-center mb-2">Create New Project</h3>
     <div asp-validation-summary="All" class="text-danger"></div>
+    <!-- Project's Name-->
     <div class="row">
         <input asp-for="ProjectName" class="form-control col" placeholder="Enter a Project's Name" />
         <small id="ProjectNameHelpBlock" class="form-text text-muted">
@@ -32,6 +26,7 @@
         </small>
     </div>
     <br />
+    <!-- Project's Deadline-->
     <div class="row">
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -45,6 +40,7 @@
         </script>
     </div>
     <br />
+    <!-- Project's Description-->
     <div class="row">
         <textarea class="col" id="ProjectDescription" style="max-height:300px;min-height:100px;" asp-for="ProjectDescription" placeholder="Project's Description (150 characters)"></textarea>
     </div>
@@ -66,6 +62,8 @@
         <h5>Assemble your Team</h5>
     </div>
     <h6>Choose your Teammates Permissions</h6>
+    <!-- Alignment need to be corrected-->
+    <!-- Permissions Picker-->
     <div class="container" id="PermissionsPicker">
         <div class="row">
             <input class="col-sm-2" type="checkbox" />Create Project<br />
@@ -84,6 +82,7 @@
         </div>
     </div>
     <br />
+    <!-- Teammates Picker-->
     <h6>Choose your Teammates</h6>
     <div class="container" id="TeammatesPicker">
         <input type="checkbox" />This is checkbox<br />
