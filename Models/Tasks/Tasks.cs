@@ -18,7 +18,7 @@ namespace CashewWeb.Models
         public string TaskName { get; set; }
 
         [BindProperty]
-        public DateTime TaskDeadline { get; set; }
+        public string TaskDeadline { get; set; }
 
         [BindProperty]
         [MaxLength(150, ErrorMessage = "Task Description may not exceed 150 characters.")]
