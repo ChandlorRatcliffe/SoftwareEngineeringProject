@@ -3,10 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Html;
-using System.IO;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace CashewWeb.ViewModels
 {
@@ -18,56 +14,5 @@ namespace CashewWeb.ViewModels
         public Projects Projects { get; set; }
         public string PageTitle { get; set; }
 
-        public string Date { get; set; }
-
-        public bool BusinessHours { get; set; }
-
-        public bool NavLinks { get; set; }
-
-        public List<CalendarEvent> CalendarEvents { get; set; }
-
-
     }
-
-    public class CalendarEvent
-    {
-        public CalendarEvent(string title, string deadline)
-        {
-            Title = title;
-            Start = deadline;
-            //Description = description;
-        }
-
-        public string Title { get; set; }
-
-        public string Start { get; set; }
-
-        //public string Description { get; set; }
-    }
-
-    public static class JavaScriptConvert
-    {
-        public static HtmlString SerializeObject(object value)
-        {
-            using (StringWriter stringWriter = new StringWriter())
-            {
-                using (JsonTextWriter jsonWriter = new JsonTextWriter(stringWriter))
-                {
-                    JsonSerializer serializer = new JsonSerializer
-                    {
-                        // Let's use camelCasing as is common practice in JavaScript
-                        ContractResolver = new CamelCasePropertyNamesContractResolver()
-                    };
-
-                    // We don't want quotes around object names
-                    jsonWriter.QuoteName = false;
-                    serializer.Serialize(jsonWriter, value);
-
-                    return new HtmlString(stringWriter.ToString());
-                }
-            }
-        }
-    }
-
-
 }
