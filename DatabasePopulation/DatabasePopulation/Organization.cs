@@ -19,12 +19,12 @@ namespace DatabasePopulation
             DateTime temp = new DateTime(1993, 11, 16);
             int limit = (DateTime.Today - temp).Days;
             this.activation = temp.AddDays(rand.Next(limit));
-            this.expiration = temp.AddDays(rand.Next(365, 365 * 5 + 1));
+            this.expiration = activation.AddDays(rand.Next(365, 365 * 5 + 1));
         }
 
         public string getAddTupleQuerryString()
         {
-            return "(\"" + this.name + "\",\"" +  this.license + "\",\"" + this.activation + "\",\"" +  this.expiration.ToString("yyyy-MM-dd HH:mm:ss") + "\")";
+            return "(\"" + this.name + "\",\"" +  this.license + "\",\"" + this.activation.ToString("yyyy-MM-dd HH:mm:ss") + "\",\"" +  this.expiration.ToString("yyyy-MM-dd HH:mm:ss") + "\")";
         }
     }
 }

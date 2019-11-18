@@ -9,7 +9,7 @@ namespace DatabasePopulation
         string[] words;
         public WordListManager()
         {
-            words = System.IO.File.ReadAllLines("C:\\Users\\Shenzao\\source\\repos\\DatabasePopulation\\DatabasePopulation\\wordlist.txt");
+            words = System.IO.File.ReadAllLines("G:\\Users\\Shenzao\\Documents\\College\\Software Engineering\\Group Project\\SoftwareEngineeringProject\\DatabasePopulation\\DatabasePopulation\\wordlist.txt");
         }
 
         public string getName()
