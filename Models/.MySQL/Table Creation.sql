@@ -18,7 +18,7 @@ DROP TABLE Organization;
 CREATE TABLE Organization(
     `Name`		VARCHAR(200),
     `License`		VARCHAR(20),
-    `Activation`		INT,
+    `Activation`		DATETIME,
     `Expiration`		DATETIME,
     PRIMARY KEY(Name)
 );
