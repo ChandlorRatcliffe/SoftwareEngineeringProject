@@ -10,6 +10,7 @@ namespace DatabasePopulation
             sql.reset();
             sql.generateAccounts(500);
             sql.generateOrganizations(500);
+            sql.generateProjects(500);
         }
     }
 }

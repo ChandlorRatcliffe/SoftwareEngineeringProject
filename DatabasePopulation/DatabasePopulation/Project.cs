@@ -24,7 +24,7 @@ namespace DatabasePopulation
         }
         public string getAddTupleQuerryString()
         {
-            return "(" +myId + "\"" + deadline.ToString("yyyy-MM-dd HH:mm:ss") + "\",\"" + description+ "\")";
+            return "(" +myId + ",\"" + deadline.ToString("yyyy-MM-dd HH:mm:ss") + "\",\"" + description+ "\")";
         }
     }
 }

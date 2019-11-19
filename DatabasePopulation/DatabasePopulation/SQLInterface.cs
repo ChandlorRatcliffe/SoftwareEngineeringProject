@@ -110,6 +110,7 @@ namespace DatabasePopulation
         }
         public void generateAccounts(int number)
         {
+            Console.WriteLine("Generating Accounts...");
             //Create an account generator
             AccountGenerator ag = new AccountGenerator(this.words);
             //generate as  many accounts as possible
@@ -122,11 +123,15 @@ namespace DatabasePopulation
             }
             //replace the last comma with a semi colon. 
             queryString = queryString.Substring(0,queryString.Length-1)+";";
+
+            Console.WriteLine("Submitting Accounts...");
             //submit the query.
             query(queryString);
+            Console.WriteLine("Done.");
         }
         public void generateOrganizations(int number)
         {
+            Console.WriteLine("Generating Organizations...");
             //Create an organization generator
             OrganizationGenerator org = new OrganizationGenerator(this.words);
             //generate as  many organizations as possible
@@ -141,11 +146,41 @@ namespace DatabasePopulation
             //replace the last comma with a semi colon. 
             queryString = queryString.Substring(0, queryString.Length - 1) + ";";
             //submit the query.
+            Console.WriteLine("Submitting Organizations...");
             query(queryString);
+            Console.WriteLine("Done.");
         }
+
+        public void generateProjects(int number)
+        {
+            Console.WriteLine("Generating Projects");
+            ProjectGenerator proj = new ProjectGenerator(this.words);
+            List<Project> projects = proj.generateProjects(number);
+            string queryString = "insert into project(projectid, projectdeadline, projectdescription) values ";
+            foreach(Project project in projects)
+            {
+                queryString += project.getAddTupleQuerryString() + ",";
+            }
+            queryString = queryString.Substring(0, queryString.Length - 1) + ";";
+            Console.WriteLine("Submitting Projects...");
+            query(queryString);
+            Console.WriteLine("Done.");
+        }
+
         public void reset()
         {
-            query("delete from organization where name != '';delete from account where username != '';            insert into account(Username, Email, FirstName, LastName, Password, Skills, Theme, PicturePath) values            ('un', 'someEmail@bullshit.com', 'Travis', 'Idlay', 'nope', '', '', ''); ");
+            Console.WriteLine("Erradicating Database Contents...");
+            string resetString = "";
+            resetString += "SET SQL_SAFE_UPDATES = 0;";
+            resetString += "delete from organization where name != '';";
+            resetString += "delete from account where username != '';";
+            resetString += "delete from project where projectid != -1;";
+            resetString += "delete from task where taskid != -1;";
+            resetString += "delete from builton where taskid != -1;";
+            resetString += "SET SQL_SAFE_UPDATES = 1;";
+            resetString += "insert into account(Username, Email, FirstName, LastName, Password, Skills, Theme, PicturePath) values('un', 'someEmail@bullshit.com', 'Travis', 'Idlay', 'nope', '', '', ''); ";
+            query(resetString);
+            Console.WriteLine("Done.");
         }
     }
     

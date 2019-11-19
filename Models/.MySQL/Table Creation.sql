@@ -13,6 +13,15 @@ CREATE TABLE Account(
     PRIMARY KEY(`Username`, `Email`)
 );
 
+DROP TABLE Creates;
+CREATE TABLE Creates(
+	`Username`		VARCHAR(50),
+    `Email`			VARCHAR(150),
+	`Name`			VARCHAR(200),
+    `ProjectId`		VARCHAR(50),
+    PRIMARY KEY(`Username`,`Email`,`Name`,`ProjectId`)
+);
+
 
 DROP TABLE Organization;
 CREATE TABLE Organization(
@@ -88,15 +97,17 @@ CREATE TABLE ProjectAbilities(
     `ProjectId`	VARCHAR(50),
     `AssignmentEditing` INT,
     `ProjectEditing`	INT,
-    `CreateProject`	INT,
+    `CreateProject`	    INT,
     PRIMARY KEY(`Username`, `Email`, `ProjectId`)
 );
 
 DROP TABLE TaskAbilities;
 CREATE TABLE TaskAbilities(
-    `Username`		VARCHAR(20),
-    `Email`		VARCHAR(50),
-    `TaskId`		VARCHAR(50),
+    `Username`			VARCHAR(20),
+    `Email`				VARCHAR(50),
+    `TaskId`			VARCHAR(50),
     `AssignmentEditing` INT, 
+    `TaskEditing` 		INT,
+    `CreateTask` 		INT,
     PRIMARY KEY(`Username`, `Email`, `TaskId`)   
 );
