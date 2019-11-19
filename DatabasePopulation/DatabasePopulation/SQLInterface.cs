@@ -207,6 +207,7 @@ namespace DatabasePopulation
             resetString += "delete from project where projectid != -1;";
             resetString += "delete from task where taskid != -1;";
             resetString += "delete from builton where taskid != -1;";
+            resetString += "delete from creates where email != ''; ";
             resetString += "SET SQL_SAFE_UPDATES = 1;";
             resetString += "insert into account(Username, Email, FirstName, LastName, Password, Skills, Theme, PicturePath) values('un', 'someEmail@bullshit.com', 'Travis', 'Idlay', 'nope', '', '', ''); ";
             query(resetString);
