@@ -108,7 +108,7 @@ namespace DatabasePopulation
             //Give the string to whatever asked for it.
             return output;
         }
-        public void generateAccounts(int number)
+        public List<Account> generateAccounts(int number)
         {
             Console.WriteLine("Generating Accounts...");
             //Create an account generator
@@ -128,8 +128,9 @@ namespace DatabasePopulation
             //submit the query.
             query(queryString);
             Console.WriteLine("Done.");
+            return accounts;
         }
-        public void generateOrganizations(int number)
+        public List<Organization> generateOrganizations(int number)
         {
             Console.WriteLine("Generating Organizations...");
             //Create an organization generator
@@ -149,9 +150,11 @@ namespace DatabasePopulation
             Console.WriteLine("Submitting Organizations...");
             query(queryString);
             Console.WriteLine("Done.");
+            return organizations;
         }
 
-        public void generateProjects(int number)
+
+        public List<Project> generateProjects(int number)
         {
             Console.WriteLine("Generating Projects");
             ProjectGenerator proj = new ProjectGenerator(this.words);
@@ -165,6 +168,33 @@ namespace DatabasePopulation
             Console.WriteLine("Submitting Projects...");
             query(queryString);
             Console.WriteLine("Done.");
+
+            return projects;
+        }
+
+        public List<Create> generateCreateSets(int number)
+        {
+            Console.WriteLine("Generating Create Sets...");
+            CreatesGenerator c = new CreatesGenerator(this.words);
+            List<Create> createSet = new List<Create>();
+            string queryString = "insert into creates(username, email, name, projectid) values ";
+            for(int i = 0; i < number; i++)
+            {
+                Console.WriteLine("Generating batch " + (i+1) + " of creates...");
+                List<Create> creates = c.generateCreateSet(this);
+                foreach(Create create in creates)
+                {
+                    createSet.Add(create);
+                    queryString += create.getAddTupleQuerryString() + ",";
+                }
+                Console.WriteLine("Finished batch " + (i+1) + ".\n");
+            }
+            queryString = queryString.Substring(0, queryString.Length - 1) + ";";
+            Console.WriteLine("Submitting Creates....");
+            query(queryString);
+            Console.WriteLine("Done.");
+            return createSet;
+            
         }
 
         public void reset()

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DatabasePopulation
 {
-    class Project
+    public class Project
     {
         static int id = 0;
         int myId;
@@ -25,6 +25,10 @@ namespace DatabasePopulation
         public string getAddTupleQuerryString()
         {
             return "(" +myId + ",\"" + deadline.ToString("yyyy-MM-dd HH:mm:ss") + "\",\"" + description+ "\")";
+        }
+        public string getPK()
+        {
+            return "\"" + this.myId + "\"";
         }
     }
 }

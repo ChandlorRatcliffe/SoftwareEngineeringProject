@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DatabasePopulation
 {
-    class Account
+    public class Account
     {
         string username;
         string email;
@@ -40,6 +40,10 @@ namespace DatabasePopulation
         public string getAddTupleQuerryString()
         {
             return "(\""+username + "\",\"" + email + "\",\"" + firstName + "\",\"" + lastName + "\",\"" +  password + "\",\""  +  skills + "\",\"" +  theme + "\",\"" + picturePath +"\")";
+        }
+        public string getPK()
+        {
+            return "\"" + this.username + "\",\"" + this.email + "\"";
         }
     }
 }

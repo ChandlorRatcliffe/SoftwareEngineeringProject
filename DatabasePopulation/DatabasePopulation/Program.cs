@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DatabasePopulation
 {
@@ -8,9 +9,7 @@ namespace DatabasePopulation
         {
             SQLInterface sql = new SQLInterface();
             sql.reset();
-            sql.generateAccounts(500);
-            sql.generateOrganizations(500);
-            sql.generateProjects(500);
+            sql.generateCreateSets(125);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DatabasePopulation
 {
-    class Organization
+    public class Organization
     {
         string name, license;
         DateTime activation;
@@ -25,6 +25,10 @@ namespace DatabasePopulation
         public string getAddTupleQuerryString()
         {
             return "(\"" + this.name + "\",\"" +  this.license + "\",\"" + this.activation.ToString("yyyy-MM-dd HH:mm:ss") + "\",\"" +  this.expiration.ToString("yyyy-MM-dd HH:mm:ss") + "\")";
+        }
+        public string getPK()
+        {
+            return "\"" + this.name + "\"";
         }
     }
 }
