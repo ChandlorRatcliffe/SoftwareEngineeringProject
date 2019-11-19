@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.29409.12
+VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashewWebForms", "CashewWebForms\CashewWebForms.csproj", "{188887BC-7AD8-4BAB-B823-5273C69215FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashewWebForms", "CashewWebForms.csproj", "{188887BC-7AD8-4BAB-B823-5273C69215FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E6B70E60-7358-44A1-8BB5-1FC9CB922291}
+		SolutionGuid = {272B9754-3BBC-4596-B3FE-4258161F0229}
 	EndGlobalSection
 EndGlobal
