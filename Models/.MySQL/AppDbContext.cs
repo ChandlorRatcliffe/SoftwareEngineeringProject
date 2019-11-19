@@ -44,14 +44,13 @@ namespace CashewWeb.Models
             //Assign Primary Keys and Compound Keys
             modelBuilder.Entity<Accounts>().HasKey(c => new { c.Username, c.Email });
             modelBuilder.Entity<Organizations>().HasKey(c => new { c.Name });
-            modelBuilder.Entity<Projects>().HasKey(c => new { c.ProjectId });
-            modelBuilder.Entity<Tasks>().HasKey(c => new { c.TaskId });
+            modelBuilder.Entity<Projects>().HasKey(c => new { c.ProjectID });
+            modelBuilder.Entity<Tasks>().HasKey(c => new { c.TaskID });
             modelBuilder.Entity<Parents>().HasKey(c => new { c.ParentId });
             modelBuilder.Entity<OrganizationAbilities>().HasKey(c => new { c.Username, c.Email, c.Name });
             modelBuilder.Entity<ProjectAbilities>().HasKey(c => new { c.Username, c.Email, c.ProjectId });
             modelBuilder.Entity<TaskAbilities>().HasKey(c => new { c.Username, c.Email, c.TaskId });
 
         }
-        
     }
 }

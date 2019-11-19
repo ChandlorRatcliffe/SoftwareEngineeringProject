@@ -107,7 +107,7 @@
 
     <!-- Accounts Error is just letting us know its not setup -->
     <div id="sidebar" class="d-lg-none btn-group mx-2 mb-1" role="group" style="display: none;">
-        <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="location.href='@Url.Action("Error", "Accounts")'" style="min-width: 145px;">Create Project</button>
+        <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="location.href='@Url.Action("CreateProject", "Projects")'" style="min-width: 145px;">Create Project</button>
         <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="location.href='@Url.Action("Error", "Accounts")'" style="min-width: 145px;">Create Objective</button>
         <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="location.href='@Url.Action("CreateTask", "Tasks")'" style="min-width: 145px;">Create Task</button>
     </div>
@@ -115,12 +115,10 @@
     <!-- Accounts Error is just letting us know its not setup -->
     <div class="row">
         <div class="d-none col-lg-2 d-lg-block bg-dark pt-1" style="height: 875px;">
-            <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="location.href='@Url.Action("Error", "Accounts")'" style="min-width: 145px;">Create Project</button>
+            <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="location.href='@Url.Action("CreateProject", "Projects")'" style="min-width: 145px;">Create Project</button>
             <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="location.href='@Url.Action("Error", "Accounts")'" style="min-width: 145px;">Create Objective</button>
             <button class="btn btn-secondary rounded-0 mt-1" type="button" onclick="location.href='@Url.Action("CreateTask", "Tasks")'" style="min-width: 145px;">Create Task</button>
         </div>
-
-
 
         <div class="col-sm-12 col-md-12 col-lg-10 bg-light" style="height: 875px;">
             @RenderBody()

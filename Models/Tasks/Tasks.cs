@@ -11,7 +11,8 @@ namespace CashewWeb.Models
     {
         [BindProperty]
         [MaxLength(50, ErrorMessage = "Task ID may not exceed 50 characters.")]
-        public string TaskId { get; set; }
+
+        public string TaskID { get; set; }
 
         [BindProperty]
         [MaxLength(50, ErrorMessage = "Task Name may not exceed 50 characters.")]
