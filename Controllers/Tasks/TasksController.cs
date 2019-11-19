@@ -37,8 +37,26 @@ namespace CashewWeb.Controllers
             return View(tasksViewModel);
         }
 
+        /// <summary>
+        /// Landing Page for Create Task
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpGet]
+        [ActionName("CreateTask")]
+        public ViewResult CreateTaskGet()
+        {
+            return View();
+        }
 
-
-
+        /// <summary>
+        /// Create Task Post Request .. TODO
+        /// </summary>
+        /// <returns>ViewResult</returns>
+        [HttpPost]
+        [ActionName("CreateTask")]
+        public RedirectToActionResult CreateTaskPost()
+        {
+            return RedirectToAction();
+        }
     }
 }
