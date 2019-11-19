@@ -16,8 +16,9 @@ nupkg/
 *.user
 *.userosscache
 *.sln.docstates
-*.assets.json
 *.cshtml.g.cs
+*.pubxml
+*.assets.json
 
 
 # Build results
