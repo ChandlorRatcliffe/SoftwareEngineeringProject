@@ -26,10 +26,16 @@ CREATE TABLE Organization(
 DROP TABLE Project;
 CREATE TABLE Project(
     `ProjectId`	VARCHAR(50),
-    `TaskId`		VARCHAR(50),
     `ProjectDeadline`	DATETIME,
     `ProjectDescription`	VARCHAR(65335),
     PRIMARY KEY(`ProjectId`)
+);
+
+DROP TABLE BuiltOn;
+CREATE TABLE BuiltOn(
+    `ProjectId`	 VARCHAR(50),
+    `TaskId`	 VARCHAR(50),
+    PRIMARY KEY(`ProjectId`,`TaskId`)
 );
 
 DROP TABLE Manages;
