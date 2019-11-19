@@ -8948,6 +8948,7 @@
     ]
   },
   "packageFolders": {
+
     "C:\\Users\\armyj\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
@@ -8955,6 +8956,7 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+
       "projectUniqueName": "C:\\Users\\armyj\\Desktop\\Cashew\\Dev\\CashewWeb.csproj",
       "projectName": "CashewWeb",
       "projectPath": "C:\\Users\\armyj\\Desktop\\Cashew\\Dev\\CashewWeb.csproj",
@@ -8966,6 +8968,7 @@
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
+
         "C:\\Users\\armyj\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
