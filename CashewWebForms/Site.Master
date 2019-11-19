@@ -74,8 +74,8 @@
         </div>
 
         <!-- what does this button do that the button within the span above doesn't? Answer: It displays on medium and large but, not small -->
-        <asp:Button runat="server" CssClass="btn btn-dark mx-1 d-none d-md-block d-lg-block mr-2" type="button" <%--onclick="location.href='@Url.Action("Index", "Accounts")'"--%>>
-            <i class="far fa-user-circle fa-2x"></i>
+        <asp:Button runat="server" CssClass="btn btn-dark mx-1 d-none d-md-block d-lg-block mr-2" type="button" > <%--onclick="location.href='@Url.Action("Index", "Accounts")'"--%>
+<%--            <i class="far fa-user-circle fa-2x"></i>--%>
         </asp:Button>
 
     </nav>
@@ -113,6 +113,7 @@
                 <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
             </footer>
         </div>
+        <asp:ContentPlaceHolder runat="server" ID="MainContent"></asp:ContentPlaceHolder>
 
     </form>
 </body>
