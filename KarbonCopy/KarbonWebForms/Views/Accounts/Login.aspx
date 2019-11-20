@@ -13,7 +13,7 @@
                     <asp:TextBox runat="server" ID="EnterUsername" CssClass="form-control" placeholder="Enter Username"></asp:TextBox>
                     <%--<a class="form-text text-muted text-right text-light" onclick="location.href='@Url.Action("RecoveryUsername", "Accounts")'">Forgot&nbsp;Username?</a>
                     <span asp-validation-for="Username" class="text-danger"></span>--%>
-                    <asp:LinkButton runat="server" ID="RecoverUsername" CssClass="form-text text-muted text-right text-light" href="/Account/RecoverUsername">Forgot&nbsp;Username?</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="RecoverUsername" CssClass="form-text text-muted text-right text-light" href="/Views/Accounts/RecoverUsername">Forgot&nbsp;Username?</asp:LinkButton>
                 </div>
                 <div class="col-sm-1"></div>
             </div>
@@ -26,7 +26,7 @@
                     <asp:TextBox runat="server" ID="EnterPassword" CssClass="form-control" placeholder="Enter Password"></asp:TextBox>
                     <%--<a class="form-text text-muted text-right text-light" onclick="location.href='@Url.Action("RecoveryPassword", "Accounts")'">Forgot&nbsp;Password?</a>
                     <span asp-validation-for="Password" class="text-danger"></span>--%>
-                    <asp:LinkButton runat="server" ID="RecoverPassword" CssClass="form-text text-muted text-right text-light" href="/Account/RecoverPassword">Forgot&nbsp;Password?</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="RecoverPassword" CssClass="form-text text-muted text-right text-light" href="/Views/Accounts/RecoverPassword">Forgot&nbsp;Password?</asp:LinkButton>
                 </div>
                 <div class="col-sm-1"></div>
             </div>
@@ -44,7 +44,7 @@
         <!-- Authentication Navigation -->
         <h2 class="text-center mb-2"><br /><b>New</b> Karbon?</h2>
         <div class="mt-3 text-center">
-            <button class="btn btn-primary text-light text-center mt-2 border mx-2" style="width: 175px;" onclick="location.href='@Url.Action("Create", "Accounts")'">Create&nbsp;An&nbsp;Account</button>
+            <button class="btn btn-primary text-light text-center mt-2 border mx-2" style="width: 175px;" onclick="location.href='/Views/Accounts/Create'">Create&nbsp;An&nbsp;Account</button>
         </div>
         <br />
         <br />

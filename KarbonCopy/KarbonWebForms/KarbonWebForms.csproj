@@ -122,9 +122,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Account\Login.aspx" />
-    <Content Include="Account\RecoverPassword.aspx" />
-    <Content Include="Account\RecoverUsername.aspx" />
+    <Content Include="Views\Accounts\Login.aspx" />
+    <Content Include="Views\Accounts\RecoverPassword.aspx" />
+    <Content Include="Views\Accounts\RecoverUsername.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -205,25 +205,25 @@
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\Login.aspx.cs">
+    <Compile Include="Views\Accounts\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account\Login.aspx.designer.cs">
+    <Compile Include="Views\Accounts\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account\RecoverPassword.aspx.cs">
+    <Compile Include="Views\Accounts\RecoverPassword.aspx.cs">
       <DependentUpon>RecoverPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account\RecoverPassword.aspx.designer.cs">
+    <Compile Include="Views\Accounts\RecoverPassword.aspx.designer.cs">
       <DependentUpon>RecoverPassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account\RecoverUsername.aspx.cs">
+    <Compile Include="Views\Accounts\RecoverUsername.aspx.cs">
       <DependentUpon>RecoverUsername.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account\RecoverUsername.aspx.designer.cs">
+    <Compile Include="Views\Accounts\RecoverUsername.aspx.designer.cs">
       <DependentUpon>RecoverUsername.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -255,6 +255,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Account\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
