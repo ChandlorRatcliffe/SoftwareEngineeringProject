@@ -44,7 +44,7 @@
         <!-- Authentication Navigation -->
         <h2 class="text-center mb-2"><br /><b>New</b> Karbon?</h2>
         <div class="mt-3 text-center">
-            <button class="btn btn-primary text-light text-center mt-2 border mx-2" style="width: 175px;" onclick="location.href='@Url.Action("Create", "Accounts")'">Create&nbsp;An&nbsp;Account</button>
+            <button class="btn btn-primary text-light text-center mt-2 border mx-2" style="width: 175px;" onclick="location.href='/Views/Accounts/Create'">Create&nbsp;An&nbsp;Account</button>
         </div>
         <br />
         <br />
