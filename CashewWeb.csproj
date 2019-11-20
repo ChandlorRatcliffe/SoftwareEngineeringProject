@@ -5,9 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="CashewWeb\obj\**" />
     <Compile Remove="Models\.MySQL\NewFolder\**" />
+    <Content Remove="CashewWeb\obj\**" />
     <Content Remove="Models\.MySQL\NewFolder\**" />
+    <EmbeddedResource Remove="CashewWeb\obj\**" />
     <EmbeddedResource Remove="Models\.MySQL\NewFolder\**" />
+    <None Remove="CashewWeb\obj\**" />
     <None Remove="Models\.MySQL\NewFolder\**" />
   </ItemGroup>
 
