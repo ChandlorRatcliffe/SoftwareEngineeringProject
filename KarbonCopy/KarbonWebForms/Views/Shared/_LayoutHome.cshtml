@@ -1,0 +1,79 @@
+﻿<!-- Creator: Hamza Syed -->
+<!-- This _Layout.cshtml soely exist as a component for the home/landing page-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@ViewBag.Title</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/css/fontawesome.css">
+        <link rel="stylesheet" href="~/lib/css/bootstrap.css" />
+        <script src="~/lib/js/jquery-3.4.1.js"></script>
+        <script src="~/lib/js/all.js"></script>
+        <script src="~/lib/js/bootstrap.bundle.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/lib/css/fontawesome.css">
+        <link rel="stylesheet" href="~/lib/css/bootstrap.css" />
+        <script src="~/lib/js/jquery-3.4.1.js"></script>
+        <script src="~/lib/js/all.js"></script>
+        <script src="~/lib/js/bootstrap.bundle.js"></script>
+    </environment>
+</head>
+
+<body>
+    <nav class="shadow navbar navbar-expand-md bg-light navbar-dark sticky-top px-0">
+
+        <button class="btn btn-light btn-lg p-0 ml-2" type="button" href="#" style="min-width: 72px;" onclick="location.href='@Url.Action("Index", "Home")'">
+            <div class="form-inline">
+                <span class="">
+                    <i class="fas fa-cog fa-spin fa-2x fa-fw"></i>
+                </span>
+                <span class="align-self-center text-uppercase text-dark" style="font-size: 1.5rem;">Karbon</span>
+            </div>
+        </button>
+
+        <span>
+            <button class="btn btn-light mx-1 d-sm-inline-block d-md-none d-lg-none" type="button" onclick="location.href='@Url.Action("Index", "Accounts")'">
+                Login <i class="far fa-user-circle fa-2x" style="vertical-align:middle"></i>
+            </button>
+        </span>
+
+        <div class="collapse navbar-collapse mt-1 mt-sm-0 mx-1 mx-md-0" id="collapsibleNavbar">
+        </div>
+
+        <div class="col-3 d-none d-lg-block px-0">
+        </div>
+
+        <!-- what does this button do that the button within the span above doesn't? Answer: It displays on medium and large but, not small -->
+        <button class="btn btn-light mx-1 d-none d-md-block d-lg-block mr-2" type="button" onclick="location.href='@Url.Action("Index", "Accounts")'">
+            Login <i class="far fa-user-circle fa-2x" style="vertical-align:middle"></i>
+        </button>
+    </nav>
+
+    <!-- Accounts Error is just letting us know its not setup -->
+    <div class="container-fluid mt-3" style="height: auto;">
+        @RenderBody()
+    </div>
+
+</body>
+</html>
+
+<script>
+    var kebabSwitch = false;
+    $("#kebab").click(function () {
+        if (kebabSwitch) {
+            $("#sidebar").css("display", "none");
+            kebabSwitch = false;
+        }
+        else {
+            $("#sidebar").css("display", "block");
+            kebabSwitch = true;
+        }
+    });
+</script>
