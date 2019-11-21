@@ -37,6 +37,18 @@ namespace CashewWeb.Controllers
             return View(notesViewModel);
         }
 
+        [HttpGet]
+        [ActionName("CreateNote")]
+        public ViewResult CreateNoteGet()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        [ActionName("CreateNote")]
+        public ViewResult CreateNotePost()
+        {
+            return View();
+        }
     }
 }

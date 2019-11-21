@@ -54,9 +54,9 @@ namespace CashewWeb.Controllers
         /// <returns>ViewResult</returns>
         [HttpPost]
         [ActionName("CreateTask")]
-        public RedirectToActionResult CreateTaskPost()
+        public ViewResult CreateTaskPost()
         {
-            return RedirectToAction();
+            return View();
         }
     }
 }
