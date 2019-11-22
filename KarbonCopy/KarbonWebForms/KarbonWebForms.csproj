@@ -265,6 +265,7 @@
     <Content Include="Views\Projects\ProjectPage.cshtml" />
     <Content Include="Views\Tasks\Error.cshtml" />
     <Content Include="Views\Tasks\TaskPage.cshtml" />
+    <Content Include="Views\Notes\CreateNote.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
