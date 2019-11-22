@@ -7,12 +7,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - My ASP.NET Application</title>
-
     <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
+        <%: Styles.Render("~/lib/css") %>
+        <%: Scripts.Render("~/lib/js") %>
     </asp:PlaceHolder>
-
-    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
@@ -22,8 +20,6 @@
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
                 <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="bootstrap" />
                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
                 <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
                 <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
@@ -31,7 +27,6 @@
                 <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
                 <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
             </Scripts>
@@ -58,9 +53,9 @@
             </span>
 
             <div class="collapse navbar-collapse mt-1 mt-sm-0 mx-1 mx-md-0" id="collapsibleNavbar">
-                <%--<button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Progress")'">Progress</button>
-            <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Projects")'">Projects</button>
-            <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Tasks")'">Tasks</button>--%>
+            <button class="btn btn-dark" type="button" onclick="">Progress</button>
+            <button class="btn btn-dark" type="button" onclick="">Projects</button>
+            <button class="btn btn-dark" type="button" onclick="">Tasks</button>--%>
             </div>
 
             <div class="col-3 d-none d-lg-block px-0">
@@ -95,10 +90,10 @@
         </div>
 
         <!-- Accounts Error is just letting us know its not setup -->
-        <div id="sidebar" class="d-lg-none btn-group mx-2 mb-1" role="group" style="display: none;">
-            <button class="btn btn-secondary rounded-0 mt-1" type="button" <%--onclick="location.href='@Url.Action("Error", "Accounts")'" --%> style="min-width: 145px;">Create Project</button>
-            <button class="btn btn-secondary rounded-0 mt-1" type="button" <%--onclick="location.href='@Url.Action("Error", "Accounts")'"--%> style="min-width: 145px;">Create Objective</button>
-            <button class="btn btn-secondary rounded-0 mt-1" type="button" <%--onclick="location.href='@Url.Action("Error", "Accounts")'"--%> style="min-width: 145px;">Create Task</button>
+        <div id="sidebar" class="d-lg-none btn-group mx-2 mb-1" role="group">
+            <button class="btn btn-secondary rounded-0 mt-1" type="button" style="min-width: 145px;">Create Project</button>
+            <button class="btn btn-secondary rounded-0 mt-1" type="button" style="min-width: 145px;">Create Objective</button>
+            <button class="btn btn-secondary rounded-0 mt-1" type="button" style="min-width: 145px;">Create Task</button>
         </div>
         <hr />
         <asp:ContentPlaceHolder runat="server" ID="MainContent"></asp:ContentPlaceHolder>
