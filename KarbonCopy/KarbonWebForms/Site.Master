@@ -1,29 +1,21 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="CashewWebForms.SiteMaster" %>
-
 <!DOCTYPE html>
-
 <html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - My ASP.NET Application</title>
-
     <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
+        <%: Styles.Render("~/lib/css") %>
+        <%: Scripts.Render("~/lib/js") %>
     </asp:PlaceHolder>
-
-    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Framework Scripts--%>
                 <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="bootstrap" />
                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
                 <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
                 <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
@@ -31,15 +23,13 @@
                 <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
                 <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
-                <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
 
         <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top px-0">
-
-            <button class="btn btn-dark btn-lg p-0 ml-2" type="button" style="min-width: 72px;" onclick="location.href='~/Home">
+            <!-- Home Button -->
+            <button class="btn btn-dark btn-lg p-0 mx-2" type="button" style="min-width: 72px;" onclick="location.href='~/Home">
                 <div class="form-inline">
                     <span class="">
                         <i class="fas fa-cog fa-spin fa-2x fa-fw"></i>
@@ -48,38 +38,35 @@
                 </div>
             </button>
 
+            <!-- Account Button, Hamburger Button -->
             <span>
-                <button class="btn btn-dark mx-1 d-sm-inline-block d-md-none d-lg-none" type="button" <%--onclick="location.href='@Url.Action("Index", "Account")'"--%>>
-                    <i class="far fa-user-circle fa-2x"></i>
-                </button>
-                <button class="btn btn-dark mx-1 d-sm-inline-block d-md-none d-lg-none navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <button class="btn btn-dark mx-1 d-sm-inline-block d-md-none d-lg-none" type="button" onclick="">
+                <i class="far fa-user-circle fa-2x"></i>
+            </button>
+            <button class="btn btn-dark mx-1 d-sm-inline-block d-md-none d-lg-none navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             </span>
 
+            <!-- Additional Buttons -->
             <div class="collapse navbar-collapse mt-1 mt-sm-0 mx-1 mx-md-0" id="collapsibleNavbar">
-                <%--<button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Progress")'">Progress</button>
-            <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Projects")'">Projects</button>
-            <button class="btn btn-dark" type="button" onclick="location.href='@Url.Action("Index", "Tasks")'">Tasks</button>--%>
+                <button class="btn btn-dark" type="button" onclick="">Progress</button>
+                <button class="btn btn-dark" type="button" onclick="">Projects</button>
+                <button class="btn btn-dark" type="button" onclick="">Tasks</button>
             </div>
 
+            <!-- Search Bar -->
             <div class="col-3 d-none d-lg-block px-0">
-                <%--<form asp-action="Index" asp-controller="Search" method="post" defaultbutton="SubmitButton" runat="server">
-                <input asp-form="query" class="form-control" type="text" placeholder="Search" name="Query">
-                <!--
-                        <span asp-validation-for="query"></span>
-                -->
-                <button id="SubmitButton" type="submit" style="display:none;">Test</button>
-            </form>--%>
+                <input class="form-control" type="text" placeholder="Search" name="Query">
             </div>
 
-            <!-- what does this button do that the button within the span above doesn't? Answer: It displays on medium and large but, not small -->
-            <asp:Button runat="server" CssClass="btn btn-dark mx-1 d-none d-md-block d-lg-block mr-2" type="button"><%--onclick="location.href='@Url.Action("Index", "Accounts")'"--%>
-                <%--            <i class="far fa-user-circle fa-2x"></i>--%>
-            </asp:Button>
-
+            <!-- Account Button -->
+            <Button class="btn btn-dark mx-1 d-none d-md-block d-lg-block mr-2" Text="Button" runat="server" onclick="">
+                <i class="far fa-user-circle fa-2x"></i>
+            </Button>
         </nav>
 
+        <!-- Kebab -->
         <div class="col-12 d-sm-block d-md-block d-lg-none bg-dark px-0">
             <div class="row">
                 <div class="col-2">
@@ -87,24 +74,39 @@
                         <i class="fas fa-ellipsis-v fa-2x fa-fw"></i>
                     </button>
                 </div>
-
-                <%--<form class="col-9 px-0 pt-1">
-                <input class="form-control" type="text" placeholder="Search">
-            </form>--%>
+                <div class="col-9 px-0 pt-1">
+                    <input class="form-control" type="text" placeholder="Search">
+                </div>
             </div>
         </div>
 
-        <!-- Accounts Error is just letting us know its not setup -->
+        <!-- Sidebar display:none so, it doesn't display on load-->
         <div id="sidebar" class="d-lg-none btn-group mx-2 mb-1" role="group" style="display: none;">
-            <button class="btn btn-secondary rounded-0 mt-1" type="button" <%--onclick="location.href='@Url.Action("Error", "Accounts")'" --%> style="min-width: 145px;">Create Project</button>
-            <button class="btn btn-secondary rounded-0 mt-1" type="button" <%--onclick="location.href='@Url.Action("Error", "Accounts")'"--%> style="min-width: 145px;">Create Objective</button>
-            <button class="btn btn-secondary rounded-0 mt-1" type="button" <%--onclick="location.href='@Url.Action("Error", "Accounts")'"--%> style="min-width: 145px;">Create Task</button>
+            <button class="btn btn-secondary rounded-0 mt-1" type="button" style="min-width: 145px;">Create Project</button>
+            <button class="btn btn-secondary rounded-0 mt-1" type="button" style="min-width: 145px;">Create Objective</button>
+            <button class="btn btn-secondary rounded-0 mt-1" type="button" style="min-width: 145px;">Create Task</button>
         </div>
-        <hr />
+
+        
+
+        <!-- Page Specific Content w/ spacing-->
+        <div class="mb-4"></div>
         <asp:ContentPlaceHolder runat="server" ID="MainContent"></asp:ContentPlaceHolder>
-        <footer>
-            <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-        </footer>
+
     </form>
+
+    <script>
+        var kebabSwitch = false;
+        $("#kebab").click(function () {
+            if (kebabSwitch) {
+                $("#sidebar").css("display", "none");
+                kebabSwitch = false;
+            }
+            else {
+                $("#sidebar").css("display", "block");
+                kebabSwitch = true;
+            }
+        });
+</script>
 </body>
 </html>
