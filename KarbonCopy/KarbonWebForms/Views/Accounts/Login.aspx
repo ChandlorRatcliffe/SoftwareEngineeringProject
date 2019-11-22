@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CashewWebForms.Login" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CashewWebForms.Login" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div class="container bg-light my-5" style="max-width: 500px;">
@@ -38,7 +38,7 @@
             </div><br />
         <hr style="border-color: gray;" />
             <div class="text-center">
-                <a href='@Url.Action("Index","Projects")'><b>To Dashboard</b></a>
+                <a runat="server" href="~/Views/Projects/Projects.aspx"><b>To Dashboard</b></a>
             </div>
         <hr style="border-color: gray;" />
         <!-- Authentication Navigation -->

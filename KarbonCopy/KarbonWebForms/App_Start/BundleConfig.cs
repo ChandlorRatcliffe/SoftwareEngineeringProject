@@ -15,7 +15,8 @@ namespace KarbonWebForms
             bundles.Add(new StyleBundle("~/lib/css").Include(
                 "~/lib/css/fontawesome.css",
                 "~/lib/css/bootstrap.css",
-                "~/lib/css/all.css"
+                "~/lib/css/all.css",
+                "~/lib/css/boomod.css"
                 )
             );
 

@@ -138,6 +138,7 @@
     <Content Include="lib\css\regular.min.css" />
     <Content Include="lib\css\solid.css" />
     <Content Include="lib\css\solid.min.css" />
+    <Content Include="lib\css\boomod.css" />
     <Content Include="lib\css\svg-with-js.css" />
     <Content Include="lib\css\svg-with-js.min.css" />
     <Content Include="lib\css\v4-shims.css" />
@@ -162,6 +163,7 @@
     <Content Include="lib\js\solid.min.js" />
     <Content Include="lib\js\v4-shims.js" />
     <Content Include="lib\js\v4-shims.min.js" />
+    <Content Include="lib\pics\tempBanner1.jpg" />
     <Content Include="lib\sprites\brands.svg" />
     <Content Include="lib\sprites\regular.svg" />
     <Content Include="lib\sprites\solid.svg" />
@@ -1748,8 +1750,12 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Home\tempBanner1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Projects\Projects.aspx" />
     <Content Include="Web.config" />
     <Content Include="Views\Accounts\Create.cshtml" />
     <Content Include="Views\Accounts\Details.cshtml" />
@@ -1764,7 +1770,9 @@
     <Content Include="Views\Accounts\_ViewStart.cshtml" />
     <Content Include="Views\Chat\Index.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Dashboard.Master" />
+    <None Include="Properties\PublishProfiles\CashewClub - Web Deploy.pubxml" />
+    <None Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_ViewStart.cshtml" />
     <Content Include="Views\Notes\Index.cshtml" />
     <Content Include="Views\Progress\Index.cshtml" />
@@ -1781,6 +1789,20 @@
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dashboard.Master.cs">
+      <DependentUpon>Dashboard.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Master.designer.cs">
+      <DependentUpon>Dashboard.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Home.Master.cs">
+      <DependentUpon>Home.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.Master.designer.cs">
+      <DependentUpon>Home.Master</DependentUpon>
+    </Compile>
     <Compile Include="Views\Accounts\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1815,19 +1837,26 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Projects\Projects.aspx.cs">
+      <DependentUpon>Projects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Projects\Projects.aspx.designer.cs">
+      <DependentUpon>Projects.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -1903,6 +1932,7 @@
     <Content Include="Views\Projects\ProjectPage.cshtml" />
     <Content Include="Views\Tasks\Error.cshtml" />
     <Content Include="Views\Tasks\TaskPage.cshtml" />
+    <Content Include="Home.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
