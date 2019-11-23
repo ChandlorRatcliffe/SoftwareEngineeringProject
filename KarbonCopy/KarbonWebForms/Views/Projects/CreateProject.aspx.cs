@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace KarbonWebForms.Views.Tasks
+namespace KarbonWebForms.Views.Projects
 {
-    public partial class Error : System.Web.UI.Page
+    public partial class CreateProject : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KarbonWebForms.Views.Tasks
+namespace KarbonWebForms.Views.Projects
 {
 
 
-    public partial class Error
+    public partial class TeamManagement
     {
     }
 }

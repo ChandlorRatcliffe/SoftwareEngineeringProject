@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="KarbonWebForms.Views.Tasks.Index" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="KarbonWebForms.Views.Tasks.Index" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="DashboardContent">
 

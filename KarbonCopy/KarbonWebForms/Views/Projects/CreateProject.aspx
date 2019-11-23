@@ -1,7 +1,5 @@
-﻿<!-- Creator: Minh Dang-->
-
-@model Projects
-
+﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="CreateProject.aspx.cs" Inherits="KarbonWebForms.Views.Projects.CreateProject" %>
+<asp:Content runat="server" ContentPlaceHolderID="DashboardContent">
 <style>
     #TeammatesPicker {
         border: 1px solid #c3c3c3;
@@ -10,13 +8,32 @@
         overflow-y: scroll;
     }
 </style>
+    <script type="text/javascript">
+        $('#ProjectDescription').keyup(function () {
+            var left = 150 - $(this).val().length;
+            if (left < 0) {
+                left = 0;
+            }
+            $('#Counter').text('Characters left: ' + left);
+        });
+        </script>
+    <script>
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+        </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
 <div class="container my-5" style="max-width: 700px;">
     <h3 class="text-center mb-2">Create New Project</h3>
-    <div asp-validation-summary="All" class="text-danger"></div>
+    <!--<div asp-validation-summary="All" class="text-danger"></div>-->
     <!-- Project's Name-->
     <div class="row">
-        <input asp-for="ProjectName" class="form-control col" placeholder="Enter a Project's Name" />
+        <!-- asp-for="ProjectName" -->
+        <input  class="form-control col" placeholder="Enter a Project's Name" />
         <small id="ProjectNameHelpBlock" class="form-text text-muted">
             Project name must be less than or equal to 50 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
         </small>
@@ -24,34 +41,18 @@
     <br />
     <!-- Project's Deadline-->
     <div class="row">
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-        <input id="datepicker" asp-for="ProjectDeadline" class="form-control col" placeholder="Pick the Project's Deadline" width="300" />
-        <script>
-            $('#datepicker').datepicker({
-                uiLibrary: 'bootstrap4'
-            });
-        </script>
+        <input id="datepicker" class="form-control col" placeholder="Pick the Project's Deadline" style="width:300px" />
+        <!-- asp-for="ProjectDeadline" -->
     </div>
     <br />
     <!-- Project's Description-->
     <div class="row">
-        <textarea class="col" id="ProjectDescription" style="max-height:300px;min-height:100px;" asp-for="ProjectDescription" placeholder="Project's Description (150 characters)"></textarea>
+        <!-- asp-for="ProjectDescription" -->
+        <textarea class="col" id="ProjectDescription" style="max-height:300px;min-height:100px;"  placeholder="Project's Description (150 characters)"></textarea>
     </div>
     <br />
     <div class="row float-right">
         <p id="Counter"></p>
-        <script type="text/javascript">
-            $('#ProjectDescription').keyup(function () {
-                var left = 150 - $(this).val().length;
-                if (left < 0) {
-                    left = 0;
-                }
-                $('#Counter').text('Characters left: ' + left);
-            });
-        </script>
     </div>
     <br />
     <div class="row">
@@ -102,3 +103,5 @@
         <button id="CreateProject" type="button" class="btn btn-primary">Create Project</button>
     </div>
 </div>
+
+</asp:Content>

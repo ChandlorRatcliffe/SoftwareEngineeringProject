@@ -1,10 +1,5 @@
-﻿<!-- Creator: Tyler Bird-->
-
-@model ProjectsViewModel
-
-@{
-    ViewBag.Title = "TeamManagement";
-}
+﻿<%@ Page Language="C#"  MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="TeamManagement.aspx.cs" Inherits="KarbonWebForms.Views.Projects.TeamManagement" %>
+<asp:Content runat="server" ContentPlaceHolderID="DashboardContent">
 <div>
 	<div>
 		<h2 class="text-center">Team Members</h2>
@@ -63,3 +58,5 @@
         </div>
     </div>
 </div>
+
+</asp:Content>
