@@ -153,35 +153,52 @@ namespace DatabasePopulation
             return organizations;
         }
 
-
+        //Generate a list of projects and add them to the database. 
         public List<Project> generateProjects(int number)
         {
             Console.WriteLine("Generating Projects");
+            //To do this, we'll need a Project Generator.
             ProjectGenerator proj = new ProjectGenerator(this.words);
+            //We'll also create a list to store the projects. 
             List<Project> projects = proj.generateProjects(number);
+            //Prepare an insert query string.
             string queryString = "insert into project(projectid, projectdeadline, projectdescription) values ";
+            //Populate the query string with the value tuples associated with the projects previously generated.
             foreach(Project project in projects)
             {
                 queryString += project.getAddTupleQuerryString() + ",";
             }
+            //Change the last character from a comma to a semicolon. 
             queryString = queryString.Substring(0, queryString.Length - 1) + ";";
+            //submit the query.
             Console.WriteLine("Submitting Projects...");
             query(queryString);
             Console.WriteLine("Done.");
-
+            //return the project list to the caller if it's needed.
             return projects;
         }
-
+        //This function is responsible for generating a certain number of project creation record batches.
+        //In the process, it takes the active instance of SQLInterface and passes it through to 
+        //CreaetesGenerator for the purpose of generating and populating the database with the relevant
+        //projects, organizations, and accounts required to validly construct a create record. 
         public List<Create> generateCreateSets(int number)
         {
             Console.WriteLine("Generating Create Sets...");
+            //Make a CreatesGenerator.
             CreatesGenerator c = new CreatesGenerator(this.words);
+            //Prepare a new list for the create records. 
             List<Create> createSet = new List<Create>();
+            //prime the query string for insertion. 
             string queryString = "insert into creates(username, email, name, projectid) values ";
+            //Generate the number of batches of create records requested by the user.
             for(int i = 0; i < number; i++)
             {
                 Console.WriteLine("Generating batch " + (i+1) + " of creates...");
+                //Pass the SQLInterface to the CreatesGenerator so that it can make the projects, accounts, and organizations
+                //required to populate a create record. 
                 List<Create> creates = c.generateCreateSet(this);
+                //For every create record, store it in the list for output, and add the 
+                //value tuple to the query string. 
                 foreach(Create create in creates)
                 {
                     createSet.Add(create);
@@ -189,14 +206,16 @@ namespace DatabasePopulation
                 }
                 Console.WriteLine("Finished batch " + (i+1) + ".\n");
             }
+            //Convert the last symbol from a comma to a semicolon. 
             queryString = queryString.Substring(0, queryString.Length - 1) + ";";
             Console.WriteLine("Submitting Creates....");
+            //Submit the query.
             query(queryString);
             Console.WriteLine("Done.");
-            return createSet;
-            
+            //Give the create record set back to the caller. 
+            return createSet;            
         }
-
+        //Completely clear generated data, and repopulate the database with the constants.
         public void reset()
         {
             Console.WriteLine("Erradicating Database Contents...");
