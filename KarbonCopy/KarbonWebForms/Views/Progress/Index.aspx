@@ -1,11 +1,5 @@
-﻿<!-- Creator: Spencer Stair-->
-
-@model ProgressViewModel
-
-@{
-    ViewBag.Title = Model.PageTitle;
-}
-
+﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="KarbonWebForms.Views.Progress.Index" %>
+<asp:Content runat="server" ContentPlaceHolderID="DashboardContent">
 <div>
     <h2>Progress of the Project</h2>
 </div>
@@ -73,4 +67,4 @@
 </div>
 
 
-
+</asp:Content>

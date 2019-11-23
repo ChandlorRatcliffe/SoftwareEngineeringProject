@@ -179,20 +179,19 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\Progress\Index.aspx" />
     <Content Include="Views\Projects\CreateProject.aspx" />
     <Content Include="Views\Projects\Index.aspx" />
     <Content Include="Views\Projects\PermissionManagement.aspx" />
     <Content Include="Views\Projects\ProjectPage.aspx" />
     <Content Include="Views\Projects\TeamManagement.aspx" />
     <Content Include="Views\Home\HomeContent.aspx" />
-    <Content Include="Views\Projects\ProjectPage.cshtml" />
     <Content Include="Views\Tasks\CreateTask.aspx" />
     <Content Include="Views\Tasks\Index.aspx" />
     <Content Include="Views\Tasks\TaskPage.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Views\Notes\Index.cshtml" />
-    <Content Include="Views\Progress\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Views\Accounts\Create.aspx.cs">
@@ -284,6 +283,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Progress\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Progress\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Projects\CreateProject.aspx.cs">
       <DependentUpon>CreateProject.aspx</DependentUpon>
