@@ -12,10 +12,13 @@ namespace KarbonWebForms
         // For more information on Bundling, visit https://go.microsoft.com/fwlink/?LinkID=303951
         public static void RegisterBundles(BundleCollection bundles)
         {
+            BundleTable.EnableOptimizations = false;
+
             bundles.Add(new StyleBundle("~/lib/css").Include(
                 "~/lib/css/fontawesome.css",
                 "~/lib/css/bootstrap.css",
-                "~/lib/css/all.css"
+                "~/lib/css/all.css",
+                "~/lib/css/boomod.css"
                 )
             );
 

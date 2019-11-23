@@ -122,6 +122,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Accounts\Create.aspx" />
+    <Content Include="Views\Accounts\Error.aspx" />
     <Content Include="lib\css\all.css" />
     <Content Include="lib\css\all.min.css" />
     <Content Include="lib\css\bootstrap-grid.css" />
@@ -138,6 +140,7 @@
     <Content Include="lib\css\regular.min.css" />
     <Content Include="lib\css\solid.css" />
     <Content Include="lib\css\solid.min.css" />
+    <Content Include="lib\css\boomod.css" />
     <Content Include="lib\css\svg-with-js.css" />
     <Content Include="lib\css\svg-with-js.min.css" />
     <Content Include="lib\css\v4-shims.css" />
@@ -162,6 +165,7 @@
     <Content Include="lib\js\solid.min.js" />
     <Content Include="lib\js\v4-shims.js" />
     <Content Include="lib\js\v4-shims.min.js" />
+    <Content Include="lib\pics\tempBanner1.jpg" />
     <Content Include="lib\sprites\brands.svg" />
     <Content Include="lib\sprites\regular.svg" />
     <Content Include="lib\sprites\solid.svg" />
@@ -1717,6 +1721,10 @@
     <Content Include="lib\webfonts\fa-solid-900.svg" />
     <Content Include="Views\Accounts\Login.aspx" />
     <Content Include="Views\Accounts\RecoverPassword.aspx" />
+    <Content Include="Views\Accounts\RecoverPasswordFailure.aspx" />
+    <Content Include="Views\Accounts\RecoverPasswordSuccess.aspx" />
+    <Content Include="Views\Accounts\RecoverUsernameFailure.aspx" />
+    <Content Include="Views\Accounts\RecoverUsernameSuccess.aspx" />
     <Content Include="Views\Accounts\RecoverUsername.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -1743,39 +1751,60 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\Notes\CreateNote.aspx" />
+    <Content Include="Views\Notes\NoteContent.aspx" />
+    <Content Include="Views\Progress\Index.aspx" />
+    <Content Include="Views\Projects\CreateProject.aspx" />
+    <Content Include="Views\Projects\Index.aspx" />
+    <Content Include="Views\Projects\PermissionManagement.aspx" />
+    <Content Include="Views\Projects\ProjectPage.aspx" />
+    <Content Include="Views\Projects\TeamManagement.aspx" />
+    <Content Include="Views\Home\HomeContent.aspx" />
+    <Content Include="Views\Tasks\CreateTask.aspx" />
+    <Content Include="Views\Tasks\Index.aspx" />
+    <Content Include="Views\Tasks\TaskPage.aspx" />
     <Content Include="Web.config" />
-    <Content Include="Views\Accounts\Create.cshtml" />
-    <Content Include="Views\Accounts\Details.cshtml" />
-    <Content Include="Views\Accounts\Error.cshtml" />
-    <Content Include="Views\Accounts\Index.cshtml" />
-    <Content Include="Views\Accounts\RecoveryPassword.cshtml" />
-    <Content Include="Views\Accounts\RecoveryPasswordFailure.cshtml" />
-    <Content Include="Views\Accounts\RecoveryPasswordSuccess.cshtml" />
-    <Content Include="Views\Accounts\RecoveryUsername.cshtml" />
-    <Content Include="Views\Accounts\RecoveryUsernameFailure.cshtml" />
-    <Content Include="Views\Accounts\RecoveryUsernameSuccess.cshtml" />
-    <Content Include="Views\Accounts\_ViewStart.cshtml" />
-    <Content Include="Views\Chat\Index.cshtml" />
-    <Content Include="Views\Contacts\Index.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\_ViewStart.cshtml" />
-    <Content Include="Views\Notes\Index.cshtml" />
-    <Content Include="Views\Progress\Index.cshtml" />
-    <Content Include="Views\Projects\Error.cshtml" />
-    <Content Include="Views\Projects\Index.cshtml" />
-    <Content Include="Views\Projects\PermissionManagement.cshtml" />
-    <Content Include="Views\Projects\TeamManagement.cshtml" />
-    <Content Include="Views\Search\Index.cshtml" />
-    <Content Include="Views\Search\Results.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_LayoutHome.cshtml" />
-    <Content Include="Views\Tasks\Index.cshtml" />
-    <Content Include="Views\_ViewImports.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\Accounts\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accounts\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Home\tempBanner1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Projects\Projects.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Dashboard.Master" />
+    <None Include="Properties\PublishProfiles\CashewClub - Web Deploy.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dashboard.Master.cs">
+      <DependentUpon>Dashboard.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Master.designer.cs">
+      <DependentUpon>Dashboard.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Home.Master.cs">
+      <DependentUpon>Home.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.Master.designer.cs">
+      <DependentUpon>Home.Master</DependentUpon>
+    </Compile>
     <Compile Include="Views\Accounts\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1789,6 +1818,34 @@
     </Compile>
     <Compile Include="Views\Accounts\RecoverPassword.aspx.designer.cs">
       <DependentUpon>RecoverPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accounts\RecoverPasswordFailure.aspx.cs">
+      <DependentUpon>RecoverPasswordFailure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\RecoverPasswordFailure.aspx.designer.cs">
+      <DependentUpon>RecoverPasswordFailure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accounts\RecoverPasswordSuccess.aspx.cs">
+      <DependentUpon>RecoverPasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\RecoverPasswordSuccess.aspx.designer.cs">
+      <DependentUpon>RecoverPasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accounts\RecoverUsernameFailure.aspx.cs">
+      <DependentUpon>RecoverUsernameFailure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\RecoverUsernameFailure.aspx.designer.cs">
+      <DependentUpon>RecoverUsernameFailure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accounts\RecoverUsernameSuccess.aspx.cs">
+      <DependentUpon>RecoverUsernameSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\RecoverUsernameSuccess.aspx.designer.cs">
+      <DependentUpon>RecoverUsernameSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Accounts\RecoverUsername.aspx.cs">
       <DependentUpon>RecoverUsername.aspx</DependentUpon>
@@ -1810,13 +1867,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1824,10 +1874,107 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Home\HomeContent.aspx.cs">
+      <DependentUpon>HomeContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home\HomeContent.aspx.designer.cs">
+      <DependentUpon>HomeContent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Notes\CreateNote.aspx.cs">
+      <DependentUpon>CreateNote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Notes\CreateNote.aspx.designer.cs">
+      <DependentUpon>CreateNote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Notes\NoteContent.aspx.cs">
+      <DependentUpon>NoteContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Notes\NoteContent.aspx.designer.cs">
+      <DependentUpon>NoteContent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Progress\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Progress\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Projects\CreateProject.aspx.cs">
+      <DependentUpon>CreateProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Projects\CreateProject.aspx.designer.cs">
+      <DependentUpon>CreateProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Projects\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Projects\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Projects\PermissionManagement.aspx.cs">
+      <DependentUpon>PermissionManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Projects\PermissionManagement.aspx.designer.cs">
+      <DependentUpon>PermissionManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Projects\ProjectPage.aspx.cs">
+      <DependentUpon>ProjectPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Projects\ProjectPage.aspx.designer.cs">
+      <DependentUpon>ProjectPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Projects\TeamManagement.aspx.cs">
+      <DependentUpon>TeamManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Projects\TeamManagement.aspx.designer.cs">
+      <DependentUpon>TeamManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\CreateTask.aspx.cs">
+      <DependentUpon>CreateTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Tasks\CreateTask.aspx.designer.cs">
+      <DependentUpon>CreateTask.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Tasks\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\TaskPage.aspx.cs">
+      <DependentUpon>TaskPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Tasks\TaskPage.aspx.designer.cs">
+      <DependentUpon>TaskPage.aspx</DependentUpon>
+    <Compile Include="Views\Home\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Projects\Projects.aspx.cs">
+      <DependentUpon>Projects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Projects\Projects.aspx.designer.cs">
+      <DependentUpon>Projects.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Account\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Progress\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="lib\css\bootstrap-grid.css.map" />
@@ -1895,9 +2042,9 @@
     <Content Include="lib\webfonts\fa-solid-900.woff" />
     <Content Include="lib\webfonts\fa-solid-900.woff2" />
     <None Include="packages.config" />
-    <Content Include="Views\Projects\ProjectPage.cshtml" />
-    <Content Include="Views\Tasks\Error.cshtml" />
-    <Content Include="Views\Tasks\TaskPage.cshtml" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Home.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

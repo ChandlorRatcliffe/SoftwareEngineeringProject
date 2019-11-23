@@ -1,0 +1,71 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.Master.cs" Inherits="CashewWebForms.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <asp:PlaceHolder runat="server">
+        <%: Styles.Render("~/lib/css") %>
+        <%: Scripts.Render("~/lib/js") %>
+    </asp:PlaceHolder>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <nav class="shadow navbar navbar-expand-md bg-light navbar-dark sticky-top px-0">
+
+            <a runat="server" class="btn btn-light btn-lg p-0 ml-2" style="min-width: 72px;" href="~/Views/Home/Index.aspx">
+                <div class="form-inline">
+                    <span class="">
+                        <i class="fas fa-cog fa-spin fa-2x fa-fw"></i>
+                    </span>
+                    <span class="align-self-center text-uppercase text-dark" style="font-size: 1.5rem;">Karbon</span>
+                </div>
+            </a>
+
+            <span>
+                <button class="btn btn-light mx-1 d-sm-inline-block d-md-none d-lg-none" type="button" onclick="">
+                    Login <i class="far fa-user-circle fa-2x" style="vertical-align:middle"></i>
+                </button>
+            </span>
+
+            <div class="collapse navbar-collapse mt-1 mt-sm-0 mx-1 mx-md-0" id="collapsibleNavbar">
+            </div>
+
+            <div class="col-3 d-none d-lg-block px-0">
+            </div>
+
+            <!-- what does this button do that the button within the span above doesn't? Answer: It displays on medium and large but, not small -->
+            <a runat="server" class="btn btn-light mx-1 d-none d-md-block d-lg-block mr-2" href="~/Views/Accounts/Login.aspx">
+                Login <i class="far fa-user-circle fa-2x" style="vertical-align:middle"></i>
+            </a>
+        </nav>
+
+        <!-- Accounts Error is just letting us know its not setup -->
+        <div class="container-fluid mt-3" style="height: auto;">
+            <asp:ContentPlaceHolder runat="server" ID="MainContent"></asp:ContentPlaceHolder>
+        </div>
+
+    </form>
+</body>
+</html>
