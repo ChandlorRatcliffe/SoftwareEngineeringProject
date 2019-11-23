@@ -173,9 +173,13 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\Projects\CreateProject.aspx" />
+    <Content Include="Views\Projects\Index.aspx" />
+    <Content Include="Views\Projects\PermissionManagement.aspx" />
+    <Content Include="Views\Projects\ProjectPage.aspx" />
     <Content Include="Views\Projects\ProjectPage.cshtml" />
+    <Content Include="Views\Projects\TeamManagement.aspx" />
     <Content Include="Views\Tasks\CreateTask.aspx" />
-    <Content Include="Views\Tasks\Error.aspx" />
     <Content Include="Views\Tasks\Index.aspx" />
     <Content Include="Views\Tasks\TaskPage.aspx" />
     <Content Include="Web.config" />
@@ -197,12 +201,9 @@
     <Content Include="Views\Home\_ViewStart.cshtml" />
     <Content Include="Views\Notes\Index.cshtml" />
     <Content Include="Views\Progress\Index.cshtml" />
-    <Content Include="Views\Projects\Error.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Projects\PermissionManagement.cshtml" />
     <Content Include="Views\Projects\TeamManagement.cshtml" />
-    <Content Include="Views\Search\Index.cshtml" />
-    <Content Include="Views\Search\Results.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LayoutHome.cshtml" />
     <Content Include="Views\_ViewImports.cshtml" />
@@ -257,19 +258,47 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Projects\CreateProject.aspx.cs">
+      <DependentUpon>CreateProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Projects\CreateProject.aspx.designer.cs">
+      <DependentUpon>CreateProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Projects\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Projects\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Projects\PermissionManagement.aspx.cs">
+      <DependentUpon>PermissionManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Projects\PermissionManagement.aspx.designer.cs">
+      <DependentUpon>PermissionManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Projects\ProjectPage.aspx.cs">
+      <DependentUpon>ProjectPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Projects\ProjectPage.aspx.designer.cs">
+      <DependentUpon>ProjectPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Projects\TeamManagement.aspx.cs">
+      <DependentUpon>TeamManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Projects\TeamManagement.aspx.designer.cs">
+      <DependentUpon>TeamManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Tasks\CreateTask.aspx.cs">
       <DependentUpon>CreateTask.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Tasks\CreateTask.aspx.designer.cs">
       <DependentUpon>CreateTask.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Tasks\Error.aspx.cs">
-      <DependentUpon>Error.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Tasks\Error.aspx.designer.cs">
-      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Tasks\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
