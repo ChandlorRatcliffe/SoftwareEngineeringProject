@@ -122,8 +122,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Accounts\Create.aspx" />
+    <Content Include="Views\Accounts\Error.aspx" />
     <Content Include="Views\Accounts\Login.aspx" />
     <Content Include="Views\Accounts\RecoverPassword.aspx" />
+    <Content Include="Views\Accounts\RecoverPasswordFailure.aspx" />
+    <Content Include="Views\Accounts\RecoverPasswordSuccess.aspx" />
+    <Content Include="Views\Accounts\RecoverUsernameFailure.aspx" />
+    <Content Include="Views\Accounts\RecoverUsernameSuccess.aspx" />
     <Content Include="Views\Accounts\RecoverUsername.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -184,19 +190,6 @@
     <Content Include="Views\Tasks\TaskPage.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
-    <Content Include="Views\Accounts\Create.cshtml" />
-    <Content Include="Views\Accounts\Details.cshtml" />
-    <Content Include="Views\Accounts\Error.cshtml" />
-    <Content Include="Views\Accounts\Index.cshtml" />
-    <Content Include="Views\Accounts\RecoveryPassword.cshtml" />
-    <Content Include="Views\Accounts\RecoveryPasswordFailure.cshtml" />
-    <Content Include="Views\Accounts\RecoveryPasswordSuccess.cshtml" />
-    <Content Include="Views\Accounts\RecoveryUsername.cshtml" />
-    <Content Include="Views\Accounts\RecoveryUsernameFailure.cshtml" />
-    <Content Include="Views\Accounts\RecoveryUsernameSuccess.cshtml" />
-    <Content Include="Views\Accounts\_ViewStart.cshtml" />
-    <Content Include="Views\Chat\Index.cshtml" />
-    <Content Include="Views\Contacts\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_ViewStart.cshtml" />
     <Content Include="Views\Notes\Index.cshtml" />
@@ -204,12 +197,28 @@
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Projects\PermissionManagement.cshtml" />
     <Content Include="Views\Projects\TeamManagement.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Search\Results.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LayoutHome.cshtml" />
     <Content Include="Views\_ViewImports.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\Accounts\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accounts\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Accounts\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -223,6 +232,34 @@
     </Compile>
     <Compile Include="Views\Accounts\RecoverPassword.aspx.designer.cs">
       <DependentUpon>RecoverPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accounts\RecoverPasswordFailure.aspx.cs">
+      <DependentUpon>RecoverPasswordFailure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\RecoverPasswordFailure.aspx.designer.cs">
+      <DependentUpon>RecoverPasswordFailure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accounts\RecoverPasswordSuccess.aspx.cs">
+      <DependentUpon>RecoverPasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\RecoverPasswordSuccess.aspx.designer.cs">
+      <DependentUpon>RecoverPasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accounts\RecoverUsernameFailure.aspx.cs">
+      <DependentUpon>RecoverUsernameFailure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\RecoverUsernameFailure.aspx.designer.cs">
+      <DependentUpon>RecoverUsernameFailure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accounts\RecoverUsernameSuccess.aspx.cs">
+      <DependentUpon>RecoverUsernameSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\RecoverUsernameSuccess.aspx.designer.cs">
+      <DependentUpon>RecoverUsernameSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Accounts\RecoverUsername.aspx.cs">
       <DependentUpon>RecoverUsername.aspx</DependentUpon>
