@@ -197,12 +197,6 @@
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Projects\PermissionManagement.cshtml" />
     <Content Include="Views\Projects\TeamManagement.cshtml" />
-    <Content Include="Views\Search\Index.cshtml" />
-    <Content Include="Views\Search\Results.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_LayoutHome.cshtml" />
-    <Content Include="Views\_ViewImports.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Views\Accounts\Create.aspx.cs">
