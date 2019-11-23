@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace CashewWebForms
 {
-    public partial class RecoverUsername : System.Web.UI.Page
+    public partial class RecoverUsernameFailure : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

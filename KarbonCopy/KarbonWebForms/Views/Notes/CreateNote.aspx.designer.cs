@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CashewWebForms
+namespace KarbonWebForms.Views.Notes
 {
 
 
-    public partial class RecoverUsernameSuccess
+    public partial class CreateNote
     {
     }
 }
