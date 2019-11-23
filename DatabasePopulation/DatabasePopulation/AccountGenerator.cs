@@ -22,8 +22,8 @@ namespace DatabasePopulation
         public Account newAccount()
         {
             string firstName = words.getName();
-            string lastName = words.getName();
-            string password = words.getName();
+            string lastName  = words.getName();
+            string password  = words.getName();
             return new Account(firstName, lastName, password);
         }
         //This function generates a list of account instances according to the number requested. 
