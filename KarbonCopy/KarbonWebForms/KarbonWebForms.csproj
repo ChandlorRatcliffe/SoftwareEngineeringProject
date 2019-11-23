@@ -1786,6 +1786,7 @@
     </Compile>
     <Compile Include="Views\Accounts\Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+	</Compile>
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Home\tempBanner1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1962,6 +1963,7 @@
     </Compile>
     <Compile Include="Views\Tasks\TaskPage.aspx.designer.cs">
       <DependentUpon>TaskPage.aspx</DependentUpon>
+	</Compile>
     <Compile Include="Views\Home\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
