@@ -1,29 +1,22 @@
-﻿<!-- Creator: Nicholas Jones-->
+﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="HomeContent.aspx.cs" Inherits="KarbonWebForms.Views.Home.HomeContent" %>
 
-
-@model HomeViewModel
-
-@{
-    ViewBag.Title = Model.PageTitle;
-}
-
-<!-- Card Example -->
-
+<asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
-        <div class="jumbotron jumbotron-fluid" style="background: url(@Url.Content("~/static/tempBanner1.jpg")) fixed center no-repeat; background-size: cover; min-height:557px;">
-            <div class="row" style="min-height:50vh;display:flex;align-items:center;">
+        <div class="jumbotron jumbotron-fluid" style="background: url(~/static/tempBanner1.jpg) fixed center no-repeat; background-size: cover; min-height: 557px;">
+            <div class="row" style="min-height: 50vh; display: flex; align-items: center;">
                 <div class="col-1 order-first"></div>
-                <div class="shadow container rounded col-10" style="background-color:rgba(255, 255, 255,.3);align-content:center;height:75%;width:80%">
+                <div class="shadow container rounded col-10" style="background-color: rgba(255, 255, 255,.3); align-content: center; height: 75%; width: 80%">
                     <div class="row">
                         <div class="col-1 order-first"></div>
                         <div class="col-10">
                             <h1 class="text-dark">Take the Karbon out of management</h1>
                             <br />
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <button class="btn btn-outline-light" type="button" onclick="location.href='@Url.Action("Create", "Accounts")'">Sign Up!</button><br /><br />
+                            <button class="btn btn-outline-light" type="button" onclick="location.href='~/Views/Accounts/Create'">Sign Up!</button><br />
+                            <br />
                         </div>
                         <div class="col-1 order-last"></div>
-                    </div>                
+                    </div>
                 </div>
                 <div class="col-1 order-last"></div>
             </div>
@@ -53,6 +46,4 @@
             </div>
         </div>
     </div>
-
-
-
+</asp:Content>
