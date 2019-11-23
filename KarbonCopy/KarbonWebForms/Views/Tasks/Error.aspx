@@ -1,4 +1,7 @@
-﻿<!-- Creator: Nicholas Jones -->
+﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Error.aspx.cs" Inherits="KarbonWebForms.Views.Tasks.Error" %>
+<asp:Content runat="server" ContentPlaceHolderID="DashboardContent">
+
+<!-- Creator: Nicholas Jones -->
 <div class="container my-5" style="max-width: 700px;">
     <div class="text-center">
         <div class="col-12">
@@ -7,3 +10,5 @@
         </div>
     </div>
 </div>
+
+</asp:Content>

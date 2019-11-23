@@ -1,15 +1,6 @@
-﻿<!-- Creator: Spencer Stair-->
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TaskPage.aspx.cs" Inherits="KarbonWebForms.Views.Tasks.TaskPage" %>
 
-@model ProjectsViewModel
-
-@{
-    ViewBag.Title = "TaskPage";
-}
-
-<div>
-    <h2>The View of an Individual Task-Alpha</h2>
-</div>
-
+<asp:Content runat="server" ContentPlaceHolderID="DashboardContent">
 <div class="container">
     <div class="row">
         <div class="col-md-4">
@@ -61,3 +52,5 @@
         </div>
     </div>
 </div>
+
+</asp:Content>
