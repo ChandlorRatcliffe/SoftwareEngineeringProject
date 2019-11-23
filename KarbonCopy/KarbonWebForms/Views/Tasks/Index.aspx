@@ -1,10 +1,6 @@
-﻿<!-- Creator: Spencer Stair -->
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="KarbonWebForms.Views.Tasks.Index" %>
 
-@model TasksViewModel
-
-@{
-    ViewBag.Title = Model.PageTitle;
-}
+<asp:Content runat="server" ContentPlaceHolderID="DashboardContent">
 
 <div>
     <h2>The Tasks List Page-Alpha</h2>
@@ -71,3 +67,5 @@
         </div>
     </div>
 </div>
+
+</asp:Content>
