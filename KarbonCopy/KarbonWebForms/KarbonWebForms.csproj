@@ -181,6 +181,7 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Notes\CreateNote.aspx" />
     <Content Include="Views\Notes\NoteContent.aspx" />
+    <Content Include="Views\Progress\Index.aspx" />
     <Content Include="Views\Projects\CreateProject.aspx" />
     <Content Include="Views\Projects\Index.aspx" />
     <Content Include="Views\Projects\PermissionManagement.aspx" />
@@ -304,6 +305,13 @@
     </Compile>
     <Compile Include="Views\Notes\NoteContent.aspx.designer.cs">
       <DependentUpon>NoteContent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Progress\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Progress\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Projects\CreateProject.aspx.cs">
       <DependentUpon>CreateProject.aspx</DependentUpon>
