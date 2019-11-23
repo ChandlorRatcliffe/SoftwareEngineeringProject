@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RecoverPassword.aspx.cs" Inherits="CashewWebForms.RecoverPassword" %>
-
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
+<!-- Recreation of RecoveryPassword.cshtml -->
     <div class="container my-5" style="max-width: 700px;">
         <h2 class="text-center mb-2">Password Recovery</h2>
         <div <%--asp-validation-summary="All"--%> class="text-danger"></div>

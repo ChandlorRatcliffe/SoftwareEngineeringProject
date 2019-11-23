@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CashewWebForms.Login" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
+<!-- Recreation of Index.cshtml -->
     <div class="container bg-light my-5" style="max-width: 500px;">
             <h2 class="text-center mb-2"><br />KARBON <b>Access</b><br /></h2>
             <div <%--asp-validation-summary="All"--%> class="text-danger"></div>
