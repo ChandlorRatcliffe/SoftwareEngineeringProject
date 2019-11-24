@@ -25,7 +25,8 @@ namespace CashewWebForms
             conn.Open();
             var command = new MySqlCommand("Select Username From Account Where (Username = @user)", conn);
             command.Parameters.Add(new MySqlParameter("user", MySqlDbType.VarChar) { Value = EnterUsername.Text });
-            DataTable dt = new DataTable(command.ExecuteReader().ToString());
+            DataTable dt = new DataTable();
+            dt.Load(command.ExecuteReader());
             foreach (DataRow row in dt.Rows) {
                 Debug.WriteLine(row["Username"].ToString());
             }
