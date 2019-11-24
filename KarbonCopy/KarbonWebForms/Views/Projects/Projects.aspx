@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Project 1</h5>
                         <p class="card-text">Description of Project 1</p>
-                        <a href="/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
+                        <a href="~/Views/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
                     </div>
                 </div>
             </div>
@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Project 2</h5>
                         <p class="card-text">Description of Project 2</p>
-                        <a href="/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
+                        <a href="~/Views/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Project 3</h5>
                         <p class="card-text">Description of Project 3</p>
-                        <a href="/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
+                        <a href="~/Views/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Project 4</h5>
                         <p class="card-text">Description of Project 4</p>
-                        <a href="/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
+                        <a href="~/Views/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Project 5</h5>
                         <p class="card-text">Description of Project 5</p>
-                        <a href="/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
+                        <a href="~/Views/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Project 6</h5>
                         <p class="card-text">Description of Project 6</p>
-                        <a href="/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
+                        <a href="~/Views/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
                     </div>
                 </div>
             </div>

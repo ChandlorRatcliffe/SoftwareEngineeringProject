@@ -66,7 +66,7 @@
                 </p>
             </div>
             <!--This button will take you to the team management page/view; I assume this to be Permission based, so I have disabled the button as a standard-->
-            <button type="button" class="btn btn-info" disabled>Team Management</button>
+            <button type="button" class="btn btn-info" onclick="location.href'~/Views/Projects/TeamManagement'">Team Management</button>
         </div>
         <div class="col-md-5">
             <!--This is the Highest Priority Note-->
