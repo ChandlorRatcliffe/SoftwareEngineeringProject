@@ -1765,9 +1765,11 @@
     <Content Include="Views\Tasks\Index.aspx" />
     <Content Include="Views\Tasks\TaskPage.aspx" />
     <Content Include="Web.config" />
-    <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sql\AccountSql.cs" />
+    <Compile Include="Sql\MySqlFunctions.cs" />
+    <Compile Include="Sql\Tables.cs" />
     <Compile Include="Views\Accounts\Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1781,7 +1783,7 @@
     </Compile>
     <Compile Include="Views\Accounts\Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Home\tempBanner1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1958,7 +1960,7 @@
     </Compile>
     <Compile Include="Views\Tasks\TaskPage.aspx.designer.cs">
       <DependentUpon>TaskPage.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="Views\Home\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1976,7 +1978,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Progress\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="lib\css\bootstrap-grid.css.map" />
