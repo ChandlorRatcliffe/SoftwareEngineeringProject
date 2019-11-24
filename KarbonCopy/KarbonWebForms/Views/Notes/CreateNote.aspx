@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateNote.aspx.cs" Inherits="KarbonWebForms.Views.Notes.CreateNote" %>
 
-<asp:Content runat="server" ContentPlaceHolderID="DashboardContent">
+<asp:Content runat="server" ContentPlaceHolderID="DashContent">
 
     <style>
         .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {

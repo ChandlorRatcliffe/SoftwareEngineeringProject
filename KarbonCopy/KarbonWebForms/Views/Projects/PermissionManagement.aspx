@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#"  MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="PermissionManagement.aspx.cs" Inherits="KarbonWebForms.Views.Projects.PermissionManagement" %>
-<asp:Content runat="server" ContentPlaceHolderID="DashboardContent">
+<asp:Content runat="server" ContentPlaceHolderID="DashContent">
 <div>
     <h2>The Permission Management View for a Project</h2>
 </div>

@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="CreateProject.aspx.cs" Inherits="KarbonWebForms.Views.Projects.CreateProject" %>
-<asp:Content runat="server" ContentPlaceHolderID="DashboardContent">
+<asp:Content runat="server" ContentPlaceHolderID="DashContent">
 <style>
     #TeammatesPicker {
         border: 1px solid #c3c3c3;
