@@ -24,6 +24,7 @@ namespace KarbonWebForms.Sql
             Picturepath = picturepath;
         }
 
+
         public string Username { get; set; }
         public string Email { get; set; }
         public string FirstName { get; set; }
@@ -142,7 +143,7 @@ namespace KarbonWebForms.Sql
 
     public class ProjectAbilities
     {
-        public ProjectAbilities(string username = null, string email = null, string projectId = null, 
+        public ProjectAbilities(string username = null, string email = null, string projectId = null,
             string assignmentEditing = null, string projectEditing = null, string createProject = null)
         {
             Username = username;
@@ -186,5 +187,21 @@ namespace KarbonWebForms.Sql
         public string Email { get; set; }
         public string TaskId { get; set; }
         public string AssignmentEditing { get; set; }
+    }
+
+
+    /// <summary>
+    /// Key Value Pair For Checking Existance in a Table
+    /// </summary>
+    public class CheckValuePair
+    {
+        public CheckValuePair(string key, string value)
+        {
+            Key = key;
+            Value = value;
+        }
+
+        public string Key { get; set; }
+        public string Value { get; set; }
     }
 }

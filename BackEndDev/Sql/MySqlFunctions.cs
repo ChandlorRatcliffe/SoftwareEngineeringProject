@@ -147,6 +147,58 @@ namespace BackEndDev.Sql
             }
         }
 
+        public bool CheckExists(string table, List<CheckValuePair> checkList)
+        {
+            string query = $"SELECT * FROM {table} WHERE";
+
+            List<MySqlParameter> sqlParameters = new List<MySqlParameter>();
+
+            for (int i = 0; i < checkList.Count; i++)
+            {
+                if (i == checkList.Count - 1)
+                {
+                    query += $" {checkList[i].Key} = @key{i};";
+                }
+                else
+                {
+                    query += $" {checkList[i].Key} = @key{i} AND";
+                }
+                sqlParameters.Add(new MySqlParameter($"key{i}", MySqlDbType.VarChar) { Value = checkList[i].Value });
+            }
+
+            try
+            {
+                using (MySqlConnection sqlConnection = new MySqlConnection(_connectionString))
+                {
+                    using (MySqlCommand sqlCommand = CreateCommand(query, sqlConnection, sqlParameters))
+                    {
+                        if (sqlCommand != null)
+                        {
+                            sqlConnection.Open();
+                            object result = sqlCommand.ExecuteScalar();
+                            if (result != null)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
         /// <summary>
         /// Private Helpers
         /// </summary>

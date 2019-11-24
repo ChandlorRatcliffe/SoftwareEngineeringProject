@@ -188,4 +188,20 @@ namespace BackEndDev.Sql
         public string TaskId { get; set; }
         public string AssignmentEditing { get; set; }
     }
+
+
+    /// <summary>
+    /// Key Value Pair For Checking Existance in a Table
+    /// </summary>
+    public class CheckValuePair
+    {
+        public CheckValuePair(string key, string value)
+        {
+            Key = key;
+            Value = value;
+        }
+
+        public string Key { get; set; }
+        public string Value { get; set; }
+    }
 }

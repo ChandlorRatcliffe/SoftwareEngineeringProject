@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using BackEndDev.Sql;
+using static BackEndDev.Sql.MySqlFunctions;
 
 namespace BackEndDev
 {
@@ -15,7 +16,20 @@ namespace BackEndDev
     {
         public static void Main(string[] args)
         {
+            List<CheckValuePair> checkList = new List<CheckValuePair>() 
+            {
+                new CheckValuePair("Username", "TestUser"),
+                new CheckValuePair("Password", "password")
+            };
 
+            if (functions.CheckExists("account", checkList))
+            {
+                Debug.WriteLine("Account Does Exist");
+            }
+            else
+            {
+                Debug.WriteLine("Account Does NOT Exist");
+            }
 
         }
 

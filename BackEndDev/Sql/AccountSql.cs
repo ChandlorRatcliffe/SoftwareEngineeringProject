@@ -7,9 +7,9 @@ namespace BackEndDev.Sql
 {
     public class AccountSql
     {
-        private static readonly MySqlFunctions functions = new MySqlFunctions();
+        private readonly MySqlFunctions functions = new MySqlFunctions();
 
-        public static void Insert(Account account)
+        public void Insert(Account account)
         {
             if (!Exists(account.Username))
             {
@@ -40,7 +40,7 @@ namespace BackEndDev.Sql
             }
         }
 
-        public static void Update(string username, string field, string fieldValue)
+        public void Update(string username, string field, string fieldValue)
         {
             if (Exists(username))
             {
@@ -63,12 +63,12 @@ namespace BackEndDev.Sql
             }
         }
 
-        public static void Delete(string username)
+        public void Delete(string username)
         {
             DeleteAccount(new Account(username));
         }
 
-        public static void DeleteAccount(Account account)
+        public void DeleteAccount(Account account)
         {
             if (Exists(account.Username))
             {
@@ -94,7 +94,7 @@ namespace BackEndDev.Sql
             }
         }
 
-        public static Account Get(string username)
+        public Account Get(string username)
         {
             if (Exists(username))
             {
@@ -135,7 +135,7 @@ namespace BackEndDev.Sql
             }
         }
 
-        public static List<Account> GetAll()
+        public List<Account> GetAll()
         {
             string query =
                 "SELECT Username, Email, FirstName, LastName, Password, Skills, Theme, Picturepath FROM account;";
@@ -165,7 +165,7 @@ namespace BackEndDev.Sql
             }
         }
 
-        public static bool Exists(string keyValue)
+        public bool Exists(string keyValue)
         {
             if (functions.CheckExists("account", "username", keyValue))
             {
@@ -175,6 +175,35 @@ namespace BackEndDev.Sql
             else
             {
                 Debug.WriteLine($"Exists: The account doesn't exists with username: {keyValue}.");
+                return false;
+            }
+        }
+
+        public bool Authenicate(string username, string password)
+        {
+            if (Exists(username))
+            {
+                Debug.WriteLine($"Exists: The account exists with username: {username}.");
+                List<CheckValuePair> checkList = new List<CheckValuePair>()
+                {
+                    new CheckValuePair("Username", username),
+                    new CheckValuePair("Password", password)
+                };
+
+                if (functions.CheckExists("account", checkList))
+                {
+                    Debug.WriteLine($"Authenicate: The account has been authenticated.");
+                    return true;
+                }
+                else
+                {
+                    Debug.WriteLine($"Authenicate: The account could NOT be authenticated.");
+                    return false;
+                }
+            }
+            else
+            {
+                Debug.WriteLine($"Authenicate: The account doesn't exists with username: {username}.");
                 return false;
             }
         }
