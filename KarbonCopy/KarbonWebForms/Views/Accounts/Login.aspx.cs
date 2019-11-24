@@ -40,10 +40,12 @@ namespace CashewWebForms
         {
             if(accountSql.Authenicate(EnterUsername.Text, EnterPassword.Text))
             {
+                //If AUthenication SUccessful redirect to Dashboard
                 Debug.WriteLine("SignIn_Command: Authenication Successful");
             }
             else
             {
+                //Generate Validation Error
                 Debug.WriteLine("SignIn_Command: Authenication Failed");
             }
         }
