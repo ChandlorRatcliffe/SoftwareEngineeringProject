@@ -8,13 +8,13 @@ using System.Data;
 using MySql.Data.MySqlClient;
 using System.Configuration;
 using System.Diagnostics;
-using KarbonWebForms.Sql;
+//using KarbonWebForms.Sql;
 
 namespace CashewWebForms
 {
     public partial class Login : System.Web.UI.Page
     {
-        private readonly AccountSql accountSql = new AccountSql();
+        //private readonly AccountSql accountSql = new AccountSql();
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -44,16 +44,16 @@ namespace CashewWebForms
 
         protected void SignIn_Command2(object sender, CommandEventArgs e)
         {
-            if(accountSql.Authenticate(EnterUsername.Text, EnterPassword.Text))
-            {
-                //If AUthenication SUccessful redirect to Dashboard
-                Debug.WriteLine("SignIn_Command: Authenication Successful");
-            }
-            else
-            {
-                //Generate Validation Error
-                Debug.WriteLine("SignIn_Command: Authenication Failed");
-            }
+            //if(accountSql.Authenticate(EnterUsername.Text, EnterPassword.Text))
+            //{
+            //    //If AUthenication SUccessful redirect to Dashboard
+            //    Debug.WriteLine("SignIn_Command: Authenication Successful");
+            //}
+            //else
+            //{
+            //    //Generate Validation Error
+            //    Debug.WriteLine("SignIn_Command: Authenication Failed");
+            //}
         }
 
     }
