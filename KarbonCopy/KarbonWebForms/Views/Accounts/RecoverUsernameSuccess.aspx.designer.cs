@@ -11,7 +11,7 @@ namespace CashewWebForms
 {
 
 
-    public partial class RecoverUsernameSuccess
+    public partial class RecoverUsername
     {
     }
 }

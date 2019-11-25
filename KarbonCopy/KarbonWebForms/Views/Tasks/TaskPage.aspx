@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="TaskPage.aspx.cs" Inherits="KarbonWebForms.Views.Tasks.TaskPage" %>
 
-<asp:Content runat="server" ContentPlaceHolderID="DashboardContent">
+<asp:Content runat="server" ContentPlaceHolderID="DashContent">
 <div class="container">
     <div class="row">
         <div class="col-md-4">

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,6 +15,33 @@ namespace CashewWebForms
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+        protected void PrjCardRptr_Click(object sender, EventArgs e)
+        {
+            // Session object needs to be updated to include the ProjectId for navigation to the individual project page
+            // Just "index" the Session object to add or reference a value in the Session object
+            // The sender object is expected to be an HtmlAnchor because it's the only element with a link in it
+            // that we need a code-behind method for.
+            // HtmlElements in C# have an Attributes member. Indexing it at "param" means I need an attribute tag in the frontend
+            // named "param"
+            Session["ProjectId"] = ((LinkButton)sender).Attributes["param"];
+            Response.Redirect("~/Views/Projects/ProjectPage");
+        }
+        protected void PrjCardRptr_PreRender(object sender, EventArgs e)
+        {
+            var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
+            conn.Open();
+            //Where (Username = @user AND Email = @email)
+            var command = new MySqlCommand("Select * From Project  Order By ProjectId Asc;", conn);
+            //command.Parameters.Add(new MySqlParameter("user", MySqlDbType.VarChar) { Value = Session["Username"].ToString() });
+            //command.Parameters.Add(new MySqlParameter("email", MySqlDbType.VarChar) { Value = Session["Email"].ToString() });
+            DataTable dt = new DataTable();
+            dt.Load(command.ExecuteReader());
+            // PrjCardRptr will now be assigned tuples from the database to repeat on, received from DataTable dt
+            // Repeater hasn't been initialized yet: data has to be retrieved before it's loaded to actually have data to repeat on
+            PrjCardRptr.DataSource = dt;
+            // Data has to be bound to the repeater before finishing the assignment of data to the repeater
+            PrjCardRptr.DataBind();
         }
     }
 }

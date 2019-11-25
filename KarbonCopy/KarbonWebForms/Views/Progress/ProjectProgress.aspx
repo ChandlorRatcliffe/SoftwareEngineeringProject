@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="KarbonWebForms.Views.Progress.Index" %>
-<asp:Content runat="server" ContentPlaceHolderID="DashboardContent">
+﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="ProjectProgress.aspx.cs" Inherits="KarbonWebForms.Views.Progress.Index" %>
+<asp:Content runat="server" ContentPlaceHolderID="DashContent">
 <div>
     <h2>Progress of the Project</h2>
 </div>
