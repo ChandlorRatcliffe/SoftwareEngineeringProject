@@ -38,7 +38,7 @@ namespace CashewWebForms
 
         protected void SignIn_Command2(object sender, CommandEventArgs e)
         {
-            if(accountSql.Authenicate(EnterUsername.Text, EnterPassword.Text))
+            if(accountSql.Authenticate(EnterUsername.Text, EnterPassword.Text))
             {
                 //If AUthenication SUccessful redirect to Dashboard
                 Debug.WriteLine("SignIn_Command: Authenication Successful");

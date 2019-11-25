@@ -6,9 +6,8 @@ using System.Web;
 namespace KarbonWebForms.Sql
 {
     /// <summary>
-    /// These class structure representations of SQL Tables
+    /// Account Table Object
     /// </summary>
-
     public class Account
     {
         public Account(string username = null, string email = null, string firstname = null, string lastname = null,
@@ -35,6 +34,9 @@ namespace KarbonWebForms.Sql
         public string Picturepath { get; set; }
     }
 
+    /// <summary>
+    /// Build On Table Object
+    /// </summary>
     public class BuiltOn
     {
         public BuiltOn(string projectId = null, string taskId = null)
@@ -47,6 +49,9 @@ namespace KarbonWebForms.Sql
         public string TaskId { get; set; }
     }
 
+    /// <summary>
+    /// Creates Table Object
+    /// </summary>
     public class Creates
     {
         public Creates(string username = null, string email = null, string name = null, string projectId = null)
@@ -62,6 +67,9 @@ namespace KarbonWebForms.Sql
         public string ProjectId { get; set; }
     }
 
+    /// <summary>
+    /// NotesPosted Table Object
+    /// </summary>
     public class NotesPosted
     {
         public NotesPosted(string text = null, string timeStamp = null, string username = null, string email = null, string taskId = null)
@@ -79,9 +87,12 @@ namespace KarbonWebForms.Sql
         public string TaskId { get; set; }
     }
 
+    /// <summary>
+    /// Organization Table Object
+    /// </summary>
     public class Organization
     {
-        public Organization(string name, string license, string activation, string expiration)
+        public Organization(string name = null, string license = null, string activation = null, string expiration = null)
         {
             Name = name;
             License = license;
@@ -94,6 +105,9 @@ namespace KarbonWebForms.Sql
         public string Expiration { get; set; }
     }
 
+    /// <summary>
+    /// Organization Abilities Table Object
+    /// </summary>
     public class OrganizationAbilities
     {
         public OrganizationAbilities(string username = null, string email = null, string name = null, string removeUser = null,
@@ -115,6 +129,9 @@ namespace KarbonWebForms.Sql
         public string PermissionsEditing { get; set; }
     }
 
+    /// <summary>
+    /// Parent Table Object
+    /// </summary>
     public class Parent
     {
         public Parent(string parentTaskId = null, string childTaskId = null)
@@ -127,6 +144,9 @@ namespace KarbonWebForms.Sql
         public string ChildTaskId { get; set; }
     }
 
+    /// <summary>
+    /// Project Table Object
+    /// </summary>
     public class Project
     {
         public Project(string projectId = null, string projectDeadline = null, string projectDescription = null)
@@ -141,6 +161,9 @@ namespace KarbonWebForms.Sql
         public string ProjectDescription { get; set; }
     }
 
+    /// <summary>
+    /// Project Abilities Table
+    /// </summary>
     public class ProjectAbilities
     {
         public ProjectAbilities(string username = null, string email = null, string projectId = null,
@@ -161,9 +184,12 @@ namespace KarbonWebForms.Sql
         public string CreateProject { get; set; }
     }
 
+    /// <summary>
+    /// Task Table Object
+    /// </summary>
     public class Task
     {
-        public Task(string taskId, string taskDeadline, string taskDescription)
+        public Task(string taskId = null, string taskDeadline = null, string taskDescription = null)
         {
             TaskId = taskId;
             TaskDeadline = taskDeadline;
@@ -174,6 +200,9 @@ namespace KarbonWebForms.Sql
         public string TaskDescription { get; set; }
     }
 
+    /// <summary>
+    /// Task Abilities Table Object
+    /// </summary>
     public class TaskAbilities
     {
         public TaskAbilities(string username = null, string email = null, string taskId = null, string assignmentEditing = null)
