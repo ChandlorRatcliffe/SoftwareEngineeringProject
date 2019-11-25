@@ -44,7 +44,7 @@
             </a>
 
             <span>
-                <button class="btn btn-light mx-1 d-sm-inline-block d-md-none d-lg-none" type="button" onclick="">
+                <button class="btn btn-light mx-1 d-sm-inline-block d-md-none d-lg-none" type="button" onclick="location.href='~/Views/Accounts/Login'">
                     Login <i class="far fa-user-circle fa-2x" style="vertical-align:middle"></i>
                 </button>
             </span>
