@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Projects.aspx.cs" Inherits="CashewWebForms.Projects" %>
+
 <asp:Content runat="server" ContentPlaceHolderID="DashContent">
     <div>
         <h2>The Is the Projects View-Alpha</h2>
@@ -6,62 +7,25 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
-                <div class="card text-center" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Project 1</h5>
-                        <p class="card-text">Description of Project 1</p>
-                        <a href="/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
+            <!-- asp:Repeater is a server control that enables repetition of displaying html elements. -->
+            <asp:Repeater runat="server" ID="PrjCardRptr" OnPreRender="PrjCardRptr_PreRender">
+                <ItemTemplate>
+                    <div class="col-4" style="padding: 10px">
+                        <div class="card text-center" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title"><%# DataBinder.Eval(Container.DataItem, "ProjectId") %></h5>
+                                <p class="card-text" style="overflow-y: auto; height: 250px; max-width: inherit; white-space: normal; display: block;">
+                                    <%# DataBinder.Eval(Container.DataItem, "ProjectDescription") %>
+                                </p>
+                                <p class="card-text"><%# DataBinder.Eval(Container.DataItem, "ProjectDeadline") %></p>
+                                <asp:LinkButton runat="server" OnClick="PrjCardRptr_Click"
+                                    param='<%# DataBinder.Eval(Container.DataItem, "ProjectId") %>'
+                                    CssClass="btn btn-primary">Go to Project view</asp:LinkButton>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-center" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Project 2</h5>
-                        <p class="card-text">Description of Project 2</p>
-                        <a href="/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-center" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Project 3</h5>
-                        <p class="card-text">Description of Project 3</p>
-                        <a href="/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
-                    </div>
-                </div>
-            </div>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card text-center" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Project 4</h5>
-                        <p class="card-text">Description of Project 4</p>
-                        <a href="/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-center" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Project 5</h5>
-                        <p class="card-text">Description of Project 5</p>
-                        <a href="/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-center" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Project 6</h5>
-                        <p class="card-text">Description of Project 6</p>
-                        <a href="/Projects/ProjectPage" class="btn btn-primary">Go to Project view</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
+    </div>
 </asp:Content>

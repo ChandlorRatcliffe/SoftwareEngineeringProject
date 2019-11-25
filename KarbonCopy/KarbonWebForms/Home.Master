@@ -34,7 +34,7 @@
 
         <nav class="shadow navbar navbar-expand-md bg-light navbar-dark sticky-top px-0">
 
-            <a runat="server" class="btn btn-light btn-lg p-0 ml-2" style="min-width: 72px;" href="~/Views/Home/Index.aspx">
+            <a runat="server" class="btn btn-light btn-lg p-0 ml-2" style="min-width: 72px;" href="~/Views/Home/HomeContent.aspx">
                 <div class="form-inline">
                     <span class="">
                         <i class="fas fa-cog fa-spin fa-2x fa-fw"></i>

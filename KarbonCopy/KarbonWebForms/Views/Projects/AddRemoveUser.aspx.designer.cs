@@ -11,7 +11,7 @@ namespace KarbonWebForms.Views.Projects
 {
 
 
-    public partial class Index
+    public partial class AddRemoveUser
     {
     }
 }

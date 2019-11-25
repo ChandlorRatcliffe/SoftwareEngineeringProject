@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#"  MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="ProjectPage.aspx.cs" Inherits="KarbonWebForms.Views.Projects.ProjectPage" %>
-<asp:Content runat="server" ContentPlaceHolderID="DashboardContent">
+<asp:Content runat="server" ContentPlaceHolderID="DashContent">
 <div>
     <h2>The View of an Individual Project-Alpha</h2>
 </div>
@@ -66,7 +66,7 @@
                 </p>
             </div>
             <!--This button will take you to the team management page/view; I assume this to be Permission based, so I have disabled the button as a standard-->
-            <button type="button" class="btn btn-info" disabled>Team Management</button>
+            <button type="button" class="btn btn-info" onclick="location.href'~/Views/Projects/TeamManagement'">Team Management</button>
         </div>
         <div class="col-md-5">
             <!--This is the Highest Priority Note-->

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RecoverUsernameSuccess.aspx.cs" Inherits="CashewWebForms.RecoverUsername" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="RecoverUsernameSuccess.aspx.cs" Inherits="CashewWebForms.RecoverUsername" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
 <!-- Recreation of RecoveryUsernameSuccess.cshtml -->
