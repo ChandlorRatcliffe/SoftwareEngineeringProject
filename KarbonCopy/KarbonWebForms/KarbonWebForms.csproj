@@ -1727,12 +1727,7 @@
     <Content Include="Views\Accounts\RecoverUsernameSuccess.aspx" />
     <Content Include="Views\Accounts\RecoverUsername.aspx" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="lib\modernizr-2.8.3.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
@@ -1771,6 +1766,18 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sql\TaskAbilitiesSql.cs" />
+    <Compile Include="Sql\TaskSql.cs" />
+    <Compile Include="Sql\ProjectAbilitiesSql.cs" />
+    <Compile Include="Sql\ProjectSql.cs" />
+    <Compile Include="Sql\ParentSql.cs" />
+    <Compile Include="Sql\OrganizationAbilitiesSql.cs" />
+    <Compile Include="Sql\OrganizationSql.cs" />
+    <Compile Include="Sql\NotesPostedSql.cs" />
+    <Compile Include="Sql\CreatesSql.cs" />
+    <Compile Include="Sql\AccountSql.cs" />
+    <Compile Include="Sql\.MySqlFunctions.cs" />
+    <Compile Include="Sql\.Tables.cs" />
     <Compile Include="Views\Accounts\Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
