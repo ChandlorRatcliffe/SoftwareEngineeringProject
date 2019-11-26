@@ -17,13 +17,13 @@ namespace KarbonWebForms.Views.Projects
         protected void MemberRptr_PreRender(object sender, EventArgs e)
         {
             var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
-            var command = new MySqlCommand("Select Username From Creates Where (ProjectId=@PId AND Username<>@user);", conn);
+            var command = new MySqlCommand("Select Username From ProjectAssigned Where (ProjectId=@PId AND Username<>@user);", conn);
             command.Parameters.Add(new MySqlParameter("PId", MySqlDbType.VarChar) { Value = Session["ProjectId"] });
             command.Parameters.Add(new MySqlParameter("user", MySqlDbType.VarChar) { Value = Session["Username"] });
             DataTable dt = new DataTable();
             conn.Open();
             dt.Load(command.ExecuteReader());
-            if (dt.Rows[0] != null)
+            if (dt.Rows.Count != 0)
             {
                 // MemberRptr will now be assigned tuples from the database to repeat on, received from DataTable dt
                 // Repeater hasn't been initialized yet: data has to be retrieved before it's loaded to actually have data to repeat on
@@ -52,6 +52,10 @@ namespace KarbonWebForms.Views.Projects
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "Your Message", true);
             }
             conn.Close();
+        }
+
+        protected void UpdateBtn_Clicked(object sender, EventArgs e){
+            
         }
     }
 }

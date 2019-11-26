@@ -23,15 +23,9 @@
                     </div>
                 </ItemTemplate>
                 </asp:Repeater>
+            </div>
             <!--This button will take you to the team management page/view; I assume this to be Permission based, so I have disabled the button as a standard-->
             <button type="button" class="btn btn-info" onclick="location.href'~/Views/Projects/TeamManagement'">Team Management</button>
-                <!--<p>team member alpha</p>
-                <p>team member bravo</p>
-                <p>team member charlie</p>
-                <p>team member delta</p>
-                <p>team member epsilon</p>
-                <p>team member falcon</p> -->
-            </div>
         </div>
         <div class="col-md-7">
             <!--This is the Description of the Project-->
