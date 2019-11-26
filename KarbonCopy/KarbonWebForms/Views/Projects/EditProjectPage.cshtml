@@ -1,0 +1,89 @@
+﻿<!-- Creator: Spencer Stair-->
+
+@model ProjectsViewModel
+
+@{
+    ViewBag.Title = "EditProjectPage";
+}
+
+<div>
+    <center>
+        <h2>The View of an Individual Project-Alpha</h2>
+        <a href="/Projects/ProjectPage" class="btn btn-primary">Submit Changes</a>
+    </center>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <h4 class="card-header">
+                    January
+                </h4>
+                <div class="card-body">
+                    <h1>
+                        1
+                    </h1>
+                </div>
+                <p>daily detail</p>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <!--This is the Description of the Project-->
+            <div class="card">
+                <div class="card-body">
+                    <input type="text" class="form-control" placeholder="Description - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." aria-label="Description" aria-describedby="button-addon2">
+                </div>
+            </div>
+            <br />
+            <!-- This is the progress bar, portions : "style="width: XX%;" aria-valuenow="XX"" will need to be generated to be in line with users progress-->
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-8">
+                        <div class="progress" style="height: 40px;">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">Completed</div>
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">Remaining</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End of progress bar-->
+            <br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <h5>Team Members</h5>
+            <div class="overflow-auto">
+                <p>
+                    team member alpha
+                </p>
+                <p>
+                    team member bravo
+                </p>
+                <p>
+                    team member charlie
+                </p>
+                <p>
+                    team member delta
+                </p>
+                <p>
+                    team member epsilon
+                </p>
+                <p>
+                    team member falcon
+                </p>
+            </div>
+            <!--This button will take you to the team management page/view; I assume this to be Permission based, so I have disabled the button as a standard-->
+            <button type="button" class="btn btn-info" disabled>Team Management</button>
+        </div>
+        <div class="col-md-5">
+            <!--This is the Highest Priority Note-->
+            <div class="card">
+                <div class="card-body">
+                    <input type="text" class="form-control" placeholder="Note - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu. Vulputate dignissim suspendisse in est. Viverra maecenas accumsan lacus vel. Viverra mauris in aliquam sem. Arcu bibendum at varius vel pharetra vel turpis nunc eget. Habitasse platea dictumst quisque sagittis. Tellus mauris a diam maecenas. Posuere lorem ipsum dolor sit amet consectetur adipiscing elit duis. Odio eu feugiat pretium nibh ipsum consequat. In eu mi bibendum neque egestas congue quisque egestas diam. Urna id volutpat lacus laoreet non curabitur gravida arcu ac." aria-label="Task Note" aria-describedby="button-addon2">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
