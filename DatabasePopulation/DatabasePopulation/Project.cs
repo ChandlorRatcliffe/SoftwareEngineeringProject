@@ -11,7 +11,7 @@ namespace DatabasePopulation
         //TODO: Replace this system with an alphanumeric id system with the same concept in place. 
         static int id = 0;
         int myId;
-        DateTime deadline;
+        DateTime deadline; //"yyyy-MM-dd HH:mm:ss" required for ToString for mySQL compatibility
         string description;
         public Project()
         {

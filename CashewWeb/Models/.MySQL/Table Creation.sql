@@ -22,6 +22,24 @@ CREATE TABLE Creates(
     PRIMARY KEY(`Username`,`Email`,`Name`,`ProjectId`)
 );
 
+DROP TABLE TaskAssigned;
+CREATE TABLE TaskAssigned(
+	`Username`		VARCHAR(50),
+    `Email`			VARCHAR(150),
+	`Name`			VARCHAR(200),
+    `TaskId`		VARCHAR(50),
+    PRIMARY KEY(`Username`,`Email`,`Name`,`TaskId`)
+);
+
+DROP TABLE ProjectAssigned;
+CREATE TABLE ProjectAssigned(
+	`Username`		VARCHAR(50),
+    `Email`			VARCHAR(150),
+	`Name`			VARCHAR(200),
+    `ProjectId`		VARCHAR(50),
+    PRIMARY KEY(`Username`,`Email`,`Name`,`ProjectId`)
+);
+
 
 DROP TABLE Organization;
 CREATE TABLE Organization(
