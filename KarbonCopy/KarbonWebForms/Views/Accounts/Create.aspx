@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Create.aspx.cs" Inherits="KarbonWebForms.Views.Accounts.Create" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Create.aspx.cs" Inherits="KarbonWebForms.Views.Accounts.Create" Title="Create" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
 <!-- Recreation of Create.cshtml -->
@@ -23,8 +23,16 @@
         <div class="form-group row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
+                <label class="col-sm-12 col-form-label">Business Code</label>
+                <asp:TextBox ID="Buscode" CssClass="form-control" placeholder="Business Code" runat="server" />
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
                 <label class="col-sm-12 col-form-label">Email</label>
-                <asp:TextBox ID="Email" CssClass="form-control" placeholder="Email" runat="server" />
+                <asp:TextBox ID="Email" TextMode="Email" CssClass="form-control" placeholder="Email" runat="server" />
             </div>
             <div class="col-sm-1"></div>
         </div>

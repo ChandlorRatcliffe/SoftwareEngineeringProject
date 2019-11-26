@@ -10,7 +10,7 @@ using System.Configuration;
 using System.Diagnostics;
 //using KarbonWebForms.Sql;
 
-namespace CashewWebForms
+namespace KarbonWebForms.Views.Accounts
 {
     public partial class Login : System.Web.UI.Page
     {

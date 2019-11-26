@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CashewWebForms
+namespace KarbonWebForms.Views.Accounts
 {
 
 
