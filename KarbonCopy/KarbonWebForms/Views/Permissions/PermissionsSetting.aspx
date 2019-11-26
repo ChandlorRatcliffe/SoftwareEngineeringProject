@@ -28,11 +28,11 @@
         <div class="col-sm-5">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <h4>Permission Option</h4>
+                    <h4>Permission Options</h4>
                     <input type="text" class="form-control" placeholder="Organization Member" aria-label="Organization Member" aria-describedby="basic-addon1">
                 </div>
             </div>
-            <div class="accordion" id="permissionAccordion">
+            <div class="accordion" runat="server" id="permissionAccordion">
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
@@ -41,8 +41,8 @@
                             </button>
                         </h2>
                         <div class="input-group-prepend">
-                            <input type="checkbox" aria-label="Checkbox for following text input">
-                            <label style="vertical-align: central">Select all</label>
+                            <input type="checkbox" runat="server" id="OrgnPermsAll">
+                            <label style="text-align:center">Select all</label>
                         </div>
                     </div>
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#permissionAccordion">
@@ -50,13 +50,13 @@
                             <div class="row mb-2">
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                        <input type="checkbox" runat="server" id="OrgnInviteUser">
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Invite User</button>
                                 </div>
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                        <input type="checkbox" runat="server" id="OrgnRemoveUser">
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Remove User</button>
                                 </div>
@@ -64,7 +64,7 @@
                             <div class="row  mb-2">
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                        <input type="checkbox" runat="server" id="OrgnPermissionsEditing">
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Edit Users Permissions</button>
                                 </div>
@@ -80,7 +80,7 @@
                             </button>
                         </h2>
                         <div class="input-group-prepend">
-                            <input type="checkbox" aria-label="Checkbox for following text input">
+                            <input type="checkbox" runat="server" id="ProjPermsAll">
                             <label style="vertical-align: central">Select all</label>
                         </div>
                     </div>
@@ -89,13 +89,13 @@
                             <div class="row mb-2">
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                        <input type="checkbox" runat="server" id="ProjCreateProject">
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Create Project</button>
                                 </div>
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                        <input type="checkbox" runat="server" id="ProjProjectEditing">
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Edit Project</button>
                                 </div>
@@ -103,13 +103,13 @@
                             <div class="row mb-2">
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                        <input type="checkbox" runat="server" id="ProjDeleteProject">
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Delete Project</button>
                                 </div>
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                        <input type="checkbox" runat="server" id="ProjAssignmentEditing">
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Assign Users to Project</button>
                                 </div>
@@ -125,7 +125,7 @@
                             </button>
                         </h2>
                         <div class="input-group-prepend">
-                            <input type="checkbox" aria-label="Checkbox for following text input">
+                            <input type="checkbox" runat="server" id="TaskPermsAll">
                             <label style="vertical-align: central">Select all</label>
                         </div>
                     </div>
@@ -134,13 +134,13 @@
                             <div class="row mb-2">
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                        <input type="checkbox" runat="server" id="TaskCreateTask">
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Create Task</button>
                                 </div>
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                        <input type="checkbox" runat="server" id="TaskEdit">
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Edit Task</button>
                                 </div>
@@ -148,13 +148,13 @@
                             <div class="row mb-2">
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                        <input type="checkbox" runat="server" id="TaskDel">
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Delete Project</button>
                                 </div>
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                        <input type="checkbox" runat="server" id="TaskAsgn">
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Assign Users to Project</button>
                                 </div>

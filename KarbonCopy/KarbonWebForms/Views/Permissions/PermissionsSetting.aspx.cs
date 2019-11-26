@@ -43,13 +43,23 @@ namespace KarbonWebForms.Views.Permissions
             conn.Close();
         }
 
+        private List<KeyValuePair<string, int>> checkSelected() {
+            List<KeyValuePair<string, int>> selectedPerms = new List<KeyValuePair<string, int>>();
+            foreach (Control c in permissionAccordion.Controls) {
+                if (c is CheckBox) {
+                    if (((CheckBox)c).Checked)
+                        selectedPerms.Add(new KeyValuePair<string, int>(((CheckBox)c).ID, 1));
+                }
+            }
+            return selectedPerms;
+        }
+
         protected void UpdateBtn_Click(object sender, EventArgs e)
         {
+            
             var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
-            
             conn.Open();
-            var trans = conn.BeginTransaction();
-            
+            var trans = conn.BeginTransaction();            
             foreach (Control c in OrgMemRptr.Controls)
             {
                 // update all permission levels of each user
