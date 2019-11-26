@@ -1,10 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="PermissionsSetting.aspx.cs" Inherits="KarbonWebForms.Views.Permissions.PermissionsSetting" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="DashContent">
-    <asp:ScriptManager runat="server" >
-        
-    </asp:ScriptManager>
-     <div>
+
+    <div>
         <h2>The Permission Management View for a Project</h2>
     </div>
 
@@ -17,9 +15,9 @@
                         <ItemTemplate>
                             <div class="input-group-prepend w-100">
                                 <div class="input-group-text">
-                                    <input type="checkbox" runat="server" id="<%# DataBinder.Eval(Container.DataItem, "Username").ToString() + "ChkBx"%>">
+                                    <asp:CheckBox runat="server" ClientIDMode="Static" ID="<%# DataBinder.Eval(Container.DataItem, "Username").ToString() + "ChkBx"%>"></asp:CheckBox>
                                 </div>
-                                <button type="button" class="btn btn-sm btn-secondary btn-block"> <%# DataBinder.Eval(Container.DataItem, "Username") %>  </button>
+                                <button type="button" class="btn btn-sm btn-secondary btn-block"><%# DataBinder.Eval(Container.DataItem, "Username") %>  </button>
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
@@ -166,19 +164,6 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-primary btn-block" id="UpdateBtn" onclick="UpdateBtn_Click"> Update Permissions </button>
+        <button type="button" class="btn btn-primary btn-block" id="UpdateBtn" onclick="updatePerms()">Update Permissions </button>
     </div>
-
-    <script>
-        // gathering list of selected usernames to pass to UpdateBtn_Click
-        function updatePerms() {
-            var uns = [];
-            for (e in document.getElementsByTagName("*ChkBx")) {
-                if (e.checked == true) {
-                    uns.push(e.id.substring(0, e.id.length - 5))
-                }
-            }
-            // look at bookmark for calling server-side method
-        }
-    </script>
 </asp:Content>

@@ -5,9 +5,10 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Services;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Windows.Forms;
 
 namespace KarbonWebForms.Views.Permissions
 {
@@ -42,23 +43,25 @@ namespace KarbonWebForms.Views.Permissions
             conn.Close();
         }
 
-        private void SetSelected(string[] usernames) {
-            foreach (string un in usernames){
-                MemberList.Add(un);
-            }
-        }
-        private List<string> GetSelected() {
-            return MemberList;
-        }
         protected void UpdateBtn_Click(object sender, EventArgs e)
         {
             var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
+            
             conn.Open();
-            foreach (string un in GetSelected())
+            var trans = conn.BeginTransaction();
+            
+            foreach (Control c in OrgMemRptr.Controls)
             {
                 // update all permission levels of each user
+                if (c is CheckBox) {
+                   if (((CheckBox) c).Checked) {
+                        var command = new MySqlCommand("Update Username From ProjectAssigned Where (ProjectId=@PId AND Username<>@user);", conn);
+                        command.Parameters.Add(new MySqlParameter("PId", MySqlDbType.VarChar) { Value = Session["ProjectId"] });
+                        command.Parameters.Add(new MySqlParameter("user", MySqlDbType.VarChar) { Value = Session["Username"] });
+                    }
+                }
             }
-            
+            trans.Commit();
             conn.Close();
         }
     }
