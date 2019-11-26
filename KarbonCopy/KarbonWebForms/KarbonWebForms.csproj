@@ -1758,15 +1758,17 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Notes\CreateNote.aspx" />
     <Content Include="Views\Notes\NoteContent.aspx" />
-    <Content Include="Views\Progress\ProjectProgress.aspx" />
+    <Content Include="Views\Progress\Index.aspx" />
     <Content Include="Views\Projects\AddRemoveUser.aspx" />
+    <Content Include="Views\Projects\AddRemoveUser.html" />
     <Content Include="Views\Projects\CreateProject.aspx" />
+    <Content Include="Views\Projects\Index.aspx" />
     <Content Include="Views\Projects\PermissionManagement.aspx" />
     <Content Include="Views\Projects\ProjectPage.aspx" />
     <Content Include="Views\Projects\TeamManagement.aspx" />
     <Content Include="Views\Home\HomeContent.aspx" />
     <Content Include="Views\Tasks\CreateTask.aspx" />
-    <Content Include="Views\Tasks\TasksList.aspx" />
+    <Content Include="Views\Tasks\Index.aspx" />
     <Content Include="Views\Tasks\TaskPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -1785,6 +1787,7 @@
     <Compile Include="Views\Accounts\Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
+    <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Home\tempBanner1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -1890,12 +1893,12 @@
     <Compile Include="Views\Notes\NoteContent.aspx.designer.cs">
       <DependentUpon>NoteContent.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Progress\ProjectProgress.aspx.cs">
-      <DependentUpon>ProjectProgress.aspx</DependentUpon>
+    <Compile Include="Views\Progress\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Progress\ProjectProgress.aspx.designer.cs">
-      <DependentUpon>ProjectProgress.aspx</DependentUpon>
+    <Compile Include="Views\Progress\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Projects\AddRemoveUser.aspx.cs">
       <DependentUpon>AddRemoveUser.aspx</DependentUpon>
@@ -1910,6 +1913,13 @@
     </Compile>
     <Compile Include="Views\Projects\CreateProject.aspx.designer.cs">
       <DependentUpon>CreateProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Projects\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Projects\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Projects\PermissionManagement.aspx.cs">
       <DependentUpon>PermissionManagement.aspx</DependentUpon>
@@ -1939,12 +1949,12 @@
     <Compile Include="Views\Tasks\CreateTask.aspx.designer.cs">
       <DependentUpon>CreateTask.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Tasks\TasksList.aspx.cs">
-      <DependentUpon>TasksList.aspx</DependentUpon>
+    <Compile Include="Views\Tasks\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Tasks\TasksList.aspx.designer.cs">
-      <DependentUpon>TasksList.aspx</DependentUpon>
+    <Compile Include="Views\Tasks\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Tasks\TaskPage.aspx.cs">
       <DependentUpon>TaskPage.aspx</DependentUpon>
@@ -1952,6 +1962,13 @@
     </Compile>
     <Compile Include="Views\Tasks\TaskPage.aspx.designer.cs">
       <DependentUpon>TaskPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Projects\Projects.aspx.cs">
       <DependentUpon>Projects.aspx</DependentUpon>
