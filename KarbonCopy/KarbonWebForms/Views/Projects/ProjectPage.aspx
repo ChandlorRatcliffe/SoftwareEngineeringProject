@@ -32,7 +32,7 @@
             <div class="card">
                 <!--The id Description is referenced in the code-behind to set its InnerText -->
                 <div class="card-body w-100" style="max-height:300px; overflow-y:scroll;" id="Description" runat="server"></div>
-                    
+
                     <!-- Button trigger modal / Start Modal pack -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
   Edit Description
@@ -60,7 +60,7 @@
   </div>
 </div>
 <!--End Modal pack-->
-                    
+              
             </div>
             <br />
             <!-- This is the progress bar, portions : "style="width: XX%;" aria-valuenow="XX"" will need to be generated to be in line with users progress-->

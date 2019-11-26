@@ -1,0 +1,6 @@
+﻿.jumbomod {
+    background-image: url(../pics/tempBanner1.jpg) !important;
+    background: fixed center no-repeat;
+    background-size: cover;
+    min-height: 557px;
+}

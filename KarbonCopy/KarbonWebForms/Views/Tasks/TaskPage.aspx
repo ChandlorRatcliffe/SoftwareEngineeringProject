@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="TaskPage.aspx.cs" Inherits="KarbonWebForms.Views.Tasks.TaskPage" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="DashContent">
-    
+
 <div class="container">
     <div class="row">
         <div class="col-md-4">
@@ -12,6 +12,7 @@
                 </h5>
                 <div class="card-body">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu. Vulputate dignissim suspendisse in est. Viverra maecenas accumsan lacus vel. Viverra mauris in aliquam sem. Arcu bibendum at varius vel pharetra vel turpis nunc eget. Habitasse platea dictumst quisque sagittis. Tellus mauris a diam maecenas. Posuere lorem ipsum dolor sit amet consectetur adipiscing elit duis. Odio eu feugiat pretium nibh ipsum consequat. In eu mi bibendum neque egestas congue quisque egestas diam. Urna id volutpat lacus laoreet non curabitur gravida arcu ac.
+
                     
                         <!-- Button trigger modal / Start Modal pack -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#example1ModalLong">

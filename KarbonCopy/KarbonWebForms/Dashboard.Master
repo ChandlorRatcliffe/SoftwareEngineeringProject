@@ -1,0 +1,106 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Dashboard.Master.cs" Inherits="CashewWebForms.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <asp:PlaceHolder runat="server">
+        <%: Styles.Render("~/lib/css") %>
+        <%: Scripts.Render("~/lib/js") %>
+    </asp:PlaceHolder>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body style="height:100vh;">
+    <form runat="server" class="h-100">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <nav class="shadow navbar navbar-expand-md bg-dark navbar-light sticky-top px-0">
+
+            <a runat="server" class="btn btn-dark btn-lg p-0 ml-2" style="min-width: 72px;" href="~/Views/Projects/Projects.aspx">
+                <div class="form-inline">
+                    <span class="">
+                        <i class="fas fa-cog fa-spin fa-2x fa-fw"></i>
+                    </span>
+                    <span class="align-self-center text-uppercase text-primary" style="font-size: 1.5rem;">Karbon</span>
+                </div>
+            </a>
+
+            <span>
+                <button class="btn btn-dark mx-1 d-sm-inline-block d-md-none d-lg-none navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </span>
+
+            <div class="collapse navbar-collapse d-lg-none" id="collapsibleNavbar">
+                <a runat="server" class="btn btn-dark nav-link d-lg-none ml-1" href="~/Views/Projects/Projects.aspx">Dashboard</a>
+                <a runat="server" class="btn btn-dark nav-link d-lg-none" href="~/Views/Projects/Projects.aspx">Project</a>
+                <a runat="server" class="btn btn-dark nav-link d-lg-none" href="~/Views/Tasks/TasksList.aspx">Task</a>
+                <a runat="server" class="btn btn-dark nav-link d-lg-none" href="~/Views/Notes/NoteTable.aspx">Notes</a>
+                <a runat="server" class="btn btn-dark nav-link d-lg-none" href="~/Views/Permissions/PermissionsSetting.aspx">Permissions</a>
+                <a runat="server" class="btn btn-dark nav-link d-lg-none" href="~/Views/Accounts/Settings.aspx">Settings</a>
+                <a runat="server" class="btn btn-dark nav-link d-lg-none" href="~/Views/Home/HomeContent.aspx">Logout</a>
+            </div>
+
+
+
+            <!-- what does this button do that the button within the span above doesn't? Answer: It displays on medium and large but, not small -->
+            <a runat="server" class="btn btn-dark mx-1 d-none d-md-block d-lg-block mr-2" href="~/Views/Home/HomeContent.aspx">
+                <i class="far fa-user-circle fa-2x" style="vertical-align:middle"></i>
+            </a>
+
+        </nav>
+
+        <div class="container-fluid h-100">
+            <div class="row justify-content-center h-100">
+                <!--Display for XL to Large-->
+                <div class="col-lg-2 order-first d-none d-lg-block d-xl-block bg-dark">
+                    <ul class="nav nav-pills flex-column mt-3">
+                        <!-- Dashboard is main projects list page -->
+                        <li class="nav-item mb-1">
+                            <a runat="server" class="btn btn-dark nav-link text-left" href="~/Views/Projects/Projects.aspx">Dashboard</a>
+                        </li>
+                        <!--  Must select a project to navigate to an individual project page
+                            <li class="nav-item my-1" id="proj">
+                            <a runat="server" class="btn btn-dark nav-link text-left" href="~/Views/Projects/Projects.aspx">Project</a>
+                        </li>-->
+                        <li class="nav-item my-1" id="task">
+                            <a runat="server" class="btn btn-dark nav-link text-left" href="~/Views/Tasks/TasksList.aspx">Task</a>
+                        </li>
+                        <li class="nav-item my-1" id="notes">
+                            <a runat="server" class="btn btn-dark nav-link text-left" href="~/Views/Notes/NoteTable.aspx">Notes</a>
+                        </li>
+                        <li class="nav-item my-1" id="perm">
+                            <a runat="server" class="btn btn-dark nav-link text-left" href="~/Views/Permissions/PermissionsSetting.aspx">Permissions</a>
+                        </li>
+                        <li class="nav-item my-1" id="sett">
+                            <a runat="server" class="btn btn-dark nav-link text-left" href="~/Views/Accounts/Settings.aspx">Settings</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col order-last bg-darkcontainer-fluid mt-3 h-100">
+                    <asp:ContentPlaceHolder runat="server" ID="DashContent"></asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</body>
+</html>

@@ -12,6 +12,23 @@ namespace KarbonWebForms
         // For more information on Bundling, visit https://go.microsoft.com/fwlink/?LinkID=303951
         public static void RegisterBundles(BundleCollection bundles)
         {
+            BundleTable.EnableOptimizations = false;
+
+            bundles.Add(new StyleBundle("~/lib/css").Include(
+                "~/lib/css/fontawesome.css",
+                "~/lib/css/bootstrap.css",
+                "~/lib/css/all.css",
+                "~/lib/css/boomod.css"
+                )
+            );
+
+            bundles.Add(new ScriptBundle("~/lib/js").Include(
+                "~/lib/js/jquery-3.4.1.js",
+                "~/lib/js/all.js",
+                "~/lib/js/bootstrap.bundle.js"
+                )
+            );
+
             bundles.Add(new ScriptBundle("~/bundles/WebFormsJs").Include(
                             "~/Scripts/WebForms/WebForms.js",
                             "~/Scripts/WebForms/WebUIValidation.js",
@@ -33,6 +50,8 @@ namespace KarbonWebForms
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                             "~/Scripts/modernizr-*"));
+
         }
     }
 }
+ 

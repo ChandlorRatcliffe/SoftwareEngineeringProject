@@ -55,6 +55,5 @@
                 Dark Mode
             </button>
         </center>
-    </div>    
-    
+    </div>
 </asp:Content>
