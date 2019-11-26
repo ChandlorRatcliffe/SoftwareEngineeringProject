@@ -24,7 +24,7 @@
                     <%--<label asp-for="Password" class="col-sm-12 col-form-label"></label>--%>
                     <asp:Label runat="server" ID="Password" AssociatedControlID="EnterPassword" CssClass="col-sm-12 col-form-label"></asp:Label>
                     <%--<input asp-for="Password" class="form-control" type="password" placeholder="Username" />--%>
-                    <asp:TextBox runat="server" ID="EnterPassword" CssClass="form-control" placeholder="Enter Password"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="EnterPassword" TextMode="Password" CssClass="form-control" placeholder="Enter Password"></asp:TextBox>
                     <%--<a class="form-text text-muted text-right text-light" onclick="location.href='@Url.Action("RecoveryPassword", "Accounts")'">Forgot&nbsp;Password?</a>
                     <span asp-validation-for="Password" class="text-danger"></span>--%>
                     <asp:LinkButton runat="server" ID="RecoverPassword" CssClass="form-text text-muted text-right text-light" href="/Views/Accounts/RecoverPassword">Forgot&nbsp;Password?</asp:LinkButton>
