@@ -1756,8 +1756,9 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Views\Notes\CreateNote.aspx" />
-    <Content Include="Views\Notes\NoteContent.aspx" />
+    <Content Include="Views\Accounts\Settings.aspx" />
+    <Content Include="Views\Notes\NoteTable.aspx" />
+    <Content Include="Views\Permissions\PermissionsSetting.aspx" />
     <Content Include="Views\Progress\ProjectProgress.aspx" />
     <Content Include="Views\Projects\AddRemoveUser.aspx" />
     <Content Include="Views\Projects\CreateProject.aspx" />
@@ -1869,6 +1870,13 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Accounts\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Home\HomeContent.aspx.cs">
       <DependentUpon>HomeContent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1876,19 +1884,19 @@
     <Compile Include="Views\Home\HomeContent.aspx.designer.cs">
       <DependentUpon>HomeContent.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Notes\CreateNote.aspx.cs">
-      <DependentUpon>CreateNote.aspx</DependentUpon>
+    <Compile Include="Views\Notes\NoteTable.aspx.cs">
+      <DependentUpon>NoteTable.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Notes\CreateNote.aspx.designer.cs">
-      <DependentUpon>CreateNote.aspx</DependentUpon>
+    <Compile Include="Views\Notes\NoteTable.aspx.designer.cs">
+      <DependentUpon>NoteTable.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Notes\NoteContent.aspx.cs">
-      <DependentUpon>NoteContent.aspx</DependentUpon>
+    <Compile Include="Views\Permissions\PermissionsSetting.aspx.cs">
+      <DependentUpon>PermissionsSetting.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Notes\NoteContent.aspx.designer.cs">
-      <DependentUpon>NoteContent.aspx</DependentUpon>
+    <Compile Include="Views\Permissions\PermissionsSetting.aspx.designer.cs">
+      <DependentUpon>PermissionsSetting.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Progress\ProjectProgress.aspx.cs">
       <DependentUpon>ProjectProgress.aspx</DependentUpon>

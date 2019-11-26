@@ -4,61 +4,58 @@
 <!-- Recreation of Create.cshtml -->
     <div class="container bg-light my-5" style="max-width: 500px;">
         <h2 class="text-center mb-2"><br />KARBON <b>Create</b><br /></h2>
-        <div <%--asp-validation-summary="All"--%> class="text-danger"></div>
+        <%-- 
+            <div asp-validation-summary="All" class="text-danger"></div> 
+            <span class="text-danger"></span> 
+        --%>
         <div class="form-group row">
             <div class="col-sm-1"></div>
             <div class="col-sm-5">
-                <label <%--asp-for="FirstName"--%> class="col-sm-12 col-form-label"></label>
-                <input <%--asp-for="FirstName"--%> class="form-control" placeholder="First Name" />
-                <span <%--asp-validation-for="FirstName"--%> class="text-danger"></span>
+                <label class="col-sm-12 col-form-label">Firstname</label>
+                <asp:TextBox ID="FirstName" CssClass="form-control" placeholder="Firstname" runat="server" />
             </div>
             <div class="col-sm-5">
-                <label <%--asp-for="LastName"--%> class="col-sm-12 col-form-label"></label>
-                <input <%--asp-for="LastName"--%> class="form-control" placeholder="Last Name" />
-                <span <%--asp-validation-for="LastName"--%> class="text-danger"></span>
+                <label class="col-sm-12 col-form-label">Firstname</label>
+                <asp:TextBox ID="LastName" CssClass="form-control" placeholder="Lastname" runat="server" />
             </div>
             <div class="col-sm-1"></div>
         </div>
         <div class="form-group row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
-                <label <%--asp-for="Email"--%> class="col-sm-12 col-form-label"></label>
-                <input <%--asp-for="Email"--%> class="form-control" placeholder="Email" />
-                <span <%--asp-validation-for="Email"--%> class="text-danger"></span>
+                <label class="col-sm-12 col-form-label">Email</label>
+                <asp:TextBox ID="Email" CssClass="form-control" placeholder="Email" runat="server" />
             </div>
             <div class="col-sm-1"></div>
         </div>
         <div class="form-group row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
-                <label <%--asp-for="Username"--%> class="col-sm-12 col-form-label"></label>
-                <input <%--asp-for="Username"--%> class="form-control" placeholder="Username" />
-                <span <%--asp-validation-for="Username"--%> class="text-danger"></span>
+                <label class="col-sm-12 col-form-label">Username</label>
+                <asp:TextBox ID="Username" CssClass="form-control" placeholder="Username" runat="server" />
             </div>
             <div class="col-sm-1"></div>
         </div>
         <div class="form-group row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
-                <label <%--asp-for="Password"--%> class="col-sm-12 col-form-label"></label>
-                <input <%--asp-for="Password"--%> class="form-control" type="password" placeholder="Password" />
-                <span <%--asp-validation-for="Password"--%> class="text-danger"></span>
+                <label class="col-sm-12 col-form-label">Password</label>
+                <asp:TextBox ID="Password" TextMode="Password" CssClass="form-control" Text="Username" runat="server" />
             </div>
             <div class="col-sm-1"></div>
         </div>
         <div class="form-group row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
-                <label <%--asp-for="Password2"--%> class="col-sm-12 col-form-label"></label>
-                <input <%--asp-for="Password2"--%> class="form-control" type="password" placeholder="Confirm Password" />
-                <span <%--asp-validation-for="Password2"--%> class="text-danger"></span>
+                <label class="col-sm-12 col-form-label">Confirm Password</label>
+                <asp:TextBox ID="ConfirmPassword" TextMode="Password" CssClass="form-control" Text="Confirm Password" runat="server" />
             </div>
             <div class="col-sm-1"></div>
         </div>
         <br />
         <div class="form-group row text-center">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <button type="submit" class="btn btn-primary px-5">Submit</button>
+                <button type="submit" class="btn btn-primary px-5" runat="server" onserverclick="CreateAccount">Submit</button>
             </div>
         </div>
         <div class="row">
