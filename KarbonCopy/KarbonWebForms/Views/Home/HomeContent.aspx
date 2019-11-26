@@ -2,7 +2,7 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
-        <div class="jumbotron jumbotron-fluid" style="background: url(~/static/tempBanner1.jpg) fixed center no-repeat; background-size: cover; min-height: 557px;">
+        <div class="jumbotron jumbotron-fluid jumbomod">
             <div class="row" style="min-height: 50vh; display: flex; align-items: center;">
                 <div class="col-1 order-first"></div>
                 <div class="shadow container rounded col-10" style="background-color: rgba(255, 255, 255,.3); align-content: center; height: 75%; width: 80%">
