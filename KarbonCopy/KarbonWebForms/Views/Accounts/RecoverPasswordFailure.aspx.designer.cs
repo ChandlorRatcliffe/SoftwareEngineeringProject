@@ -11,7 +11,7 @@ namespace KarbonWebForms.Views.Accounts
 {
 
 
-    public partial class RecoverPasswordFailure
+    public partial class RecoverPasswordSuccess
     {
     }
 }

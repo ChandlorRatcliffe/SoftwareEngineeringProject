@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateNote.aspx.cs" Inherits="KarbonWebForms.Views.Notes.CreateNote" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="NoteTable.aspx.cs" Inherits="KarbonWebForms.Views.Notes.CreateNote" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="DashContent">
 
@@ -22,7 +22,7 @@
     </style>
 
 
-    <div class="container my-5" style="text-align:center;">
+    <div class="container my-5" style="text-align: center;">
         <h1 class="text-center">Note Mangement</h1>
         <!-- Update Date text -->
         <span class="text-success font-weight-bold" id="date"></span>
@@ -85,24 +85,22 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" />
                 </div>
                 <div class="modal-body" id="NoteDescription">
-                    <form>
-                        <div class="form-group">
-                            <label class="col-form-label">Description:</label>
-                            <textarea class="form-control" disabled id="exampleFormControlTextarea1" rows="5"></textarea>
-                        </div>
-                        <div class="form-group float-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Change Status
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item">Done</a>
-                                    <a class="dropdown-item">Discard</a>
-                                    <a class="dropdown-item">Pending</a>
-                                </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Description:</label>
+                        <textarea class="form-control" disabled id="exampleFormControlTextarea1" rows="5"></textarea>
+                    </div>
+                    <div class="form-group float-right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Change Status
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item">Done</a>
+                                <a class="dropdown-item">Discard</a>
+                                <a class="dropdown-item">Pending</a>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -169,7 +167,7 @@
         -->
         <script>
             $('$UpdateStatusBtn').on('click', func(){
-                
+
             })
         </script>
     </div>

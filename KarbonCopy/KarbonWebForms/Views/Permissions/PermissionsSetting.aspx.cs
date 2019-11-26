@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace KarbonWebForms.Views.Accounts
+namespace KarbonWebForms.Views.Permissions
 {
-    public partial class RecoverUsername : System.Web.UI.Page
+    public partial class PermissionsSetting : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
