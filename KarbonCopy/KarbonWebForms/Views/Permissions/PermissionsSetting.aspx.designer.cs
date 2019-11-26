@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KarbonWebForms.Views.Notes
+namespace KarbonWebForms.Views.Permissions
 {
 
 
-    public partial class NoteContent
+    public partial class PermissionsSetting
     {
     }
 }

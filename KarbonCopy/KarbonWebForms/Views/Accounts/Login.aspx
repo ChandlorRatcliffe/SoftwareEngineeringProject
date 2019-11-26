@@ -34,7 +34,7 @@
             <div class="form-group row text-center">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <%--<button type="submit" class="btn btn-primary mt-2 mx-2" style="width: 175px;">Sign&nbsp;In</button>--%>
-                    <asp:Button runat="server" ID="SignIn" CssClass="btn btn-primary mt-2 mx-2" style="width: 175px" Text="Sign In" OnCommand="SignIn_Command" />
+                    <asp:Button runat="server" ID="SignIn" CssClass="btn btn-primary mt-2 mx-2" style="width: 175px" Text="Sign In" OnCommand="SignIn_Command2" />
                 </div>
             </div><br />
         <hr style="border-color: gray;" />

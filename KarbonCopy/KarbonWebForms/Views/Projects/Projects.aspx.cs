@@ -14,7 +14,7 @@ namespace CashewWebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
         protected void PrjCardRptr_Click(object sender, EventArgs e)
         {
@@ -28,13 +28,16 @@ namespace CashewWebForms
             Response.Redirect("~/Views/Projects/ProjectPage");
         }
         protected void PrjCardRptr_PreRender(object sender, EventArgs e)
-        {
+        { 
+            // test to see if the query will work appropriately
             var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
             conn.Open();
-            //Where (Username = @user AND Email = @email)
-            var command = new MySqlCommand("Select * From Project  Order By ProjectId Asc;", conn);
-            //command.Parameters.Add(new MySqlParameter("user", MySqlDbType.VarChar) { Value = Session["Username"].ToString() });
-            //command.Parameters.Add(new MySqlParameter("email", MySqlDbType.VarChar) { Value = Session["Email"].ToString() });
+            var command = new MySqlCommand("Select *" +
+            " From (Creates LEFT OUTER JOIN Project ON Creates.ProjectId=Project.ProjectId)" +
+            " Where (Username = @user AND Email = @email)" +
+            " Order By Creates.ProjectId Asc;", conn);
+            command.Parameters.Add(new MySqlParameter("user", MySqlDbType.VarChar) { Value = Session["Username"] });
+            command.Parameters.Add(new MySqlParameter("email", MySqlDbType.VarChar) { Value = Session["Email"] });
             DataTable dt = new DataTable();
             dt.Load(command.ExecuteReader());
             // PrjCardRptr will now be assigned tuples from the database to repeat on, received from DataTable dt

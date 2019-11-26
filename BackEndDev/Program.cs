@@ -1,0 +1,236 @@
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Linq;
+using System.Web;
+using BackEndDev.Sql;
+using static BackEndDev.Sql.MySqlFunctions;
+
+namespace BackEndDev
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            List<CheckValuePair> checkList = new List<CheckValuePair>() 
+            {
+                new CheckValuePair("Username", "TestUser"),
+                new CheckValuePair("Password", "password")
+            };
+
+            if (functions.CheckExists("account", checkList))
+            {
+                Debug.WriteLine("Account Does Exist");
+            }
+            else
+            {
+                Debug.WriteLine("Account Does NOT Exist");
+            }
+
+        }
+
+        private static readonly MySqlFunctions functions = new MySqlFunctions();
+
+        //TODO NEXT
+        public static void Insert(Account account)
+        {
+            if (!Exists(account.Username))
+            {
+                string query =
+                    "INSERT INTO account (Username, Email, FirstName, LastName, Password, Skills, Theme, Picturepath)" +
+                    " VALUES(@username, @email, @firstname, @lastname, @password, @skills, @theme, @picturepath);";
+
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = account.Username },
+                    new MySqlParameter("email", MySqlDbType.VarChar) { Value = account.Email },
+                    new MySqlParameter("firstname", MySqlDbType.VarChar) { Value = account.FirstName },
+                    new MySqlParameter("lastname", MySqlDbType.VarChar) { Value = account.LastName },
+                    new MySqlParameter("password", MySqlDbType.VarChar) { Value = account.Password },
+                    new MySqlParameter("skills", MySqlDbType.VarChar) { Value = account.Skills },
+                    new MySqlParameter("theme", MySqlDbType.VarChar) { Value = account.Theme },
+                    new MySqlParameter("picturepath", MySqlDbType.VarChar) { Value = account.Picturepath }
+                };
+
+                if (functions.ExecuteNonQuery(query, parameters))
+                {
+                    Debug.WriteLine("InsertAccount: The account was added successfully.");
+                }
+                else
+                {
+                    Debug.WriteLine("InsertAccount: An error has occured.");
+                }
+            }
+        }
+
+        public static void Update(string username, string field, string fieldValue)
+        {
+            if (Exists(username))
+            {
+                string query = $"UPDATE account SET {field} = @value WHERE (Username = @username);";
+
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("value", MySqlDbType.VarChar) { Value = fieldValue },
+                    new MySqlParameter("username", MySqlDbType.VarChar) { Value =  username}
+                };
+
+                if (functions.ExecuteNonQuery(query, parameters))
+                {
+                    Debug.WriteLine("UpdateAccount: The account was updated successfully.");
+                }
+                else
+                {
+                    Debug.WriteLine("UpdateAccount: An error has occured.");
+                }
+            }
+        }
+
+        public static void Delete(string username)
+        {
+            DeleteAccount(new Account(username));
+        }
+
+        public static void DeleteAccount(Account account)
+        {
+            if (Exists(account.Username))
+            {
+                string query = "DELETE FROM account WHERE Username = @username;";
+
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = account.Username }
+                };
+
+                if (functions.ExecuteNonQuery(query, parameters))
+                {
+                    Debug.WriteLine("DeleteAccount: The account was deleted successfully.");
+                }
+                else
+                {
+                    Debug.WriteLine("DeleteAccount: An error has occured.");
+                }
+            }
+            else
+            {
+                Debug.WriteLine("DeleteAccount: Cannot delete account");
+            }
+        }
+
+        public static Account Get(string username)
+        {
+            if (Exists(username))
+            {
+                string query =
+                    "SELECT Username, Email, FirstName, LastName, Password, Skills, Theme, Picturepath " +
+                    "FROM account WHERE(Username = @username)";
+
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = username }
+                };
+
+                if (functions.ExecuteReader(query, parameters, out DataTable dataTable))
+                {
+                    DataRow row = dataTable.Rows[0];
+                    Account account = new Account
+                    {
+                        Username = row["username"].ToString(),
+                        Email = row["email"].ToString(),
+                        FirstName = row["firstname"].ToString(),
+                        LastName = row["lastname"].ToString(),
+                        Password = row["password"].ToString(),
+                        Skills = row["skills"].ToString(),
+                        Theme = row["theme"].ToString(),
+                        Picturepath = row["picturepath"].ToString()
+                    };
+                    return account;
+                }
+                else
+                {
+                    Debug.WriteLine("GetAccount: An error has occured while trying to get account.");
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static List<Account> GetAll()
+        {
+            string query =
+                "SELECT Username, Email, FirstName, LastName, Password, Skills, Theme, Picturepath FROM account;";
+            if (functions.ExecuteReader(query, null, out DataTable dataTable))
+            {
+                List<Account> accounts = new List<Account>();
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    accounts.Add(new Account
+                    {
+                        Username = row["username"].ToString(),
+                        Email = row["email"].ToString(),
+                        FirstName = row["firstname"].ToString(),
+                        LastName = row["lastname"].ToString(),
+                        Password = row["password"].ToString(),
+                        Skills = row["skills"].ToString(),
+                        Theme = row["theme"].ToString(),
+                        Picturepath = row["picturepath"].ToString()
+                    });
+                }
+                return accounts;
+            }
+            else
+            {
+                Debug.WriteLine("GetAllAccounts: An error has occured while trying to get all accounts.");
+                return null;
+            }
+        }
+
+        public static bool Exists(string keyValue)
+        {
+            if (functions.CheckExists("account", "username", keyValue))
+            {
+                Debug.WriteLine($"Exists: The account exists with username: {keyValue}.");
+                return true;
+            }
+            else
+            {
+                Debug.WriteLine($"Exists: The account doesn't exists with username: {keyValue}.");
+                return false;
+            }
+        }
+
+
+        /// <summary>
+        /// Helpers
+        /// </summary>
+        public static void PrintAll(List<Account> accounts)
+        {
+            foreach (Account account in accounts)
+            {
+                Print(account);
+                Console.WriteLine();
+            }
+            Console.Read();
+        }
+
+        public static void Print(Account account)
+        {
+            Console.WriteLine($"Username = {account.Username}");
+            Console.WriteLine($"Email = {account.Email}");
+            Console.WriteLine($"FirstName = {account.FirstName}");
+            Console.WriteLine($"LastName = {account.LastName}");
+            Console.WriteLine($"Password = {account.Password}");
+            Console.WriteLine($"Skills = {account.Skills}");
+            Console.WriteLine($"Theme = {account.Theme}");
+            Console.WriteLine($"Picturepath = {account.Picturepath}");
+        }
+
+    }
+}
