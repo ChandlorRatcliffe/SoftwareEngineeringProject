@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="HomeContent.aspx.cs" Inherits="KarbonWebForms.Views.Home.HomeContent" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="HomeContent.aspx.cs" Inherits="KarbonWebForms.Views.Home.HomeContent" Title="Management" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>

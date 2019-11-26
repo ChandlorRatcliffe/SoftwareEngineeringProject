@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CashewWebForms.Login" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CashewWebForms.Login" Title="Login" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
 <!-- Recreation of Index.cshtml -->
