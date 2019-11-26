@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="RecoverUsernameFailure.aspx.cs" Inherits="CashewWebForms.RecoverUsername" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="RecoverUsernameFailure.aspx.cs" Inherits="KarbonWebForms.Views.Accounts.RecoverUsername" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
 <!-- Recreation of RecoveryUsernameFailure.cshtml -->
