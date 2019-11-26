@@ -81,7 +81,7 @@ namespace BackEndDev.Sql
 
     public class Organization
     {
-        public Organization(string name, string license, string activation, string expiration)
+        public Organization(string name = null, string license = null, string activation = null, string expiration = null)
         {
             Name = name;
             License = license;
@@ -163,7 +163,7 @@ namespace BackEndDev.Sql
 
     public class Task
     {
-        public Task(string taskId, string taskDeadline, string taskDescription)
+        public Task(string taskId = null, string taskDeadline = null, string taskDescription = null)
         {
             TaskId = taskId;
             TaskDeadline = taskDeadline;
@@ -195,7 +195,7 @@ namespace BackEndDev.Sql
     /// </summary>
     public class CheckValuePair
     {
-        public CheckValuePair(string key, string value)
+        public CheckValuePair(string key = null, string value = null)
         {
             Key = key;
             Value = value;

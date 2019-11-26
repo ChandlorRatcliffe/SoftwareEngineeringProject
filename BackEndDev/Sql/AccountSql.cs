@@ -65,10 +65,10 @@ namespace BackEndDev.Sql
 
         public void Delete(string username)
         {
-            DeleteAccount(new Account(username));
+            Delete(new Account(username));
         }
 
-        public void DeleteAccount(Account account)
+        public void Delete(Account account)
         {
             if (Exists(account.Username))
             {
