@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CashewWebForms.Login" Title="Login" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="KarbonWebForms.Views.Accounts.Login" Title="Login" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
 <!-- Recreation of Index.cshtml -->
@@ -34,7 +34,7 @@
             <div class="form-group row text-center">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <%--<button type="submit" class="btn btn-primary mt-2 mx-2" style="width: 175px;">Sign&nbsp;In</button>--%>
-                    <asp:Button runat="server" ID="SignIn" CssClass="btn btn-primary mt-2 mx-2" style="width: 175px" Text="Sign In" OnCommand="SignIn_Command2" />
+                    <asp:Button runat="server" ID="SignIn" CssClass="btn btn-primary mt-2 mx-2" style="width: 175px" Text="Sign In" OnCommand="SignIn_Command" />
                 </div>
             </div><br />
         <hr style="border-color: gray;" />
