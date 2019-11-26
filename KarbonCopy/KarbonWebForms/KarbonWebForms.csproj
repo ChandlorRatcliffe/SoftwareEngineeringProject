@@ -122,6 +122,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="lib\css\gijgo.min.css" />
+    <Content Include="lib\js\datatables.min.js" />
+    <Content Include="lib\js\gijgo.min.js" />
+    <Content Include="lib\js\popper.min.js" />
     <Content Include="Views\Accounts\Create.aspx" />
     <Content Include="Views\Accounts\Error.aspx" />
     <Content Include="lib\css\all.css" />
@@ -1757,6 +1761,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Accounts\Settings.aspx" />
+    <Content Include="Views\Accounts\OrganizationInviteUser.aspx" />
     <Content Include="Views\Notes\NoteTable.aspx" />
     <Content Include="Views\Permissions\PermissionsSetting.aspx" />
     <Content Include="Views\Progress\ProjectProgress.aspx" />
@@ -1876,6 +1881,13 @@
     </Compile>
     <Compile Include="Views\Accounts\Settings.aspx.designer.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accounts\OrganizationInviteUser.aspx.cs">
+      <DependentUpon>OrganizationInviteUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\OrganizationInviteUser.aspx.designer.cs">
+      <DependentUpon>OrganizationInviteUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Home\HomeContent.aspx.cs">
       <DependentUpon>HomeContent.aspx</DependentUpon>
