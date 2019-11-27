@@ -25,7 +25,7 @@ namespace KarbonWebForms.Views.Projects
             // HtmlElements in C# have an Attributes member. Indexing it at "param" means I need an attribute tag in the frontend
             // named "param"
             Session["ProjectId"] = ((LinkButton)sender).Attributes["param"];
-            Response.Redirect("/Views/Projects/ProjectPage");
+            Response.Redirect("~/Views/Projects/ProjectPage");
         }
         protected void PrjCardRptr_PreRender(object sender, EventArgs e)
         { 

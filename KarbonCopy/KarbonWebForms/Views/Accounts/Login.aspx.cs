@@ -25,34 +25,6 @@ namespace KarbonWebForms.Views.Accounts
         //Keep all SQL within MySqlFunctions with try/catch block.. if new function needed add to Functions Library
         protected void SignIn_Command(object sender, CommandEventArgs e)
         {
-            if (accountSql.Authenticate(EnterUsername.Text, EnterPassword.Text))
-            {
-                Debug.WriteLine("Account was able to authenticate");
-                Account account = accountSql.Get(EnterUsername.Text);
-
-                if (account.Skills.Contains("false"))
-                {
-                    Debug.WriteLine("Email Not Verified");
-                    Response.Redirect("/Views/Accounts/Login", false);
-                }
-                else
-                {
-                    Debug.WriteLine("Email Verified");
-                    Session["Username"] = account.Username;
-                    Session["Email"] = account.Email;
-                    Response.Redirect("/Views/Projects/Projects");
-                }
-            }
-            else
-            {
-                Debug.WriteLine("Account unable to authenticate");
-                ScriptManager.RegisterClientScriptBlock(this, GetType(), "alert", "Your Message", true);
-            }
-        }
-
-
-
-        /*
             //Web.config contains the connection string so it doesn't have to be initialized every time. the below is how to access it
             var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
             conn.Open();
