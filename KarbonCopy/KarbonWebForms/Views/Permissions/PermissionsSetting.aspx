@@ -15,7 +15,7 @@
                         <ItemTemplate>
                             <div class="input-group-prepend w-100">
                                 <div class="input-group-text">
-                                    <asp:CheckBox runat="server" ClientIDMode="Static" ID="<%# DataBinder.Eval(Container.DataItem, "Username").ToString() + "ChkBx"%>"></asp:CheckBox>
+                                    <asp:CheckBox runat="server" param='<%# DataBinder.Eval(Container.DataItem, "Username") %>'></asp:CheckBox>
                                 </div>
                                 <button type="button" class="btn btn-sm btn-secondary btn-block"><%# DataBinder.Eval(Container.DataItem, "Username") %>  </button>
                             </div>
@@ -23,16 +23,16 @@
                     </asp:Repeater>
                 </div>
             </div>
-        </div>
+        
 
-        <div class="col-sm-5">
+        <div class="col-7">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <h4>Permission Options</h4>
                     <input type="text" class="form-control" placeholder="Organization Member" aria-label="Organization Member" aria-describedby="basic-addon1">
                 </div>
             </div>
-            <div class="accordion" runat="server" id="permissionAccordion">
+            <asp:Panel CssClass="accordion" runat="server" ClientIDMode="Static" ID="permissionAccordion">
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
@@ -41,7 +41,7 @@
                             </button>
                         </h2>
                         <div class="input-group-prepend">
-                            <input type="checkbox" runat="server" id="OrgnPermsAll">
+                            <asp:CheckBox runat="server" ClientIDMode="Static" ID="OrgnPermsAll"></asp:CheckBox>
                             <label style="text-align:center">Select all</label>
                         </div>
                     </div>
@@ -50,13 +50,13 @@
                             <div class="row mb-2">
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" runat="server" id="OrgnInviteUser">
+                                        <asp:CheckBox runat="server" ClientIDMode="Static" ID="OrgnInviteUser"></asp:CheckBox>
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Invite User</button>
                                 </div>
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" runat="server" id="OrgnRemoveUser">
+                                        <asp:CheckBox runat="server" ClientIDMode="Static" ID="OrgnRemoveUser"></asp:CheckBox>
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Remove User</button>
                                 </div>
@@ -64,7 +64,7 @@
                             <div class="row  mb-2">
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" runat="server" id="OrgnPermissionsEditing">
+                                        <asp:CheckBox runat="server" ClientIDMode="Static" ID="OrgnPermissionsEditing"></asp:CheckBox>
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Edit Users Permissions</button>
                                 </div>
@@ -80,7 +80,7 @@
                             </button>
                         </h2>
                         <div class="input-group-prepend">
-                            <input type="checkbox" runat="server" id="ProjPermsAll">
+                            <asp:CheckBox runat="server" ClientIDMode="Static" ID="ProjPermsAll"></asp:CheckBox>
                             <label style="vertical-align: central">Select all</label>
                         </div>
                     </div>
@@ -89,13 +89,13 @@
                             <div class="row mb-2">
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" runat="server" id="ProjCreateProject">
+                                        <asp:CheckBox runat="server" ClientIDMode="Static" ID="ProjCreateProject"></asp:CheckBox>
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Create Project</button>
                                 </div>
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" runat="server" id="ProjProjectEditing">
+                                        <asp:CheckBox runat="server" ClientIDMode="Static" ID="ProjProjectEditing"></asp:CheckBox>
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Edit Project</button>
                                 </div>
@@ -103,13 +103,13 @@
                             <div class="row mb-2">
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" runat="server" id="ProjDeleteProject">
+                                        <asp:CheckBox runat="server" ClientIDMode="Static" ID="ProjDeleteProject"></asp:CheckBox>
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Delete Project</button>
                                 </div>
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" runat="server" id="ProjAssignmentEditing">
+                                        <asp:CheckBox runat="server" ClientIDMode="Static" ID="ProjAssignmentEditing"></asp:CheckBox>
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Assign Users to Project</button>
                                 </div>
@@ -125,7 +125,7 @@
                             </button>
                         </h2>
                         <div class="input-group-prepend">
-                            <input type="checkbox" runat="server" id="TaskPermsAll">
+                            <asp:CheckBox runat="server" ClientIDMode="Static" ID="TaskPermsAll"></asp:CheckBox>
                             <label style="vertical-align: central">Select all</label>
                         </div>
                     </div>
@@ -134,13 +134,13 @@
                             <div class="row mb-2">
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" runat="server" id="TaskCreateTask">
+                                        <asp:CheckBox runat="server" ClientIDMode="Static" ID="TaskCreateTask"></asp:CheckBox>
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Create Task</button>
                                 </div>
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" runat="server" id="TaskEdit">
+                                        <asp:CheckBox runat="server" ClientIDMode="Static" ID="TaskTaskEditing"></asp:CheckBox>
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Edit Task</button>
                                 </div>
@@ -148,13 +148,13 @@
                             <div class="row mb-2">
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" runat="server" id="TaskDel">
+                                        <asp:CheckBox runat="server" ClientIDMode="Static" ID="TaskDeleteTask"></asp:CheckBox>
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Delete Project</button>
                                 </div>
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <input type="checkbox" runat="server" id="TaskAsgn">
+                                        <asp:CheckBox runat="server" ClientIDMode="Static" ID="TaskAssignmentEditing"></asp:CheckBox>
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Assign Users to Project</button>
                                 </div>
@@ -162,8 +162,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </asp:Panel>
         </div>
-        <button type="button" class="btn btn-primary btn-block" id="UpdateBtn" onclick="updatePerms()">Update Permissions </button>
+        </div>
+        <asp:LinkButton runat="server" CssClass="btn btn-primary btn-block" ID="UpdateBtn" OnClick="UpdateBtn_Click">Update Permissions </asp:LinkButton>
     </div>
 </asp:Content>

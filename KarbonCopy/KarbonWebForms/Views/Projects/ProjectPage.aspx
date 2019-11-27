@@ -25,7 +25,8 @@
                     </asp:Repeater>
                 </div>
                 <!--This button will take you to the team management page/view; I assume this to be Permission based, so I have disabled the button as a standard-->
-                <button type="button" class="btn btn-info" onclick="location.href'~/Views/Projects/TeamManagement'">Team Management</button>
+                <a runat="server" class="btn btn-info" href="~/Views/Projects/AddRemoveUser">Team Management</a>
+                <a runat="server" class="btn btn-info" href="~/Views/Permissions/PermissionsSetting">Team Permission Management</a>
             </div>
             <div class="col-md-7">
                 <!--This is the Description of the Project-->
