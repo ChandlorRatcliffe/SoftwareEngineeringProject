@@ -1767,7 +1767,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sql\BuiltOnSql.cs" />
+    <Compile Include="Sql\ProjectAssignedSql.cs" />
     <Compile Include="Sql\TaskAbilitiesSql.cs" />
+    <Compile Include="Sql\TaskAssignedSql.cs" />
     <Compile Include="Sql\TaskSql.cs" />
     <Compile Include="Sql\ProjectAbilitiesSql.cs" />
     <Compile Include="Sql\ProjectSql.cs" />

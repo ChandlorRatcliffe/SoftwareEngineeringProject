@@ -1,14 +1,15 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 
-namespace KarbonWebForms.Sql
+namespace BackEndDev.Sql
 {
     public class NotesPostedSql
     {
         private readonly MySqlFunctions functions = new MySqlFunctions();
-        private readonly string Table = "notesPosted";
+        private readonly string Table = "notesposted";
 
         /// <summary>
         /// Inserts NotesPosted into Sql Database
@@ -19,13 +20,13 @@ namespace KarbonWebForms.Sql
             if (!Exists(notesPosted.Username))
             {
                 string query =
-                    $"INSERT INTO {Table} (Text, TimeStamp, Username, Email, TaskId)" +
-                    $" VALUES(@text, @timestamp, @username, @email, @taskid);";
+                    $"INSERT INTO {Table} (Text, `TimeStamp`, Username, Email, TaskId)" +
+                    $" VALUES(@text, @tstamp, @username, @email, @taskid);";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
                     new MySqlParameter("text", MySqlDbType.VarChar) { Value = notesPosted.Text },
-                    new MySqlParameter("timestamp", MySqlDbType.VarChar) { Value = notesPosted.TimeStamp },
+                    new MySqlParameter("tstamp", MySqlDbType.DateTime) { Value = notesPosted.TimeStamp },
                     new MySqlParameter("username", MySqlDbType.VarChar) { Value = notesPosted.Username },
                     new MySqlParameter("email", MySqlDbType.VarChar) { Value = notesPosted.Email },
                     new MySqlParameter("taskid", MySqlDbType.VarChar) { Value = notesPosted.TaskId },
@@ -77,14 +78,14 @@ namespace KarbonWebForms.Sql
         /// <param name="username"></param>
         public void Delete(string username)
         {
-            DeleteNotesPosted(new NotesPosted(username));
+            Delete(new NotesPosted(username));
         }
 
         /// <summary>
         /// Delete NotesPosted using NotesPosted Object
         /// </summary>
         /// <param name="notesPosted"></param>
-        public void DeleteNotesPosted(NotesPosted notesPosted)
+        public void Delete(NotesPosted notesPosted)
         {
             if (Exists(notesPosted.Username))
             {
@@ -120,7 +121,7 @@ namespace KarbonWebForms.Sql
             if (Exists(username))
             {
                 string query =
-                    $"SELECT Text, TimeStamp, Username, Email, TaskId " +
+                    $"SELECT Text, `TimeStamp`, Username, Email, TaskId " +
                     $"FROM {Table} WHERE(Username = @username)";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
@@ -134,7 +135,7 @@ namespace KarbonWebForms.Sql
                     NotesPosted notesPosted = new NotesPosted
                     {
                         Text = row["text"].ToString(),
-                        TimeStamp = row["timestamp"].ToString(),
+                        TimeStamp = Convert.ToDateTime(row["timestamp"]),
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
                         TaskId = row["taskid"].ToString()
@@ -161,7 +162,7 @@ namespace KarbonWebForms.Sql
         public List<NotesPosted> GetAll()
         {
             string query =
-                $"SELECT Username, Email, Name, ProectId FROM {Table};";
+                $"SELECT Text, `TimeStamp`, Username, Email, TaskId FROM {Table};";
             if (functions.ExecuteReader(query, null, out DataTable dataTable))
             {
                 List<NotesPosted> notesPosted = new List<NotesPosted>();
@@ -170,7 +171,7 @@ namespace KarbonWebForms.Sql
                     notesPosted.Add(new NotesPosted
                     {
                         Text = row["text"].ToString(),
-                        TimeStamp = row["timestamp"].ToString(),
+                        TimeStamp = Convert.ToDateTime(row["timestamp"]),
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
                         TaskId = row["taskid"].ToString(),

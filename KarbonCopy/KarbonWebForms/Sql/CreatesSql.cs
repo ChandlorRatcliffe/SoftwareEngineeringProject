@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 
-namespace KarbonWebForms.Sql
+namespace BackEndDev.Sql
 {
     public class CreatesSql
     {
@@ -76,14 +76,14 @@ namespace KarbonWebForms.Sql
         /// <param name="username"></param>
         public void Delete(string username)
         {
-            DeleteCreates(new Creates(username));
+            Delete(new Creates(username));
         }
 
         /// <summary>
         /// Delete Creates using Creates Object
         /// </summary>
         /// <param name="creates"></param>
-        public void DeleteCreates(Creates creates)
+        public void Delete(Creates creates)
         {
             if (Exists(creates.Username))
             {
@@ -168,8 +168,8 @@ namespace KarbonWebForms.Sql
                     {
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
-                        Name = row["firstname"].ToString(),
-                        ProjectId = row["lastname"].ToString(),
+                        Name = row["name"].ToString(),
+                        ProjectId = row["projectid"].ToString(),
                     });
                 }
                 return creates;

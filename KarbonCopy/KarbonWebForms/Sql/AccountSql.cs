@@ -3,24 +3,19 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 
-namespace KarbonWebForms.Sql
+namespace BackEndDev.Sql
 {
     public class AccountSql
     {
         private readonly MySqlFunctions functions = new MySqlFunctions();
-        private readonly string Table = "account";
 
-        /// <summary>
-        /// Inserts Account into Sql Database
-        /// </summary>
-        /// <param name="account">Account Object</param>
         public void Insert(Account account)
         {
             if (!Exists(account.Username))
             {
                 string query =
-                    $"INSERT INTO {Table} (Username, Email, FirstName, LastName, Password, Skills, Theme, Picturepath)" +
-                    $" VALUES(@username, @email, @firstname, @lastname, @password, @skills, @theme, @picturepath);";
+                    "INSERT INTO account (Username, Email, FirstName, LastName, Password, Skills, Theme, Picturepath)" +
+                    " VALUES(@username, @email, @firstname, @lastname, @password, @skills, @theme, @picturepath);";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
@@ -45,17 +40,11 @@ namespace KarbonWebForms.Sql
             }
         }
 
-        /// <summary>
-        /// Updates a field of Account Sql Table
-        /// </summary>
-        /// <param name="username">PrimaryKey</param>
-        /// <param name="field">Column</param>
-        /// <param name="fieldValue">Column new Value</param>
         public void Update(string username, string field, string fieldValue)
         {
             if (Exists(username))
             {
-                string query = $"UPDATE {Table} SET {field} = @value WHERE (Username = @username);";
+                string query = $"UPDATE account SET {field} = @value WHERE (Username = @username);";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
@@ -74,24 +63,16 @@ namespace KarbonWebForms.Sql
             }
         }
 
-        /// <summary>
-        /// Delete Account using Username
-        /// </summary>
-        /// <param name="username"></param>
         public void Delete(string username)
         {
-            DeleteAccount(new Account(username));
+            Delete(new Account(username));
         }
 
-        /// <summary>
-        /// Delete Account using Account Object
-        /// </summary>
-        /// <param name="account"></param>
-        public void DeleteAccount(Account account)
+        public void Delete(Account account)
         {
             if (Exists(account.Username))
             {
-                string query = $"DELETE FROM {Table} WHERE Username = @username;";
+                string query = "DELETE FROM account WHERE Username = @username;";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
@@ -113,18 +94,13 @@ namespace KarbonWebForms.Sql
             }
         }
 
-        /// <summary>
-        /// Get Account Object From Sql Database
-        /// </summary>
-        /// <param name="username">Primary Key</param>
-        /// <returns>Account Object</returns>
         public Account Get(string username)
         {
             if (Exists(username))
             {
                 string query =
-                    $"SELECT Username, Email, FirstName, LastName, Password, Skills, Theme, Picturepath " +
-                    $"FROM {Table} WHERE(Username = @username)";
+                    "SELECT Username, Email, FirstName, LastName, Password, Skills, Theme, Picturepath " +
+                    "FROM account WHERE(Username = @username)";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
@@ -159,14 +135,10 @@ namespace KarbonWebForms.Sql
             }
         }
 
-        /// <summary>
-        /// Get All Entries of Account Table
-        /// </summary>
-        /// <returns>List of Account Objects</returns>
         public List<Account> GetAll()
         {
             string query =
-                $"SELECT Username, Email, FirstName, LastName, Password, Skills, Theme, Picturepath FROM {Table};";
+                "SELECT Username, Email, FirstName, LastName, Password, Skills, Theme, Picturepath FROM account;";
             if (functions.ExecuteReader(query, null, out DataTable dataTable))
             {
                 List<Account> accounts = new List<Account>();
@@ -193,14 +165,9 @@ namespace KarbonWebForms.Sql
             }
         }
 
-        /// <summary>
-        /// Checks if an Account Exists using Username 
-        /// </summary>
-        /// <param name="keyValue">Primary Key</param>
-        /// <returns></returns>
         public bool Exists(string keyValue)
         {
-            if (functions.CheckExists(Table, "username", keyValue))
+            if (functions.CheckExists("account", "username", keyValue))
             {
                 Debug.WriteLine($"Exists: The account exists with username: {keyValue}.");
                 return true;
@@ -212,13 +179,7 @@ namespace KarbonWebForms.Sql
             }
         }
 
-        /// <summary>
-        /// Authenticates a User against the Sql Database
-        /// </summary>
-        /// <param name="username">Primary Key</param>
-        /// <param name="password">Passphrase</param>
-        /// <returns></returns>
-        public bool Authenticate(string username, string password)
+        public bool Authenicate(string username, string password)
         {
             if (Exists(username))
             {

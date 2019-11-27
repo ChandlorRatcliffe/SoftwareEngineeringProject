@@ -1,9 +1,10 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 
-namespace KarbonWebForms.Sql
+namespace BackEndDev.Sql
 {
     public class OrganizationSql
     {
@@ -26,8 +27,8 @@ namespace KarbonWebForms.Sql
                 {
                     new MySqlParameter("name", MySqlDbType.VarChar) { Value = organization.Name },
                     new MySqlParameter("license", MySqlDbType.VarChar) { Value = organization.License },
-                    new MySqlParameter("activation", MySqlDbType.VarChar) { Value = organization.Activation },
-                    new MySqlParameter("expiration", MySqlDbType.VarChar) { Value = organization.Expiration },
+                    new MySqlParameter("activation", MySqlDbType.DateTime) { Value = organization.Activation },
+                    new MySqlParameter("expiration", MySqlDbType.DateTime) { Value = organization.Expiration },
                 };
                 if (functions.ExecuteNonQuery(query, parameters))
                 {
@@ -46,16 +47,16 @@ namespace KarbonWebForms.Sql
         /// <param name="username">PrimaryKey</param>
         /// <param name="field">Column</param>
         /// <param name="fieldValue">Column new Value</param>
-        public void Update(string username, string field, string fieldValue)
+        public void Update(string name, string field, string fieldValue)
         {
-            if (Exists(username))
+            if (Exists(name))
             {
                 string query = $"UPDATE {Table} SET {field} = @value WHERE (Name = @name);";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
                     new MySqlParameter("value", MySqlDbType.VarChar) { Value = fieldValue },
-                    new MySqlParameter("name", MySqlDbType.VarChar) { Value =  username}
+                    new MySqlParameter("name", MySqlDbType.VarChar) { Value =  name}
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
@@ -133,8 +134,8 @@ namespace KarbonWebForms.Sql
                     {
                         Name = row["name"].ToString(),
                         License = row["license"].ToString(),
-                        Activation = row["activation"].ToString(),
-                        Expiration = row["expiration"].ToString(),
+                        Activation = Convert.ToDateTime(row["activation"]),
+                        Expiration = Convert.ToDateTime(row["expiration"]),
                     };
                     return organization;
                 }
@@ -167,8 +168,8 @@ namespace KarbonWebForms.Sql
                     {
                         Name = row["name"].ToString(),
                         License = row["license"].ToString(),
-                        Activation = row["activation"].ToString(),
-                        Expiration = row["expiration"].ToString(),
+                        Activation = Convert.ToDateTime(row["activation"]),
+                        Expiration = Convert.ToDateTime(row["expiration"]),
                     });
                 }
                 return organization;
