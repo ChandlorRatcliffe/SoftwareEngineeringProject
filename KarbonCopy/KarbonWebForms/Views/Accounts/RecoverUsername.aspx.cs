@@ -25,15 +25,22 @@ namespace KarbonWebForms.Views.Accounts
             Account account = accountSql.GetWithEmail(EmailEnter.Text);
             if (account != null)
             {
-                await email.SendEmail(account, "Username Recovery", $"Hello {account.FirstName},\n" +
-                    $"you karbon username is {account.Username}.\n");
-                Debug.WriteLine("Email was sent to users email address.");
-                Response.Redirect("~/Views/Accounts/Login");
+                if (await email.SendEmail(account, "Username Recovery", $"Hello {account.FirstName},\n" +
+                    $"you karbon username is {account.Username}.\n"))
+                {
+                    Debug.WriteLine("Email was sent to user email address.");
+                    Response.Redirect("~/Views/Accounts/Login", false);
+                }
+                else
+                {
+                    Debug.WriteLine("Email FAILED send to user email address.");
+                    Response.Redirect("~/Views/Accounts/Login", false);
+                }
             }
             else
             {
                 Debug.WriteLine($"Account with the email {EmailEnter.Text} does not exists. Redirected to Login.. Needs Validation.");
-                Response.Redirect("~/Views/Accounts/Login");
+                Response.Redirect("~/Views/Accounts/Login", false);
             }
         }
     }

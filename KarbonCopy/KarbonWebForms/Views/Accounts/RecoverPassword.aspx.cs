@@ -30,15 +30,22 @@ namespace KarbonWebForms.Views.Accounts
                 Account account = accountSql.Get(UsernameEnter.Text);
                 if (account != null)
                 {
-                    await email.SendEmail(account, "Password Recovery", $"Hello {account.FirstName},\n" +
-                        $"you karbon password recovery token is is {passwordRecoveryToken}.\n");
-                    Debug.WriteLine("Email was sent to users email address.");
-                    Response.Redirect("~/Views/Accounts/Login");
+                    if (await email.SendEmail(account, "Password Recovery", $"Hello {account.FirstName},\n" +
+                        $"you karbon password recovery token is is {passwordRecoveryToken}.\n"))
+                    {
+                        Debug.WriteLine("Email was sent to user email address.");
+                        Response.Redirect("~/Views/Accounts/Login", false);
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Email has FAILED send to user email address.");
+                        Response.Redirect("~/Views/Accounts/Login", false);
+                    }
                 }
                 else
                 {
                     Debug.WriteLine($"Account with the email {EmailEnter.Text} does not exists. Redirected to Login.. Needs Validation.");
-                    Response.Redirect("~/Views/Accounts/Login");
+                    Response.Redirect("~/Views/Accounts/Login", false);
                 }
             }
             else
@@ -49,12 +56,12 @@ namespace KarbonWebForms.Views.Accounts
                     await email.SendEmail(account, "Password Recovery", $"Hello {account.FirstName},\n" +
                         $"you karbon password recovery token is is {passwordRecoveryToken}.\n");
                     Debug.WriteLine("Email was sent to users email address.");
-                    Response.Redirect("~/Views/Accounts/Login");
+                    Response.Redirect("~/Views/Accounts/Login", false);
                 }
                 else
                 {
                     Debug.WriteLine($"Account with the email {EmailEnter.Text} does not exists. Redirected to Login.. Needs Validation.");
-                    Response.Redirect("~/Views/Accounts/Login");
+                    Response.Redirect("~/Views/Accounts/Login", false);
                 }
             }
         }
