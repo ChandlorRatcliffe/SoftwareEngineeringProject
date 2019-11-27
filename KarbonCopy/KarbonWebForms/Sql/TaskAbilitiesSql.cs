@@ -76,14 +76,14 @@ namespace KarbonWebForms.Sql
         /// <param name="username"></param>
         public void Delete(string username)
         {
-            DeleteTaskAbilities(new TaskAbilities(username));
+            Delete(new TaskAbilities(username));
         }
 
         /// <summary>
         /// Delete TaskAbilities using TaskAbilities Object
         /// </summary>
         /// <param name="taskAbilities"></param>
-        public void DeleteTaskAbilities(TaskAbilities taskAbilities)
+        public void Delete(TaskAbilities taskAbilities)
         {
             if (Exists(taskAbilities.Username))
             {
@@ -135,7 +135,7 @@ namespace KarbonWebForms.Sql
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
                         TaskId = row["taskid"].ToString(),
-                        AssignmentEditing = row["assignmentediting"].ToString(),
+                        AssignmentEditing = (int)row["assignmentediting"],
                     };
                     return taskAbilities;
                 }
@@ -169,7 +169,7 @@ namespace KarbonWebForms.Sql
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
                         TaskId = row["taskid"].ToString(),
-                        AssignmentEditing = row["assignmentediting"].ToString(),
+                        AssignmentEditing = (int)row["assignmentediting"],
                     });
                 }
                 return taskAbilities;

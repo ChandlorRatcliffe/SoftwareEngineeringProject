@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -25,7 +26,7 @@ namespace KarbonWebForms.Sql
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
                     new MySqlParameter("projectid", MySqlDbType.VarChar) { Value = project.ProjectId },
-                    new MySqlParameter("projectdeadline", MySqlDbType.VarChar) { Value = project.ProjectDeadline },
+                    new MySqlParameter("projectdeadline", MySqlDbType.DateTime) { Value = project.ProjectDeadline },
                     new MySqlParameter("projectdescription", MySqlDbType.VarChar) { Value = project.ProjectDescription },
                 };
 
@@ -46,16 +47,16 @@ namespace KarbonWebForms.Sql
         /// <param name="username">PrimaryKey</param>
         /// <param name="field">Column</param>
         /// <param name="fieldValue">Column new Value</param>
-        public void Update(string username, string field, string fieldValue)
+        public void Update(string projectId, string field, string fieldValue)
         {
-            if (Exists(username))
+            if (Exists(projectId))
             {
                 string query = $"UPDATE {Table} SET {field} = @value WHERE (ProjectId = @projectid);";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
                     new MySqlParameter("value", MySqlDbType.VarChar) { Value = fieldValue },
-                    new MySqlParameter("projectid", MySqlDbType.VarChar) { Value =  username}
+                    new MySqlParameter("projectid", MySqlDbType.VarChar) { Value =  projectId}
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
@@ -75,14 +76,14 @@ namespace KarbonWebForms.Sql
         /// <param name="username"></param>
         public void Delete(string projectId)
         {
-            DeleteProject(new Project(projectId));
+            Delete(new Project(projectId));
         }
 
         /// <summary>
         /// Delete Project using Project Object
         /// </summary>
         /// <param name="project"></param>
-        public void DeleteProject(Project project)
+        public void Delete(Project project)
         {
             if (Exists(project.ProjectId))
             {
@@ -132,8 +133,8 @@ namespace KarbonWebForms.Sql
                     Project project = new Project
                     {
                         ProjectId = row["projectid"].ToString(),
-                        ProjectDeadline = row["projectdeadline"].ToString(),
-                        ProjectDescription = row["projectdescription"].ToString(),
+                        ProjectDeadline = Convert.ToDateTime(row["projectdeadline"]),
+                        ProjectDescription = row["projectdescription"].ToString()
                     };
                     return project;
                 }
@@ -165,8 +166,8 @@ namespace KarbonWebForms.Sql
                     project.Add(new Project
                     {
                         ProjectId = row["projectid"].ToString(),
-                        ProjectDeadline = row["projectdeadline"].ToString(),
-                        ProjectDescription = row["projectdescription"].ToString(),
+                        ProjectDeadline = Convert.ToDateTime(row["projectdeadline"]),
+                        ProjectDescription = row["projectdescription"].ToString()
                     });
                 }
                 return project;
