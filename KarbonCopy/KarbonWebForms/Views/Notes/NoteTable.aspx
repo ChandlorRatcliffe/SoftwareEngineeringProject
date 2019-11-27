@@ -61,7 +61,7 @@
             </tbody>
         </table>
         <br />
-        <button class="btn btn-primary float-right" id="NewNoteBtn" type="submit">Create Note</button>
+        <button class="btn btn-primary float-right" type="button" id="NewNoteBtn" data-toggle="modal" data-target="#CreateNoteModal">Create Note</button>
     </div>
 
     <!-- Note pop up -->
@@ -70,12 +70,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="NoteTitle" />
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" />
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="modal-body" id="NoteDescription">
+                <div class="modal-body">
                     <div class="form-group">
                         <label class="col-form-label">Description:</label>
-                        <textarea class="form-control" disabled id="exampleFormControlTextarea1" rows="5"></textarea>
+                        <textarea class="form-control" disabled id="NoteDescription" rows="5"></textarea>
                     </div>
                     <div class="form-group float-right">
                         <div class="btn-group">
@@ -152,6 +154,46 @@
 
             })
         </script>        -->
+    </div>
 
+    <!-- Create Note pop up -->
+    <div class="modal fade" id="CreateNoteModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create a Note</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-form-label">Title:</label>
+                        <input class="form-control" id="CreateNoteTitle" />
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Description:</label>
+                        <textarea class="form-control" id="CreateNoteDescription" rows="5"></textarea>
+                    </div>
+                    <!-- word counter limit 150-->
+                    <div class="form-group float-right">
+                        <p id="Counter"></p>
+                        <!-- word counter -->
+                        <script type="text/javascript">
+                            $('#CreateNoteDescription').keyup(function () {
+                                var left = 150 - $(this).val().length;
+                                if (left < 0) {
+                                    left = 0;
+                                }
+                                $('#Counter').text('Characters left: ' + left);
+                            });
+                        </script>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="CreateBtn" class="btn btn-primary">Create Note</button>
+                </div>
+            </div>
+        </div>
     </div>
 </asp:Content>
