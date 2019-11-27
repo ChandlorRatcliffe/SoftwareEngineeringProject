@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Projects.aspx.cs" Inherits="CashewWebForms.Projects" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Projects.aspx.cs" Inherits="KarbonWebForms.Views.Projects.Projects" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="DashContent">
     <div>

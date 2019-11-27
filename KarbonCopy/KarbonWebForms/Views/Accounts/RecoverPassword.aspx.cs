@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CashewWebForms
+namespace KarbonWebForms.Views.Accounts
 {
     public partial class RecoverPassword : System.Web.UI.Page
     {

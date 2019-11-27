@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title>Karbon <%: Page.Title %></title>
     <asp:PlaceHolder runat="server">
         <%: Styles.Render("~/lib/css") %>
         <%: Scripts.Render("~/lib/js") %>
@@ -15,6 +15,7 @@
 </head>
 <body>
     <form runat="server">
+        <%this.clearSes();%>
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -44,9 +45,9 @@
             </a>
 
             <span>
-                <button class="btn btn-light mx-1 d-sm-inline-block d-md-none d-lg-none" type="button" onclick="">
+                <a runat="server" class="btn btn-light mx-1 d-sm-inline-block d-md-none d-lg-none" href="~/Views/Accounts/Login.aspx">
                     Login <i class="far fa-user-circle fa-2x" style="vertical-align:middle"></i>
-                </button>
+                </a>
             </span>
 
             <div class="collapse navbar-collapse mt-1 mt-sm-0 mx-1 mx-md-0" id="collapsibleNavbar">

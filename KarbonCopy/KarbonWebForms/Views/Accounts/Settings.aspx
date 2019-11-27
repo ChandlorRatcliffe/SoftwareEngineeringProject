@@ -1,0 +1,52 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Settings.aspx.cs" Inherits="KarbonWebForms.Views.Accounts.Settings" %>
+
+<asp:Content runat="server" ContentPlaceHolderID="DashContent">
+    <div class="Settings-Page" style="justify-content:center">
+            <article class="Title-info">
+                <h1>User Settings</h1>
+            </article>
+            <!-- Main Settings -->
+            <!-- Change Username Section-->
+            <div class="col-1">
+                Username
+            </div>
+            <div class="input-group col-6 md-3">
+                <br />
+                <input type="text" class="form-control" placeholder="New Username" aria-label="New Username" aria-describedby="button-addon1">
+                <div class="input-group-append">
+                    <button class="btn btn-dark" type="button" id="button-addon1">Submit</button>
+                </div>
+            </div>
+            <br />
+            <!-- Change Email Section-->
+            <div class="col-1">
+                Email
+            </div>
+            <div class="input-group col-6 mb-3">
+                <input type="text" class="form-control" placeholder="New Email" aria-label="New Email" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-dark" type="button" id="button-addon2">Submit</button>
+                </div>
+            </div>
+            <br />
+            <!-- Change Password Section -->
+            <div class="col-1">
+                Password
+            </div>
+            <div class="input-group col-6 mb-3">
+                <input type="text" class="form-control" placeholder="New Password" aria-label="New Password" aria-describedby="button-addon3">
+            </div>
+            <div class="input-group col-6 mb-3">
+                <input type="text" class="form-control" placeholder="Confirm New Password" aria-label="Confirm New Password" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-warning" type="button" id="button-addon3">Submit</button>
+                </div>
+            </div>
+            <!-- Change Theme Section-->
+            <div class="col-1">
+                Themes
+            </div>
+            <asp:button runat="server" ID="light" type="button" class="btn btn-light" Text="Light Mode" OnCommand="light_Click" />
+            <asp:button runat="server" ID="dark" type="button" class="btn btn-dark" Text="Dark Mode" OnCommand="dark_Click" />
+    </div>
+</asp:Content>

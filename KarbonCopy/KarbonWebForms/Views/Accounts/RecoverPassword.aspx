@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="RecoverPassword.aspx.cs" Inherits="CashewWebForms.RecoverPassword" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="RecoverPassword.aspx.cs" Inherits="KarbonWebForms.Views.Accounts.RecoverPassword" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
 <!-- Recreation of RecoveryPassword.cshtml -->
     <div class="container my-5" style="max-width: 700px;">

@@ -15,6 +15,7 @@
 </head>
 <body style="height:100vh;">
     <form runat="server" class="h-100">
+        <%this.dashRun();%>
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -32,37 +33,37 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav class="shadow navbar navbar-expand-md bg-dark navbar-light sticky-top px-0">
+        <nav class="shadow navbar navbar-expand-md bg-<%=this.theme%> navbar-light sticky-top px-0">
 
-            <a runat="server" class="btn btn-dark btn-lg p-0 ml-2" style="min-width: 72px;" href="~/Views/Projects/Projects.aspx">
+            <a class="btn btn-<%=this.theme %> btn-lg p-0 ml-2" style="min-width: 72px;" href='/Views/Projects/Projects.aspx'>
                 <div class="form-inline">
                     <span class="">
                         <i class="fas fa-cog fa-spin fa-2x fa-fw"></i>
                     </span>
-                    <span class="align-self-center text-uppercase text-primary" style="font-size: 1.5rem;">Karbon</span>
+                    <span class="align-self-center text-uppercase text-<%=this.textCol %>" style="font-size: 1.5rem;">Karbon</span>
                 </div>
             </a>
 
             <span>
-                <button class="btn btn-dark mx-1 d-sm-inline-block d-md-none d-lg-none navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <button class="btn btn-<%=theme %> mx-1 d-sm-inline-block d-md-none d-lg-none navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </span>
 
             <div class="collapse navbar-collapse d-lg-none" id="collapsibleNavbar">
-                <a runat="server" class="btn btn-dark nav-link d-lg-none ml-1" href="~/Views/Projects/Projects.aspx">Dashboard</a>
-                <a runat="server" class="btn btn-dark nav-link d-lg-none" href="~/Views/Projects/Projects.aspx">Project</a>
-                <a runat="server" class="btn btn-dark nav-link d-lg-none" href="~/Views/Projects/Projects.aspx">Task</a>
-                <a runat="server" class="btn btn-dark nav-link d-lg-none" href="~/Views/Projects/Projects.aspx">Notes</a>
-                <a runat="server" class="btn btn-dark nav-link d-lg-none" href="~/Views/Projects/Projects.aspx">Permissions</a>
-                <a runat="server" class="btn btn-dark nav-link d-lg-none" href="~/Views/Projects/Projects.aspx">Settings</a>
-                <a runat="server" class="btn btn-dark nav-link d-lg-none" href="~/Views/Home/Index.aspx">Logout</a>
+                <a class="btn btn-<%=theme %> nav-link d-lg-none ml-1" href="/Views/Projects/Projects.aspx">Dashboard</a>
+                <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Projects/Projects.aspx">Project</a>
+                <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Tasks/TasksList.aspx">Task</a>
+                <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Notes/NoteTable.aspx">Notes</a>
+                <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Permissions/PermissionsSetting.aspx">Permissions</a>
+                <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Accounts/Settings.aspx">Settings</a>
+                <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Home/HomeContent.aspx">Logout</a>
             </div>
 
 
 
             <!-- what does this button do that the button within the span above doesn't? Answer: It displays on medium and large but, not small -->
-            <a runat="server" class="btn btn-dark mx-1 d-none d-md-block d-lg-block mr-2" href="~/Views/Home/Index.aspx">
+            <a class="btn btn-<%=theme %> mx-1 d-none d-md-block d-lg-block mr-2" href="/Views/Home/HomeContent.aspx">
                 <i class="far fa-user-circle fa-2x" style="vertical-align:middle"></i>
             </a>
 
@@ -71,25 +72,27 @@
         <div class="container-fluid h-100">
             <div class="row justify-content-center h-100">
                 <!--Display for XL to Large-->
-                <div class="col-lg-2 order-first d-none d-lg-block d-xl-block bg-dark">
+                <div class="col-lg-2 order-first d-none d-lg-block d-xl-block bg-<%=theme %>">
                     <ul class="nav nav-pills flex-column mt-3">
+                        <!-- Dashboard is main projects list page -->
                         <li class="nav-item mb-1">
-                            <a runat="server" class="btn btn-dark nav-link text-left" href="~/Views/Projects/Projects.aspx">Dashboard</a>
+                            <a class="btn btn-<%=theme %> nav-link text-left" href="/Views/Projects/Projects.aspx">Dashboard</a>
                         </li>
-                        <li class="nav-item my-1" id="proj">
-                            <a runat="server" class="btn btn-dark nav-link text-left" href="~/Views/Projects/Projects.aspx">Project</a>
-                        </li>
+                        <!--  Must select a project to navigate to an individual project page
+                            <li class="nav-item my-1" id="proj">
+                            <a class="btn btn-<%=theme %> nav-link text-left" href="/Views/Projects/Projects.aspx">Project</a>
+                        </li>-->
                         <li class="nav-item my-1" id="task">
-                            <a runat="server" class="btn btn-dark nav-link text-left" href="~/Views/Projects/Projects.aspx">Task</a>
+                            <a class="btn btn-<%=theme %> nav-link text-left" href="/Views/Tasks/TasksList.aspx">Task</a>
                         </li>
                         <li class="nav-item my-1" id="notes">
-                            <a runat="server" class="btn btn-dark nav-link text-left" href="~/Views/Projects/Projects.aspx">Notes</a>
+                            <a class="btn btn-<%=theme %> nav-link text-left" href="/Views/Notes/NoteTable.aspx">Notes</a>
                         </li>
                         <li class="nav-item my-1" id="perm">
-                            <a runat="server" class="btn btn-dark nav-link text-left" href="~/Views/Projects/Projects.aspx">Permissions</a>
+                            <a class="btn btn-<%=theme %> nav-link text-left" href="/Views/Permissions/PermissionsSetting.aspx">Permissions</a>
                         </li>
                         <li class="nav-item my-1" id="sett">
-                            <a runat="server" class="btn btn-dark nav-link text-left" href="~/Views/Projects/Projects.aspx">Settings</a>
+                            <a class="btn btn-<%=theme %> nav-link text-left" href="/Views/Accounts/Settings.aspx">Settings</a>
                         </li>
                     </ul>
                 </div>
