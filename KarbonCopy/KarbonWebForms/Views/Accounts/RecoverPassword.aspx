@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="RecoverPassword.aspx.cs" Inherits="KarbonWebForms.Views.Accounts.RecoverPassword" Async="true"%>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="RecoverPassword.aspx.cs" Inherits="KarbonWebForms.Views.Accounts.RecoverPassword" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
 <!-- Recreation of RecoveryPassword.cshtml -->
     <div class="container my-5" style="max-width: 700px;">
@@ -21,7 +21,7 @@
         <div class="form-group row text-center">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <h6 class="pb-2">Your password recovery token will be sent to your email address.</h6>
-                <button runat="server" onserverclick="RecoverMyPassword" type="submit" class="btn btn-primary px-5">Recover</button>
+                <asp:Button runat="server" ID="RecoverPWButton" CssClass="btn btn-primary px-5" Text="Recover" OnCommand="RecoverPW_Command"></asp:Button>
             </div>
         </div>
 </div>
