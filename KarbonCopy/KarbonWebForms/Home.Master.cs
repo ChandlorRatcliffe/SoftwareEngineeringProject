@@ -23,5 +23,11 @@ namespace CashewWebForms
         {
 
         }
+
+        public void clearSes()
+        {
+            Session.Clear();
+        }
+
     }
 }
