@@ -133,7 +133,7 @@
             <div class='col'>
                 <div class="col text-center">
                     <button type="button" id='RemoveSelected' class="btn btn-primary" data-toggle="modal" data-target="#RemoveUserModal">Remove Selected User</button>
-                    <button type="button" id='InviteSelected' class="btn btn-primary">Invite Selected User</button>
+                    <button type="button" id='InviteSelected' class="btn btn-primary" data-toggle="modal" data-target="#InviteUserModal">Invite Selected User</button>
                 </div>
                 <!-- remove selected users -->
                 <div class="modal fade" id="RemoveUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -148,7 +148,7 @@
                             <br />
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                <button type="button" class="btn btn-primary" id="RemoveButton">Yes</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" id="RemoveButton">Yes</button>
                                 <script>
                                     $("#RemoveButton").click(function () {
                                         var table = $('#EmailTable').DataTable();
@@ -157,6 +157,28 @@
                                             .remove()
                                             .draw();
                                     });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- invite selected users -->
+                <div class="modal fade" id="InviteUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Are you sure to remove the selected users?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <br />
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" id="InviteButton">Invite</button>
+                                <!-- TODO: invite selected users -->
+                                <script>
+
                                 </script>
                             </div>
                         </div>
