@@ -32,14 +32,14 @@ namespace KarbonWebForms.Views.Accounts
                 if (account.Skills.Contains("false"))
                 {
                     Debug.WriteLine("Email Not Verified");
-                    Response.Redirect("~/Views/Accounts/Login", false);
+                    Response.Redirect("/Views/Accounts/Login", false);
                 }
                 else
                 {
                     Debug.WriteLine("Email Verified");
                     Session["Username"] = account.Username;
                     Session["Email"] = account.Email;
-                    Response.Redirect("~/Views/Projects/Projects", false);
+                    Response.Redirect("/Views/Projects/Projects");
                 }
             }
             else
