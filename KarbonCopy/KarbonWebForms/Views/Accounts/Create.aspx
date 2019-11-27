@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Create.aspx.cs" Inherits="KarbonWebForms.Views.Accounts.Create" Title="Create" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Create.aspx.cs" Inherits="KarbonWebForms.Views.Accounts.Create" Title="Create" Async="true"%>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
 <!-- Recreation of Create.cshtml -->
