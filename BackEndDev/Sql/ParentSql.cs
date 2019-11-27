@@ -87,11 +87,11 @@ namespace BackEndDev.Sql
         {
             if (Exists(parent.ParentTaskId))
             {
-                string query = $"DELETE FROM {Table} WHERE Username = @username;";
+                string query = $"DELETE FROM {Table} WHERE parenttaskid = @parenttaskid;";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
-                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = parent.ParentTaskId }
+                    new MySqlParameter("parenttaskid", MySqlDbType.VarChar) { Value = parent.ParentTaskId }
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
@@ -120,11 +120,11 @@ namespace BackEndDev.Sql
             {
                 string query =
                     $"SELECT ParentTaskId, ChildTaskId " +
-                    $"FROM {Table} WHERE(ParentTaskId = @parentTaskId)";
+                    $"FROM {Table} WHERE(ParentTaskId = @parenttaskid)";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
-                    new MySqlParameter("parentTaskId", MySqlDbType.VarChar) { Value = parentTaskId }
+                    new MySqlParameter("parenttaskid", MySqlDbType.VarChar) { Value = parentTaskId }
                 };
 
                 if (functions.ExecuteReader(query, parameters, out DataTable dataTable))
@@ -132,8 +132,8 @@ namespace BackEndDev.Sql
                     DataRow row = dataTable.Rows[0];
                     Parent parent = new Parent
                     {
-                        ParentTaskId = row["parenttaskdd"].ToString(),
-                        ChildTaskId = row["childtaskdd"].ToString(),
+                        ParentTaskId = row["parenttaskid"].ToString(),
+                        ChildTaskId = row["childtaskid"].ToString()
                     };
                     return parent;
                 }
@@ -184,7 +184,7 @@ namespace BackEndDev.Sql
         /// <returns></returns>
         public bool Exists(string keyValue)
         {
-            if (functions.CheckExists(Table, "projecttaskid", keyValue))
+            if (functions.CheckExists(Table, "parenttaskid", keyValue))
             {
                 Debug.WriteLine($"Exists: The parent exists with username: {keyValue}.");
                 return true;

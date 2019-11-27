@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -25,7 +26,7 @@ namespace BackEndDev.Sql
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
                     new MySqlParameter("taskid", MySqlDbType.VarChar) { Value = task.TaskId },
-                    new MySqlParameter("taskdeadline", MySqlDbType.VarChar) { Value = task.TaskDeadline },
+                    new MySqlParameter("taskdeadline", MySqlDbType.DateTime) { Value = task.TaskDeadline },
                     new MySqlParameter("taskdescription", MySqlDbType.VarChar) { Value = task.TaskDescription },
                 };
 
@@ -46,7 +47,7 @@ namespace BackEndDev.Sql
         /// <param name="username">PrimaryKey</param>
         /// <param name="field">Column</param>
         /// <param name="fieldValue">Column new Value</param>
-        public void Update(string taskid, string field, string fieldValue)
+        public void Update(string taskid, string field, DateTime fieldValue)
         {
             if (Exists(taskid))
             {
@@ -54,7 +55,7 @@ namespace BackEndDev.Sql
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
-                    new MySqlParameter("value", MySqlDbType.VarChar) { Value = fieldValue },
+                    new MySqlParameter("value", MySqlDbType.DateTime) { Value = fieldValue },
                     new MySqlParameter("taskid", MySqlDbType.VarChar) { Value =  taskid}
                 };
 
@@ -132,7 +133,7 @@ namespace BackEndDev.Sql
                     Task task = new Task
                     {
                         TaskId = row["taskid"].ToString(),
-                        TaskDeadline = row["taskdeadline"].ToString(),
+                        TaskDeadline = Convert.ToDateTime(row["taskdeadline"]),
                         TaskDescription = row["taskdescription"].ToString(),
                     };
                     return task;
@@ -165,7 +166,7 @@ namespace BackEndDev.Sql
                     task.Add(new Task
                     {
                         TaskId = row["taskid"].ToString(),
-                        TaskDeadline = row["taskdeadline"].ToString(),
+                        TaskDeadline = Convert.ToDateTime(row["taskdeadline"]),
                         TaskDescription = row["taskdescription"].ToString(),
                     });
                 }

@@ -27,9 +27,9 @@ namespace BackEndDev.Sql
                     new MySqlParameter("username", MySqlDbType.VarChar) { Value = projectAbilities.Username },
                     new MySqlParameter("email", MySqlDbType.VarChar) { Value = projectAbilities.Email },
                     new MySqlParameter("projectId", MySqlDbType.VarChar) { Value = projectAbilities.ProjectId },
-                    new MySqlParameter("assignmentediting", MySqlDbType.VarChar) { Value = projectAbilities.AssignmentEditing },
-                    new MySqlParameter("projectediting", MySqlDbType.VarChar) { Value = projectAbilities.ProjectEditing },
-                    new MySqlParameter("createproject", MySqlDbType.VarChar) { Value = projectAbilities.CreateProject },
+                    new MySqlParameter("assignmentediting", MySqlDbType.Int16) { Value = projectAbilities.AssignmentEditing },
+                    new MySqlParameter("projectediting", MySqlDbType.Int16) { Value = projectAbilities.ProjectEditing },
+                    new MySqlParameter("createproject", MySqlDbType.Int16) { Value = projectAbilities.CreateProject },
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
@@ -137,9 +137,9 @@ namespace BackEndDev.Sql
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
                         ProjectId = row["projectid"].ToString(),
-                        AssignmentEditing = row["assignmentediting"].ToString(),
-                        ProjectEditing = row["projectediting"].ToString(),
-                        CreateProject = row["createproject"].ToString(),
+                        AssignmentEditing = (int)row["assignmentediting"],
+                        ProjectEditing = (int)row["projectediting"],
+                        CreateProject = (int)row["createproject"],
                     };
                     return projectAbilities;
                 }
@@ -173,9 +173,9 @@ namespace BackEndDev.Sql
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
                         ProjectId = row["projectid"].ToString(),
-                        AssignmentEditing = row["assignmentediting"].ToString(),
-                        ProjectEditing = row["projectediting"].ToString(),
-                        CreateProject = row["createproject"].ToString(),
+                        AssignmentEditing = (int)row["assignmentediting"],
+                        ProjectEditing = (int)row["projectediting"],
+                        CreateProject = (int)row["createproject"],
                     });
                 }
                 return projectAbilities;

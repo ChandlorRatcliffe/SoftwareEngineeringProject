@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -26,8 +27,8 @@ namespace BackEndDev.Sql
                 {
                     new MySqlParameter("name", MySqlDbType.VarChar) { Value = organization.Name },
                     new MySqlParameter("license", MySqlDbType.VarChar) { Value = organization.License },
-                    new MySqlParameter("activation", MySqlDbType.VarChar) { Value = organization.Activation },
-                    new MySqlParameter("expiration", MySqlDbType.VarChar) { Value = organization.Expiration },
+                    new MySqlParameter("activation", MySqlDbType.DateTime) { Value = organization.Activation },
+                    new MySqlParameter("expiration", MySqlDbType.DateTime) { Value = organization.Expiration },
                 };
                 if (functions.ExecuteNonQuery(query, parameters))
                 {
@@ -133,8 +134,8 @@ namespace BackEndDev.Sql
                     {
                         Name = row["name"].ToString(),
                         License = row["license"].ToString(),
-                        Activation = row["activation"].ToString(),
-                        Expiration = row["expiration"].ToString(),
+                        Activation = Convert.ToDateTime(row["activation"]),
+                        Expiration = Convert.ToDateTime(row["expiration"]),
                     };
                     return organization;
                 }
@@ -167,8 +168,8 @@ namespace BackEndDev.Sql
                     {
                         Name = row["name"].ToString(),
                         License = row["license"].ToString(),
-                        Activation = row["activation"].ToString(),
-                        Expiration = row["expiration"].ToString(),
+                        Activation = Convert.ToDateTime(row["activation"]),
+                        Expiration = Convert.ToDateTime(row["expiration"]),
                     });
                 }
                 return organization;

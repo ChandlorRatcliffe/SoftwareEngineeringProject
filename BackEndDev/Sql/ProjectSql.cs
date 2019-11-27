@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -25,7 +26,7 @@ namespace BackEndDev.Sql
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
                     new MySqlParameter("projectid", MySqlDbType.VarChar) { Value = project.ProjectId },
-                    new MySqlParameter("projectdeadline", MySqlDbType.VarChar) { Value = project.ProjectDeadline },
+                    new MySqlParameter("projectdeadline", MySqlDbType.DateTime) { Value = project.ProjectDeadline },
                     new MySqlParameter("projectdescription", MySqlDbType.VarChar) { Value = project.ProjectDescription },
                 };
 
@@ -132,8 +133,8 @@ namespace BackEndDev.Sql
                     Project project = new Project
                     {
                         ProjectId = row["projectid"].ToString(),
-                        ProjectDeadline = row["projectdeadline"].ToString(),
-                        ProjectDescription = row["projectdescription"].ToString(),
+                        ProjectDeadline = Convert.ToDateTime(row["projectdeadline"]),
+                        ProjectDescription = row["projectdescription"].ToString()
                     };
                     return project;
                 }
@@ -165,8 +166,8 @@ namespace BackEndDev.Sql
                     project.Add(new Project
                     {
                         ProjectId = row["projectid"].ToString(),
-                        ProjectDeadline = row["projectdeadline"].ToString(),
-                        ProjectDescription = row["projectdescription"].ToString(),
+                        ProjectDeadline = Convert.ToDateTime(row["projectdeadline"]),
+                        ProjectDescription = row["projectdescription"].ToString()
                     });
                 }
                 return project;

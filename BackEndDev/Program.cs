@@ -1,30 +1,17 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Linq;
-using System.Web;
+﻿using System;
+using System.Threading;
 using BackEndDev.Sql;
-using static BackEndDev.Sql.MySqlFunctions;
 
 namespace BackEndDev
 {
     /// <summary>
-    /// Fully Test: AccountSql, BuiltOnSql, NotesPostedSql
-    /// Note Tested: OrganizationAbilitiesSql, OrganizationSql, ParentSql, ProjectAbilitiesSql, ProjectSql, TaskAbilitiesSql, TaskSql
+    /// Fully Test: AccountSql, BuiltOnSql, NotesPostedSql, OrganizationAbilitiesSql, OrganizationSql,
+    /// ParentSql, ProjectAbilitiesSql, ProjectSql, TaskAbilitiesSql, TaskSql, ProjectAssigned, TaskAssigned
+    /// Not Tested: None (11/26/19) 
     /// </summary>
     class Program
     {
-
-
-
-        private static readonly string timeStamp = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
-
-        private static readonly MySqlFunctions functions = new MySqlFunctions();
-
+        private static readonly DateTime timeStamp = DateTime.Now;
         private static readonly AccountSql accountSql = new AccountSql();
         private static readonly BuiltOnSql builtOnSql = new BuiltOnSql();
         private static readonly CreatesSql createsSql = new CreatesSql();
@@ -36,231 +23,271 @@ namespace BackEndDev
         private static readonly ProjectSql projectSql = new ProjectSql();
         private static readonly TaskAbilitiesSql taskAbilitiesSql = new TaskAbilitiesSql();
         private static readonly TaskSql taskSql = new TaskSql();
-
+        private static readonly ProjectAssignedSql projectAssignedSql = new ProjectAssignedSql();
+        private static readonly TaskAssignedSql taskAssignedSql = new TaskAssignedSql();
         private static readonly Account account = new Account("TestUser666", "email@mail.com", "fName", "lName", "password", "skills", "theme", "picturepath");
         private static readonly BuiltOn builtOn = new BuiltOn("projId666", "taskId666");
         private static readonly Creates creates = new Creates("TestUser666", "email@mail.com", "CreatesName", "projId666");
         private static readonly NotesPosted notesPosted = new NotesPosted("notesText", timeStamp, "TestUser666", "email@mail.com", "taskId666");
-        private static readonly OrganizationAbilities orgAbilities = new OrganizationAbilities("TestUser666", "email@mail.com", "OrgName", "rmUser", "invUser", "permEdit");
-        private static readonly Organization org = new Organization("orgName666", "License666", "activation666", "expiration666");
+        private static readonly OrganizationAbilities orgAbilities = new OrganizationAbilities("TestUser666", "email@mail.com", "OrgName", 1, 2, 3);
+        private static readonly Organization org = new Organization("orgName666", "License666", timeStamp, timeStamp);
         private static readonly Parent parent = new Parent("parent666", "childTask666");
-        private static readonly ProjectAbilities parentAbilities = new ProjectAbilities("TestUser666", "email@mail.com", "projId666", "assignmentEdit", "projEdit", "createProj");
-        private static readonly Project project = new Project("projId666", "projDeadline666", "projDesc666");
-        private static readonly TaskAbilities taskAbilities = new TaskAbilities("TestUser666", "email@mail.com", "taskId666", "assignmentEdit");
-        private static readonly Task task = new Task("taskId666", "taskDeadline", "taskDescription");
+        private static readonly ProjectAbilities parentAbilities = new ProjectAbilities("TestUser666", "email@mail.com", "projId666", 1, 2, 3);
+        private static readonly Project project = new Project("projId666", timeStamp, "projDesc666");
+        private static readonly TaskAbilities taskAbilities = new TaskAbilities("TestUser666", "email@mail.com", "taskId666", 3);
+        private static readonly Task task = new Task("taskId666", timeStamp, "taskDescription");
+        private static readonly ProjectAssigned projectAssigned = new ProjectAssigned("TestUser666", "email@mail.com", "Name666", "projId666");
+        private static readonly TaskAssigned taskAssigned = new TaskAssigned("TestUser666", "email@mail.com", "Name666", "taskId666");
 
-        public static void Main(string[] args)
+        public static void Main()
         {
-            //TestAccount();
-            //TestBuiltOn();
-            //TestCreates();
-            //TestNotesPosted();
+            TestAccount();
+            TestBuiltOn();
+            TestCreates();
+            TestNotesPosted();
             TestOrganizationAbilities();
-
-            //TestOrganization();
-            //TestParent();
-            //TestProjectAbilities();
-            //TestProject();
-            //TestTaskAbilities();
-            //TestTask();
+            TestOrganization();
+            TestParent();
+            TestProjectAbilities();
+            TestProject();
+            TestTaskAbilities();
+            TestTask();
+            TestProjectAssigned();
+            TestTaskAssigned();
         }
 
         public static void TestAccount()
         {
             Insert(account);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Get(account);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Update(account);
-            Console.Read();
+            Thread.Sleep(1000);
 
             GetAllAccount();
-            Console.Read();
+            Thread.Sleep(1000);
 
             Delete(account);
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         public static void TestBuiltOn()
         {
             Insert(builtOn);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Get(builtOn);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Update(builtOn);
-            Console.Read();
+            Thread.Sleep(1000);
 
             GetAllBuiltOn();
-            Console.Read();
+            Thread.Sleep(1000);
 
             Delete(builtOn);
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         public static void TestCreates()
         {
             Insert(creates);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Get(creates);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Update(creates);
-            Console.Read();
+            Thread.Sleep(1000);
 
             GetAllCreates();
-            Console.Read();
+            Thread.Sleep(1000);
 
             Delete(creates);
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         public static void TestNotesPosted()
         {
             Insert(notesPosted);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Get(notesPosted);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Update(notesPosted);
-            Console.Read();
+            Thread.Sleep(1000);
 
             GetAllNotesPosted();
-            Console.Read();
+            Thread.Sleep(1000);
 
             Delete(notesPosted);
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         public static void TestOrganizationAbilities()
         {
             Insert(orgAbilities);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Get(orgAbilities);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Update(orgAbilities);
-            Console.Read();
+            Thread.Sleep(1000);
 
             GetAllOrgAbilities();
-            Console.Read();
+            Thread.Sleep(1000);
 
             Delete(orgAbilities);
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         public static void TestOrganization()
         {
             Insert(org);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Get(org);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Update(org);
-            Console.Read();
+            Thread.Sleep(1000);
 
             GetAllOrg();
-            Console.Read();
+            Thread.Sleep(1000);
 
             Delete(org);
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         public static void TestParent()
         {
             Insert(parent);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Get(parent);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Update(parent);
-            Console.Read();
+            Thread.Sleep(1000);
 
             GetAllParent();
-            Console.Read();
+            Thread.Sleep(1000);
 
             Delete(parent);
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         public static void TestProjectAbilities()
         {
             Insert(parentAbilities);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Get(parentAbilities);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Update(parentAbilities);
-            Console.Read();
+            Thread.Sleep(1000);
 
             GetAllProjectAbilities();
-            Console.Read();
+            Thread.Sleep(1000);
 
             Delete(parentAbilities);
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         public static void TestProject()
         {
             Insert(project);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Get(project);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Update(project);
-            Console.Read();
+            Thread.Sleep(1000);
 
             GetAllProject();
-            Console.Read();
+            Thread.Sleep(1000);
 
             Delete(project);
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         public static void TestTaskAbilities()
         {
             Insert(taskAbilities);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Get(taskAbilities);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Update(taskAbilities);
-            Console.Read();
+            Thread.Sleep(1000);
 
             GetAllTaskAbilities();
-            Console.Read();
+            Thread.Sleep(1000);
 
             Delete(taskAbilities);
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         public static void TestTask()
         {
             Insert(task);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Get(task);
-            Console.Read();
+            Thread.Sleep(1000);
 
             Update(task);
-            Console.Read();
+            Thread.Sleep(1000);
 
             GetAllTask();
-            Console.Read();
+            Thread.Sleep(1000);
 
             Delete(task);
-            Console.Read();
+            Thread.Sleep(1000);
+        }
+
+        public static void TestProjectAssigned()
+        {
+            Insert(projectAssigned);
+            Thread.Sleep(1000);
+
+            Get(projectAssigned);
+            Thread.Sleep(1000);
+
+            Update(projectAssigned);
+            Thread.Sleep(1000);
+
+            GetAllProjectAssigned();
+            Thread.Sleep(1000);
+
+            Delete(projectAssigned);
+            Thread.Sleep(1000);
+        }
+
+        public static void TestTaskAssigned()
+        {
+            Insert(taskAssigned);
+            Thread.Sleep(1000);
+
+            Get(taskAssigned);
+            Thread.Sleep(1000);
+
+            Update(taskAssigned);
+            Thread.Sleep(1000);
+
+            GetAllTaskAssigned();
+            Thread.Sleep(1000);
+
+            Delete(taskAssigned);
+            Thread.Sleep(1000);
         }
 
 
@@ -352,7 +379,7 @@ namespace BackEndDev
                 Print(obj);
                 Console.WriteLine();
             }
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         //NotesPosted Testing
@@ -383,7 +410,7 @@ namespace BackEndDev
                 Print(obj);
                 Console.WriteLine();
             }
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         //Organization Testing
@@ -414,7 +441,7 @@ namespace BackEndDev
                 Print(obj);
                 Console.WriteLine();
             }
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         //OrganizationAbilities Testing
@@ -445,7 +472,7 @@ namespace BackEndDev
                 Print(obj);
                 Console.WriteLine();
             }
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         //Parent Testing
@@ -456,7 +483,7 @@ namespace BackEndDev
 
         public static void Update(Parent obj)
         {
-            parentSql.Update(obj.ParentTaskId, "taskid", "update1234");
+            parentSql.Update(obj.ParentTaskId, "childtaskid", "update1234");
         }
 
         public static void Delete(Parent obj)
@@ -476,7 +503,7 @@ namespace BackEndDev
                 Print(obj);
                 Console.WriteLine();
             }
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         //Project Testing
@@ -487,7 +514,7 @@ namespace BackEndDev
 
         public static void Update(Project obj)
         {
-            projectSql.Update(obj.ProjectId, "projectdeadline", "update1234");
+            projectSql.Update(obj.ProjectId, "projectdescription", obj.ProjectDescription);
         }
 
         public static void Delete(Project obj)
@@ -507,7 +534,7 @@ namespace BackEndDev
                 Print(obj);
                 Console.WriteLine();
             }
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         //ProjectAbilities Testing
@@ -528,7 +555,7 @@ namespace BackEndDev
 
         public static void Get(ProjectAbilities obj)
         {
-            Print(projectAbilitiesSql.Get(obj.ProjectId));
+            Print(projectAbilitiesSql.Get(obj.Username));
         }
 
         public static void GetAllProjectAbilities()
@@ -538,7 +565,7 @@ namespace BackEndDev
                 Print(obj);
                 Console.WriteLine();
             }
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         //Task Testing
@@ -549,7 +576,7 @@ namespace BackEndDev
 
         public static void Update(Task obj)
         {
-            taskSql.Update(obj.TaskId, "taskdeadline", "update1234");
+            taskSql.Update(obj.TaskId, "taskdeadline", DateTime.Now);
         }
 
         public static void Delete(Task obj)
@@ -569,7 +596,7 @@ namespace BackEndDev
                 Print(obj);
                 Console.WriteLine();
             }
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         //TaskAbilities Testing
@@ -593,6 +620,68 @@ namespace BackEndDev
             Print(taskAbilitiesSql.Get(obj.Username));
         }
 
+        public static void GetAllProjectAssigned()
+        {
+            foreach (TaskAbilities obj in taskAbilitiesSql.GetAll())
+            {
+                Print(obj);
+                Console.WriteLine();
+            }
+            Thread.Sleep(1000);
+        }
+
+        //ProjectAssigned Testing
+        public static void Insert(ProjectAssigned obj)
+        {
+            projectAssignedSql.Insert(obj);
+        }
+
+        public static void Update(ProjectAssigned obj)
+        {
+            projectAssignedSql.Update(obj.Username, "email", "update1234");
+        }
+
+        public static void Delete(ProjectAssigned obj)
+        {
+            projectAssignedSql.Delete(obj);
+        }
+
+        public static void Get(ProjectAssigned obj)
+        {
+            Print(projectAssignedSql.Get(obj.Username));
+        }
+
+        public static void GetAllTaskAssigned()
+        {
+            foreach (ProjectAssigned obj in projectAssignedSql.GetAll())
+            {
+                Print(obj);
+                Console.WriteLine();
+            }
+            Thread.Sleep(1000);
+        }
+
+        //TaskAbilities Testing
+        public static void Insert(TaskAssigned obj)
+        {
+            taskAssignedSql.Insert(obj);
+        }
+
+        public static void Update(TaskAssigned obj)
+        {
+            taskAssignedSql.Update(obj.Username, "email", "update1234");
+        }
+
+        public static void Delete(TaskAssigned obj)
+        {
+            taskAssignedSql.Delete(obj);
+        }
+
+        public static void Get(TaskAssigned obj)
+        {
+            Print(taskAssignedSql.Get(obj.Username));
+        }
+
         public static void GetAllTaskAbilities()
         {
             foreach (TaskAbilities obj in taskAbilitiesSql.GetAll())
@@ -600,7 +689,7 @@ namespace BackEndDev
                 Print(obj);
                 Console.WriteLine();
             }
-            Console.Read();
+            Thread.Sleep(1000);
         }
 
         public static void Print(Account account)
@@ -692,6 +781,22 @@ namespace BackEndDev
             Console.WriteLine($"Email = {taskAb.Email}");
             Console.WriteLine($"TaskId = {taskAb.TaskId}");
             Console.WriteLine($"AssignmentEditing = {taskAb.AssignmentEditing}");
+        }
+
+        public static void Print(ProjectAssigned projectAssigned)
+        {
+            Console.WriteLine($"Username = {projectAssigned.Username}");
+            Console.WriteLine($"Email = {projectAssigned.Email}");
+            Console.WriteLine($"TaskId = {projectAssigned.Name}");
+            Console.WriteLine($"AssignmentEditing = {projectAssigned.ProjectId}");
+        }
+
+        public static void Print(TaskAssigned taskAssigned)
+        {
+            Console.WriteLine($"Username = {taskAssigned.Username}");
+            Console.WriteLine($"Email = {taskAssigned.Email}");
+            Console.WriteLine($"TaskId = {taskAssigned.Name}");
+            Console.WriteLine($"AssignmentEditing = {taskAssigned.TaskId}");
         }
 
     }

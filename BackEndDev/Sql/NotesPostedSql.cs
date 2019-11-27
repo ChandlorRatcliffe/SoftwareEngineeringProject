@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -134,7 +135,7 @@ namespace BackEndDev.Sql
                     NotesPosted notesPosted = new NotesPosted
                     {
                         Text = row["text"].ToString(),
-                        TimeStamp = row["timestamp"].ToString(),
+                        TimeStamp = Convert.ToDateTime(row["timestamp"]),
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
                         TaskId = row["taskid"].ToString()
@@ -170,7 +171,7 @@ namespace BackEndDev.Sql
                     notesPosted.Add(new NotesPosted
                     {
                         Text = row["text"].ToString(),
-                        TimeStamp = row["timestamp"].ToString(),
+                        TimeStamp = Convert.ToDateTime(row["timestamp"]),
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
                         TaskId = row["taskid"].ToString(),

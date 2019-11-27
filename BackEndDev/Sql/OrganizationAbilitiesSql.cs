@@ -136,10 +136,10 @@ namespace BackEndDev.Sql
                     {
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
-                        Name = row["firstname"].ToString(),
-                        RemoveUser = row["removeuser"].ToString(),
-                        InviteUser = row["invite"].ToString(),
-                        PermissionsEditing = row["permissionediting"].ToString(),
+                        Name = row["name"].ToString(),
+                        RemoveUser = (int)row["removeuser"],
+                        InviteUser = (int)row["inviteuser"],
+                        PermissionsEditing = (int)row["permissionsediting"],
                     };
                     return organizationAbilities;
                 }
@@ -172,10 +172,10 @@ namespace BackEndDev.Sql
                     {
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
-                        Name = row["firstname"].ToString(),
-                        RemoveUser = row["removeuser"].ToString(),
-                        InviteUser = row["inviteuser"].ToString(),
-                        PermissionsEditing = row["permissionediting"].ToString(),
+                        Name = row["name"].ToString(),
+                        RemoveUser = (int)row["removeuser"],
+                        InviteUser = (int)row["inviteuser"],
+                        PermissionsEditing = (int)row["permissionsediting"],
                     });
                 }
                 return organizationAbilities;

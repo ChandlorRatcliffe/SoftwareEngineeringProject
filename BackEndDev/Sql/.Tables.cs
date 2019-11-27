@@ -64,7 +64,7 @@ namespace BackEndDev.Sql
 
     public class NotesPosted
     {
-        public NotesPosted(string text = null, string timeStamp = null, string username = null, string email = null, string taskId = null)
+        public NotesPosted(string text = null, DateTime timeStamp = default, string username = null, string email = null, string taskId = null)
         {
             Text = text;
             TimeStamp = timeStamp;
@@ -73,7 +73,7 @@ namespace BackEndDev.Sql
             TaskId = taskId;
         }
         public string Text { get; set; }
-        public string TimeStamp { get; set; }
+        public DateTime TimeStamp { get; set; }
         public string Username { get; set; }
         public string Email { get; set; }
         public string TaskId { get; set; }
@@ -81,7 +81,7 @@ namespace BackEndDev.Sql
 
     public class Organization
     {
-        public Organization(string name = null, string license = null, string activation = null, string expiration = null)
+        public Organization(string name = null, string license = null, DateTime activation = default, DateTime expiration = default)
         {
             Name = name;
             License = license;
@@ -90,14 +90,14 @@ namespace BackEndDev.Sql
         }
         public string Name { get; set; }
         public string License { get; set; }
-        public string Activation { get; set; }
-        public string Expiration { get; set; }
+        public DateTime Activation { get; set; }
+        public DateTime Expiration { get; set; }
     }
 
     public class OrganizationAbilities
     {
-        public OrganizationAbilities(string username = null, string email = null, string name = null, string removeUser = null,
-            string inviteUser = null, string permissionsEditing = null)
+        public OrganizationAbilities(string username = null, string email = null, string name = null, int removeUser = 0,
+            int inviteUser = 0, int permissionsEditing = 0)
         {
             Username = username;
             Email = email;
@@ -110,9 +110,9 @@ namespace BackEndDev.Sql
         public string Username { get; set; }
         public string Email { get; set; }
         public string Name { get; set; }
-        public string RemoveUser { get; set; }
-        public string InviteUser { get; set; }
-        public string PermissionsEditing { get; set; }
+        public int RemoveUser { get; set; }
+        public int InviteUser { get; set; }
+        public int PermissionsEditing { get; set; }
     }
 
     public class Parent
@@ -129,7 +129,7 @@ namespace BackEndDev.Sql
 
     public class Project
     {
-        public Project(string projectId = null, string projectDeadline = null, string projectDescription = null)
+        public Project(string projectId = null, DateTime projectDeadline = default, string projectDescription = null)
         {
             ProjectId = projectId;
             ProjectDeadline = projectDeadline;
@@ -137,14 +137,14 @@ namespace BackEndDev.Sql
         }
 
         public string ProjectId { get; set; }
-        public string ProjectDeadline { get; set; }
+        public DateTime ProjectDeadline { get; set; }
         public string ProjectDescription { get; set; }
     }
 
     public class ProjectAbilities
     {
         public ProjectAbilities(string username = null, string email = null, string projectId = null, 
-            string assignmentEditing = null, string projectEditing = null, string createProject = null)
+            int assignmentEditing = 0, int projectEditing = 0, int createProject = 0)
         {
             Username = username;
             Email = email;
@@ -156,27 +156,27 @@ namespace BackEndDev.Sql
         public string Username { get; set; }
         public string Email { get; set; }
         public string ProjectId { get; set; }
-        public string AssignmentEditing { get; set; }
-        public string ProjectEditing { get; set; }
-        public string CreateProject { get; set; }
+        public int AssignmentEditing { get; set; }
+        public int ProjectEditing { get; set; }
+        public int CreateProject { get; set; }
     }
 
     public class Task
     {
-        public Task(string taskId = null, string taskDeadline = null, string taskDescription = null)
+        public Task(string taskId = null, DateTime taskDeadline = default, string taskDescription = null)
         {
             TaskId = taskId;
             TaskDeadline = taskDeadline;
             TaskDescription = taskDescription;
         }
         public string TaskId { get; set; }
-        public string TaskDeadline { get; set; }
+        public DateTime TaskDeadline { get; set; }
         public string TaskDescription { get; set; }
     }
 
     public class TaskAbilities
     {
-        public TaskAbilities(string username = null, string email = null, string taskId = null, string assignmentEditing = null)
+        public TaskAbilities(string username = null, string email = null, string taskId = null, int assignmentEditing = 0)
         {
             Username = username;
             Email = email;
@@ -186,7 +186,37 @@ namespace BackEndDev.Sql
         public string Username { get; set; }
         public string Email { get; set; }
         public string TaskId { get; set; }
-        public string AssignmentEditing { get; set; }
+        public int AssignmentEditing { get; set; }
+    }
+
+    public class ProjectAssigned
+    {
+        public ProjectAssigned(string username = null, string email = null, string name = null, string projectId = null)
+        {
+            Username = username;
+            Email = email;
+            Name = name;
+            ProjectId = projectId;
+        }
+        public string Username { get; set; }
+        public string Email { get; set; }
+        public string Name { get; set; }
+        public string ProjectId { get; set; }
+    }
+
+    public class TaskAssigned
+    {
+        public TaskAssigned(string username = null, string email = null, string name = null, string taskId = null)
+        {
+            Username = username;
+            Email = email;
+            Name = name;
+            TaskId = taskId;
+        }
+        public string Username { get; set; }
+        public string Email { get; set; }
+        public string Name { get; set; }
+        public string TaskId { get; set; }
     }
 
 

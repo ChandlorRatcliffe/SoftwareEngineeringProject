@@ -1,48 +1,50 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 
 namespace BackEndDev.Sql
 {
-    public class TaskAbilitiesSql
+    public class ProjectAssignedSql
     {
         private readonly MySqlFunctions functions = new MySqlFunctions();
-        private readonly string Table = "taskAbilities";
+        private readonly string Table = "projectassigned";
 
         /// <summary>
-        /// Inserts TaskAbilities into Sql Database
+        /// Inserts ProjectAssigned into Sql Database
         /// </summary>
-        /// <param name="taskAbilities">TaskAbilities Object</param>
-        public void Insert(TaskAbilities taskAbilities)
+        /// <param name="projectassigned">ProjectAssigned Object</param>
+        public void Insert(ProjectAssigned projectassigned)
         {
-            if (!Exists(taskAbilities.Username))
+            if (!Exists(projectassigned.Username))
             {
                 string query =
-                    $"INSERT INTO {Table} (Username, Email, TaskId, AssignmentEditing)" +
-                    $" VALUES(@username, @email, @taskid, @assignmentid);";
+                    $"INSERT INTO {Table} (Username, Email, Name, ProjectId)" +
+                    $" VALUES(@username, @email, @name, @projectid);";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
-                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = taskAbilities.Username },
-                    new MySqlParameter("email", MySqlDbType.VarChar) { Value = taskAbilities.Email },
-                    new MySqlParameter("taskid", MySqlDbType.VarChar) { Value = taskAbilities.TaskId },
-                    new MySqlParameter("assignmentid", MySqlDbType.VarChar) { Value = taskAbilities.AssignmentEditing },
+                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = projectassigned.Username },
+                    new MySqlParameter("email", MySqlDbType.VarChar) { Value = projectassigned.Email },
+                    new MySqlParameter("name", MySqlDbType.VarChar) { Value = projectassigned.Name },
+                    new MySqlParameter("projectid", MySqlDbType.VarChar) { Value = projectassigned.ProjectId },
+
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
                 {
-                    Debug.WriteLine("InsertTaskAbilities: The taskAbilities was added successfully.");
+                    Debug.WriteLine("InsertProjectAssigned: The projectassigned was added successfully.");
                 }
                 else
                 {
-                    Debug.WriteLine("InsertTaskAbilities: An error has occured.");
+                    Debug.WriteLine("InsertProjectAssigned: An error has occured.");
                 }
             }
         }
 
         /// <summary>
-        /// Updates a field of TaskAbilities Sql Table
+        /// Updates a field of ProjectAssigned Sql Table
         /// </summary>
         /// <param name="username">PrimaryKey</param>
         /// <param name="field">Column</param>
@@ -61,65 +63,65 @@ namespace BackEndDev.Sql
 
                 if (functions.ExecuteNonQuery(query, parameters))
                 {
-                    Debug.WriteLine("UpdateTaskAbilities: The taskAbilities was updated successfully.");
+                    Debug.WriteLine("UpdateProjectAssigned: The projectassigned was updated successfully.");
                 }
                 else
                 {
-                    Debug.WriteLine("UpdateTaskAbilities: An error has occured.");
+                    Debug.WriteLine("UpdateProjectAssigned: An error has occured.");
                 }
             }
         }
 
         /// <summary>
-        /// Delete TaskAbilities using Username
+        /// Delete ProjectAssigned using Username
         /// </summary>
         /// <param name="username"></param>
         public void Delete(string username)
         {
-            Delete(new TaskAbilities(username));
+            Delete(new ProjectAssigned(username));
         }
 
         /// <summary>
-        /// Delete TaskAbilities using TaskAbilities Object
+        /// Delete ProjectAssigned using ProjectAssigned Object
         /// </summary>
-        /// <param name="taskAbilities"></param>
-        public void Delete(TaskAbilities taskAbilities)
+        /// <param name="projectassigned"></param>
+        public void Delete(ProjectAssigned projectassigned)
         {
-            if (Exists(taskAbilities.Username))
+            if (Exists(projectassigned.Username))
             {
                 string query = $"DELETE FROM {Table} WHERE Username = @username;";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
-                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = taskAbilities.Username }
+                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = projectassigned.Username }
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
                 {
-                    Debug.WriteLine("DeleteTaskAbilities: The taskAbilities was deleted successfully.");
+                    Debug.WriteLine("DeleteProjectAssigned: The projectassigned was deleted successfully.");
                 }
                 else
                 {
-                    Debug.WriteLine("DeleteTaskAbilities: An error has occured.");
+                    Debug.WriteLine("DeleteProjectAssigned: An error has occured.");
                 }
             }
             else
             {
-                Debug.WriteLine("DeleteTaskAbilities: Cannot delete taskAbilities");
+                Debug.WriteLine("DeleteProjectAssigned: Cannot delete projectassigned");
             }
         }
 
         /// <summary>
-        /// Get TaskAbilities Object From Sql Database
+        /// Get ProjectAssigned Object From Sql Database
         /// </summary>
         /// <param name="username">Primary Key</param>
-        /// <returns>TaskAbilities Object</returns>
-        public TaskAbilities Get(string username)
+        /// <returns>ProjectAssigned Object</returns>
+        public ProjectAssigned Get(string username)
         {
             if (Exists(username))
             {
                 string query =
-                    $"SELECT Username, Email, TaskId, AssignmentEditing " +
+                    $"SELECT Username, Email, Name, ProjectId " +
                     $"FROM {Table} WHERE(Username = @username)";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
@@ -130,18 +132,18 @@ namespace BackEndDev.Sql
                 if (functions.ExecuteReader(query, parameters, out DataTable dataTable))
                 {
                     DataRow row = dataTable.Rows[0];
-                    TaskAbilities taskAbilities = new TaskAbilities
+                    ProjectAssigned projectassigned = new ProjectAssigned
                     {
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
-                        TaskId = row["taskid"].ToString(),
-                        AssignmentEditing = (int)row["assignmentediting"],
+                        Name = row["name"].ToString(),
+                        ProjectId = row["projectid"].ToString()
                     };
-                    return taskAbilities;
+                    return projectassigned;
                 }
                 else
                 {
-                    Debug.WriteLine("GetTaskAbilities: An error has occured while trying to get taskAbilities.");
+                    Debug.WriteLine("GetProjectAssigned: An error has occured while trying to get projectassigned.");
                     return null;
                 }
             }
@@ -152,37 +154,37 @@ namespace BackEndDev.Sql
         }
 
         /// <summary>
-        /// Get All Entries of TaskAbilities Table
+        /// Get All Entries of ProjectAssigned Table
         /// </summary>
-        /// <returns>List of TaskAbilities Objects</returns>
-        public List<TaskAbilities> GetAll()
+        /// <returns>List of ProjectAssigned Objects</returns>
+        public List<ProjectAssigned> GetAll()
         {
             string query =
-                $"SELECT Username, Email, TaskId, AssignmentEditing FROM {Table};";
+                $"SELECT Username, Email, Name, ProjectId FROM {Table};";
             if (functions.ExecuteReader(query, null, out DataTable dataTable))
             {
-                List<TaskAbilities> taskAbilities = new List<TaskAbilities>();
+                List<ProjectAssigned> projectassigned = new List<ProjectAssigned>();
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    taskAbilities.Add(new TaskAbilities
+                    projectassigned.Add(new ProjectAssigned
                     {
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
-                        TaskId = row["taskid"].ToString(),
-                        AssignmentEditing = (int)row["assignmentediting"],
+                        Name = row["name"].ToString(),
+                        ProjectId = row["projectid"].ToString()
                     });
                 }
-                return taskAbilities;
+                return projectassigned;
             }
             else
             {
-                Debug.WriteLine("GetAllTaskAbilitiess: An error has occured while trying to get all taskAbilities.");
+                Debug.WriteLine("GetAllProjectAssigneds: An error has occured while trying to get all projectassigned.");
                 return null;
             }
         }
 
         /// <summary>
-        /// Checks if an TaskAbilities Exists using Username 
+        /// Checks if an ProjectAssigned Exists using Username 
         /// </summary>
         /// <param name="keyValue">Primary Key</param>
         /// <returns></returns>
@@ -190,12 +192,12 @@ namespace BackEndDev.Sql
         {
             if (functions.CheckExists(Table, "username", keyValue))
             {
-                Debug.WriteLine($"Exists: The taskAbilities exists with username: {keyValue}.");
+                Debug.WriteLine($"Exists: The projectassigned exists with username: {keyValue}.");
                 return true;
             }
             else
             {
-                Debug.WriteLine($"Exists: The taskAbilities doesn't exists with username: {keyValue}.");
+                Debug.WriteLine($"Exists: The projectassigned doesn't exists with username: {keyValue}.");
                 return false;
             }
         }
