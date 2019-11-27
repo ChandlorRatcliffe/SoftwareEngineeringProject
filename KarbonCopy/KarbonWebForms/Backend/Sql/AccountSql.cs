@@ -135,6 +135,47 @@ namespace KarbonWebForms.Sql
             }
         }
 
+        public Account GetWithEmail(string email)
+        {
+            if (Exists(email))
+            {
+                string query =
+                    "SELECT Username, Email, FirstName, LastName, Password, Skills, Theme, Picturepath " +
+                    "FROM account WHERE(Email = @email)";
+
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("email", MySqlDbType.VarChar) { Value = email }
+                };
+
+                if (functions.ExecuteReader(query, parameters, out DataTable dataTable))
+                {
+                    DataRow row = dataTable.Rows[0];
+                    Account account = new Account
+                    {
+                        Username = row["username"].ToString(),
+                        Email = row["email"].ToString(),
+                        FirstName = row["firstname"].ToString(),
+                        LastName = row["lastname"].ToString(),
+                        Password = row["password"].ToString(),
+                        Skills = row["skills"].ToString(),
+                        Theme = row["theme"].ToString(),
+                        Picturepath = row["picturepath"].ToString()
+                    };
+                    return account;
+                }
+                else
+                {
+                    Debug.WriteLine("GetAccount: An error has occured while trying to get account.");
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public List<Account> GetAll()
         {
             string query =
@@ -175,6 +216,20 @@ namespace KarbonWebForms.Sql
             else
             {
                 Debug.WriteLine($"Exists: The account doesn't exists with username: {keyValue}.");
+                return false;
+            }
+        }
+
+        public bool ExistsWithEmail(string keyValue)
+        {
+            if (functions.CheckExists("account", "email", keyValue))
+            {
+                Debug.WriteLine($"Exists: The account exists with email: {keyValue}.");
+                return true;
+            }
+            else
+            {
+                Debug.WriteLine($"Exists: The account doesn't exists with email: {keyValue}.");
                 return false;
             }
         }
