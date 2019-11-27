@@ -33,9 +33,9 @@ namespace KarbonWebForms.Views.Projects
             var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
             conn.Open();
             var command = new MySqlCommand("Select *" +
-            " From (Creates LEFT OUTER JOIN Project ON Creates.ProjectId=Project.ProjectId)" +
+            " From (ProjectAssigned LEFT OUTER JOIN Project ON ProjectAssigned.ProjectId=Project.ProjectId)" +
             " Where (Username = @user AND Email = @email)" +
-            " Order By Creates.ProjectId Asc;", conn);
+            " Order By ProjectAssigned.ProjectId Asc;", conn);
             command.Parameters.Add(new MySqlParameter("user", MySqlDbType.VarChar) { Value = Session["Username"] });
             command.Parameters.Add(new MySqlParameter("email", MySqlDbType.VarChar) { Value = Session["Email"] });
             DataTable dt = new DataTable();

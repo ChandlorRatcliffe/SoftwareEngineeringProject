@@ -28,14 +28,15 @@ namespace KarbonWebForms.Views.Accounts
             //Web.config contains the connection string so it doesn't have to be initialized every time. the below is how to access it
             var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
             conn.Open();
-            var command = new MySqlCommand("Select Username, Email, Password From Account Where (Username = @user AND Password = @pass);", conn);
+            var command = new MySqlCommand("Select Username, Email, Password, Theme From Account Where (Username = @user AND Password = @pass);", conn);
             command.Parameters.Add(new MySqlParameter("user", MySqlDbType.VarChar) { Value = EnterUsername.Text });
             command.Parameters.Add(new MySqlParameter("pass", MySqlDbType.VarChar) { Value = EnterPassword.Text });
             DataTable dt = new DataTable();
             dt.Load(command.ExecuteReader());
-            if (dt.Rows != null){ // the account with username/password exists and it matches
+            if (dt.Rows.Count != 0){ // the account with username/password exists and it matches
                 Session["Username"] = EnterUsername.Text;
                 Session["Email"] = dt.Rows[0][1]; // first row, second index because 0 = Username, 1 = Email, 2 = Password
+                Session["Theme"] = dt.Rows[0][3];
                 Response.Redirect("~/Views/Projects/Projects");
             } else {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "Your Message", true);
