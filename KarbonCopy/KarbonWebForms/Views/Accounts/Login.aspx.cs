@@ -8,13 +8,13 @@ using System.Data;
 using MySql.Data.MySqlClient;
 using System.Configuration;
 using System.Diagnostics;
-//using KarbonWebForms.Sql;
+using KarbonWebForms.Sql;
 
 namespace KarbonWebForms.Views.Accounts
 {
     public partial class Login : System.Web.UI.Page
     {
-        //private readonly AccountSql accountSql = new AccountSql();
+        private readonly AccountSql accountSql = new AccountSql();
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -25,6 +25,7 @@ namespace KarbonWebForms.Views.Accounts
         //Keep all SQL within MySqlFunctions with try/catch block.. if new function needed add to Functions Library
         protected void SignIn_Command(object sender, CommandEventArgs e)
         {
+            /*
             //Web.config contains the connection string so it doesn't have to be initialized every time. the below is how to access it
             var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
             conn.Open();
@@ -40,20 +41,21 @@ namespace KarbonWebForms.Views.Accounts
             } else {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "Your Message", true);
             }
-        }
+            */
 
-        protected void SignIn_Command2(object sender, CommandEventArgs e)
-        {
-            //if(accountSql.Authenticate(EnterUsername.Text, EnterPassword.Text))
-            //{
-            //    //If AUthenication SUccessful redirect to Dashboard
-            //    Debug.WriteLine("SignIn_Command: Authenication Successful");
-            //}
-            //else
-            //{
-            //    //Generate Validation Error
-            //    Debug.WriteLine("SignIn_Command: Authenication Failed");
-            //}
+            if (accountSql.Authenticate(EnterUsername.Text, EnterPassword.Text))
+            {
+                Debug.WriteLine("Account was able to authenticate");
+                Account account = accountSql.Get(EnterUsername.Text);
+                Session["Username"] = account.Username;
+                Session["Email"] = account.Email;
+                Response.Redirect("~/Views/Projects/Projects");
+            }
+            else
+            {
+                Debug.WriteLine("Account unable to authenticate");
+                ScriptManager.RegisterClientScriptBlock(this, GetType(), "alert", "Your Message", true);
+            }
         }
 
     }
