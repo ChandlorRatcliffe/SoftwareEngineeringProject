@@ -13,7 +13,6 @@ namespace KarbonWebForms.Views.Accounts
     public partial class RecoverUsername : System.Web.UI.Page
     {
         private readonly AccountSql accountSql = new AccountSql();
-        private readonly MySqlFunctions sqlFunctions = new MySqlFunctions();
         private readonly EmailTool email = new EmailTool();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -21,12 +20,11 @@ namespace KarbonWebForms.Views.Accounts
 
         }
 
-        protected async void Recover(object sender, EventArgs e)
+        protected async void RecoverMyUsername(object sender, EventArgs e)
         {
-            if (accountSql.ExistsWithEmail(EmailEnter.Text))
+            Account account = accountSql.GetWithEmail(EmailEnter.Text);
+            if (account != null)
             {
-                Debug.WriteLine("Email Exists.");
-                Account account = accountSql.GetWithEmail(EmailEnter.Text);
                 await email.SendEmail(account, "Username Recovery", $"Hello {account.FirstName},\n" +
                     $"you karbon username is {account.Username}.\n");
                 Debug.WriteLine("Email was sent to users email address.");
@@ -34,10 +32,9 @@ namespace KarbonWebForms.Views.Accounts
             }
             else
             {
-                Debug.WriteLine("Account with the email {EmailEnter.Text} does not exists. Redirected to Login.. Needs Validation.");
+                Debug.WriteLine($"Account with the email {EmailEnter.Text} does not exists. Redirected to Login.. Needs Validation.");
                 Response.Redirect("~/Views/Accounts/Login");
             }
-
         }
     }
 }

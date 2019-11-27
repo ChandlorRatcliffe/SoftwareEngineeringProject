@@ -5,9 +5,9 @@ using System.Threading;
 using System.Web;
 using SendGrid;
 using SendGrid.Helpers.Mail;
-using KarbonWebForms.Sql;
+using EmailTest.Sql;
 
-namespace KarbonWebForms.Email
+namespace EmailTest.Email
 {
     public class EmailTool
     {
@@ -19,7 +19,7 @@ namespace KarbonWebForms.Email
             SendGridClient client = new SendGridClient(ApiKey);
             EmailAddress reciever = new EmailAddress(account.Email, $"{account.FirstName} {account.LastName}");
             SendGridMessage msg = MailHelper.CreateSingleEmail(Sender, reciever, subject, content, htmlContent);
-            await client.SendEmailAsync(msg);
+            Response response = await client.SendEmailAsync(msg);
         }
     }
 }
