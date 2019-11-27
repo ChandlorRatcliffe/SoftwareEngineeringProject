@@ -8,7 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
-namespace BackEndDev.Sql
+namespace KarbonWebForms.Sql
 {
     public class MySqlFunctions
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 
-namespace BackEndDev.Sql
+namespace KarbonWebForms.Sql
 {
     public class AccountSql
     {
@@ -179,7 +179,13 @@ namespace BackEndDev.Sql
             }
         }
 
-        public bool Authenicate(string username, string password)
+        /// <summary>
+        /// Authenticates a User against the Sql Database
+        /// </summary>
+        /// <param name="username">Primary Key</param>
+        /// <param name="password">Passphrase</param>
+        /// <returns></returns>
+        public bool Authenticate(string username, string password)
         {
             if (Exists(username))
             {

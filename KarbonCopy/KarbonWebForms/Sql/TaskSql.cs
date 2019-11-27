@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 
-namespace BackEndDev.Sql
+namespace KarbonWebForms.Sql
 {
     public class TaskSql
     {

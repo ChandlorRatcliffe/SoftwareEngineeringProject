@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BackEndDev.Sql
+namespace KarbonWebForms.Sql
 {
     /// <summary>
     /// These class structure representations of SQL Tables
