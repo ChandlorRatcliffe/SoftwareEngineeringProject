@@ -30,7 +30,7 @@ namespace KarbonWebForms.Views.Permissions
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl permissionAccordion;
+        protected global::System.Web.UI.WebControls.Panel permissionAccordion;
 
         /// <summary>
         /// OrgnPermsAll control.
@@ -39,7 +39,7 @@ namespace KarbonWebForms.Views.Permissions
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox OrgnPermsAll;
+        protected global::System.Web.UI.WebControls.CheckBox OrgnPermsAll;
 
         /// <summary>
         /// OrgnInviteUser control.
@@ -48,7 +48,7 @@ namespace KarbonWebForms.Views.Permissions
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox OrgnInviteUser;
+        protected global::System.Web.UI.WebControls.CheckBox OrgnInviteUser;
 
         /// <summary>
         /// OrgnRemoveUser control.
@@ -57,7 +57,7 @@ namespace KarbonWebForms.Views.Permissions
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox OrgnRemoveUser;
+        protected global::System.Web.UI.WebControls.CheckBox OrgnRemoveUser;
 
         /// <summary>
         /// OrgnPermissionsEditing control.
@@ -66,7 +66,7 @@ namespace KarbonWebForms.Views.Permissions
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox OrgnPermissionsEditing;
+        protected global::System.Web.UI.WebControls.CheckBox OrgnPermissionsEditing;
 
         /// <summary>
         /// ProjPermsAll control.
@@ -75,7 +75,7 @@ namespace KarbonWebForms.Views.Permissions
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox ProjPermsAll;
+        protected global::System.Web.UI.WebControls.CheckBox ProjPermsAll;
 
         /// <summary>
         /// ProjCreateProject control.
@@ -84,7 +84,7 @@ namespace KarbonWebForms.Views.Permissions
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox ProjCreateProject;
+        protected global::System.Web.UI.WebControls.CheckBox ProjCreateProject;
 
         /// <summary>
         /// ProjProjectEditing control.
@@ -93,7 +93,7 @@ namespace KarbonWebForms.Views.Permissions
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox ProjProjectEditing;
+        protected global::System.Web.UI.WebControls.CheckBox ProjProjectEditing;
 
         /// <summary>
         /// ProjDeleteProject control.
@@ -102,7 +102,7 @@ namespace KarbonWebForms.Views.Permissions
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox ProjDeleteProject;
+        protected global::System.Web.UI.WebControls.CheckBox ProjDeleteProject;
 
         /// <summary>
         /// ProjAssignmentEditing control.
@@ -111,7 +111,7 @@ namespace KarbonWebForms.Views.Permissions
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox ProjAssignmentEditing;
+        protected global::System.Web.UI.WebControls.CheckBox ProjAssignmentEditing;
 
         /// <summary>
         /// TaskPermsAll control.
@@ -120,7 +120,7 @@ namespace KarbonWebForms.Views.Permissions
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox TaskPermsAll;
+        protected global::System.Web.UI.WebControls.CheckBox TaskPermsAll;
 
         /// <summary>
         /// TaskCreateTask control.
@@ -129,33 +129,42 @@ namespace KarbonWebForms.Views.Permissions
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox TaskCreateTask;
+        protected global::System.Web.UI.WebControls.CheckBox TaskCreateTask;
 
         /// <summary>
-        /// TaskEdit control.
+        /// TaskTaskEditing control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox TaskEdit;
+        protected global::System.Web.UI.WebControls.CheckBox TaskTaskEditing;
 
         /// <summary>
-        /// TaskDel control.
+        /// TaskDeleteTask control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox TaskDel;
+        protected global::System.Web.UI.WebControls.CheckBox TaskDeleteTask;
 
         /// <summary>
-        /// TaskAsgn control.
+        /// TaskAssignmentEditing control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox TaskAsgn;
+        protected global::System.Web.UI.WebControls.CheckBox TaskAssignmentEditing;
+
+        /// <summary>
+        /// UpdateBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton UpdateBtn;
     }
 }

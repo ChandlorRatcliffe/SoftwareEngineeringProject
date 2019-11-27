@@ -1,8 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Settings.aspx.cs" Inherits="KarbonWebForms.Views.Accounts.Settings" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="DashContent">
-    <div class="Settings-Page">
-        <center>
+    <div class="Settings-Page" style="justify-content:center">
             <article class="Title-info">
                 <h1>User Settings</h1>
             </article>
@@ -53,6 +52,5 @@
             <button type="button" class="btn btn-dark" data-toggle="button" aria-pressed="false"> <!-- autocomplete="off" -->
                 Dark Mode
             </button>
-        </center>
     </div>
 </asp:Content>
