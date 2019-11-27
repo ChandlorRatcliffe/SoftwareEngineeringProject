@@ -16,16 +16,22 @@ namespace KarbonWebForms
 
             bundles.Add(new StyleBundle("~/lib/css").Include(
                 "~/lib/css/fontawesome.css",
-                "~/lib/css/bootstrap.css",
                 "~/lib/css/all.css",
-                "~/lib/css/boomod.css"
+                "~/lib/css/bootstrap.css",
+                "~/lib/css/boomod.css",
+                 "~/lib/css/bootstrap.min.css",
+                "~/lib/css/gijgo.min.css"
                 )
             );
 
             bundles.Add(new ScriptBundle("~/lib/js").Include(
                 "~/lib/js/jquery-3.4.1.js",
+                "~/lib/js/jquery-3.4.1.min.js",
                 "~/lib/js/all.js",
-                "~/lib/js/bootstrap.bundle.js"
+                "~/lib/js/bootstrap.bundle.js",
+                "~/lib/js/datatables.min.js",
+                "~/lib/js/popper.min.js",
+                "~/lib/js/gijgo.min.js"
                 )
             );
 
