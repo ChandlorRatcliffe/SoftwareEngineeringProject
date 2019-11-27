@@ -14,6 +14,9 @@ namespace KarbonWebForms.Views.Accounts
     {
         private readonly AccountSql accountSql = new AccountSql();
         private readonly EmailTool emailTool = new EmailTool();
+        //make dynamic
+        private readonly string verfToken = "38749384";
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,8 +25,8 @@ namespace KarbonWebForms.Views.Accounts
 
         protected async void CreateAccount(object sender, EventArgs e)
         {
-            string VerificationToken = "{NOT IMPLEMENTED}";
-
+            //make dynamic
+            string URL = $"https://{Request.Url.Host}:{Request.Url.Port}/Views/Accounts/Verification";
 
             if (Password.Text == ConfirmPassword.Text)
             {
@@ -36,8 +39,8 @@ namespace KarbonWebForms.Views.Accounts
                     Password = Password.Text,
                     Skills = "false" //Not Verified
                 };
-                if (await emailTool.SendEmail(account, "Account Verification", $"Hello {account.FirstName},\n" +
-                        $"you karbon activation token is {VerificationToken}.\n"))
+                if (await emailTool.SendEmail(account, "Account Verification", "",
+                    $"Hello {account.FirstName}, <br> your karbon activation token is {verfToken} <br> {URL}"))
                 {
                     accountSql.Insert(account);
                     Debug.WriteLine("Verfication Token successfully sent and account added.");
