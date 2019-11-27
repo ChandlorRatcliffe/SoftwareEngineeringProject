@@ -46,11 +46,7 @@
             <div class="col-1">
                 Themes
             </div>
-            <button type="button" class="btn btn-light" data-toggle="button" aria-pressed="false"> <!-- autocomplete="off" -->
-                Light Mode
-            </button>
-            <button type="button" class="btn btn-dark" data-toggle="button" aria-pressed="false"> <!-- autocomplete="off" -->
-                Dark Mode
-            </button>
+            <asp:button runat="server" ID="light" type="button" class="btn btn-light" Text="Light Mode" OnCommand="light_Click" />
+            <asp:button runat="server" ID="dark" type="button" class="btn btn-dark" Text="Dark Mode" OnCommand="dark_Click" />
     </div>
 </asp:Content>
