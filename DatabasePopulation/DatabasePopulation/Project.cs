@@ -33,6 +33,7 @@ namespace DatabasePopulation
             this.deadline = deadline;
             this.description = description;
             //Generate the task trees for the project.
+            this.tasks = new List<TaskTree>();
             Random rand = new Random();           
             int taskLimit = rand.Next(5, 20);
             WordListManager words = new WordListManager();
@@ -52,7 +53,7 @@ namespace DatabasePopulation
         //Generate a Project Assigned record string
         public string getProjectAssignedAddString(Account assignee)
         {
-            return "(" + assignee.getPK() + "\",\"" + this.getPK() + ")";
+            return "(" + assignee.getPK() + "," + this.getPK() + ")";
         }
         //Give the Task Trees to the requester.
         public List<TaskTree> getTaskTrees()

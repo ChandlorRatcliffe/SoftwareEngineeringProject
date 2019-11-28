@@ -33,7 +33,7 @@ namespace DatabasePopulation
         //Generate a Task Assigned record string
         public string getTaskAssignedAddString(Account assignee)
         {
-            return "(" + assignee.getPK() + "\",\""  + this.getPK() + ")";
+            return "(" + assignee.getPK() + ","  + this.getPK() + ")";
         }
     }
 }

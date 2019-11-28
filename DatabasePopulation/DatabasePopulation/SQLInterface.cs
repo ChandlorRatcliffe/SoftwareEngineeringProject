@@ -34,7 +34,7 @@ namespace DatabasePopulation
             try
             {
                 //Attempt to connect to the database. 
-                Console.WriteLine("Connecting to MySQL...");
+                //Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
 
                 //Once connected, package and send the query to the database. 
@@ -76,7 +76,7 @@ namespace DatabasePopulation
         {
             //Submit the query to the server.
             List<List<string>> result = query(s);
-            Console.WriteLine(s);
+            //Console.WriteLine(s);
 
             //Break the query into columns and rows for output, and output on the fly.
             for (int i = 0; i < result.Count; i++)
@@ -85,7 +85,7 @@ namespace DatabasePopulation
                 {
                     Console.Write(result.ElementAt(i).ElementAt(j) + "\t, ");
                 }
-                Console.WriteLine();
+                //Console.WriteLine();
             }
         }
         //This generates a string identical to that which would be produced in the console by print_query. 
@@ -110,7 +110,7 @@ namespace DatabasePopulation
         }
         public List<Account> generateAccounts(int number)
         {
-            Console.WriteLine("Generating Accounts...");
+            //Console.WriteLine("Generating Accounts...");
             //Create an account generator
             AccountGenerator ag = new AccountGenerator(this.words);
             //generate as  many accounts as possible
@@ -124,15 +124,15 @@ namespace DatabasePopulation
             //replace the last comma with a semi colon. 
             queryString = queryString.Substring(0,queryString.Length-1)+";";
 
-            Console.WriteLine("Submitting Accounts...");
+            //Console.WriteLine("Submitting Accounts...");
             //submit the query.
             query(queryString);
-            Console.WriteLine("Done.");
+            //Console.WriteLine("Done.");
             return accounts;
         }
         public List<Organization> generateOrganizations(int number)
         {
-            Console.WriteLine("Generating Organizations...");
+            //Console.WriteLine("Generating Organizations...");
             //Create an organization generator
             OrganizationGenerator org = new OrganizationGenerator(this.words);
             //generate as  many organizations as possible
@@ -147,16 +147,16 @@ namespace DatabasePopulation
             //replace the last comma with a semi colon. 
             queryString = queryString.Substring(0, queryString.Length - 1) + ";";
             //submit the query.
-            Console.WriteLine("Submitting Organizations...");
+            //Console.WriteLine("Submitting Organizations...");
             query(queryString);
-            Console.WriteLine("Done.");
+            //Console.WriteLine("Done.");
             return organizations;
         }
 
         //Generate a list of projects and add them to the database. 
         public List<Project> generateProjects(int number)
         {
-            Console.WriteLine("Generating Projects");
+            //Console.WriteLine("Generating Projects");
             //To do this, we'll need a Project Generator.
             ProjectGenerator proj = new ProjectGenerator(this.words);
             //We'll also create a list to store the projects. 
@@ -171,9 +171,9 @@ namespace DatabasePopulation
             //Change the last character from a comma to a semicolon. 
             queryString = queryString.Substring(0, queryString.Length - 1) + ";";
             //submit the query.
-            Console.WriteLine("Submitting Projects...");
+            //Console.WriteLine("Submitting Projects...");
             query(queryString);
-            Console.WriteLine("Done.");
+            //Console.WriteLine("Done.");
             //return the project list to the caller if it's needed.
             return projects;
         }
@@ -183,7 +183,7 @@ namespace DatabasePopulation
         //projects, organizations, and accounts required to validly construct a create record. 
         public List<Create> generateCreateSets(int number)
         {
-            Console.WriteLine("Generating Create Sets...");
+            //Console.WriteLine("Generating Create Sets...");
             //Make a CreatesGenerator.
             CreatesGenerator c = new CreatesGenerator(this.words);
             //Prepare a new list for the create records. 
@@ -194,13 +194,15 @@ namespace DatabasePopulation
             //Generate the number of batches of create records requested by the user.
             for(int i = 0; i < number; i++)
             {
-                Console.WriteLine("Generating batch " + (i+1) + " of creates...");
+                Console.WriteLine("Beginning batch " + (i + 1) + ".\n");
+                //Console.WriteLine("Generating batch " + (i+1) + " of creates...");
                 //Pass the SQLInterface to the CreatesGenerator so that it can make the projects, accounts, and organizations
                 //required to populate a create record. 
                 creates = c.generateCreateSet(this);
                 //For every create record, store it in the list for output, and add the 
-                //value tuple to the query string. 
-                foreach(Create create in creates)
+                //value tuple to the query string.
+                //Console.WriteLine("Beginning batch " + (i + 1) + ".\n");
+                foreach (Create create in creates)
                 {
                     createSet.Add(create);
                     queryString += create.getAddTupleQuerryString() + ",";
@@ -209,11 +211,11 @@ namespace DatabasePopulation
             }
             //Convert the last symbol from a comma to a semicolon. 
             queryString = queryString.Substring(0, queryString.Length - 1) + ";";
-            Console.WriteLine("Submitting Creates....");
+            //Console.WriteLine("Submitting Creates....");
             //Submit the query.
             //submitProjectAssignmentSets(createSet);
             query(queryString);
-            Console.WriteLine("Done.");
+            //Console.WriteLine("Done.");
             //Give the create record set back to the caller. 
             return createSet;            
         }
@@ -223,7 +225,7 @@ namespace DatabasePopulation
         //projects, organizations, and accounts required to validly construct a create record. 
         //public void submitProjectAssignmentSets(List<Create> creates)
         //{
-        //    Console.WriteLine("Generating Project Assignments Sets...");
+        //    //Console.WriteLine("Generating Project Assignments Sets...");
         //    //Make a CreatesGenerator.
         //    CreatesGenerator c = new CreatesGenerator(this.words);
         //    //prime the query string for insertion. 
@@ -237,23 +239,23 @@ namespace DatabasePopulation
             
         //    //Convert the last symbol from a comma to a semicolon. 
         //    queryString = queryString.Substring(0, queryString.Length - 1) + ";";
-        //    Console.WriteLine("Submitting project assignments....");
+        //    //Console.WriteLine("Submitting project assignments....");
         //    //Submit the query.
         //    query(queryString);
-        //    Console.WriteLine("Done.");
+        //    //Console.WriteLine("Done.");
         //}
         //This function registers tasks to the projects under which they were created.
         public void addBuiltOnTuples(string builtOnValues)
         {
-            Console.WriteLine("Registering Tasks to project...");
+            //Console.WriteLine("Registering Tasks to project...");
             string s = "insert into builton(projectId, taskId) values " + builtOnValues + ";";
             query(s);
-            Console.WriteLine("Done.");
+            //Console.WriteLine("Done.");
         }
         //This funtion ensures that the tasks are added to the task table. 
         public void addTasks(List<Task> tasks)
         {
-            Console.WriteLine("Registering Tasks to Database...");
+            //Console.WriteLine("Registering Tasks to Database...");
             string s = "insert into task(TaskId, TaskDeadline, TaskCompleted, TaskDescription) values ";
             foreach(Task task in tasks)
             {
@@ -261,12 +263,12 @@ namespace DatabasePopulation
             }
             s = s.Substring(0, s.Length - 1) + ";";
             query(s);
-            Console.WriteLine("Done.");
+            //Console.WriteLine("Done.");
         }
         //Constructing the Task Hierarchy will register the tasks and assign them to the appropriate project. 
         public void addTaskHierarchyTuples(List<TaskTree> taskTrees)
         {
-            Console.WriteLine("Registering task hierarchy...");
+            //Console.WriteLine("Registering task hierarchy...");
             string s = "insert into parent(parentTaskId, childTaskId) values ";
             string tuples = "";
             foreach (TaskTree taskTree in taskTrees)
@@ -277,7 +279,7 @@ namespace DatabasePopulation
             }
             s += tuples.Substring(0, tuples.Length - 1) + ";";
             query(s);
-            Console.WriteLine("Done.");
+            //Console.WriteLine("Done.");
         }
         //This will handle both project and task assignment registration to avoid redundancy. 
         public void registerAssignments(List<Account> accounts, Project project, Account creator)
@@ -301,7 +303,7 @@ namespace DatabasePopulation
             Random rand = new Random();
             int choice = rand.Next(0, accounts.Count());
 
-            Console.WriteLine("Registering Tasks to Accounts...");
+            //Console.WriteLine("Registering Tasks to Accounts...");
             //For each task, choose a random account to register it to, and add the account to the HashSet.
             foreach(Task task in tasks)
             {
@@ -312,7 +314,7 @@ namespace DatabasePopulation
             //Replace the last comma with a semicolon.
             taskString = taskString.Substring(0, taskString.Length - 1) + ";";
 
-            Console.WriteLine("Registering Accounts to Projects...");
+            //Console.WriteLine("Registering Accounts to Projects...");
             //For each account in the HashSet (which removed duplicate entries), register the project assignment. 
             foreach(Account account in projectAssignments)
             {
@@ -322,13 +324,13 @@ namespace DatabasePopulation
             projectString = projectString.Substring(0, projectString.Length - 1) + ";";
 
             query(taskString + projectString);
-            Console.WriteLine("Done.");
+            //Console.WriteLine("Done.");
         }
         
         //Completely clear generated data, and repopulate the database with the constants.
         public void reset()
         {
-            Console.WriteLine("Erradicating Database Contents...");
+            //Console.WriteLine("Erradicating Database Contents...");
             string resetString = "";
             resetString += "SET SQL_SAFE_UPDATES = 0;";
             resetString += "delete from organization where name != '';";
@@ -337,11 +339,13 @@ namespace DatabasePopulation
             resetString += "delete from task where taskid != -1;";
             resetString += "delete from builton where taskid != '-1';";
             resetString += "delete from creates where email != ''; ";
-            resetString += "delete from projectAssigned where email != ''";
+            resetString += "delete from projectAssigned where email != '';";
+            resetString += "delete from taskAssigned where email != '';" ;
+            resetString += "delete from parent where parentTaskId != '';";
             resetString += "SET SQL_SAFE_UPDATES = 1;";
             resetString += "insert into account(Username, Email, FirstName, LastName, Password, Skills, Theme, PicturePath) values('un', 'someEmail@bullshit.com', 'Travis', 'Idlay', 'nope', '', '', ''),('georgey','mbmnbm@bnmn.com','fn1234','ln1234','password', '', '', ''),('TestUser12345','armyjonesn@gmail.com','Nicholas','Jones','password', '', '', ''),('TestUser321','armyjonesn@gmail.com','Nicholas','Jones','password', '', '', ''); ";
             query(resetString);
-            Console.WriteLine("Done.");
+            //Console.WriteLine("Done.");
         }
     }
     
