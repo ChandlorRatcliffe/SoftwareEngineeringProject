@@ -15,7 +15,6 @@ namespace KarbonWebForms.Views.Permissions
 {
     public partial class PermissionsSetting : System.Web.UI.Page
     {
-        List<string> MemberList = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -37,10 +36,6 @@ namespace KarbonWebForms.Views.Permissions
                 OrgMemRptr.DataSource = dt;
                 // Data has to be bound to the repeater before finishing the assignment of data to the repeater
                 OrgMemRptr.DataBind();
-                foreach (DataRow row in dt.Rows)
-                {
-                    MemberList.Add(row[0].ToString());
-                }
             }
             conn.Close();
         }
