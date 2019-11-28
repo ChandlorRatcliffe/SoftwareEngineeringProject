@@ -11,12 +11,11 @@ namespace KarbonWebForms.Views.Accounts
 {
     public partial class Settings : System.Web.UI.Page
     {
-
         protected void dark_Click(object sender, EventArgs e)
         {
             var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
             conn.Open();
-            string qRun = "UPDATE `account` SET `Theme`='dark' WHERE `Username`='"+Session["Username"].ToString()+"'";
+            string qRun = "UPDATE `account` SET `Theme`='dark' WHERE `Username`='" + Session["Username"].ToString() + "'";
             var command = new MySqlCommand(qRun, conn);
             command.ExecuteReader();
             conn.Close();
@@ -35,5 +34,6 @@ namespace KarbonWebForms.Views.Accounts
             Session["Theme"] = "light";
             Response.Redirect("~/Views/Accounts/Settings.aspx");
         }
+
     }
 }
