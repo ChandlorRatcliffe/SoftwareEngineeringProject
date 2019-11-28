@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DatabasePopulation
 {
-    class TaskTree
+    public class TaskTree
     {
         static Random rand = new Random();
         WordListManager words;
@@ -28,7 +28,7 @@ namespace DatabasePopulation
                 for(int i = 0; i < howMany; i++)
                 {
                     //Every child is another tree. 
-                    this.subTasks.Add(new TaskTree(this.words, deadline.AddDays(rand.Next(7, 365)), words.getRandomWords(500), this.projectPK));
+                    this.subTasks.Add(new TaskTree(this.words, deadline.AddDays(rand.Next(7, 365)), words.getRandomWords(rand.Next(250, 500)), this.projectPK));
                 }
             }            
         }
