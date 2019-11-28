@@ -73,7 +73,7 @@
         <div class="container-fluid h-100">
             <div class="row justify-content-center h-100">
                 <!--Display for XL to Large-->
-                <div class="col-lg-2 order-first d-none d-lg-block d-xl-block bg-<%=theme %>">
+                <div class="col-lg-2 order-first d-none d-lg-block d-xl-block bg-<%=theme %> border-right">
                     <ul class="nav nav-pills flex-column mt-3">
                         <!-- Dashboard is main projects list page -->
                         <li class="nav-item mb-1">
@@ -100,7 +100,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col order-last bg-darkcontainer-fluid mt-3 h-100">
+                <div class="col order-last container-fluid bg-light m-3 h-100 border rounded">
                     <asp:ContentPlaceHolder runat="server" ID="DashContent"></asp:ContentPlaceHolder>
                 </div>
             </div>
