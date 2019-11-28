@@ -1,50 +1,48 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 
 namespace KarbonWebForms.Sql
 {
-    public class ProjectAssignedSql
+    public class CreatesSql
     {
         private readonly MySqlFunctions functions = new MySqlFunctions();
-        private readonly string Table = "projectassigned";
+        private readonly string Table = "creates";
 
         /// <summary>
-        /// Inserts ProjectAssigned into Sql Database
+        /// Inserts Creates into Sql Database
         /// </summary>
-        /// <param name="projectassigned">ProjectAssigned Object</param>
-        public void Insert(ProjectAssigned projectassigned)
+        /// <param name="creates">Creates Object</param>
+        public void Insert(Creates creates)
         {
-            if (!Exists(projectassigned.Username))
+            if (!Exists(creates.Username))
             {
                 string query =
                     $"INSERT INTO {Table} (Username, Email, Name, ProjectId)" +
-                    $" VALUES(@username, @email, @name, @projectid);";
+                    $" VALUES(@username, @email, @name, @projectId);";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
-                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = projectassigned.Username },
-                    new MySqlParameter("email", MySqlDbType.VarChar) { Value = projectassigned.Email },
-                    new MySqlParameter("name", MySqlDbType.VarChar) { Value = projectassigned.Name },
-                    new MySqlParameter("projectid", MySqlDbType.VarChar) { Value = projectassigned.ProjectId },
-
+                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = creates.Username },
+                    new MySqlParameter("email", MySqlDbType.VarChar) { Value = creates.Email },
+                    new MySqlParameter("name", MySqlDbType.VarChar) { Value = creates.Name },
+                    new MySqlParameter("projectId", MySqlDbType.VarChar) { Value = creates.ProjectId },
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
                 {
-                    Debug.WriteLine("InsertProjectAssigned: The projectassigned was added successfully.");
+                    Debug.WriteLine("InsertCreates: The creates was added successfully.");
                 }
                 else
                 {
-                    Debug.WriteLine("InsertProjectAssigned: An error has occured.");
+                    Debug.WriteLine("InsertCreates: An error has occured.");
                 }
             }
         }
 
         /// <summary>
-        /// Updates a field of ProjectAssigned Sql Table
+        /// Updates a field of Creates Sql Table
         /// </summary>
         /// <param name="username">PrimaryKey</param>
         /// <param name="field">Column</param>
@@ -63,60 +61,60 @@ namespace KarbonWebForms.Sql
 
                 if (functions.ExecuteNonQuery(query, parameters))
                 {
-                    Debug.WriteLine("UpdateProjectAssigned: The projectassigned was updated successfully.");
+                    Debug.WriteLine("UpdateCreates: The creates was updated successfully.");
                 }
                 else
                 {
-                    Debug.WriteLine("UpdateProjectAssigned: An error has occured.");
+                    Debug.WriteLine("UpdateCreates: An error has occured.");
                 }
             }
         }
 
         /// <summary>
-        /// Delete ProjectAssigned using Username
+        /// Delete Creates using Username
         /// </summary>
         /// <param name="username"></param>
         public void Delete(string username)
         {
-            Delete(new ProjectAssigned(username));
+            DeleteCreates(new Creates(username));
         }
 
         /// <summary>
-        /// Delete ProjectAssigned using ProjectAssigned Object
+        /// Delete Creates using Creates Object
         /// </summary>
-        /// <param name="projectassigned"></param>
-        public void Delete(ProjectAssigned projectassigned)
+        /// <param name="creates"></param>
+        public void DeleteCreates(Creates creates)
         {
-            if (Exists(projectassigned.Username))
+            if (Exists(creates.Username))
             {
                 string query = $"DELETE FROM {Table} WHERE Username = @username;";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
-                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = projectassigned.Username }
+                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = creates.Username }
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
                 {
-                    Debug.WriteLine("DeleteProjectAssigned: The projectassigned was deleted successfully.");
+                    Debug.WriteLine("DeleteCreates: The creates was deleted successfully.");
                 }
                 else
                 {
-                    Debug.WriteLine("DeleteProjectAssigned: An error has occured.");
+                    Debug.WriteLine("DeleteCreates: An error has occured.");
                 }
             }
             else
             {
-                Debug.WriteLine("DeleteProjectAssigned: Cannot delete projectassigned");
+                Debug.WriteLine("DeleteCreates: Cannot delete creates");
             }
         }
 
         /// <summary>
-        /// Get ProjectAssigned Object From Sql Database
+        /// Get Creates Object From Sql Database
         /// </summary>
         /// <param name="username">Primary Key</param>
-        /// <returns>ProjectAssigned Object</returns>
-        public ProjectAssigned Get(string username)
+        /// <returns>Creates Object</returns>
+        public Creates Get(string username)
         {
             if (Exists(username))
             {
@@ -132,18 +130,18 @@ namespace KarbonWebForms.Sql
                 if (functions.ExecuteReader(query, parameters, out DataTable dataTable))
                 {
                     DataRow row = dataTable.Rows[0];
-                    ProjectAssigned projectassigned = new ProjectAssigned
+                    Creates creates = new Creates
                     {
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
                         Name = row["name"].ToString(),
-                        ProjectId = row["projectid"].ToString()
+                        ProjectId = row["projectId"].ToString(),
                     };
-                    return projectassigned;
+                    return creates;
                 }
                 else
                 {
-                    Debug.WriteLine("GetProjectAssigned: An error has occured while trying to get projectassigned.");
+                    Debug.WriteLine("GetCreates: An error has occured while trying to get creates.");
                     return null;
                 }
             }
@@ -154,37 +152,37 @@ namespace KarbonWebForms.Sql
         }
 
         /// <summary>
-        /// Get All Entries of ProjectAssigned Table
+        /// Get All Entries of Creates Table
         /// </summary>
-        /// <returns>List of ProjectAssigned Objects</returns>
-        public List<ProjectAssigned> GetAll()
+        /// <returns>List of Creates Objects</returns>
+        public List<Creates> GetAll()
         {
             string query =
                 $"SELECT Username, Email, Name, ProjectId FROM {Table};";
             if (functions.ExecuteReader(query, null, out DataTable dataTable))
             {
-                List<ProjectAssigned> projectassigned = new List<ProjectAssigned>();
+                List<Creates> creates = new List<Creates>();
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    projectassigned.Add(new ProjectAssigned
+                    creates.Add(new Creates
                     {
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
-                        Name = row["name"].ToString(),
-                        ProjectId = row["projectid"].ToString()
+                        Name = row["firstname"].ToString(),
+                        ProjectId = row["lastname"].ToString(),
                     });
                 }
-                return projectassigned;
+                return creates;
             }
             else
             {
-                Debug.WriteLine("GetAllProjectAssigneds: An error has occured while trying to get all projectassigned.");
+                Debug.WriteLine("GetAllCreatess: An error has occured while trying to get all creates.");
                 return null;
             }
         }
 
         /// <summary>
-        /// Checks if an ProjectAssigned Exists using Username 
+        /// Checks if an Creates Exists using Username 
         /// </summary>
         /// <param name="keyValue">Primary Key</param>
         /// <returns></returns>
@@ -192,15 +190,15 @@ namespace KarbonWebForms.Sql
         {
             if (functions.CheckExists(Table, "username", keyValue))
             {
-                Debug.WriteLine($"Exists: The projectassigned exists with username: {keyValue}.");
+                Debug.WriteLine($"Exists: The creates exists with username: {keyValue}.");
                 return true;
             }
             else
             {
-                Debug.WriteLine($"Exists: The projectassigned doesn't exists with username: {keyValue}.");
+                Debug.WriteLine($"Exists: The creates doesn't exists with username: {keyValue}.");
                 return false;
             }
         }
-
+        
     }
 }

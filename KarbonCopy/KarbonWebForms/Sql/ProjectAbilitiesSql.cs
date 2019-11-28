@@ -27,9 +27,9 @@ namespace KarbonWebForms.Sql
                     new MySqlParameter("username", MySqlDbType.VarChar) { Value = projectAbilities.Username },
                     new MySqlParameter("email", MySqlDbType.VarChar) { Value = projectAbilities.Email },
                     new MySqlParameter("projectId", MySqlDbType.VarChar) { Value = projectAbilities.ProjectId },
-                    new MySqlParameter("assignmentediting", MySqlDbType.Int16) { Value = projectAbilities.AssignmentEditing },
-                    new MySqlParameter("projectediting", MySqlDbType.Int16) { Value = projectAbilities.ProjectEditing },
-                    new MySqlParameter("createproject", MySqlDbType.Int16) { Value = projectAbilities.CreateProject },
+                    new MySqlParameter("assignmentediting", MySqlDbType.VarChar) { Value = projectAbilities.AssignmentEditing },
+                    new MySqlParameter("projectediting", MySqlDbType.VarChar) { Value = projectAbilities.ProjectEditing },
+                    new MySqlParameter("createproject", MySqlDbType.VarChar) { Value = projectAbilities.CreateProject },
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
@@ -78,14 +78,14 @@ namespace KarbonWebForms.Sql
         /// <param name="username"></param>
         public void Delete(string username)
         {
-            Delete(new ProjectAbilities(username));
+            DeleteProjectAbilities(new ProjectAbilities(username));
         }
 
         /// <summary>
         /// Delete ProjectAbilities using ProjectAbilities Object
         /// </summary>
         /// <param name="projectAbilities"></param>
-        public void Delete(ProjectAbilities projectAbilities)
+        public void DeleteProjectAbilities(ProjectAbilities projectAbilities)
         {
             if (Exists(projectAbilities.Username))
             {
@@ -137,9 +137,9 @@ namespace KarbonWebForms.Sql
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
                         ProjectId = row["projectid"].ToString(),
-                        AssignmentEditing = (int)row["assignmentediting"],
-                        ProjectEditing = (int)row["projectediting"],
-                        CreateProject = (int)row["createproject"],
+                        AssignmentEditing = row["assignmentediting"].ToString(),
+                        ProjectEditing = row["projectediting"].ToString(),
+                        CreateProject = row["createproject"].ToString(),
                     };
                     return projectAbilities;
                 }
@@ -173,9 +173,9 @@ namespace KarbonWebForms.Sql
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
                         ProjectId = row["projectid"].ToString(),
-                        AssignmentEditing = (int)row["assignmentediting"],
-                        ProjectEditing = (int)row["projectediting"],
-                        CreateProject = (int)row["createproject"],
+                        AssignmentEditing = row["assignmentediting"].ToString(),
+                        ProjectEditing = row["projectediting"].ToString(),
+                        CreateProject = row["createproject"].ToString(),
                     });
                 }
                 return projectAbilities;

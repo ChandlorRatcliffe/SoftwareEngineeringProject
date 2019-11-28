@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Create.aspx.cs" Inherits="KarbonWebForms.Views.Accounts.Create" Title="Create" Async="true"%>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Create.aspx.cs" Inherits="KarbonWebForms.Views.Accounts.Create" Title="Create" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
 <!-- Recreation of Create.cshtml -->
@@ -68,7 +68,7 @@
         </div>
         <div class="row">
             <div class="col order-first"></div>
-            <div class="col text-center">Already have an account?<br /><a href="/Views/Accounts/Login">Click here to login</a></div>
+            <div class="col text-center">Already have an account?<br /><a href="~/Views/Accounts/Login">Click here to login</a></div>
             <div class="col order-last"></div>
         </div>
         <br />

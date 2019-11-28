@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KarbonWebForms.Views.Tasks
+namespace KarbonWebForms.Views.Accounts
 {
 
 
-    public partial class Index
+    public partial class WebForm1
     {
     }
 }
