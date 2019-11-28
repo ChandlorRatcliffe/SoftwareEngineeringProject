@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -24,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.6</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -163,6 +165,150 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <Content Include="lib\fullcalendar\bootstrap\LICENSE.txt" />
+    <Content Include="lib\fullcalendar\bootstrap\main.css" />
+    <Content Include="lib\fullcalendar\bootstrap\main.esm.js" />
+    <Content Include="lib\fullcalendar\bootstrap\main.js" />
+    <Content Include="lib\fullcalendar\bootstrap\main.min.css" />
+    <Content Include="lib\fullcalendar\bootstrap\main.min.js" />
+    <Content Include="lib\fullcalendar\core\LICENSE.txt" />
+    <Content Include="lib\fullcalendar\core\locales-all.js" />
+    <Content Include="lib\fullcalendar\core\locales-all.min.js" />
+    <Content Include="lib\fullcalendar\core\locales\af.js" />
+    <Content Include="lib\fullcalendar\core\locales\ar-dz.js" />
+    <Content Include="lib\fullcalendar\core\locales\ar-kw.js" />
+    <Content Include="lib\fullcalendar\core\locales\ar-ly.js" />
+    <Content Include="lib\fullcalendar\core\locales\ar-ma.js" />
+    <Content Include="lib\fullcalendar\core\locales\ar-sa.js" />
+    <Content Include="lib\fullcalendar\core\locales\ar-tn.js" />
+    <Content Include="lib\fullcalendar\core\locales\ar.js" />
+    <Content Include="lib\fullcalendar\core\locales\bg.js" />
+    <Content Include="lib\fullcalendar\core\locales\bs.js" />
+    <Content Include="lib\fullcalendar\core\locales\ca.js" />
+    <Content Include="lib\fullcalendar\core\locales\cs.js" />
+    <Content Include="lib\fullcalendar\core\locales\da.js" />
+    <Content Include="lib\fullcalendar\core\locales\de.js" />
+    <Content Include="lib\fullcalendar\core\locales\el.js" />
+    <Content Include="lib\fullcalendar\core\locales\en-au.js" />
+    <Content Include="lib\fullcalendar\core\locales\en-gb.js" />
+    <Content Include="lib\fullcalendar\core\locales\en-nz.js" />
+    <Content Include="lib\fullcalendar\core\locales\es-us.js" />
+    <Content Include="lib\fullcalendar\core\locales\es.js" />
+    <Content Include="lib\fullcalendar\core\locales\et.js" />
+    <Content Include="lib\fullcalendar\core\locales\eu.js" />
+    <Content Include="lib\fullcalendar\core\locales\fa.js" />
+    <Content Include="lib\fullcalendar\core\locales\fi.js" />
+    <Content Include="lib\fullcalendar\core\locales\fr-ca.js" />
+    <Content Include="lib\fullcalendar\core\locales\fr-ch.js" />
+    <Content Include="lib\fullcalendar\core\locales\fr.js" />
+    <Content Include="lib\fullcalendar\core\locales\gl.js" />
+    <Content Include="lib\fullcalendar\core\locales\he.js" />
+    <Content Include="lib\fullcalendar\core\locales\hi.js" />
+    <Content Include="lib\fullcalendar\core\locales\hr.js" />
+    <Content Include="lib\fullcalendar\core\locales\hu.js" />
+    <Content Include="lib\fullcalendar\core\locales\id.js" />
+    <Content Include="lib\fullcalendar\core\locales\is.js" />
+    <Content Include="lib\fullcalendar\core\locales\it.js" />
+    <Content Include="lib\fullcalendar\core\locales\ja.js" />
+    <Content Include="lib\fullcalendar\core\locales\ka.js" />
+    <Content Include="lib\fullcalendar\core\locales\kk.js" />
+    <Content Include="lib\fullcalendar\core\locales\ko.js" />
+    <Content Include="lib\fullcalendar\core\locales\lb.js" />
+    <Content Include="lib\fullcalendar\core\locales\lt.js" />
+    <Content Include="lib\fullcalendar\core\locales\lv.js" />
+    <Content Include="lib\fullcalendar\core\locales\mk.js" />
+    <Content Include="lib\fullcalendar\core\locales\ms.js" />
+    <Content Include="lib\fullcalendar\core\locales\nb.js" />
+    <Content Include="lib\fullcalendar\core\locales\nl.js" />
+    <Content Include="lib\fullcalendar\core\locales\nn.js" />
+    <Content Include="lib\fullcalendar\core\locales\pl.js" />
+    <Content Include="lib\fullcalendar\core\locales\pt-br.js" />
+    <Content Include="lib\fullcalendar\core\locales\pt.js" />
+    <Content Include="lib\fullcalendar\core\locales\ro.js" />
+    <Content Include="lib\fullcalendar\core\locales\ru.js" />
+    <Content Include="lib\fullcalendar\core\locales\sk.js" />
+    <Content Include="lib\fullcalendar\core\locales\sl.js" />
+    <Content Include="lib\fullcalendar\core\locales\sq.js" />
+    <Content Include="lib\fullcalendar\core\locales\sr-cyrl.js" />
+    <Content Include="lib\fullcalendar\core\locales\sr.js" />
+    <Content Include="lib\fullcalendar\core\locales\sv.js" />
+    <Content Include="lib\fullcalendar\core\locales\th.js" />
+    <Content Include="lib\fullcalendar\core\locales\tr.js" />
+    <Content Include="lib\fullcalendar\core\locales\uk.js" />
+    <Content Include="lib\fullcalendar\core\locales\vi.js" />
+    <Content Include="lib\fullcalendar\core\locales\zh-cn.js" />
+    <Content Include="lib\fullcalendar\core\locales\zh-tw.js" />
+    <Content Include="lib\fullcalendar\core\main.css" />
+    <Content Include="lib\fullcalendar\core\main.esm.js" />
+    <Content Include="lib\fullcalendar\core\main.js" />
+    <Content Include="lib\fullcalendar\core\main.min.css" />
+    <Content Include="lib\fullcalendar\core\main.min.js" />
+    <Content Include="lib\fullcalendar\daygrid\LICENSE.txt" />
+    <Content Include="lib\fullcalendar\daygrid\main.css" />
+    <Content Include="lib\fullcalendar\daygrid\main.esm.js" />
+    <Content Include="lib\fullcalendar\daygrid\main.js" />
+    <Content Include="lib\fullcalendar\daygrid\main.min.css" />
+    <Content Include="lib\fullcalendar\daygrid\main.min.js" />
+    <Content Include="lib\fullcalendar\examples\background-events.html" />
+    <Content Include="lib\fullcalendar\examples\daygrid-views.html" />
+    <Content Include="lib\fullcalendar\examples\external-dragging-2cals.html" />
+    <Content Include="lib\fullcalendar\examples\external-dragging-builtin.html" />
+    <Content Include="lib\fullcalendar\examples\full-height.html" />
+    <Content Include="lib\fullcalendar\examples\google-calendar.html" />
+    <Content Include="lib\fullcalendar\examples\json.html" />
+    <Content Include="lib\fullcalendar\examples\js\theme-chooser.js" />
+    <Content Include="lib\fullcalendar\examples\list-views.html" />
+    <Content Include="lib\fullcalendar\examples\locales.html" />
+    <Content Include="lib\fullcalendar\examples\month-view.html" />
+    <Content Include="lib\fullcalendar\examples\php\get-events.php" />
+    <Content Include="lib\fullcalendar\examples\php\get-time-zones.php" />
+    <Content Include="lib\fullcalendar\examples\php\utils.php" />
+    <Content Include="lib\fullcalendar\examples\rrule.html" />
+    <Content Include="lib\fullcalendar\examples\selectable.html" />
+    <Content Include="lib\fullcalendar\examples\theming.html" />
+    <Content Include="lib\fullcalendar\examples\time-zones.html" />
+    <Content Include="lib\fullcalendar\examples\timegrid-views.html" />
+    <Content Include="lib\fullcalendar\examples\week-numbers.html" />
+    <Content Include="lib\fullcalendar\google-calendar\LICENSE.txt" />
+    <Content Include="lib\fullcalendar\google-calendar\main.esm.js" />
+    <Content Include="lib\fullcalendar\google-calendar\main.js" />
+    <Content Include="lib\fullcalendar\google-calendar\main.min.js" />
+    <Content Include="lib\fullcalendar\interaction\LICENSE.txt" />
+    <Content Include="lib\fullcalendar\interaction\main.esm.js" />
+    <Content Include="lib\fullcalendar\interaction\main.js" />
+    <Content Include="lib\fullcalendar\interaction\main.min.js" />
+    <Content Include="lib\fullcalendar\LICENSE.txt" />
+    <Content Include="lib\fullcalendar\list\LICENSE.txt" />
+    <Content Include="lib\fullcalendar\list\main.css" />
+    <Content Include="lib\fullcalendar\list\main.esm.js" />
+    <Content Include="lib\fullcalendar\list\main.js" />
+    <Content Include="lib\fullcalendar\list\main.min.css" />
+    <Content Include="lib\fullcalendar\list\main.min.js" />
+    <Content Include="lib\fullcalendar\luxon\LICENSE.txt" />
+    <Content Include="lib\fullcalendar\luxon\luxon.js" />
+    <Content Include="lib\fullcalendar\luxon\main.esm.js" />
+    <Content Include="lib\fullcalendar\luxon\main.js" />
+    <Content Include="lib\fullcalendar\luxon\main.min.js" />
+    <Content Include="lib\fullcalendar\moment-timezone\LICENSE.txt" />
+    <Content Include="lib\fullcalendar\moment-timezone\main.esm.js" />
+    <Content Include="lib\fullcalendar\moment-timezone\main.js" />
+    <Content Include="lib\fullcalendar\moment-timezone\main.min.js" />
+    <Content Include="lib\fullcalendar\moment\LICENSE.txt" />
+    <Content Include="lib\fullcalendar\moment\main.esm.js" />
+    <Content Include="lib\fullcalendar\moment\main.js" />
+    <Content Include="lib\fullcalendar\moment\main.min.js" />
+    <Content Include="lib\fullcalendar\moment\moment.js" />
+    <Content Include="lib\fullcalendar\rrule\LICENSE.txt" />
+    <Content Include="lib\fullcalendar\rrule\main.esm.js" />
+    <Content Include="lib\fullcalendar\rrule\main.js" />
+    <Content Include="lib\fullcalendar\rrule\main.min.js" />
+    <Content Include="lib\fullcalendar\timegrid\LICENSE.txt" />
+    <Content Include="lib\fullcalendar\timegrid\main.css" />
+    <Content Include="lib\fullcalendar\timegrid\main.esm.js" />
+    <Content Include="lib\fullcalendar\timegrid\main.js" />
+    <Content Include="lib\fullcalendar\timegrid\main.min.css" />
+    <Content Include="lib\fullcalendar\timegrid\main.min.js" />
+    <Content Include="lib\fullcalendar\vendor\rrule.js" />
     <Content Include="Views\Accounts\Create.aspx" />
     <Content Include="Views\Accounts\Error.aspx" />
     <Content Include="lib\css\all.css" />
@@ -1844,6 +1990,30 @@
     </Content>
     <Content Include="Views\Projects\Projects.aspx" />
     <Content Include="Dashboard.Master" />
+    <Content Include="lib\fullcalendar\bootstrap\package.json" />
+    <Content Include="lib\fullcalendar\bootstrap\README.md" />
+    <Content Include="lib\fullcalendar\core\package.json" />
+    <Content Include="lib\fullcalendar\core\README.md" />
+    <Content Include="lib\fullcalendar\daygrid\package.json" />
+    <Content Include="lib\fullcalendar\daygrid\README.md" />
+    <Content Include="lib\fullcalendar\examples\json\events.json" />
+    <Content Include="lib\fullcalendar\google-calendar\package.json" />
+    <Content Include="lib\fullcalendar\google-calendar\README.md" />
+    <Content Include="lib\fullcalendar\interaction\package.json" />
+    <Content Include="lib\fullcalendar\interaction\README.md" />
+    <Content Include="lib\fullcalendar\list\package.json" />
+    <Content Include="lib\fullcalendar\list\README.md" />
+    <Content Include="lib\fullcalendar\luxon\package.json" />
+    <Content Include="lib\fullcalendar\luxon\README.md" />
+    <Content Include="lib\fullcalendar\moment-timezone\package.json" />
+    <Content Include="lib\fullcalendar\moment-timezone\README.md" />
+    <Content Include="lib\fullcalendar\moment\package.json" />
+    <Content Include="lib\fullcalendar\moment\README.md" />
+    <Content Include="lib\fullcalendar\README.md" />
+    <Content Include="lib\fullcalendar\rrule\package.json" />
+    <Content Include="lib\fullcalendar\rrule\README.md" />
+    <Content Include="lib\fullcalendar\timegrid\package.json" />
+    <Content Include="lib\fullcalendar\timegrid\README.md" />
     <None Include="Properties\PublishProfiles\CashewClub - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
@@ -2108,11 +2278,28 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="lib\fullcalendar\bootstrap\main.d.ts" />
+    <TypeScriptCompile Include="lib\fullcalendar\core\main.d.ts" />
+    <TypeScriptCompile Include="lib\fullcalendar\daygrid\main.d.ts" />
+    <TypeScriptCompile Include="lib\fullcalendar\google-calendar\main.d.ts" />
+    <TypeScriptCompile Include="lib\fullcalendar\interaction\main.d.ts" />
+    <TypeScriptCompile Include="lib\fullcalendar\list\main.d.ts" />
+    <TypeScriptCompile Include="lib\fullcalendar\luxon\main.d.ts" />
+    <TypeScriptCompile Include="lib\fullcalendar\moment-timezone\main.d.ts" />
+    <TypeScriptCompile Include="lib\fullcalendar\moment\main.d.ts" />
+    <TypeScriptCompile Include="lib\fullcalendar\rrule\main.d.ts" />
+    <TypeScriptCompile Include="lib\fullcalendar\timegrid\main.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>

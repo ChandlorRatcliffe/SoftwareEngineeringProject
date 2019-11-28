@@ -18,14 +18,20 @@ namespace KarbonWebForms
                 "~/lib/css/fontawesome.css",
                 "~/lib/css/bootstrap.css",
                 "~/lib/css/all.css",
-                "~/lib/css/boomod.css"
+                "~/lib/css/boomod.css",
+                "~/lib/fullcalendar/core/main.css",
+                "~/lib/fullcalendar/daygrid/main.css"
                 )
             );
 
             bundles.Add(new ScriptBundle("~/lib/js").Include(
                 "~/lib/js/jquery-3.4.1.js",
                 "~/lib/js/all.js",
-                "~/lib/js/bootstrap.bundle.js"
+                "~/lib/js/bootstrap.bundle.js",
+                "~/lib/fullcalendar/moment/moment.js",
+                "~/lib/fullcalendar/luxon/luxon.js",
+                "~/lib/fullcalendar/core/main.js",
+                "~/lib/fullcalendar/daygrid/main.js"
                 )
             );
 
