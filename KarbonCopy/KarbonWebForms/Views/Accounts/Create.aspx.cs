@@ -19,7 +19,7 @@ namespace KarbonWebForms.Views.Accounts
 
         }
 
-        protected async void CreateAccount(object sender, EventArgs e)
+        protected void CreateAccount(object sender, EventArgs e)
         {
             //if (Password.Text == ConfirmPassword.Text)
             //{
