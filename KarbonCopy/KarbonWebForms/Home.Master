@@ -35,7 +35,7 @@
 
         <nav class="shadow navbar navbar-expand-md bg-light navbar-dark sticky-top px-0">
 
-            <a runat="server" class="btn btn-light btn-lg p-0 ml-2" style="min-width: 72px;" href="~/Views/Home/HomeContent.aspx">
+            <a runat="server" class="btn btn-light btn-lg p-0 ml-2" style="min-width: 72px;" href="/Views/Home/HomeContent.aspx">
                 <div class="form-inline">
                     <span class="">
                         <i class="fas fa-cog fa-spin fa-2x fa-fw"></i>
@@ -45,7 +45,7 @@
             </a>
 
             <span>
-                <a runat="server" class="btn btn-light mx-1 d-sm-inline-block d-md-none d-lg-none" href="~/Views/Accounts/Login.aspx">
+                <a runat="server" class="btn btn-light mx-1 d-sm-inline-block d-md-none d-lg-none" href="/Views/Accounts/Login.aspx">
                     Login <i class="far fa-user-circle fa-2x" style="vertical-align:middle"></i>
                 </a>
             </span>
@@ -57,7 +57,7 @@
             </div>
 
             <!-- what does this button do that the button within the span above doesn't? Answer: It displays on medium and large but, not small -->
-            <a runat="server" class="btn btn-light mx-1 d-none d-md-block d-lg-block mr-2" href="~/Views/Accounts/Login.aspx">
+            <a runat="server" class="btn btn-light mx-1 d-none d-md-block d-lg-block mr-2" href="/Views/Accounts/Login.aspx">
                 Login <i class="far fa-user-circle fa-2x" style="vertical-align:middle"></i>
             </a>
         </nav>

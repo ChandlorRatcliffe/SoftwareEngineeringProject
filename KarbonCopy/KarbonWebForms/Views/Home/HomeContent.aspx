@@ -12,7 +12,7 @@
                             <h1 class="text-dark">Take the Karbon out of management</h1>
                             <br />
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <button class="btn btn-outline-light" type="button" onclick="location.href='~/Views/Accounts/Create'">Sign Up!</button><br />
+                            <button class="btn btn-outline-light" type="button" onclick="location.href='/Views/Accounts/Create'">Sign Up!</button><br />
                             <br />
                         </div>
                         <div class="col-1 order-last"></div>
