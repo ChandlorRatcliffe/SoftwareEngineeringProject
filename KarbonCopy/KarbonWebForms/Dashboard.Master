@@ -55,7 +55,8 @@
                 <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Projects/Projects.aspx">Project</a>
                 <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Tasks/TasksList.aspx">Task</a>
                 <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Notes/NoteTable.aspx">Notes</a>
-                <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Permissions/PermissionsSetting.aspx">Permissions</a>
+                <a class="btn btn-<%=theme %> nav-link d-lg-none <%=permAccess %>" href="<%=permLink %>">Permissions</a>
+                <a class="btn btn-<%=theme %> nav-link d-lg-none <%=inviteAccess %>" href="<%=inviteLink %>">Invite Users</a>
                 <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Accounts/Settings.aspx">Settings</a>
                 <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Home/HomeContent.aspx">Logout</a>
             </div>
@@ -88,8 +89,11 @@
                         <li class="nav-item my-1" id="notes">
                             <a class="btn btn-<%=theme %> nav-link text-left" href="/Views/Notes/NoteTable.aspx">Notes</a>
                         </li>
-                        <li class="nav-item my-1" id="perm">
-                            <a class="btn btn-<%=theme %> nav-link text-left" href="/Views/Permissions/PermissionsSetting.aspx">Permissions</a>
+                        <li class="nav-item my-1" id="perLinkTwo" runat="server">
+                            <a class="btn btn-<%=theme %> nav-link text-left <%=permAccess %>" href="<%=permLink %>">Permissions</a>
+                        </li>
+                        <li class="nav-item my-1" id="invite">
+                            <a class="btn btn-<%=theme %> nav-link text-left <%=inviteAccess %>" href="<%=inviteLink %>">Invite Users</a>
                         </li>
                         <li class="nav-item my-1" id="sett">
                             <a class="btn btn-<%=theme %> nav-link text-left" href="/Views/Accounts/Settings.aspx">Settings</a>
