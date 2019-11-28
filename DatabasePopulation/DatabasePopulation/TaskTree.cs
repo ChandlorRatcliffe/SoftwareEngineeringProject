@@ -78,5 +78,14 @@ namespace DatabasePopulation
                 addstring += "," + taskTree.getTaskAddTupleString();
             return addstring;
         }
+        //This constructs a flat list of all Tasks contained in the Task Tree. 
+        public List<Task> getTaskList()
+        {
+            List<Task> taskList = new List<Task>();
+            taskList.Add(this.task);
+            foreach (TaskTree taskTree in this.subTasks)
+                taskList.AddRange(taskTree.getTaskList());
+            return taskList;
+        }
     }
 }
