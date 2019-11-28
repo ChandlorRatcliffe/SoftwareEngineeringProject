@@ -10,6 +10,7 @@
 
     <!-- Row Color-->
     <style>
+        
         .Done {
             background-color: green;
             color: #FFF;
@@ -20,10 +21,13 @@
             color: #FFF;
         }
     </style>
+         	
 
+    
+   
 
     <div class="container my-5" style="text-align: center;">
-        <h1 class="text-center">Note Mangement</h1>
+        <h1 class="text-center" >Note Management</h1>
         <!-- Update Date text -->
         <span class="text-success font-weight-bold" id="date"></span>
         <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -85,6 +89,8 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" />
                 </div>
                 <div class="modal-body" id="NoteDescription">
+                    <p>Last Modified On: </p>
+                    <p id="demo"></p>
                     <div class="form-group">
                         <label class="col-form-label">Description:</label>
                         <textarea class="form-control" disabled id="exampleFormControlTextarea1" rows="5"></textarea>
@@ -115,6 +121,12 @@
 
         Show note's detail
         -->
+        <script>
+             {
+                var x = document.lastModified;
+                document.getElementById("demo").innerHTML = x;
+            }
+</script>
         <script>
             $('#NoteModal').on('show.bs.modal', function (event) {
                 /* eq value:
