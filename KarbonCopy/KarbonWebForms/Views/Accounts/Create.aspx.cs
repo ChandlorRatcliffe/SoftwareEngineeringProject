@@ -7,6 +7,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using KarbonWebForms.Sql;
 using KarbonWebForms.Email;
+using System.Text.RegularExpressions;
+using static KarbonWebForms.Validators;
 
 namespace KarbonWebForms.Views.Accounts
 {
@@ -16,19 +18,27 @@ namespace KarbonWebForms.Views.Accounts
         private readonly EmailTool emailTool = new EmailTool();
         //make dynamic
         private readonly string verfToken = "38749384";
-
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
+        private readonly string LineBreak = "&#013;&#010;";
 
         protected async void CreateAccount(object sender, EventArgs e)
         {
             //make dynamic
             string URL = $"https://{Request.Url.Host}:{Request.Url.Port}/Views/Accounts/Verification";
+            string ErrorMessage = "";
+            if (IsValidName(FirstName.Text))
+                ErrorMessage += $"First Name should only contain characters {LineBreak}";
+            if (IsValidName(LastName.Text))
+                ErrorMessage += $"Last Name should only contain characters {LineBreak}";
+            if (IsValidUsername(Username.Text))
+                ErrorMessage += $"Invalid Username format {LineBreak}";
+            if (IsValidEmail(Email.Text))
+                ErrorMessage += $"Invalid Email Format {LineBreak}";
+            if (IsValidPassword(Password.Text))
+                ErrorMessage += $"Invalid Password Format {LineBreak}";
 
-            if (Password.Text == ConfirmPassword.Text)
+            Debug.WriteLine(ErrorMessage);
+
+            if (Password.Text == ConfirmPassword.Text && string.IsNullOrEmpty(ErrorMessage))
             {
                 Account account = new Account
                 {
@@ -48,15 +58,18 @@ namespace KarbonWebForms.Views.Accounts
                 }
                 else
                 {
-                    Debug.WriteLine("Unable to send Email. Account not added.");
-                    Response.Redirect("~/Views/Accounts/Login", false);
+                    CreateError.Text += "Error: unable to send email";
+                    Debug.WriteLine("Error: unable to send email");
                 }
             }
             else
             {
-                //Validate Error Passwords don't match
-                Response.Redirect("~/Views/Accounts/Login", false);
+                CreateError.Text += "Error: passwords did not match.";
+                Debug.WriteLine("Error: passwords did not match");
             }
+
+            ErrorMessage = $"<pre class=\"text-danger\">{ErrorMessage}</pre>";
+            CreateError.Text = ErrorMessage;
         }
 
     }

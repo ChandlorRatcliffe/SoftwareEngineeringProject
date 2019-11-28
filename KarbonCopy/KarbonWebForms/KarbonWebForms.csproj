@@ -1809,6 +1809,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Backend\Email\Email.cs" />
+    <Compile Include="Backend\Regex\Regex.cs" />
     <Compile Include="Backend\Sql\.MySqlFunctions.cs" />
     <Compile Include="Backend\Sql\.Tables.cs" />
     <Compile Include="Backend\Sql\AccountSql.cs" />

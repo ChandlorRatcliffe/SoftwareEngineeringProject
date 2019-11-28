@@ -15,6 +15,15 @@ namespace KarbonWebForms.Views.Accounts
     {
 
         /// <summary>
+        /// CreateError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label CreateError;
+
+        /// <summary>
         /// FirstName control.
         /// </summary>
         /// <remarks>
@@ -33,13 +42,13 @@ namespace KarbonWebForms.Views.Accounts
         protected global::System.Web.UI.WebControls.TextBox LastName;
 
         /// <summary>
-        /// Buscode control.
+        /// BuisnessCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Buscode;
+        protected global::System.Web.UI.WebControls.TextBox BuisnessCode;
 
         /// <summary>
         /// Email control.
