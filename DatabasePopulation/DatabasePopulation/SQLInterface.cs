@@ -254,8 +254,9 @@ namespace DatabasePopulation
             resetString += "delete from task where taskid != -1;";
             resetString += "delete from builton where taskid != '-1';";
             resetString += "delete from creates where email != ''; ";
+            resetString += "delete from projectAssigned where email != ''";
             resetString += "SET SQL_SAFE_UPDATES = 1;";
-            resetString += "insert into account(Username, Email, FirstName, LastName, Password, Skills, Theme, PicturePath) values('un', 'someEmail@bullshit.com', 'Travis', 'Idlay', 'nope', '', '', ''); ";
+            resetString += "insert into account(Username, Email, FirstName, LastName, Password, Skills, Theme, PicturePath) values('un', 'someEmail@bullshit.com', 'Travis', 'Idlay', 'nope', '', '', ''),('georgey','mbmnbm@bnmn.com','fn1234','ln1234','password', '', '', ''),('TestUser12345','armyjonesn@gmail.com','Nicholas','Jones','password', '', '', ''),('TestUser321','armyjonesn@gmail.com','Nicholas','Jones','password', '', '', ''); ";
             query(resetString);
             Console.WriteLine("Done.");
         }

@@ -14,7 +14,8 @@ namespace DatabasePopulation
         public TaskTree(WordListManager words, DateTime deadline, string description)
         {
             this.words = words;
-            this.task = new Task(description, deadline);
+            this.task  = new Task(description, deadline);
+            subTasks   = new List<TaskTree>();
             //Decide if this is the end of the tree.
             bool needSubTasks = rand.Next(100) % 10 == 3;
             if (needSubTasks)
