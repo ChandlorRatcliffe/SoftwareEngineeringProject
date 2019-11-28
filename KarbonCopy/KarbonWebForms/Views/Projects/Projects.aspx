@@ -1,11 +1,18 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Projects.aspx.cs" Inherits="KarbonWebForms.Views.Projects.Projects" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="DashContent">
+    <%projRun(); %>
     <div>
         <h2>Projects View-Alpha</h2>
     </div>
-
-    <div class="container">
+    <div class="row border m-3 rounded h-20">
+        <div class="col container rounded border m-3">
+            <asp:button runat="server" ID="newProj" type="button" class="btn btn-primary" Text="New Project" OnCommand="newProj_Click" />
+            <br />
+            <p>The number of current active projects is <%=activeproj %></p>
+        </div>
+    </div>
+    <div class="row container">
         <div class="row">
             <!-- asp:Repeater is a server control that enables repetition of displaying html elements. -->
             <asp:Repeater runat="server" ID="PrjCardRptr" OnPreRender="PrjCardRptr_PreRender">
