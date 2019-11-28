@@ -162,6 +162,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="favicon.ico" />
     <Content Include="Views\Accounts\Create.aspx" />
     <Content Include="Views\Accounts\Error.aspx" />
     <Content Include="lib\css\all.css" />
@@ -1766,7 +1767,6 @@
     <Content Include="Views\Accounts\RecoverUsernameFailure.aspx" />
     <Content Include="Views\Accounts\RecoverUsernameSuccess.aspx" />
     <Content Include="Views\Accounts\RecoverUsername.aspx" />
-    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="lib\modernizr-2.8.3.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
