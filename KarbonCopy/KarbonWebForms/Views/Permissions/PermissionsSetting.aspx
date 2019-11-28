@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <asp:CheckBox runat="server" ClientIDMode="Static" ID="ProjProjectEditing"></asp:CheckBox>
+                                        <asp:CheckBox runat="server" ClientIDMode="Static" ID="ProjEditProject"></asp:CheckBox>
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Edit Project</button>
                                 </div>
@@ -139,7 +139,7 @@
                                 </div>
                                 <div class="col-6 input-group-prepend w-50">
                                     <div class="input-group-text">
-                                        <asp:CheckBox runat="server" ClientIDMode="Static" ID="TaskTaskEditing"></asp:CheckBox>
+                                        <asp:CheckBox runat="server" ClientIDMode="Static" ID="TaskEditTask"></asp:CheckBox>
                                     </div>
                                     <button type="button" class="btn btn-primary btn-block">Edit Task</button>
                                 </div>

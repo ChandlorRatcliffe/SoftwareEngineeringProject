@@ -87,13 +87,13 @@ namespace KarbonWebForms.Views.Permissions
         protected global::System.Web.UI.WebControls.CheckBox ProjCreateProject;
 
         /// <summary>
-        /// ProjProjectEditing control.
+        /// ProjEditProject control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ProjProjectEditing;
+        protected global::System.Web.UI.WebControls.CheckBox ProjEditProject;
 
         /// <summary>
         /// ProjDeleteProject control.
@@ -132,13 +132,13 @@ namespace KarbonWebForms.Views.Permissions
         protected global::System.Web.UI.WebControls.CheckBox TaskCreateTask;
 
         /// <summary>
-        /// TaskTaskEditing control.
+        /// TaskEditTask control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox TaskTaskEditing;
+        protected global::System.Web.UI.WebControls.CheckBox TaskEditTask;
 
         /// <summary>
         /// TaskDeleteTask control.
