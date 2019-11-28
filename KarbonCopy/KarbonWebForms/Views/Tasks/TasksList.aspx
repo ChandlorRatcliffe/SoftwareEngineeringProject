@@ -2,9 +2,9 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="DashContent">
 
-<div>
-    <h2>The Tasks List Page-Alpha</h2>
-</div>
+    <div>
+        <h2>The Tasks List Page-Alpha</h2>
+    </div>
 
     <div class="container">
         <div class="row">
@@ -28,6 +28,5 @@
             </asp:Repeater>
         </div>
     </div>
-</div>
 
 </asp:Content>

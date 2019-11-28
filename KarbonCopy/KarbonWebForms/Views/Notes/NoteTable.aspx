@@ -1,6 +1,13 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="NoteTable.aspx.cs" Inherits="KarbonWebForms.Views.Notes.CreateNote" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="DashContent">
+
+    <style>
+        .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+            background-color: lightblue;
+        }
+    </style>
+
     <!-- Row Color-->
     <style>
         .Done {
@@ -18,11 +25,16 @@
     <div class="container my-5" style="text-align: center;">
         <h1 class="text-center">Note Mangement</h1>
         <!-- Update Date text -->
+        <span class="text-success font-weight-bold" id="date"></span>
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script>
+
             $(function () {
                 $('#date').text("Updated on " + Date())
             });
-        </script>
+        </script> --!>
         <br />
         <br />
         <!-- Note table -->
@@ -49,19 +61,19 @@
                     <td>Date</td>
                     <td>User2</td>
                     <td>Note2</td>
-                    <td>Pending</td>
+                    <td>...</td>
                 </tr>
                 <tr class="table-row text-center" data-id="3" data-target="#NoteModal" data-toggle="modal">
                     <td>123</td>
                     <td>Date</td>
                     <td>User3</td>
                     <td>Note3</td>
-                    <td>Discard</td>
+                    <td>...</td>
                 </tr>
             </tbody>
         </table>
         <br />
-        <button class="btn btn-primary float-right" type="button" id="NewNoteBtn" data-toggle="modal" data-target="#CreateNoteModal">Create Note</button>
+        <button class="btn btn-primary float-right" id="NewNoteBtn" type="submit">Create Note</button>
     </div>
 
     <!-- Note pop up -->
@@ -70,14 +82,12 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="NoteTitle" />
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" />
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" id="NoteDescription">
                     <div class="form-group">
                         <label class="col-form-label">Description:</label>
-                        <textarea class="form-control" disabled id="NoteDescription" rows="5"></textarea>
+                        <textarea class="form-control" disabled id="exampleFormControlTextarea1" rows="5"></textarea>
                     </div>
                     <div class="form-group float-right">
                         <div class="btn-group">
@@ -98,7 +108,13 @@
                 </div>
             </div>
         </div>
-        <!-- Show note's detail -->
+        <!-- 
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        Show note's detail
+        -->
         <script>
             $('#NoteModal').on('show.bs.modal', function (event) {
                 /* eq value:
@@ -148,52 +164,11 @@
 
         <!--
         Update note's status TODO
-
+        -->
         <script>
             $('$UpdateStatusBtn').on('click', func(){
 
             })
-        </script>        -->
-    </div>
-
-    <!-- Create Note pop up -->
-    <div class="modal fade" id="CreateNoteModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Create a Note</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label class="col-form-label">Title:</label>
-                        <input class="form-control" id="CreateNoteTitle" />
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label">Description:</label>
-                        <textarea class="form-control" id="CreateNoteDescription" rows="5"></textarea>
-                    </div>
-                    <!-- word counter limit 150-->
-                    <div class="form-group float-right">
-                        <p id="Counter"></p>
-                        <!-- word counter -->
-                        <script type="text/javascript">
-                            $('#CreateNoteDescription').keyup(function () {
-                                var left = 150 - $(this).val().length;
-                                if (left < 0) {
-                                    left = 0;
-                                }
-                                $('#Counter').text('Characters left: ' + left);
-                            });
-                        </script>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="CreateBtn" class="btn btn-primary">Create Note</button>
-                </div>
-            </div>
-        </div>
+        </script>
     </div>
 </asp:Content>

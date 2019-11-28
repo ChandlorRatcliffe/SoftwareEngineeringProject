@@ -1,49 +1,50 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 
-namespace KarbonWebForms.Sql
+namespace EmailTest.Sql
 {
-    public class NotesPostedSql
+    public class ProjectAssignedSql
     {
         private readonly MySqlFunctions functions = new MySqlFunctions();
-        private readonly string Table = "notesPosted";
+        private readonly string Table = "projectassigned";
 
         /// <summary>
-        /// Inserts NotesPosted into Sql Database
+        /// Inserts ProjectAssigned into Sql Database
         /// </summary>
-        /// <param name="notesPosted">NotesPosted Object</param>
-        public void Insert(NotesPosted notesPosted)
+        /// <param name="projectassigned">ProjectAssigned Object</param>
+        public void Insert(ProjectAssigned projectassigned)
         {
-            if (!Exists(notesPosted.Username))
+            if (!Exists(projectassigned.Username))
             {
                 string query =
-                    $"INSERT INTO {Table} (Text, TimeStamp, Username, Email, TaskId)" +
-                    $" VALUES(@text, @timestamp, @username, @email, @taskid);";
+                    $"INSERT INTO {Table} (Username, Email, Name, ProjectId)" +
+                    $" VALUES(@username, @email, @name, @projectid);";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
-                    new MySqlParameter("text", MySqlDbType.VarChar) { Value = notesPosted.Text },
-                    new MySqlParameter("timestamp", MySqlDbType.VarChar) { Value = notesPosted.TimeStamp },
-                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = notesPosted.Username },
-                    new MySqlParameter("email", MySqlDbType.VarChar) { Value = notesPosted.Email },
-                    new MySqlParameter("taskid", MySqlDbType.VarChar) { Value = notesPosted.TaskId },
+                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = projectassigned.Username },
+                    new MySqlParameter("email", MySqlDbType.VarChar) { Value = projectassigned.Email },
+                    new MySqlParameter("name", MySqlDbType.VarChar) { Value = projectassigned.Name },
+                    new MySqlParameter("projectid", MySqlDbType.VarChar) { Value = projectassigned.ProjectId },
+
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
                 {
-                    Debug.WriteLine("InsertNotesPosted: The notesPosted was added successfully.");
+                    Debug.WriteLine("InsertProjectAssigned: The projectassigned was added successfully.");
                 }
                 else
                 {
-                    Debug.WriteLine("InsertNotesPosted: An error has occured.");
+                    Debug.WriteLine("InsertProjectAssigned: An error has occured.");
                 }
             }
         }
 
         /// <summary>
-        /// Updates a field of NotesPosted Sql Table
+        /// Updates a field of ProjectAssigned Sql Table
         /// </summary>
         /// <param name="username">PrimaryKey</param>
         /// <param name="field">Column</param>
@@ -62,65 +63,65 @@ namespace KarbonWebForms.Sql
 
                 if (functions.ExecuteNonQuery(query, parameters))
                 {
-                    Debug.WriteLine("UpdateNotesPosted: The notesPosted was updated successfully.");
+                    Debug.WriteLine("UpdateProjectAssigned: The projectassigned was updated successfully.");
                 }
                 else
                 {
-                    Debug.WriteLine("UpdateNotesPosted: An error has occured.");
+                    Debug.WriteLine("UpdateProjectAssigned: An error has occured.");
                 }
             }
         }
 
         /// <summary>
-        /// Delete NotesPosted using Username
+        /// Delete ProjectAssigned using Username
         /// </summary>
         /// <param name="username"></param>
         public void Delete(string username)
         {
-            DeleteNotesPosted(new NotesPosted(username));
+            Delete(new ProjectAssigned(username));
         }
 
         /// <summary>
-        /// Delete NotesPosted using NotesPosted Object
+        /// Delete ProjectAssigned using ProjectAssigned Object
         /// </summary>
-        /// <param name="notesPosted"></param>
-        public void DeleteNotesPosted(NotesPosted notesPosted)
+        /// <param name="projectassigned"></param>
+        public void Delete(ProjectAssigned projectassigned)
         {
-            if (Exists(notesPosted.Username))
+            if (Exists(projectassigned.Username))
             {
                 string query = $"DELETE FROM {Table} WHERE Username = @username;";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
-                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = notesPosted.Username }
+                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = projectassigned.Username }
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
                 {
-                    Debug.WriteLine("DeleteNotesPosted: The notesPosted was deleted successfully.");
+                    Debug.WriteLine("DeleteProjectAssigned: The projectassigned was deleted successfully.");
                 }
                 else
                 {
-                    Debug.WriteLine("DeleteNotesPosted: An error has occured.");
+                    Debug.WriteLine("DeleteProjectAssigned: An error has occured.");
                 }
             }
             else
             {
-                Debug.WriteLine("DeleteNotesPosted: Cannot delete notesPosted");
+                Debug.WriteLine("DeleteProjectAssigned: Cannot delete projectassigned");
             }
         }
 
         /// <summary>
-        /// Get NotesPosted Object From Sql Database
+        /// Get ProjectAssigned Object From Sql Database
         /// </summary>
         /// <param name="username">Primary Key</param>
-        /// <returns>NotesPosted Object</returns>
-        public NotesPosted Get(string username)
+        /// <returns>ProjectAssigned Object</returns>
+        public ProjectAssigned Get(string username)
         {
             if (Exists(username))
             {
                 string query =
-                    $"SELECT Text, TimeStamp, Username, Email, TaskId " +
+                    $"SELECT Username, Email, Name, ProjectId " +
                     $"FROM {Table} WHERE(Username = @username)";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
@@ -131,20 +132,18 @@ namespace KarbonWebForms.Sql
                 if (functions.ExecuteReader(query, parameters, out DataTable dataTable))
                 {
                     DataRow row = dataTable.Rows[0];
-                    NotesPosted notesPosted = new NotesPosted
+                    ProjectAssigned projectassigned = new ProjectAssigned
                     {
-                        Text = row["text"].ToString(),
-                        TimeStamp = row["timestamp"].ToString(),
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
-                        TaskId = row["taskid"].ToString()
-
+                        Name = row["name"].ToString(),
+                        ProjectId = row["projectid"].ToString()
                     };
-                    return notesPosted;
+                    return projectassigned;
                 }
                 else
                 {
-                    Debug.WriteLine("GetNotesPosted: An error has occured while trying to get notesPosted.");
+                    Debug.WriteLine("GetProjectAssigned: An error has occured while trying to get projectassigned.");
                     return null;
                 }
             }
@@ -155,38 +154,37 @@ namespace KarbonWebForms.Sql
         }
 
         /// <summary>
-        /// Get All Entries of NotesPosted Table
+        /// Get All Entries of ProjectAssigned Table
         /// </summary>
-        /// <returns>List of NotesPosted Objects</returns>
-        public List<NotesPosted> GetAll()
+        /// <returns>List of ProjectAssigned Objects</returns>
+        public List<ProjectAssigned> GetAll()
         {
             string query =
-                $"SELECT Username, Email, Name, ProectId FROM {Table};";
+                $"SELECT Username, Email, Name, ProjectId FROM {Table};";
             if (functions.ExecuteReader(query, null, out DataTable dataTable))
             {
-                List<NotesPosted> notesPosted = new List<NotesPosted>();
+                List<ProjectAssigned> projectassigned = new List<ProjectAssigned>();
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    notesPosted.Add(new NotesPosted
+                    projectassigned.Add(new ProjectAssigned
                     {
-                        Text = row["text"].ToString(),
-                        TimeStamp = row["timestamp"].ToString(),
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
-                        TaskId = row["taskid"].ToString(),
+                        Name = row["name"].ToString(),
+                        ProjectId = row["projectid"].ToString()
                     });
                 }
-                return notesPosted;
+                return projectassigned;
             }
             else
             {
-                Debug.WriteLine("GetAllNotesPosteds: An error has occured while trying to get all notesPosted.");
+                Debug.WriteLine("GetAllProjectAssigneds: An error has occured while trying to get all projectassigned.");
                 return null;
             }
         }
 
         /// <summary>
-        /// Checks if an NotesPosted Exists using Username 
+        /// Checks if an ProjectAssigned Exists using Username 
         /// </summary>
         /// <param name="keyValue">Primary Key</param>
         /// <returns></returns>
@@ -194,12 +192,12 @@ namespace KarbonWebForms.Sql
         {
             if (functions.CheckExists(Table, "username", keyValue))
             {
-                Debug.WriteLine($"Exists: The notesPosted exists with username: {keyValue}.");
+                Debug.WriteLine($"Exists: The projectassigned exists with username: {keyValue}.");
                 return true;
             }
             else
             {
-                Debug.WriteLine($"Exists: The notesPosted doesn't exists with username: {keyValue}.");
+                Debug.WriteLine($"Exists: The projectassigned doesn't exists with username: {keyValue}.");
                 return false;
             }
         }
