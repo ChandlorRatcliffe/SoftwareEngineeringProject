@@ -18,7 +18,7 @@
                                     <%# DataBinder.Eval(Container.DataItem, "TaskDescription") %>
                                 </p>
                                 <p class="card-text"><%# DataBinder.Eval(Container.DataItem, "TaskDeadline") %></p>
-                                <asp:LinkButton runat="server" OnClick="TaskCardRptr_Click"
+                                <asp:LinkButton runat="server" OnClick="PrjCardRptr_Click"
                                     param='<%# DataBinder.Eval(Container.DataItem, "TaskId") %>'
                                     CssClass="btn btn-primary">Go to Task view</asp:LinkButton>
                             </div>
