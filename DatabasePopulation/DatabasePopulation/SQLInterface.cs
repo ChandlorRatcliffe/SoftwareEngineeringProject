@@ -211,7 +211,7 @@ namespace DatabasePopulation
             queryString = queryString.Substring(0, queryString.Length - 1) + ";";
             Console.WriteLine("Submitting Creates....");
             //Submit the query.
-            submitProjectAssignmentSets(createSet);
+            //submitProjectAssignmentSets(createSet);
             query(queryString);
             Console.WriteLine("Done.");
             //Give the create record set back to the caller. 
@@ -221,27 +221,110 @@ namespace DatabasePopulation
         //In the process, it takes the active instance of SQLInterface and passes it through to 
         //CreaetesGenerator for the purpose of generating and populating the database with the relevant
         //projects, organizations, and accounts required to validly construct a create record. 
-        public void submitProjectAssignmentSets(List<Create> creates)
+        //public void submitProjectAssignmentSets(List<Create> creates)
+        //{
+        //    Console.WriteLine("Generating Project Assignments Sets...");
+        //    //Make a CreatesGenerator.
+        //    CreatesGenerator c = new CreatesGenerator(this.words);
+        //    //prime the query string for insertion. 
+        //    string queryString = "insert into ProjectAssigned(username, email, name, projectid) values ";
+        //    //Generate the number of batches of create records requested by the user.
+            
+        //    foreach (Create create in creates)
+        //    {
+        //        queryString += create.getAddTupleQuerryString() + ",";
+        //    }
+            
+        //    //Convert the last symbol from a comma to a semicolon. 
+        //    queryString = queryString.Substring(0, queryString.Length - 1) + ";";
+        //    Console.WriteLine("Submitting project assignments....");
+        //    //Submit the query.
+        //    query(queryString);
+        //    Console.WriteLine("Done.");
+        //}
+        //This function registers tasks to the projects under which they were created.
+        public void addBuiltOnTuples(string builtOnValues)
         {
-            Console.WriteLine("Generating Project Assignments Sets...");
-            //Make a CreatesGenerator.
-            CreatesGenerator c = new CreatesGenerator(this.words);
-            //prime the query string for insertion. 
-            string queryString = "insert into ProjectAssigned(username, email, name, projectid) values ";
-            //Generate the number of batches of create records requested by the user.
-            
-            foreach (Create create in creates)
-            {
-                queryString += create.getAddTupleQuerryString() + ",";
-            }
-            
-            //Convert the last symbol from a comma to a semicolon. 
-            queryString = queryString.Substring(0, queryString.Length - 1) + ";";
-            Console.WriteLine("Submitting project assignments....");
-            //Submit the query.
-            query(queryString);
+            Console.WriteLine("Registering Tasks to project...");
+            string s = "insert into builton(projectId, taskId) values " + builtOnValues + ";";
+            query(s);
             Console.WriteLine("Done.");
         }
+        //This funtion ensures that the tasks are added to the task table. 
+        public void addTasks(List<Task> tasks)
+        {
+            Console.WriteLine("Registering Tasks to Database...");
+            string s = "insert into task(TaskId, TaskDeadline, TaskCompleted, TaskDescription) values ";
+            foreach(Task task in tasks)
+            {
+                s += task.getAddTupleQuerryString() + ",";
+            }
+            s = s.Substring(0, s.Length - 1) + ";";
+            query(s);
+            Console.WriteLine("Done.");
+        }
+        //Constructing the Task Hierarchy will register the tasks and assign them to the appropriate project. 
+        public void addTaskHierarchyTuples(List<TaskTree> taskTrees)
+        {
+            Console.WriteLine("Registering task hierarchy...");
+            string s = "insert into parent(parentTaskId, childTaskId) values ";
+            string tuples = "";
+            foreach (TaskTree taskTree in taskTrees)
+            {
+                addTasks(taskTree.getTaskList());
+                tuples += taskTree.getParentAddTupleString();
+                addBuiltOnTuples(taskTree.getBuiltOnTupleString());
+            }
+            s += tuples.Substring(0, tuples.Length - 1) + ";";
+            query(s);
+            Console.WriteLine("Done.");
+        }
+        //This will handle both project and task assignment registration to avoid redundancy. 
+        public void registerAssignments(List<Account> accounts, Project project, Account creator)
+        {
+            //Exctract the tasks from the project.
+            List<TaskTree> taskTrees = project.getTaskTrees();
+            List<Task> tasks = new List<Task>();
+            foreach (TaskTree taskTree in taskTrees)
+                tasks.AddRange(taskTree.getTaskList());
+
+            //Prepare the insertion strings.
+            string taskString = "insert into TaskAssigned(username, email, taskid) values ";
+            string projectString = "insert into ProjectAssigned(username, email, projectid) values ";
+
+            //Prepare duplicate account registration prevention for project assignment. 
+            HashSet<Account> projectAssignments = new HashSet<Account>();
+            //Ensure that the creator is always considered registered, even if he doesn't get assigned a task.
+            projectAssignments.Add(creator);
+
+            //Prime the random number. 
+            Random rand = new Random();
+            int choice = rand.Next(0, accounts.Count());
+
+            Console.WriteLine("Registering Tasks to Accounts...");
+            //For each task, choose a random account to register it to, and add the account to the HashSet.
+            foreach(Task task in tasks)
+            {
+                choice = rand.Next(0, accounts.Count());
+                taskString += task.getTaskAssignedAddString(accounts[choice]) + ",";
+                projectAssignments.Add(accounts[choice]);
+            }
+            //Replace the last comma with a semicolon.
+            taskString = taskString.Substring(0, taskString.Length - 1) + ";";
+
+            Console.WriteLine("Registering Accounts to Projects...");
+            //For each account in the HashSet (which removed duplicate entries), register the project assignment. 
+            foreach(Account account in projectAssignments)
+            {
+                projectString += project.getProjectAssignedAddString(account) + ",";
+            }
+            //Replace the last comma with a semicolon. 
+            projectString = projectString.Substring(0, projectString.Length - 1) + ";";
+
+            query(taskString + projectString);
+            Console.WriteLine("Done.");
+        }
+        
         //Completely clear generated data, and repopulate the database with the constants.
         public void reset()
         {

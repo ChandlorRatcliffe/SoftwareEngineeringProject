@@ -49,7 +49,7 @@ namespace DatabasePopulation
         {
             return "\"" + this.myId + "\"";
         }
-        //This generates the ProjectAssigned record insertion tuple
+        //Generate a Project Assigned record string
         public string getProjectAssignedAddString(Account assignee)
         {
             return "(" + assignee.getPK() + "\",\"" + this.getPK() + ")";

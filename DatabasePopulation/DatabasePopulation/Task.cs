@@ -23,7 +23,7 @@ namespace DatabasePopulation
         //Generate the value tuple for the insert query string
         public string getAddTupleQuerryString()
         {
-            return "(\"" + this.myId + "\", \"" + this.deadline.ToString("yyyy-MM-dd HH:mm:ss") + "\",\"" + this.description + "\")";
+            return "(\"" + this.myId + "\", \"" + this.deadline.ToString("yyyy-MM-dd HH:mm:ss") + "\",null,\"" + this.description + "\")";
         }
         //Return primary key
         public string getPK()
@@ -34,11 +34,6 @@ namespace DatabasePopulation
         public string getTaskAssignedAddString(Account assignee)
         {
             return "(" + assignee.getPK() + "\",\""  + this.getPK() + ")";
-        }
-        //Generate a Project Assigned record string
-        public string getProjectAssignedAddString(Account assignee, Project project)
-        {
-            return "(" + assignee.getPK() + "\",\"" + project.getPK() + ")";
         }
     }
 }

@@ -32,7 +32,10 @@ namespace DatabasePopulation
             //Associate every project created with a random account, and with the organization from before.
             foreach(Project project in p)
             {
-                c.Add(new Create(a[rand.Next(a.Count)], project, o));
+                int choice = rand.Next(a.Count);
+                c.Add(new Create(a[choice], project, o));
+                sql.registerAssignments(a, project, a[choice]);
+                sql.addTaskHierarchyTuples(project.getTaskTrees());
             }
             //Return this list of create records to SQLInterface for storage. 
             return c;
