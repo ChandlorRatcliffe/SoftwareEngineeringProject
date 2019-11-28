@@ -60,20 +60,7 @@
                     <td>Note1</td>
                     <td>Done</td>
                 </tr>
-                <tr class="table-row text-center" data-id="2" data-target="#NoteModal" data-toggle="modal">
-                    <td>123</td>
-                    <td>Date</td>
-                    <td>User2</td>
-                    <td>Note2</td>
-                    <td>...</td>
-                </tr>
-                <tr class="table-row text-center" data-id="3" data-target="#NoteModal" data-toggle="modal">
-                    <td>123</td>
-                    <td>Date</td>
-                    <td>User3</td>
-                    <td>Note3</td>
-                    <td>...</td>
-                </tr>
+              
             </tbody>
         </table>
         <br />
