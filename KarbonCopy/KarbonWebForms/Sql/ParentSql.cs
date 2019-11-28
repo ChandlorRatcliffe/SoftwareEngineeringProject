@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 
-namespace EmailTest.Sql
+namespace KarbonWebForms.Sql
 {
     public class ParentSql
     {
@@ -46,17 +46,17 @@ namespace EmailTest.Sql
         /// <param name="username">PrimaryKey</param>
         /// <param name="field">Column</param>
         /// <param name="fieldValue">Column new Value</param>
-        public void Update(string parentTaskId, string field, string fieldValue)
+        public void Update(string username, string field, string fieldValue)
         {
             //THIS NEEDS TO BE REWRITTEN
-            if (Exists(parentTaskId))
+            if (Exists(username))
             {
-                string query = $"UPDATE {Table} SET {field} = @value WHERE (ParentTaskId = @parentTaskId);";
+                string query = $"UPDATE {Table} SET {field} = @value WHERE (Username = @username);";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
                     new MySqlParameter("value", MySqlDbType.VarChar) { Value = fieldValue },
-                    new MySqlParameter("parentTaskId", MySqlDbType.VarChar) { Value =  parentTaskId}
+                    new MySqlParameter("username", MySqlDbType.VarChar) { Value =  username}
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
@@ -76,22 +76,22 @@ namespace EmailTest.Sql
         /// <param name="id"></param>
         public void Delete(string id)
         {
-            Delete(new Parent(id));
+            DeleteParent(new Parent(id));
         }
 
         /// <summary>
         /// Delete Parent using Parent Object
         /// </summary>
         /// <param name="parent"></param>
-        public void Delete(Parent parent)
+        public void DeleteParent(Parent parent)
         {
             if (Exists(parent.ParentTaskId))
             {
-                string query = $"DELETE FROM {Table} WHERE parenttaskid = @parenttaskid;";
+                string query = $"DELETE FROM {Table} WHERE Username = @username;";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
-                    new MySqlParameter("parenttaskid", MySqlDbType.VarChar) { Value = parent.ParentTaskId }
+                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = parent.ParentTaskId }
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
@@ -120,11 +120,11 @@ namespace EmailTest.Sql
             {
                 string query =
                     $"SELECT ParentTaskId, ChildTaskId " +
-                    $"FROM {Table} WHERE(ParentTaskId = @parenttaskid)";
+                    $"FROM {Table} WHERE(ParentTaskId = @parentTaskId)";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
-                    new MySqlParameter("parenttaskid", MySqlDbType.VarChar) { Value = parentTaskId }
+                    new MySqlParameter("parentTaskId", MySqlDbType.VarChar) { Value = parentTaskId }
                 };
 
                 if (functions.ExecuteReader(query, parameters, out DataTable dataTable))
@@ -132,8 +132,8 @@ namespace EmailTest.Sql
                     DataRow row = dataTable.Rows[0];
                     Parent parent = new Parent
                     {
-                        ParentTaskId = row["parenttaskid"].ToString(),
-                        ChildTaskId = row["childtaskid"].ToString()
+                        ParentTaskId = row["parenttaskdd"].ToString(),
+                        ChildTaskId = row["childtaskdd"].ToString(),
                     };
                     return parent;
                 }
@@ -184,7 +184,7 @@ namespace EmailTest.Sql
         /// <returns></returns>
         public bool Exists(string keyValue)
         {
-            if (functions.CheckExists(Table, "parenttaskid", keyValue))
+            if (functions.CheckExists(Table, "projecttaskid", keyValue))
             {
                 Debug.WriteLine($"Exists: The parent exists with username: {keyValue}.");
                 return true;

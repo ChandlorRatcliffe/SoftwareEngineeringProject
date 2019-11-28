@@ -1,50 +1,48 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 
-namespace EmailTest.Sql
+namespace KarbonWebForms.Sql
 {
-    public class NotesPostedSql
+    public class TaskAbilitiesSql
     {
         private readonly MySqlFunctions functions = new MySqlFunctions();
-        private readonly string Table = "notesposted";
+        private readonly string Table = "taskAbilities";
 
         /// <summary>
-        /// Inserts NotesPosted into Sql Database
+        /// Inserts TaskAbilities into Sql Database
         /// </summary>
-        /// <param name="notesPosted">NotesPosted Object</param>
-        public void Insert(NotesPosted notesPosted)
+        /// <param name="taskAbilities">TaskAbilities Object</param>
+        public void Insert(TaskAbilities taskAbilities)
         {
-            if (!Exists(notesPosted.Username))
+            if (!Exists(taskAbilities.Username))
             {
                 string query =
-                    $"INSERT INTO {Table} (Text, `TimeStamp`, Username, Email, TaskId)" +
-                    $" VALUES(@text, @tstamp, @username, @email, @taskid);";
+                    $"INSERT INTO {Table} (Username, Email, TaskId, AssignmentEditing)" +
+                    $" VALUES(@username, @email, @taskid, @assignmentid);";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
-                    new MySqlParameter("text", MySqlDbType.VarChar) { Value = notesPosted.Text },
-                    new MySqlParameter("tstamp", MySqlDbType.DateTime) { Value = notesPosted.TimeStamp },
-                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = notesPosted.Username },
-                    new MySqlParameter("email", MySqlDbType.VarChar) { Value = notesPosted.Email },
-                    new MySqlParameter("taskid", MySqlDbType.VarChar) { Value = notesPosted.TaskId },
+                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = taskAbilities.Username },
+                    new MySqlParameter("email", MySqlDbType.VarChar) { Value = taskAbilities.Email },
+                    new MySqlParameter("taskid", MySqlDbType.VarChar) { Value = taskAbilities.TaskId },
+                    new MySqlParameter("assignmentid", MySqlDbType.VarChar) { Value = taskAbilities.AssignmentEditing },
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
                 {
-                    Debug.WriteLine("InsertNotesPosted: The notesPosted was added successfully.");
+                    Debug.WriteLine("InsertTaskAbilities: The taskAbilities was added successfully.");
                 }
                 else
                 {
-                    Debug.WriteLine("InsertNotesPosted: An error has occured.");
+                    Debug.WriteLine("InsertTaskAbilities: An error has occured.");
                 }
             }
         }
 
         /// <summary>
-        /// Updates a field of NotesPosted Sql Table
+        /// Updates a field of TaskAbilities Sql Table
         /// </summary>
         /// <param name="username">PrimaryKey</param>
         /// <param name="field">Column</param>
@@ -63,65 +61,65 @@ namespace EmailTest.Sql
 
                 if (functions.ExecuteNonQuery(query, parameters))
                 {
-                    Debug.WriteLine("UpdateNotesPosted: The notesPosted was updated successfully.");
+                    Debug.WriteLine("UpdateTaskAbilities: The taskAbilities was updated successfully.");
                 }
                 else
                 {
-                    Debug.WriteLine("UpdateNotesPosted: An error has occured.");
+                    Debug.WriteLine("UpdateTaskAbilities: An error has occured.");
                 }
             }
         }
 
         /// <summary>
-        /// Delete NotesPosted using Username
+        /// Delete TaskAbilities using Username
         /// </summary>
         /// <param name="username"></param>
         public void Delete(string username)
         {
-            Delete(new NotesPosted(username));
+            DeleteTaskAbilities(new TaskAbilities(username));
         }
 
         /// <summary>
-        /// Delete NotesPosted using NotesPosted Object
+        /// Delete TaskAbilities using TaskAbilities Object
         /// </summary>
-        /// <param name="notesPosted"></param>
-        public void Delete(NotesPosted notesPosted)
+        /// <param name="taskAbilities"></param>
+        public void DeleteTaskAbilities(TaskAbilities taskAbilities)
         {
-            if (Exists(notesPosted.Username))
+            if (Exists(taskAbilities.Username))
             {
                 string query = $"DELETE FROM {Table} WHERE Username = @username;";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
-                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = notesPosted.Username }
+                    new MySqlParameter("username", MySqlDbType.VarChar) { Value = taskAbilities.Username }
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
                 {
-                    Debug.WriteLine("DeleteNotesPosted: The notesPosted was deleted successfully.");
+                    Debug.WriteLine("DeleteTaskAbilities: The taskAbilities was deleted successfully.");
                 }
                 else
                 {
-                    Debug.WriteLine("DeleteNotesPosted: An error has occured.");
+                    Debug.WriteLine("DeleteTaskAbilities: An error has occured.");
                 }
             }
             else
             {
-                Debug.WriteLine("DeleteNotesPosted: Cannot delete notesPosted");
+                Debug.WriteLine("DeleteTaskAbilities: Cannot delete taskAbilities");
             }
         }
 
         /// <summary>
-        /// Get NotesPosted Object From Sql Database
+        /// Get TaskAbilities Object From Sql Database
         /// </summary>
         /// <param name="username">Primary Key</param>
-        /// <returns>NotesPosted Object</returns>
-        public NotesPosted Get(string username)
+        /// <returns>TaskAbilities Object</returns>
+        public TaskAbilities Get(string username)
         {
             if (Exists(username))
             {
                 string query =
-                    $"SELECT Text, `TimeStamp`, Username, Email, TaskId " +
+                    $"SELECT Username, Email, TaskId, AssignmentEditing " +
                     $"FROM {Table} WHERE(Username = @username)";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
@@ -132,20 +130,18 @@ namespace EmailTest.Sql
                 if (functions.ExecuteReader(query, parameters, out DataTable dataTable))
                 {
                     DataRow row = dataTable.Rows[0];
-                    NotesPosted notesPosted = new NotesPosted
+                    TaskAbilities taskAbilities = new TaskAbilities
                     {
-                        Text = row["text"].ToString(),
-                        TimeStamp = Convert.ToDateTime(row["timestamp"]),
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
-                        TaskId = row["taskid"].ToString()
-
+                        TaskId = row["taskid"].ToString(),
+                        AssignmentEditing = row["assignmentediting"].ToString(),
                     };
-                    return notesPosted;
+                    return taskAbilities;
                 }
                 else
                 {
-                    Debug.WriteLine("GetNotesPosted: An error has occured while trying to get notesPosted.");
+                    Debug.WriteLine("GetTaskAbilities: An error has occured while trying to get taskAbilities.");
                     return null;
                 }
             }
@@ -156,38 +152,37 @@ namespace EmailTest.Sql
         }
 
         /// <summary>
-        /// Get All Entries of NotesPosted Table
+        /// Get All Entries of TaskAbilities Table
         /// </summary>
-        /// <returns>List of NotesPosted Objects</returns>
-        public List<NotesPosted> GetAll()
+        /// <returns>List of TaskAbilities Objects</returns>
+        public List<TaskAbilities> GetAll()
         {
             string query =
-                $"SELECT Text, `TimeStamp`, Username, Email, TaskId FROM {Table};";
+                $"SELECT Username, Email, TaskId, AssignmentEditing FROM {Table};";
             if (functions.ExecuteReader(query, null, out DataTable dataTable))
             {
-                List<NotesPosted> notesPosted = new List<NotesPosted>();
+                List<TaskAbilities> taskAbilities = new List<TaskAbilities>();
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    notesPosted.Add(new NotesPosted
+                    taskAbilities.Add(new TaskAbilities
                     {
-                        Text = row["text"].ToString(),
-                        TimeStamp = Convert.ToDateTime(row["timestamp"]),
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
                         TaskId = row["taskid"].ToString(),
+                        AssignmentEditing = row["assignmentediting"].ToString(),
                     });
                 }
-                return notesPosted;
+                return taskAbilities;
             }
             else
             {
-                Debug.WriteLine("GetAllNotesPosteds: An error has occured while trying to get all notesPosted.");
+                Debug.WriteLine("GetAllTaskAbilitiess: An error has occured while trying to get all taskAbilities.");
                 return null;
             }
         }
 
         /// <summary>
-        /// Checks if an NotesPosted Exists using Username 
+        /// Checks if an TaskAbilities Exists using Username 
         /// </summary>
         /// <param name="keyValue">Primary Key</param>
         /// <returns></returns>
@@ -195,12 +190,12 @@ namespace EmailTest.Sql
         {
             if (functions.CheckExists(Table, "username", keyValue))
             {
-                Debug.WriteLine($"Exists: The notesPosted exists with username: {keyValue}.");
+                Debug.WriteLine($"Exists: The taskAbilities exists with username: {keyValue}.");
                 return true;
             }
             else
             {
-                Debug.WriteLine($"Exists: The notesPosted doesn't exists with username: {keyValue}.");
+                Debug.WriteLine($"Exists: The taskAbilities doesn't exists with username: {keyValue}.");
                 return false;
             }
         }

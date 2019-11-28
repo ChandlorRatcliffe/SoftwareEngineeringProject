@@ -13,7 +13,6 @@ namespace KarbonWebForms.Views.Tasks
 {
     public partial class Index : System.Web.UI.Page
     {
-        private readonly TaskSql taskSql = new TaskSql();
         protected void Page_Load(object sender, EventArgs e)
         {
             

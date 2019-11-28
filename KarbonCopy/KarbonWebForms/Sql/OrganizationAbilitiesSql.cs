@@ -27,9 +27,9 @@ namespace KarbonWebForms.Sql
                     new MySqlParameter("username", MySqlDbType.VarChar) { Value = organizationAbilities.Username },
                     new MySqlParameter("email", MySqlDbType.VarChar) { Value = organizationAbilities.Email },
                     new MySqlParameter("name", MySqlDbType.VarChar) { Value = organizationAbilities.Name },
-                    new MySqlParameter("removeuser", MySqlDbType.Int16) { Value = organizationAbilities.RemoveUser },
-                    new MySqlParameter("inviteuser", MySqlDbType.Int16) { Value = organizationAbilities.InviteUser },
-                    new MySqlParameter("permissionsediting", MySqlDbType.Int16) { Value = organizationAbilities.PermissionsEditing },
+                    new MySqlParameter("removeuser", MySqlDbType.VarChar) { Value = organizationAbilities.RemoveUser },
+                    new MySqlParameter("inviteuser", MySqlDbType.VarChar) { Value = organizationAbilities.InviteUser },
+                    new MySqlParameter("permissionsediting", MySqlDbType.VarChar) { Value = organizationAbilities.PermissionsEditing },
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
@@ -78,14 +78,14 @@ namespace KarbonWebForms.Sql
         /// <param name="username"></param>
         public void Delete(string username)
         {
-            Delete(new OrganizationAbilities(username));
+            DeleteOrganizationAbilities(new OrganizationAbilities(username));
         }
 
         /// <summary>
         /// Delete OrganizationAbilities using OrganizationAbilities Object
         /// </summary>
         /// <param name="organizationAbilities"></param>
-        public void Delete(OrganizationAbilities organizationAbilities)
+        public void DeleteOrganizationAbilities(OrganizationAbilities organizationAbilities)
         {
             if (Exists(organizationAbilities.Username))
             {
@@ -136,10 +136,10 @@ namespace KarbonWebForms.Sql
                     {
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
-                        Name = row["name"].ToString(),
-                        RemoveUser = (int)row["removeuser"],
-                        InviteUser = (int)row["inviteuser"],
-                        PermissionsEditing = (int)row["permissionsediting"],
+                        Name = row["firstname"].ToString(),
+                        RemoveUser = row["removeuser"].ToString(),
+                        InviteUser = row["invite"].ToString(),
+                        PermissionsEditing = row["permissionediting"].ToString(),
                     };
                     return organizationAbilities;
                 }
@@ -172,10 +172,10 @@ namespace KarbonWebForms.Sql
                     {
                         Username = row["username"].ToString(),
                         Email = row["email"].ToString(),
-                        Name = row["name"].ToString(),
-                        RemoveUser = (int)row["removeuser"],
-                        InviteUser = (int)row["inviteuser"],
-                        PermissionsEditing = (int)row["permissionsediting"],
+                        Name = row["firstname"].ToString(),
+                        RemoveUser = row["removeuser"].ToString(),
+                        InviteUser = row["inviteuser"].ToString(),
+                        PermissionsEditing = row["permissionediting"].ToString(),
                     });
                 }
                 return organizationAbilities;

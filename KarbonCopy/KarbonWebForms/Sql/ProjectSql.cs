@@ -1,10 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 
-namespace EmailTest.Sql
+namespace KarbonWebForms.Sql
 {
     public class ProjectSql
     {
@@ -26,7 +25,7 @@ namespace EmailTest.Sql
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
                     new MySqlParameter("projectid", MySqlDbType.VarChar) { Value = project.ProjectId },
-                    new MySqlParameter("projectdeadline", MySqlDbType.DateTime) { Value = project.ProjectDeadline },
+                    new MySqlParameter("projectdeadline", MySqlDbType.VarChar) { Value = project.ProjectDeadline },
                     new MySqlParameter("projectdescription", MySqlDbType.VarChar) { Value = project.ProjectDescription },
                 };
 
@@ -47,16 +46,16 @@ namespace EmailTest.Sql
         /// <param name="username">PrimaryKey</param>
         /// <param name="field">Column</param>
         /// <param name="fieldValue">Column new Value</param>
-        public void Update(string projectId, string field, string fieldValue)
+        public void Update(string username, string field, string fieldValue)
         {
-            if (Exists(projectId))
+            if (Exists(username))
             {
                 string query = $"UPDATE {Table} SET {field} = @value WHERE (ProjectId = @projectid);";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
                     new MySqlParameter("value", MySqlDbType.VarChar) { Value = fieldValue },
-                    new MySqlParameter("projectid", MySqlDbType.VarChar) { Value =  projectId}
+                    new MySqlParameter("projectid", MySqlDbType.VarChar) { Value =  username}
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
@@ -76,14 +75,14 @@ namespace EmailTest.Sql
         /// <param name="username"></param>
         public void Delete(string projectId)
         {
-            Delete(new Project(projectId));
+            DeleteProject(new Project(projectId));
         }
 
         /// <summary>
         /// Delete Project using Project Object
         /// </summary>
         /// <param name="project"></param>
-        public void Delete(Project project)
+        public void DeleteProject(Project project)
         {
             if (Exists(project.ProjectId))
             {
@@ -133,8 +132,8 @@ namespace EmailTest.Sql
                     Project project = new Project
                     {
                         ProjectId = row["projectid"].ToString(),
-                        ProjectDeadline = Convert.ToDateTime(row["projectdeadline"]),
-                        ProjectDescription = row["projectdescription"].ToString()
+                        ProjectDeadline = row["projectdeadline"].ToString(),
+                        ProjectDescription = row["projectdescription"].ToString(),
                     };
                     return project;
                 }
@@ -166,8 +165,8 @@ namespace EmailTest.Sql
                     project.Add(new Project
                     {
                         ProjectId = row["projectid"].ToString(),
-                        ProjectDeadline = Convert.ToDateTime(row["projectdeadline"]),
-                        ProjectDescription = row["projectdescription"].ToString()
+                        ProjectDeadline = row["projectdeadline"].ToString(),
+                        ProjectDescription = row["projectdescription"].ToString(),
                     });
                 }
                 return project;

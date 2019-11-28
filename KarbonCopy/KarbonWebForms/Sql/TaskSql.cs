@@ -1,10 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 
-namespace EmailTest.Sql
+namespace KarbonWebForms.Sql
 {
     public class TaskSql
     {
@@ -26,7 +25,7 @@ namespace EmailTest.Sql
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
                     new MySqlParameter("taskid", MySqlDbType.VarChar) { Value = task.TaskId },
-                    new MySqlParameter("taskdeadline", MySqlDbType.DateTime) { Value = task.TaskDeadline },
+                    new MySqlParameter("taskdeadline", MySqlDbType.VarChar) { Value = task.TaskDeadline },
                     new MySqlParameter("taskdescription", MySqlDbType.VarChar) { Value = task.TaskDescription },
                 };
 
@@ -47,16 +46,16 @@ namespace EmailTest.Sql
         /// <param name="username">PrimaryKey</param>
         /// <param name="field">Column</param>
         /// <param name="fieldValue">Column new Value</param>
-        public void Update(string taskid, string field, DateTime fieldValue)
+        public void Update(string username, string field, string fieldValue)
         {
-            if (Exists(taskid))
+            if (Exists(username))
             {
                 string query = $"UPDATE {Table} SET {field} = @value WHERE (TaskId = @taskid);";
 
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
-                    new MySqlParameter("value", MySqlDbType.DateTime) { Value = fieldValue },
-                    new MySqlParameter("taskid", MySqlDbType.VarChar) { Value =  taskid}
+                    new MySqlParameter("value", MySqlDbType.VarChar) { Value = fieldValue },
+                    new MySqlParameter("taskid", MySqlDbType.VarChar) { Value =  username}
                 };
 
                 if (functions.ExecuteNonQuery(query, parameters))
@@ -76,14 +75,14 @@ namespace EmailTest.Sql
         /// <param name="username"></param>
         public void Delete(string taskid)
         {
-            Delete(new Task(taskid));
+            DeleteTask(new Task(taskid));
         }
 
         /// <summary>
         /// Delete Task using Task Object
         /// </summary>
         /// <param name="task"></param>
-        public void Delete(Task task)
+        public void DeleteTask(Task task)
         {
             if (Exists(task.TaskId))
             {
@@ -133,7 +132,7 @@ namespace EmailTest.Sql
                     Task task = new Task
                     {
                         TaskId = row["taskid"].ToString(),
-                        TaskDeadline = Convert.ToDateTime(row["taskdeadline"]),
+                        TaskDeadline = row["taskdeadline"].ToString(),
                         TaskDescription = row["taskdescription"].ToString(),
                     };
                     return task;
@@ -166,7 +165,7 @@ namespace EmailTest.Sql
                     task.Add(new Task
                     {
                         TaskId = row["taskid"].ToString(),
-                        TaskDeadline = Convert.ToDateTime(row["taskdeadline"]),
+                        TaskDeadline = row["taskdeadline"].ToString(),
                         TaskDescription = row["taskdescription"].ToString(),
                     });
                 }
