@@ -23,7 +23,7 @@ namespace DatabasePopulation
         private Project generateProject()
         {
             DateTime deadline = DateTime.Today.AddDays(rand.Next(1200));
-            string description = words.getRandomWords(500);
+            string description = words.getRandomWords(rand.Next(250,500));
             return new Project(deadline, description);
         }
         //This Generates a list of projects for use in the SQL Interface. 
