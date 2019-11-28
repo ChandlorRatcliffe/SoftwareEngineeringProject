@@ -114,8 +114,9 @@ CREATE TABLE ProjectAbilities(
     `Email`		VARCHAR(50),
     `ProjectId`	VARCHAR(50),
     `AssignmentEditing` INT,
-    `ProjectEditing`	INT,
+    `EditProject`		INT,
     `CreateProject`	    INT,
+	`DeleteProject`		INT,
     PRIMARY KEY(`Username`, `Email`, `ProjectId`)
 );
 
@@ -125,7 +126,8 @@ CREATE TABLE TaskAbilities(
     `Email`				VARCHAR(50),
     `TaskId`			VARCHAR(50),
     `AssignmentEditing` INT, 
-    `TaskEditing` 		INT,
+    `EditTask`	 		INT,
     `CreateTask` 		INT,
+    `DeleteTask`		Int,
     PRIMARY KEY(`Username`, `Email`, `TaskId`)   
 );
