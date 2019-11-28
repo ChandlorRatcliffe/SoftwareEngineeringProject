@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using KarbonWebForms.Sql;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -12,6 +13,7 @@ namespace KarbonWebForms.Views.Projects
 {
     public partial class Projects : System.Web.UI.Page
     {
+        private readonly AccountSql accountSql = new AccountSql();
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -31,7 +33,6 @@ namespace KarbonWebForms.Views.Projects
         { 
             // test to see if the query will work appropriately
             var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
-            conn.Open();
             var command = new MySqlCommand("Select *" +
             " From (ProjectAssigned LEFT OUTER JOIN Project ON ProjectAssigned.ProjectId=Project.ProjectId)" +
             " Where (Username = @user AND Email = @email)" +
@@ -39,7 +40,9 @@ namespace KarbonWebForms.Views.Projects
             command.Parameters.Add(new MySqlParameter("user", MySqlDbType.VarChar) { Value = Session["Username"] });
             command.Parameters.Add(new MySqlParameter("email", MySqlDbType.VarChar) { Value = Session["Email"] });
             DataTable dt = new DataTable();
+            conn.Open();
             dt.Load(command.ExecuteReader());
+            conn.Close();
             // PrjCardRptr will now be assigned tuples from the database to repeat on, received from DataTable dt
             // Repeater hasn't been initialized yet: data has to be retrieved before it's loaded to actually have data to repeat on
             PrjCardRptr.DataSource = dt;

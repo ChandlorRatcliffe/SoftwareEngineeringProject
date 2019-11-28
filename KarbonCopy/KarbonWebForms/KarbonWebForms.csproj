@@ -1758,6 +1758,7 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Accounts\Settings.aspx" />
     <Content Include="Views\Accounts\OrganizationInviteUser.aspx" />
+    <Content Include="Views\Accounts\Verification.aspx" />
     <Content Include="Views\Notes\NoteTable.aspx" />
     <Content Include="Views\Permissions\PermissionsSetting.aspx" />
     <Content Include="Views\Progress\ProjectProgress.aspx" />
@@ -1884,6 +1885,12 @@
     </Compile>
     <Compile Include="Views\Accounts\OrganizationInviteUser.aspx.designer.cs">
       <DependentUpon>OrganizationInviteUser.aspx</DependentUpon>
+    <Compile Include="Views\Accounts\Verification.aspx.cs">
+      <DependentUpon>Verification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\Verification.aspx.designer.cs">
+      <DependentUpon>Verification.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Home\HomeContent.aspx.cs">
       <DependentUpon>HomeContent.aspx</DependentUpon>

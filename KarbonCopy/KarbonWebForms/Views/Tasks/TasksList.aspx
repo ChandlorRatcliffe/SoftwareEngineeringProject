@@ -2,70 +2,31 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="DashContent">
 
-<div>
-    <h2>The Tasks List Page-Alpha</h2>
-</div>
+    <div>
+        <h2>The Tasks List Page-Alpha</h2>
+    </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card text-center" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Task 1</h5>
-                    <p class="card-text">Description of Task 1</p>
-                    <a href="~/Views/Tasks/TaskPage" class="btn btn-primary">Go to Task view</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card text-center" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Task 2</h5>
-                    <p class="card-text">Description of Task 2</p>
-                    <a href="~/Views/Tasks/TaskPage" class="btn btn-primary">Go to Task view</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card text-center" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Task 3</h5>
-                    <p class="card-text">Description of Task 3</p>
-                    <a href="~/Views/Tasks/TaskPage" class="btn btn-primary">Go to Task view</a>
-                </div>
-            </div>
+    <div class="container">
+        <div class="row">
+            <asp:Repeater runat="server" ID="TaskCardRptr" OnPreRender="TaskCardRptr_PreRender">
+                <ItemTemplate>
+                    <div class="col-md-3" style="padding: 10px">
+                        <div class="card text-center" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title"><%# DataBinder.Eval(Container.DataItem, "TaskId") %></h5>
+                                <p class="card-text" style="overflow-y: auto; height: 250px; max-width: inherit; white-space: normal; display: block;">
+                                    <%# DataBinder.Eval(Container.DataItem, "TaskDescription") %>
+                                </p>
+                                <p class="card-text"><%# DataBinder.Eval(Container.DataItem, "TaskDeadline") %></p>
+                                <asp:LinkButton runat="server" OnClick="PrjCardRptr_Click"
+                                    param='<%# DataBinder.Eval(Container.DataItem, "TaskId") %>'
+                                    CssClass="btn btn-primary">Go to Task view</asp:LinkButton>
+                            </div>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card text-center" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Task 4</h5>
-                    <p class="card-text">Description of Task 4</p>
-                    <a href="~/Views/Tasks/TaskPage" class="btn btn-primary">Go to Task view</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card text-center" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Task 5</h5>
-                    <p class="card-text">Description of Task 5</p>
-                    <a href="~/Views/Tasks/TaskPage" class="btn btn-primary">Go to Task view</a>
-                </div>
-            </div>
-        </div>
-        <br />
-        <div class="col-md-3">
-            <div class="card text-center" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Task 6</h5>
-                    <p class="card-text">Description of Task 6</p>
-                    <a href="~/Views/Tasks/TaskPage" class="btn btn-primary">Go to Task view</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 </asp:Content>

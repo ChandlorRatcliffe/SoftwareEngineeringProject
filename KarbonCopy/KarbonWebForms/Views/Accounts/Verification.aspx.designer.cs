@@ -7,20 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KarbonWebForms.Views.Tasks
+namespace KarbonWebForms.Views.Accounts
 {
-
-
-    public partial class Index
+    public partial class Verification
     {
 
         /// <summary>
-        /// TaskCardRptr control.
+        /// Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater TaskCardRptr;
+        protected global::System.Web.UI.WebControls.TextBox Email;
+
+        /// <summary>
+        /// VerificationInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox VerificationInput;
     }
 }
