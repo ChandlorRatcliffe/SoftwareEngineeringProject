@@ -27,7 +27,7 @@ CREATE TABLE TaskAssigned(
 	`Username`		VARCHAR(50),
     `Email`			VARCHAR(150),
     `TaskId`		VARCHAR(50),
-    PRIMARY KEY(`Username`,`Email`,`Name`,`TaskId`)
+    PRIMARY KEY(`Username`,`Email`,`TaskId`)
 );
 
 DROP TABLE ProjectAssigned;
@@ -35,7 +35,7 @@ CREATE TABLE ProjectAssigned(
 	`Username`		VARCHAR(50),
     `Email`			VARCHAR(150),
     `ProjectId`		VARCHAR(50),
-    PRIMARY KEY(`Username`,`Email`,`Name`,`ProjectId`)
+    PRIMARY KEY(`Username`,`Email`,`ProjectId`)
 );
 
 
@@ -75,6 +75,7 @@ CREATE TABLE Task(
     `TaskId`		VARCHAR(50),
     `TaskDeadline`	DATETIME,
     `TaskDescription`  VARCHAR(65335),
+    `TaskCompleted` DATETIME,
     PRIMARY KEY(`TaskId`)
 );
 

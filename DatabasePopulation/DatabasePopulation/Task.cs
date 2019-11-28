@@ -30,10 +30,15 @@ namespace DatabasePopulation
         {
             return "\"" + this.myId + "\"";
         }
-        //Generate an TaskAssigned record string
+        //Generate a Task Assigned record string
         public string getTaskAssignedAddString(Account assignee)
         {
             return "(" + assignee.getPK() + "\",\""  + this.getPK() + ")";
+        }
+        //Generate a Project Assigned record string
+        public string getProjectAssignedAddString(Account assignee, Project project)
+        {
+            return "(" + assignee.getPK() + "\",\"" + project.getPK() + ")";
         }
     }
 }

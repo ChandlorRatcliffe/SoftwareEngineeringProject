@@ -6,7 +6,7 @@ namespace DatabasePopulation
 {
     //The WordListManage is the class responsible for managing the wordlist used in all of the
     //random text field population throughout the whole of the record generation process. 
-    class WordListManager
+    public class WordListManager
     {
         string[] words;
         //When an instance of the WordListManager is initialized, it populates the words list with the contents
