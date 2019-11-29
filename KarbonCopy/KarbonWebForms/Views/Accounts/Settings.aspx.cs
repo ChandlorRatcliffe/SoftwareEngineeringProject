@@ -61,6 +61,7 @@ namespace KarbonWebForms.Views.Accounts
                 command.Parameters.Add(new MySqlParameter("newUser", MySqlDbType.VarChar) { Value = changeUser.Text });
                 command.ExecuteReader();
                 conn.Close();
+                Session["Username"] = changeUser.Text;
             }
             catch (Exception exc)
             {
