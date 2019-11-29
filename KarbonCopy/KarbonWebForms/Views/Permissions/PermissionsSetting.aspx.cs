@@ -23,7 +23,7 @@ namespace KarbonWebForms.Views.Permissions
         protected void OrgMemRptr_PreRender(object sender, EventArgs e)
         {
             var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
-            var command = new MySqlCommand("Select Username From ProjectAssigned Where (ProjectId=@PId AND Username<>@user);", conn);
+            var command = new MySqlCommand("Select Username From ProjectAssigned Where (ProjectId=@PId);", conn);
             command.Parameters.Add(new MySqlParameter("PId", MySqlDbType.VarChar) { Value = Session["ProjectId"] });
             command.Parameters.Add(new MySqlParameter("user", MySqlDbType.VarChar) { Value = Session["Username"] });
             DataTable dt = new DataTable();
