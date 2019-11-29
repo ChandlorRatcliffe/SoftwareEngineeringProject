@@ -11,43 +11,43 @@ namespace KarbonWebForms.Views.Accounts
 {
 
 
-    public partial class RecoverPassword
+    public partial class ChangePassword
     {
 
         /// <summary>
-        /// RecoveryPasswordError control.
+        /// ChangePasswordError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label RecoveryPasswordError;
+        protected global::System.Web.UI.WebControls.Label ChangePasswordError;
 
         /// <summary>
-        /// EmailEnter control.
+        /// AccountEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EmailEnter;
+        protected global::System.Web.UI.WebControls.Label AccountEmail;
 
         /// <summary>
-        /// UsernameEnter control.
+        /// EnterPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UsernameEnter;
+        protected global::System.Web.UI.WebControls.TextBox EnterPassword;
 
         /// <summary>
-        /// RecoverUsername control.
+        /// EnterPasswordConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton RecoverUsername;
+        protected global::System.Web.UI.WebControls.TextBox EnterPasswordConfirm;
     }
 }

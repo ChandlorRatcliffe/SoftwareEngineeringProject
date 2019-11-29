@@ -13,6 +13,10 @@ namespace KarbonWebForms
         private static readonly Regex emailValid = new Regex(@"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", RegexOptions.Compiled);
         private static readonly Regex usernameValid = new Regex(@"^[a-zA-Z0-9]([._](?![._])|[a-zA-Z0-9]){6,18}[a-zA-Z0-9]$", RegexOptions.Compiled);
         private static readonly Regex passwordValid = new Regex(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", RegexOptions.Compiled);
+        public static readonly string LineBreak = "&#013;&#010;";
+        public static readonly string verfToken = "38749384";
+        public static readonly string passwordRecoveryToken = "83666231";
+
 
         public static bool IsValidName(string input)
         {
@@ -33,6 +37,12 @@ namespace KarbonWebForms
         {
             return !passwordValid.IsMatch(input);
         }
+
+        public static string PreFormatError(string input)
+        {
+            return $"<pre class=\"text-danger\">{input}</pre>";
+        }
+
 
     }
 }

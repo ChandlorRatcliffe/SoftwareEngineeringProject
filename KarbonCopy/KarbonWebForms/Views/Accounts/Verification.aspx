@@ -15,7 +15,6 @@
         </div>
         <div class="form-group row text-center">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <h6 class="pb-2">Your password recovery token will be sent to your email address.</h6>
                 <button runat="server" onserverclick="VerifyAccount" type="submit" class="btn btn-primary px-5">Validate</button>
             </div>
         </div>

@@ -63,6 +63,36 @@ namespace KarbonWebForms.Sql
             }
         }
 
+        public bool UpdateWithEmail(string email, string field, string fieldValue, out string Error)
+        {
+            if (ExistsWithEmail(email))
+            {
+                string query = $"UPDATE account SET {field} = @value WHERE (Email = @email);";
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("value", MySqlDbType.VarChar) { Value = fieldValue },
+                    new MySqlParameter("email", MySqlDbType.VarChar) { Value =  email}
+                };
+                if (functions.ExecuteNonQuery(query, parameters))
+                {
+                    Debug.WriteLine("UpdateAccount: The account was updated successfully.");
+                    Error = "";
+                    return true;
+                }
+                else
+                {
+                    Debug.WriteLine("UpdateAccount: An error has occured.");
+                    Error = "An error has occured.";
+                    return false;
+                }
+            }
+            else
+            {
+                Error = "Email Doesn't Exist";
+                return false;
+            }
+        }
+
         public void Delete(string username)
         {
             Delete(new Account(username));

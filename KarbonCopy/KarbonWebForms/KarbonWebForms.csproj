@@ -165,6 +165,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <Content Include="Views\Accounts\ChangePassword.aspx" />
+    <Content Include="Views\Accounts\ChangePasswordVerification.aspx" />
     <Content Include="Views\Accounts\Create.aspx" />
     <Content Include="Views\Accounts\Error.aspx" />
     <Content Include="lib\css\all.css" />
@@ -1764,10 +1766,6 @@
     <Content Include="lib\webfonts\fa-solid-900.svg" />
     <Content Include="Views\Accounts\Login.aspx" />
     <Content Include="Views\Accounts\RecoverPassword.aspx" />
-    <Content Include="Views\Accounts\RecoverPasswordFailure.aspx" />
-    <Content Include="Views\Accounts\RecoverPasswordSuccess.aspx" />
-    <Content Include="Views\Accounts\RecoverUsernameFailure.aspx" />
-    <Content Include="Views\Accounts\RecoverUsernameSuccess.aspx" />
     <Content Include="Views\Accounts\RecoverUsername.aspx" />
     <Content Include="Global.asax" />
     <Content Include="lib\modernizr-2.8.3.js" />
@@ -1827,6 +1825,20 @@
     <Compile Include="Backend\Sql\TaskAbilitiesSql.cs" />
     <Compile Include="Backend\Sql\TaskAssignedSql.cs" />
     <Compile Include="Backend\Sql\TaskSql.cs" />
+    <Compile Include="Views\Accounts\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accounts\ChangePasswordVerification.aspx.cs">
+      <DependentUpon>ChangePasswordVerification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\ChangePasswordVerification.aspx.designer.cs">
+      <DependentUpon>ChangePasswordVerification.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Accounts\Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1876,34 +1888,6 @@
     </Compile>
     <Compile Include="Views\Accounts\RecoverPassword.aspx.designer.cs">
       <DependentUpon>RecoverPassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Accounts\RecoverPasswordFailure.aspx.cs">
-      <DependentUpon>RecoverPasswordFailure.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Accounts\RecoverPasswordFailure.aspx.designer.cs">
-      <DependentUpon>RecoverPasswordFailure.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Accounts\RecoverPasswordSuccess.aspx.cs">
-      <DependentUpon>RecoverPasswordSuccess.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Accounts\RecoverPasswordSuccess.aspx.designer.cs">
-      <DependentUpon>RecoverPasswordSuccess.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Accounts\RecoverUsernameFailure.aspx.cs">
-      <DependentUpon>RecoverUsernameFailure.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Accounts\RecoverUsernameFailure.aspx.designer.cs">
-      <DependentUpon>RecoverUsernameFailure.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Accounts\RecoverUsernameSuccess.aspx.cs">
-      <DependentUpon>RecoverUsernameSuccess.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Accounts\RecoverUsernameSuccess.aspx.designer.cs">
-      <DependentUpon>RecoverUsernameSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Accounts\RecoverUsername.aspx.cs">
       <DependentUpon>RecoverUsername.aspx</DependentUpon>
