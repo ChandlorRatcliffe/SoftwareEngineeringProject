@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -21,6 +22,7 @@ namespace KarbonWebForms.Views.Tasks
 
         protected void TaskCardRptr_Click(object sender, EventArgs e) {
             Session["TaskId"] = ((LinkButton)sender).Attributes["param"];
+            Debug.WriteLine(Session["TaskId"]);
             Response.Redirect("/Views/Tasks/TaskPage");
         }
 
