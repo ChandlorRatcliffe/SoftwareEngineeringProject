@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,62 +14,97 @@ namespace KarbonWebForms.Views.Accounts
     {
         protected void dark_Click(object sender, EventArgs e)
         {
-            var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
-            conn.Open();
-            string qRun = "UPDATE `account` SET `Theme`='dark' WHERE `Username`='" + Session["Username"].ToString() + "';";
-            var command = new MySqlCommand(qRun, conn);
-            command.ExecuteReader();
-            conn.Close();
-            Session["Theme"] = "dark";
-            Response.Redirect("/Views/Accounts/Settings.aspx");
+            try
+            {
+                var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
+                conn.Open();
+                string qRun = "UPDATE `account` SET `Theme`='dark' WHERE `Username`='" + Session["Username"].ToString() + "';";
+                var command = new MySqlCommand(qRun, conn);
+                command.ExecuteReader();
+                conn.Close();
+                Session["Theme"] = "dark";
+                Response.Redirect("/Views/Accounts/Settings.aspx");
+            }
+            catch (Exception exc)
+            {
+                Debug.WriteLine(exc.StackTrace);
+            }
         }
 
         protected void light_Click(object sender, EventArgs e)
         {
-            var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
-            conn.Open();
-            string qRun = "UPDATE `account` SET `Theme`='light' WHERE `Username`='" + Session["Username"].ToString() + "';";
-            var command = new MySqlCommand(qRun, conn);
-            command.ExecuteReader();
-            conn.Close();
-            Session["Theme"] = "light";
-            Response.Redirect("/Views/Accounts/Settings.aspx");
+            try
+            {
+                var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
+                conn.Open();
+                string qRun = "UPDATE `account` SET `Theme`='light' WHERE `Username`='" + Session["Username"].ToString() + "';";
+                var command = new MySqlCommand(qRun, conn);
+                command.ExecuteReader();
+                conn.Close();
+                Session["Theme"] = "light";
+                Response.Redirect("/Views/Accounts/Settings.aspx");
+            }
+            catch (Exception exc)
+            {
+                Debug.WriteLine(exc.StackTrace);
+            }
         }
-		
-		protected void changeUsername(object sender, EventArgs e)
-		{
-			var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
-            conn.Open();
-            string qRun = "UPDATE `account` SET `Username`=@newUser WHERE `Username`='" + Session["Username"].ToString() + "';";
-            var command = new MySqlCommand(qRun, conn);
-			command.Parameters.Add(new MySqlParameter("newUser", MySqlDbType.VarChar) { Value = changeUser.Text });
-            command.ExecuteReader();
-            conn.Close();
-		}
-		
-		protected void changeEmail(object sender, EventArgs e)
-		{
-			var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
-            conn.Open();
-            string qRun = "UPDATE `account` SET `Email`=@email WHERE `Username`='" + Session["Username"].ToString() + "';";
-            var command = new MySqlCommand(qRun, conn);
-			command.Parameters.Add(new MySqlParameter("email", MySqlDbType.VarChar) { Value = changeEmail.Text });
-            command.ExecuteReader();
-            conn.Close();
-		}
-		
-		protected void changePassword(object sender, EventArgs e)
-		{
-			if (confirmPassword.Text == changePassword.Text)
-			{
-				var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
-				conn.Open();
-				string qRun = "UPDATE `account` SET `Password`=@pw WHERE `Username`='" + Session["Username"].ToString() + "';";
-				var command = new MySqlCommand(qRun, conn);
-				command.Parameters.Add(new MySqlParameter("pw", MySqlDbType.VarChar) { Value = changePassword.Text });
-				command.ExecuteReader();
-				conn.Close();
-			}
-		}
+
+        protected void changeUsername_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
+                conn.Open();
+                string qRun = "UPDATE `account` SET `Username`=@newUser WHERE `Username`='" + Session["Username"].ToString() + "';";
+                var command = new MySqlCommand(qRun, conn);
+                command.Parameters.Add(new MySqlParameter("newUser", MySqlDbType.VarChar) { Value = changeUser.Text });
+                command.ExecuteReader();
+                conn.Close();
+            }
+            catch (Exception exc)
+            {
+                Debug.WriteLine(exc.StackTrace);
+            }
+        }
+
+        protected void changeEmail_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
+                conn.Open();
+                string qRun = "UPDATE `account` SET `Email`=@email WHERE `Username`='" + Session["Username"].ToString() + "';";
+                var command = new MySqlCommand(qRun, conn);
+                command.Parameters.Add(new MySqlParameter("email", MySqlDbType.VarChar) { Value = changeEmail.Text });
+                command.ExecuteReader();
+                conn.Close();
+            }
+            catch (Exception exc)
+            {
+                Debug.WriteLine(exc.StackTrace);
+            }
+        }
+
+        protected void changePassword_Click(object sender, EventArgs e)
+        {
+            if (confirmPassword.Text == changePassword.Text)
+            {
+                try
+                {
+                    var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
+                    conn.Open();
+                    string qRun = "UPDATE `account` SET `Password`=@pw WHERE `Username`='" + Session["Username"].ToString() + "';";
+                    var command = new MySqlCommand(qRun, conn);
+                    command.Parameters.Add(new MySqlParameter("pw", MySqlDbType.VarChar) { Value = changePassword.Text });
+                    command.ExecuteReader();
+                    conn.Close();
+                }
+                catch (Exception exc)
+                {
+                    Debug.WriteLine(exc.StackTrace);
+                }
+            }
+        }
     }
 }
