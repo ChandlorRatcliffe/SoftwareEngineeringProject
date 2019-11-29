@@ -64,6 +64,7 @@
 
             <!-- what does this button do that the button within the span above doesn't? Answer: It displays on medium and large but, not small -->
             <a class="btn btn-<%=theme %> mx-1 d-none d-md-block d-lg-block mr-2" href="/Views/Home/HomeContent.aspx">
+                <label> <%= Session["Username"] %> </label>
                 <i class="far fa-user-circle fa-2x" style="vertical-align:middle"></i>
             </a>
 
