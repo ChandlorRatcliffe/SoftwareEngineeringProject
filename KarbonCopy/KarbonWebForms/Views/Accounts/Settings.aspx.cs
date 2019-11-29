@@ -35,7 +35,7 @@ namespace KarbonWebForms.Views.Accounts
             Response.Redirect("/Views/Accounts/Settings.aspx");
         }
 		
-		protected void changeUsername(object sender, EventArgs e)
+		protected void changeUsername_Click(object sender, EventArgs e)
 		{
 			var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
             conn.Open();
@@ -46,7 +46,7 @@ namespace KarbonWebForms.Views.Accounts
             conn.Close();
 		}
 		
-		protected void changeEmail(object sender, EventArgs e)
+		protected void changeEmail_Click(object sender, EventArgs e)
 		{
 			var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
             conn.Open();
@@ -57,7 +57,7 @@ namespace KarbonWebForms.Views.Accounts
             conn.Close();
 		}
 		
-		protected void changePassword(object sender, EventArgs e)
+		protected void changePassword_Click(object sender, EventArgs e)
 		{
 			if (confirmPassword.Text == changePassword.Text)
 			{
