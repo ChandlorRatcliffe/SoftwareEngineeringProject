@@ -14,9 +14,9 @@
             </div>
             <div class="input-group mb-4">
                 <br />
-                <input type="text" class="form-control" placeholder="New Username" aria-label="New Username" aria-describedby="button-addon1">
+                <asp:TextBox runat="server" ID="changeUser" class="form-control" Text="New Username" aria-label="New Username" aria-describedby="button-addon1"></asp:TextBox>
                 <div class="input-group-append">
-                    <button class="btn btn-dark" type="button" id="button-addon1">Submit</button>
+                    <button runat="server" class="btn btn-dark" type="button" id="button-addon1" onclick="changeUsername">Submit</button>
                 </div>
             </div>
             <br />
@@ -25,9 +25,9 @@
                 Email
             </div>
             <div class="input-group mb-4">
-                <input type="text" class="form-control" placeholder="New Email" aria-label="New Email" aria-describedby="button-addon2">
+                <asp:TextBox ID="changeEmail" runat="server" class="form-control" Text="New Email" aria-label="New Email" aria-describedby="button-addon2"></asp:TextBox>
                 <div class="input-group-append">
-                    <button class="btn btn-dark" type="button" id="button-addon2">Submit</button>
+                    <button runat="server" class="btn btn-dark" type="button" id="button-addon2" onclick="changeEmail">Submit</button>
                 </div>
             </div>
             <br />
@@ -36,12 +36,12 @@
                 Password
             </div>
             <div class="input-group mb-4">
-                <input type="text" class="form-control" placeholder="New Password" aria-label="New Password" aria-describedby="button-addon3">
+                <asp:TextBox ID="changePassword" runat="server" class="form-control" Text="New Password" aria-label="New Password" aria-describedby="button-addon3"></asp:TextBox>
             </div>
             <div class="input-group mb-4">
-                <input type="text" class="form-control" placeholder="Confirm New Password" aria-label="Confirm New Password" aria-describedby="button-addon2">
+                <asp:TextBox ID="confirmPassword" class="form-control" Text="Confirm New Password" aria-label="Confirm New Password" aria-describedby="button-addon2"></asp:TextBox>
                 <div class="input-group-append">
-                    <button class="btn btn-warning" type="button" id="button-addon3">Submit</button>
+                    <button runat="server" class="btn btn-warning" type="button" id="button-addon3" onclick="changePassword">Submit</button>
                 </div>
             </div>
             <!-- Change Theme Section-->
