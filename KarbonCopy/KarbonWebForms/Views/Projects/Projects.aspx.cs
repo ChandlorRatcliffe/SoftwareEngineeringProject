@@ -14,9 +14,31 @@ namespace KarbonWebForms.Views.Projects
     public partial class Projects : System.Web.UI.Page
     {
         private readonly AccountSql accountSql = new AccountSql();
-        protected void Page_Load(object sender, EventArgs e)
+        public string activeproj = "0";
+
+        protected void projRun()
         {
-            
+            ProjectAbilitiesSql projectAbilitiesSql = new ProjectAbilitiesSql();
+            ProjectAssignedSql projectAssignedSql = new ProjectAssignedSql();
+
+            try
+            {
+                var projAbility = projectAbilitiesSql.Get(Session["Username"].ToString());
+                var projAssigned = projectAssignedSql.GetAll();
+
+                //Determine if the user can create new project
+                int createProj = projAbility.CreateProject;
+                if (createProj == 1)
+                    newProj.Enabled = true;
+                else
+                    newProj.Enabled = false;
+
+                //Determine the amount of active proj (TO BE DONE)
+            }
+            catch
+            {
+                newProj.Enabled = false;
+            }
         }
         protected void PrjCardRptr_Click(object sender, EventArgs e)
         {
@@ -48,6 +70,12 @@ namespace KarbonWebForms.Views.Projects
             PrjCardRptr.DataSource = dt;
             // Data has to be bound to the repeater before finishing the assignment of data to the repeater
             PrjCardRptr.DataBind();
+        }
+
+        protected void newProj_Click(object sender, EventArgs e)
+        {
+            if(newProj.Enabled)
+                Response.Redirect("/Views/Projects/CreateProjects");
         }
     }
 }

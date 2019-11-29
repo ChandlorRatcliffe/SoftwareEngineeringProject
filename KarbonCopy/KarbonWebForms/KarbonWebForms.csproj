@@ -2084,8 +2084,6 @@
     <Content Include="lib\webfonts\fa-solid-900.woff" />
     <Content Include="lib\webfonts\fa-solid-900.woff2" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Home.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
