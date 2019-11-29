@@ -1765,6 +1765,7 @@
     <Content Include="lib\webfonts\fa-regular-400.svg" />
     <Content Include="lib\webfonts\fa-solid-900.svg" />
     <Content Include="Views\Accounts\Login.aspx" />
+    <Content Include="Views\Accounts\OrganizationInviteUser.aspx" />
     <Content Include="Views\Accounts\RecoverPassword.aspx" />
     <Content Include="Views\Accounts\RecoverUsername.aspx" />
     <Content Include="Global.asax" />
@@ -1881,6 +1882,13 @@
     </Compile>
     <Compile Include="Views\Accounts\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accounts\OrganizationInviteUser.aspx.cs">
+      <DependentUpon>OrganizationInviteUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\OrganizationInviteUser.aspx.designer.cs">
+      <DependentUpon>OrganizationInviteUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Accounts\RecoverPassword.aspx.cs">
       <DependentUpon>RecoverPassword.aspx</DependentUpon>
