@@ -9,8 +9,9 @@
     <div class="container">
         <div class="row">
             <div class="col-3">
-                <h4>Project Members</h4>
-                <div class="btn-group-vertical w-75" style="overflow-y: auto; max-height: 400px">
+                <h4>Project Members</h4><br />
+                <!--  -->
+                <div class="btn-group-vertical w-75" style="overflow-y:auto; max-height:400px; padding-top:300px;">
                     <asp:Repeater runat="server" ID="OrgMemRptr" OnPreRender="OrgMemRptr_PreRender">
                         <ItemTemplate>
                             <div class="input-group-prepend w-100">
@@ -162,8 +163,8 @@
                     </div>
                 </div>
             </asp:Panel>
-        </div>
-        </div>
         <asp:LinkButton runat="server" CssClass="btn btn-primary btn-block" ID="UpdateBtn" OnClick="UpdateBtn_Click">Update Permissions </asp:LinkButton>
+        </div>
+        </div>
     </div>
 </asp:Content>

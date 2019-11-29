@@ -75,7 +75,7 @@ namespace KarbonWebForms.Views.Projects
         protected void newProj_Click(object sender, EventArgs e)
         {
             if(newProj.Enabled)
-                Response.Redirect("/Views/Projects/CreateProjects");
+                Response.Redirect("/Views/Projects/CreateProject");
         }
     }
 }
