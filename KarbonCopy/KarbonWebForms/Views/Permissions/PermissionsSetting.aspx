@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-3">
-                <h4>Organization Members</h4>
+                <h4>Project Members</h4>
                 <div class="btn-group-vertical w-75" style="overflow-y: auto; max-height: 400px">
                     <asp:Repeater runat="server" ID="OrgMemRptr" OnPreRender="OrgMemRptr_PreRender">
                         <ItemTemplate>

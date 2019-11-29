@@ -21,7 +21,7 @@
                         </button>
 
                         <!-- Modal for Note -->
-                        <div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="noteModalTitle" aria-hidden="true">
+                        <div runat="server" class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="noteModalTitle" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <asp:Button runat="server" ID="noteModalSave" Text="Save changes" OnClick="noteModalSave_Click" CssClass="btn btn-primary"></asp:Button>
+                                        <asp:Button runat="server" ID="noteModalSave" Text="Save Note" OnClick="noteModalSave_Click" CssClass="btn btn-primary"></asp:Button>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                     <div runat="server" id="Description" class="card-body w-100" style="max-height: 300px; overflow-y: scroll;"></div>
                     <!-- Button trigger modal / Start Modal pack. DashContent gets prepended to all server controls-->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DashContent_editModal">
-                        Edit Description
+                        Edit Task
                     </button>
 
                     <!-- Modal -->
@@ -60,7 +60,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 id="descModalTitle" class="modal-title">Edit Description</h5>
+                                    <h5 id="descModalTitle" class="modal-title">Edit Task</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <asp:Button runat="server" ID="editModalSave" Text="Save changes" OnClick="editModalSave_Click" CssClass="btn btn-primary"></asp:Button>
+                                    <asp:Button runat="server" ID="editModalSave" Text="Save Changes" OnClick="editModalSave_Click" CssClass="btn btn-primary"></asp:Button>
                                 </div>
                             </div>
                         </div>
