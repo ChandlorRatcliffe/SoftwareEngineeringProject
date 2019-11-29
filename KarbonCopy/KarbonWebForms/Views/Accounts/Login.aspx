@@ -27,15 +27,9 @@
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <asp:Button runat="server" ID="SignIn" CssClass="btn btn-primary mt-2 mx-2" style="width: 175px" Text="Sign In" OnCommand="SignIn_Command" />
                 </div>
-            </div><br />
-        <hr style="border-color: gray;" />
-            <div class="text-center">
-                <a runat="server" href="~/Views/Projects/Projects.aspx"><b>To Dashboard</b></a>
             </div>
-        <hr style="border-color: gray;" />
-
         <!-- Authentication Navigation -->
-        <h2 class="text-center mb-2"><br /><b>New</b> Karbon?</h2>
+        <h2 class="text-center mb-2"><br /><b>New to</b> Karbon?</h2>
         <div class="mt-3 text-center">
             <a runat="server" class="btn btn-primary text-light text-center mt-2 border mx-2" style="width: 175px;" href="~/Views/Accounts/Create.aspx">Create&nbsp;An&nbsp;Account</a>
         </div>

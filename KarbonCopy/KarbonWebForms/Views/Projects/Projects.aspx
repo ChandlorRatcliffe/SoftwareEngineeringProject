@@ -2,7 +2,7 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="DashContent">
     <div>
-        <h2>The Is the Projects View-Alpha</h2>
+        <h2>Projects List View - Alpha</h2>
     </div>
 
     <div class="container">

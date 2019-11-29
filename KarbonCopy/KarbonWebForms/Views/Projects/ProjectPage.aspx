@@ -2,7 +2,7 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="DashContent">
     <div>
-        <h2>The View of an Individual Project-Alpha</h2>
+        <h2>Individual Project View - Alpha</h2>
     </div>
 
     <div class="container">
@@ -35,7 +35,7 @@
                     <div runat="server" id="Description" onprerender="Description_PreRender" class="card-body w-100" style="max-height: 300px; overflow-y: scroll;"></div>
                     <!-- Button trigger modal / Start Modal pack -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DashContent_editModal">
-                        Edit Description
+                        Edit Project
                     </button>
 
                     <!-- Modal -->
@@ -43,7 +43,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 id="descModalTitle" class="modal-title" >Edit Description</h5>
+                                    <h5 id="descModalTitle" class="modal-title" >Edit Project</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>

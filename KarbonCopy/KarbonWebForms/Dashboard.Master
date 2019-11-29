@@ -52,12 +52,11 @@
 
             <div class="collapse navbar-collapse d-lg-none" id="collapsibleNavbar">
                 <a class="btn btn-<%=theme %> nav-link d-lg-none ml-1" href="/Views/Projects/Projects.aspx">Dashboard</a>
-                <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Projects/Projects.aspx">Project</a>
-                <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Tasks/TasksList.aspx">Task</a>
+                <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Tasks/TasksList.aspx">Project Tasks</a>
                 <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Notes/NoteTable.aspx">Notes</a>
                 <a class="btn btn-<%=theme %> nav-link d-lg-none <%=permAccess %>" href="<%=permLink %>">Permissions</a>
                 <a class="btn btn-<%=theme %> nav-link d-lg-none <%=inviteAccess %>" href="<%=inviteLink %>">Invite Users</a>
-                <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Accounts/Settings.aspx">Settings</a>
+                <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Accounts/Settings.aspx">Account Settings</a>
                 <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Home/HomeContent.aspx">Logout</a>
             </div>
 
