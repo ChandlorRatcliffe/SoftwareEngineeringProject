@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -21,6 +22,7 @@ namespace KarbonWebForms.Views.Tasks
 
         protected void TaskCardRptr_Click(object sender, EventArgs e) {
             Session["TaskId"] = ((LinkButton)sender).Attributes["param"];
+            Debug.WriteLine(Session["TaskId"]);
             Response.Redirect("/Views/Tasks/TaskPage");
         }
 
@@ -28,10 +30,12 @@ namespace KarbonWebForms.Views.Tasks
         {
             var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
             var command = new MySqlCommand("Select *" +
-            " From builton INNER JOIN project ON builton.ProjectId=@PId INNER JOIN Task ON builton.TaskId=@TId" +
+            " From builton INNER JOIN Task ON builton.TaskId=Task.TaskId" +
+            " INNER JOIN TaskAssigned ON Task.TaskId=TaskAssigned.TaskId" +
+            " Where (ProjectId=@PId AND TaskAssigned.Username=@user)" +
             " Order By Task.TaskId Asc;", conn);
             command.Parameters.Add(new MySqlParameter("PId", MySqlDbType.VarChar) { Value = Session["ProjectId"] });
-            command.Parameters.Add(new MySqlParameter("TId", MySqlDbType.VarChar) { Value = Session["TaskId"] });
+            command.Parameters.Add(new MySqlParameter("user", MySqlDbType.VarChar) { Value = Session["Username"] });
             DataTable dt = new DataTable();
             conn.Open();
             dt.Load(command.ExecuteReader());

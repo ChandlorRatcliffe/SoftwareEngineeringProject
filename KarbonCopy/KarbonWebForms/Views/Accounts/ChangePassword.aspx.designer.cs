@@ -11,61 +11,43 @@ namespace KarbonWebForms.Views.Accounts
 {
 
 
-    public partial class Settings
+    public partial class ChangePassword
     {
 
         /// <summary>
-        /// changeUser control.
+        /// ChangePasswordError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox changeUser;
+        protected global::System.Web.UI.WebControls.Label ChangePasswordError;
 
         /// <summary>
-        /// changeEmail control.
+        /// AccountEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox changeEmail;
+        protected global::System.Web.UI.WebControls.Label AccountEmail;
 
         /// <summary>
-        /// changePassword control.
+        /// EnterPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox changePassword;
+        protected global::System.Web.UI.WebControls.TextBox EnterPassword;
 
         /// <summary>
-        /// confirmPassword control.
+        /// EnterPasswordConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox confirmPassword;
-
-        /// <summary>
-        /// light control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button light;
-
-        /// <summary>
-        /// dark control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button dark;
+        protected global::System.Web.UI.WebControls.TextBox EnterPasswordConfirm;
     }
 }

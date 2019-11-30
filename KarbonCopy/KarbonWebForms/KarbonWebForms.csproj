@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -24,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.6</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -163,6 +165,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <Content Include="lib\js\datatables.min.js" />
+    <Content Include="Views\Accounts\ChangePassword.aspx" />
+    <Content Include="Views\Accounts\ChangePasswordVerification.aspx" />
     <Content Include="Views\Accounts\Create.aspx" />
     <Content Include="Views\Accounts\Error.aspx" />
     <Content Include="lib\css\all.css" />
@@ -1761,11 +1766,8 @@
     <Content Include="lib\webfonts\fa-regular-400.svg" />
     <Content Include="lib\webfonts\fa-solid-900.svg" />
     <Content Include="Views\Accounts\Login.aspx" />
+    <Content Include="Views\Accounts\OrganizationInviteUser.aspx" />
     <Content Include="Views\Accounts\RecoverPassword.aspx" />
-    <Content Include="Views\Accounts\RecoverPasswordFailure.aspx" />
-    <Content Include="Views\Accounts\RecoverPasswordSuccess.aspx" />
-    <Content Include="Views\Accounts\RecoverUsernameFailure.aspx" />
-    <Content Include="Views\Accounts\RecoverUsernameSuccess.aspx" />
     <Content Include="Views\Accounts\RecoverUsername.aspx" />
     <Content Include="Global.asax" />
     <Content Include="lib\modernizr-2.8.3.js" />
@@ -1809,6 +1811,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Backend\Email\Email.cs" />
+    <Compile Include="Backend\Regex\Regex.cs" />
     <Compile Include="Backend\Sql\.MySqlFunctions.cs" />
     <Compile Include="Backend\Sql\.Tables.cs" />
     <Compile Include="Backend\Sql\AccountSql.cs" />
@@ -1824,6 +1827,20 @@
     <Compile Include="Backend\Sql\TaskAbilitiesSql.cs" />
     <Compile Include="Backend\Sql\TaskAssignedSql.cs" />
     <Compile Include="Backend\Sql\TaskSql.cs" />
+    <Compile Include="Views\Accounts\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Accounts\ChangePasswordVerification.aspx.cs">
+      <DependentUpon>ChangePasswordVerification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\ChangePasswordVerification.aspx.designer.cs">
+      <DependentUpon>ChangePasswordVerification.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Accounts\Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1867,40 +1884,19 @@
     <Compile Include="Views\Accounts\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Accounts\OrganizationInviteUser.aspx.cs">
+      <DependentUpon>OrganizationInviteUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Accounts\OrganizationInviteUser.aspx.designer.cs">
+      <DependentUpon>OrganizationInviteUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Accounts\RecoverPassword.aspx.cs">
       <DependentUpon>RecoverPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Accounts\RecoverPassword.aspx.designer.cs">
       <DependentUpon>RecoverPassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Accounts\RecoverPasswordFailure.aspx.cs">
-      <DependentUpon>RecoverPasswordFailure.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Accounts\RecoverPasswordFailure.aspx.designer.cs">
-      <DependentUpon>RecoverPasswordFailure.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Accounts\RecoverPasswordSuccess.aspx.cs">
-      <DependentUpon>RecoverPasswordSuccess.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Accounts\RecoverPasswordSuccess.aspx.designer.cs">
-      <DependentUpon>RecoverPasswordSuccess.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Accounts\RecoverUsernameFailure.aspx.cs">
-      <DependentUpon>RecoverUsernameFailure.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Accounts\RecoverUsernameFailure.aspx.designer.cs">
-      <DependentUpon>RecoverUsernameFailure.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Accounts\RecoverUsernameSuccess.aspx.cs">
-      <DependentUpon>RecoverUsernameSuccess.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Accounts\RecoverUsernameSuccess.aspx.designer.cs">
-      <DependentUpon>RecoverUsernameSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Accounts\RecoverUsername.aspx.cs">
       <DependentUpon>RecoverUsername.aspx</DependentUpon>
@@ -2105,11 +2101,15 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>

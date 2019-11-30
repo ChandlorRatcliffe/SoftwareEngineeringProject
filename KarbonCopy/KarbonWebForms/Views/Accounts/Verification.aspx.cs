@@ -6,20 +6,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using KarbonWebForms.Sql;
+using static KarbonWebForms.Validators;
 
 namespace KarbonWebForms.Views.Accounts
 {
     public partial class Verification : System.Web.UI.Page
     {
         private readonly AccountSql accountSql = new AccountSql();
-
-        //make dynamic
-        private readonly string verfToken = "38749384";
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
 
         protected void VerifyAccount(object sender, EventArgs e)
         {
@@ -30,6 +23,7 @@ namespace KarbonWebForms.Views.Accounts
                 {
                     accountSql.Update(account.Username, "skills", "");
                     Debug.WriteLine("Successful Verfication");
+                    Session["Success"] = "Account successfully Verified";
                     Response.Redirect("~/Views/Accounts/Login", false);
                 }
                 else

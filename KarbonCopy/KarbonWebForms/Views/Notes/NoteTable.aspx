@@ -27,7 +27,7 @@
    
 
     <div class="container my-5" style="text-align: center;">
-        <h1 class="text-center" >Note Management</h1>
+        <h1 class="text-center" >Task Notes</h1>
         <!-- Update Date text -->
         <span class="text-success font-weight-bold" id="date"></span>
         <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -45,34 +45,34 @@
         <table class="table table-bordered table-hover" id="NoteView">
             <thead>
                 <tr>
-                    <th class="text-center" scope="col">ID</th>
-                    <th class="text-center" scope="col">Date Created</th>
-                    <th class="text-center" scope="col">Creator</th>
-                    <th class="text-center" scope="col">Title</th>
-                    <th class="text-center" scope="col">Status</th>
+                    <th class="text-center" scope="col">Username</th>
+                    <th class="text-center" scope="col">Email</th>
+                    <th class="text-center" scope="col">Time Stamp</th>
+                    <th class="text-center" scope="col">Note Body</th>
+                    <th class="text-center" scope="col">TaskId</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="table-row text-center" data-id="1" data-target="#NoteModal" data-toggle="modal">
-                    <td>123</td>
-                    <td>Date</td>
-                    <td>User1</td>
-                    <td>Note1</td>
-                    <td>Done</td>
+                    <td>TestUser1</td>
+                    <td>test1@notreal.com</td>
+                    <td>11/29/2019 05:30:00 PM</td>
+                    <td>This is a note.</td>
+                    <td>354</td>
                 </tr>
                 <tr class="table-row text-center" data-id="2" data-target="#NoteModal" data-toggle="modal">
-                    <td>123</td>
-                    <td>Date</td>
-                    <td>User2</td>
-                    <td>Note2</td>
-                    <td>...</td>
+                    <td>TestUser2</td>
+                    <td>test2@notreal.com</td>
+                    <td>11/29/2019 12:30:00 PM</td>
+                    <td>This is a note.</td>
+                    <td>354</td>
                 </tr>
                 <tr class="table-row text-center" data-id="3" data-target="#NoteModal" data-toggle="modal">
-                    <td>123</td>
-                    <td>Date</td>
-                    <td>User3</td>
-                    <td>Note3</td>
-                    <td>...</td>
+                    <td>TestUser3</td>
+                    <td>test3@notreal.com</td>
+                    <td>11/30/2019 1:30:00 AM</td>
+                    <td>This is a note.</td>
+                    <td>354</td>
                 </tr>
             </tbody>
         </table>

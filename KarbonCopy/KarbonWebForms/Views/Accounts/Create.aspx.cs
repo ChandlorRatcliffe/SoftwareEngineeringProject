@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using KarbonWebForms.Sql;
 using KarbonWebForms.Email;
+using static KarbonWebForms.Validators;
 
 namespace KarbonWebForms.Views.Accounts
 {
@@ -14,21 +11,22 @@ namespace KarbonWebForms.Views.Accounts
     {
         private readonly AccountSql accountSql = new AccountSql();
         private readonly EmailTool emailTool = new EmailTool();
-        //make dynamic
-        private readonly string verfToken = "38749384";
-
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
 
         protected async void CreateAccount(object sender, EventArgs e)
         {
-            //make dynamic
-            string URL = $"https://{Request.Url.Host}:{Request.Url.Port}/Views/Accounts/Verification";
-
-            if (Password.Text == ConfirmPassword.Text)
+            string CreateVerficationUrl = $"https://{Request.Url.Host}:{Request.Url.Port}/Views/Accounts/Verification";
+            string ErrorMessage = string.Empty;
+            if (IsValidName(FirstName.Text))
+                ErrorMessage += $"First Name should only contain characters {LineBreak}";
+            if (IsValidName(LastName.Text))
+                ErrorMessage += $"Last Name should only contain characters {LineBreak}";
+            if (IsValidUsername(Username.Text))
+                ErrorMessage += $"Invalid Username format {LineBreak}";
+            if (IsValidEmail(Email.Text))
+                ErrorMessage += $"Invalid Email Format {LineBreak}";
+            if (IsValidPassword(Password.Text))
+                ErrorMessage += $"Invalid Password Format {LineBreak}";
+            if (Password.Text == ConfirmPassword.Text && string.IsNullOrEmpty(ErrorMessage))
             {
                 Account account = new Account
                 {
@@ -40,23 +38,25 @@ namespace KarbonWebForms.Views.Accounts
                     Skills = "false" //Not Verified
                 };
                 if (await emailTool.SendEmail(account, "Account Verification", "",
-                    $"Hello {account.FirstName}, <br> your karbon activation token is {verfToken} <br> {URL}"))
+                    $"Hello {account.FirstName}, <br> your karbon activation token is {verfToken} <br> {CreateVerficationUrl}"))
                 {
                     accountSql.Insert(account);
                     Debug.WriteLine("Verfication Token successfully sent and account added.");
+                    Session["Success"] = "Create Account Successful";
                     Response.Redirect("~/Views/Accounts/Login", false);
                 }
                 else
                 {
-                    Debug.WriteLine("Unable to send Email. Account not added.");
-                    Response.Redirect("~/Views/Accounts/Login", false);
+                    CreateError.Text += "Error: unable to send email";
+                    Debug.WriteLine("Error: unable to send email");
                 }
             }
             else
             {
-                //Validate Error Passwords don't match
-                Response.Redirect("~/Views/Accounts/Login", false);
+                CreateError.Text += "Error: passwords did not match.";
+                Debug.WriteLine("Error: passwords did not match");
             }
+            CreateError.Text = PreFormatError(ErrorMessage);
         }
 
     }

@@ -4,10 +4,7 @@
 <!-- Recreation of Create.cshtml -->
     <div class="container bg-light my-5" style="max-width: 500px;">
         <h2 class="text-center mb-2"><br />KARBON <b>Create</b><br /></h2>
-        <%-- 
-            <div asp-validation-summary="All" class="text-danger"></div> 
-            <span class="text-danger"></span> 
-        --%>
+        <asp:label runat="server" ID="CreateError" Text="" CssClass="text-danger" />
         <div class="form-group row">
             <div class="col-sm-1"></div>
             <div class="col-sm-5">
@@ -24,7 +21,7 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
                 <label class="col-sm-12 col-form-label">Business Code</label>
-                <asp:TextBox ID="Buscode" CssClass="form-control" placeholder="Business Code" runat="server" />
+                <asp:TextBox ID="BuisnessCode" CssClass="form-control" placeholder="Business Code" runat="server" />
             </div>
             <div class="col-sm-1"></div>
         </div>

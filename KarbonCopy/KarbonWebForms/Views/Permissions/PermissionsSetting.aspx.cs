@@ -15,7 +15,6 @@ namespace KarbonWebForms.Views.Permissions
 {
     public partial class PermissionsSetting : System.Web.UI.Page
     {
-        List<string> MemberList = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -24,7 +23,7 @@ namespace KarbonWebForms.Views.Permissions
         protected void OrgMemRptr_PreRender(object sender, EventArgs e)
         {
             var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["mySql"].ConnectionString);
-            var command = new MySqlCommand("Select Username From ProjectAssigned Where (ProjectId=@PId AND Username<>@user);", conn);
+            var command = new MySqlCommand("Select Username From ProjectAssigned Where (ProjectId=@PId);", conn);
             command.Parameters.Add(new MySqlParameter("PId", MySqlDbType.VarChar) { Value = Session["ProjectId"] });
             command.Parameters.Add(new MySqlParameter("user", MySqlDbType.VarChar) { Value = Session["Username"] });
             DataTable dt = new DataTable();
@@ -37,10 +36,6 @@ namespace KarbonWebForms.Views.Permissions
                 OrgMemRptr.DataSource = dt;
                 // Data has to be bound to the repeater before finishing the assignment of data to the repeater
                 OrgMemRptr.DataBind();
-                foreach (DataRow row in dt.Rows)
-                {
-                    MemberList.Add(row[0].ToString());
-                }
             }
             conn.Close();
         }

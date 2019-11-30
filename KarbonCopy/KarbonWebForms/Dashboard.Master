@@ -52,12 +52,11 @@
 
             <div class="collapse navbar-collapse d-lg-none" id="collapsibleNavbar">
                 <a class="btn btn-<%=theme %> nav-link d-lg-none ml-1" href="/Views/Projects/Projects.aspx">Dashboard</a>
-                <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Projects/Projects.aspx">Project</a>
-                <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Tasks/TasksList.aspx">Task</a>
+                <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Tasks/TasksList.aspx">Project Tasks</a>
                 <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Notes/NoteTable.aspx">Notes</a>
-                <a class="btn btn-<%=theme %> nav-link d-lg-none <%=permAccess %>" href="<%=permLink %>">Permissions</a>
+                <a class="btn btn-<%=theme %> nav-link d-lg-none <%=permAccess %>" href="<%=permLink %>">Set Permissions</a>
                 <a class="btn btn-<%=theme %> nav-link d-lg-none <%=inviteAccess %>" href="<%=inviteLink %>">Invite Users</a>
-                <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Accounts/Settings.aspx">Settings</a>
+                <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Accounts/Settings.aspx">Account Settings</a>
                 <a class="btn btn-<%=theme %> nav-link d-lg-none" href="/Views/Home/HomeContent.aspx">Logout</a>
             </div>
 
@@ -65,6 +64,7 @@
 
             <!-- what does this button do that the button within the span above doesn't? Answer: It displays on medium and large but, not small -->
             <a class="btn btn-<%=theme %> mx-1 d-none d-md-block d-lg-block mr-2" href="/Views/Home/HomeContent.aspx">
+                <label> <%= Session["Username"] %> </label>
                 <i class="far fa-user-circle fa-2x" style="vertical-align:middle"></i>
             </a>
 
@@ -84,19 +84,19 @@
                             <a class="btn btn-<%=theme %> nav-link text-left" href="/Views/Projects/Projects.aspx">Project</a>
                         </li>-->
                         <li class="nav-item my-1" id="task">
-                            <a class="btn btn-<%=theme %> nav-link text-left" href="/Views/Tasks/TasksList.aspx">Task</a>
+                            <a class="btn btn-<%=theme %> nav-link text-left" href="/Views/Tasks/TasksList.aspx">Project Tasks</a>
                         </li>
                         <li class="nav-item my-1" id="notes">
                             <a class="btn btn-<%=theme %> nav-link text-left" href="/Views/Notes/NoteTable.aspx">Notes</a>
                         </li>                        
                         <li class="nav-item my-1" id="perLinkTwo" runat="server">
-                            <a class="btn btn-<%=theme %> nav-link text-left <%=permAccess %>" href="<%=permLink %>">Permissions</a>
+                            <a class="btn btn-<%=theme %> nav-link text-left <%=permAccess %>" href="<%=permLink %>">Set Permissions</a>
                         </li>
                         <li class="nav-item my-1" id="invite">
                             <a class="btn btn-<%=theme %> nav-link text-left <%=inviteAccess %>" href="<%=inviteLink %>">Invite Users</a>
                         </li>
                         <li class="nav-item my-1" id="sett">
-                            <a class="btn btn-<%=theme %> nav-link text-left" href="/Views/Accounts/Settings.aspx">Settings</a>
+                            <a class="btn btn-<%=theme %> nav-link text-left" href="/Views/Accounts/Settings.aspx">Account Settings</a>
                         </li>
                     </ul>
                 </div>

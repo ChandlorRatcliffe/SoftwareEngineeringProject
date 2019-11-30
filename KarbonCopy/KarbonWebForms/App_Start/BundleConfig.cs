@@ -25,7 +25,9 @@ namespace KarbonWebForms
             bundles.Add(new ScriptBundle("~/lib/js").Include(
                 "~/lib/js/jquery-3.4.1.js",
                 "~/lib/js/all.js",
-                "~/lib/js/bootstrap.bundle.js"
+                "~/lib/js/bootstrap.bundle.js",
+                "~/lib/fullcalendar/moment/moment.js",
+                 "~/lib/js/datatables.min.js"
                 )
             );
 
