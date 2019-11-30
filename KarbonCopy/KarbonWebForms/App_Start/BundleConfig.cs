@@ -26,7 +26,8 @@ namespace KarbonWebForms
                 "~/lib/js/jquery-3.4.1.js",
                 "~/lib/js/all.js",
                 "~/lib/js/bootstrap.bundle.js",
-                "~/lib/fullcalendar/moment/moment.js"
+                "~/lib/fullcalendar/moment/moment.js",
+                 "~/lib/js/datatables.min.js"
                 )
             );
 
