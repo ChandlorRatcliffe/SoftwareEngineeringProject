@@ -1,6 +1,7 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CashewWebForms.Login" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="KarbonWebForms.Views.Accounts.Login" Title="Login" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
+<!-- Recreation of Index.cshtml -->
     <div class="container bg-light my-5" style="max-width: 500px;">
             <h2 class="text-center mb-2"><br />KARBON <b>Access</b><br /></h2>
             <div <%--asp-validation-summary="All"--%> class="text-danger"></div>
@@ -23,7 +24,7 @@
                     <%--<label asp-for="Password" class="col-sm-12 col-form-label"></label>--%>
                     <asp:Label runat="server" ID="Password" AssociatedControlID="EnterPassword" CssClass="col-sm-12 col-form-label"></asp:Label>
                     <%--<input asp-for="Password" class="form-control" type="password" placeholder="Username" />--%>
-                    <asp:TextBox runat="server" ID="EnterPassword" CssClass="form-control" placeholder="Enter Password"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="EnterPassword" TextMode="Password" CssClass="form-control" placeholder="Enter Password"></asp:TextBox>
                     <%--<a class="form-text text-muted text-right text-light" onclick="location.href='@Url.Action("RecoveryPassword", "Accounts")'">Forgot&nbsp;Password?</a>
                     <span asp-validation-for="Password" class="text-danger"></span>--%>
                     <asp:LinkButton runat="server" ID="RecoverPassword" CssClass="form-text text-muted text-right text-light" href="/Views/Accounts/RecoverPassword">Forgot&nbsp;Password?</asp:LinkButton>
@@ -38,13 +39,13 @@
             </div><br />
         <hr style="border-color: gray;" />
             <div class="text-center">
-                <a href='@Url.Action("Index","Projects")'><b>To Dashboard</b></a>
+                <a runat="server" href="~/Views/Projects/Projects.aspx"><b>To Dashboard</b></a>
             </div>
         <hr style="border-color: gray;" />
         <!-- Authentication Navigation -->
         <h2 class="text-center mb-2"><br /><b>New</b> Karbon?</h2>
         <div class="mt-3 text-center">
-            <button class="btn btn-primary text-light text-center mt-2 border mx-2" style="width: 175px;" onclick="location.href='/Views/Accounts/Create'">Create&nbsp;An&nbsp;Account</button>
+            <a runat="server" class="btn btn-primary text-light text-center mt-2 border mx-2" style="width: 175px;" href="~/Views/Accounts/Create.aspx">Create&nbsp;An&nbsp;Account</a>
         </div>
         <br />
         <br />

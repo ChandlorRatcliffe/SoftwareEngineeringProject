@@ -1,6 +1,7 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RecoverUsername.aspx.cs" Inherits="CashewWebForms.RecoverUsername" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="RecoverUsername.aspx.cs" Inherits="KarbonWebForms.Views.Accounts.RecoverUsername" Async="true" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
+<!-- Recreation of RecoveryUsername.cshtml -->
     <!-- Username recovery form -->
     <div class="container my-5" style="max-width: 700px;">
         <h2 class="text-center mb-2">Username Recovery</h2>
@@ -17,7 +18,7 @@
         <div class="form-group row text-center">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <h6 class="pb-2" style="color: forestgreen">Your username will be sent to your email address.</h6>
-                <button type="submit" class="btn btn-primary px-5">Recover</button>
+                <button runat="server" onserverclick="RecoverMyUsername" type="submit" class="btn btn-primary px-5">Recover</button>
             </div>
         </div>
     </div>
