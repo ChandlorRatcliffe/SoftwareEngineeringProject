@@ -74,8 +74,8 @@ DROP TABLE Task;
 CREATE TABLE Task(
     `TaskId`		VARCHAR(50),
     `TaskDeadline`	DATETIME,
-    `TaskDescription`  VARCHAR(65335),
     `TaskCompleted` DATETIME,
+    `TaskDescription`  VARCHAR(65335),
     PRIMARY KEY(`TaskId`)
 );
 
@@ -83,7 +83,7 @@ DROP TABLE Parent;
 CREATE TABLE Parent(
     `ParentTaskId`		VARCHAR(50),
     `ChildTaskId`		VARCHAR(50),
-     PRIMARY KEY(`ParentTaskId`)
+     PRIMARY KEY(`ParentTaskId`,`ChildTaskId`)
 );
 
 DROP TABLE NotesPosted;

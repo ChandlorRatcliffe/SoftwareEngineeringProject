@@ -277,7 +277,10 @@ namespace DatabasePopulation
                 tuples += taskTree.getParentAddTupleString();
                 addBuiltOnTuples(taskTree.getBuiltOnTupleString());
             }
-            s += tuples.Substring(0, tuples.Length - 1) + ";";
+            if (tuples.Length > 0)
+                s += tuples.Substring(0, tuples.Length - 1) + ";";
+            else
+                s += tuples + ";";
             query(s);
             //Console.WriteLine("Done.");
         }
