@@ -81,7 +81,7 @@ namespace KarbonWebForms.Views.Accounts
                 command = new MySqlCommand(qRun, conn);
                 command.Parameters.Add(new MySqlParameter("newUser", MySqlDbType.VarChar) { Value = changeUser.Text });
                 command.ExecuteNonQuery();
-                qRun = "UPDATE `TaskAbilites` SET `Username`=@newUser WHERE `Username`='" + Session["Username"].ToString() + "';";
+                qRun = "UPDATE `TaskAbilities` SET `Username`=@newUser WHERE `Username`='" + Session["Username"].ToString() + "';";
                 command = new MySqlCommand(qRun, conn);
                 command.Parameters.Add(new MySqlParameter("newUser", MySqlDbType.VarChar) { Value = changeUser.Text });
                 command.ExecuteNonQuery();
@@ -89,6 +89,7 @@ namespace KarbonWebForms.Views.Accounts
                 command = new MySqlCommand(qRun, conn);
                 command.Parameters.Add(new MySqlParameter("newUser", MySqlDbType.VarChar) { Value = changeUser.Text });
                 command.ExecuteNonQuery();
+                trans.Commit();
                 conn.Close();
                 Session["Username"] = changeUser.Text;
             }

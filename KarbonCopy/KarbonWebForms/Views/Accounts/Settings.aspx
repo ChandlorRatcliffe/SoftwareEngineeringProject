@@ -16,7 +16,7 @@
                 <br />
                 <asp:TextBox runat="server" ID="changeUser" class="form-control" Text="New Username" aria-label="New Username"></asp:TextBox>
                 <div class="input-group-append">
-                    <button runat="server" class="btn btn-dark" type="button" onclick="changeUsername_Click">Submit</button>
+                    <asp:button runat="server" class="btn btn-dark" Text="Submit" onclick="changeUsername_Click"></asp:button>
                 </div>
             </div>
             <br />
@@ -27,7 +27,7 @@
             <div class="input-group mb-4">
                 <asp:TextBox ID="changeEmail" runat="server" class="form-control" Text="New Email" aria-label="New Email"></asp:TextBox>
                 <div class="input-group-append">
-                    <button runat="server" class="btn btn-dark" type="button" onclick="changeEmail_Click">Submit</button>
+                    <asp:button runat="server" class="btn btn-dark" Text="Submit" onclick="changeEmail_Click"></asp:button>
                 </div>
             </div>
             <br />
@@ -41,7 +41,7 @@
             <div class="input-group mb-4">
                 <asp:TextBox runat="server" class="form-control" ID="confirmPassword" Text="Confirm New Password" aria-label="Confirm New Password"></asp:TextBox>
                 <div class="input-group-append">
-                    <button runat="server" class="btn btn-warning" type="button" onclick="changePassword_Click">Submit</button>
+                    <asp:button runat="server" class="btn btn-warning" Text="Submit" onclick="changePassword_Click"></asp:button>
                 </div>
             </div>
             <!-- Change Theme Section-->
