@@ -20,7 +20,7 @@
                             <br />
 
                                                         <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-outline-dark my-2" data-toggle="modal" data-target="#exampleModal">
                                 Register Your Organization!
                             </button>
 
@@ -43,7 +43,7 @@
                                 </div>
                               </div>
                             </div>
-
+                             -OR- 
                             <button class="btn btn-outline-dark" type="button" onclick="location.href='/Views/Accounts/Create'">Sign Up!</button><br />
                             <br />
                         </div>
@@ -66,7 +66,7 @@
             <div class="row mx-1">
                 <div class="col-sm-12 col-md-7 col-first lead">
                     <div class="display-4">Scalable</div>
-                    Designed with teams big and small in mind. With our use of Azure App Serivce and Databases, we can scale at a moments notice to meet your requirement and still maintain fair pricing!
+                    Designed with teams big and small in mind - with our use of Azure App Serivce and Databases, we can scale at a moments notice to meet your requirement and still maintain fair pricing!
                 </div>
                 <div class="col-1">
                     <br />
@@ -84,13 +84,13 @@
                 </div>
                 <div class="col-md-7 col-sm-12 order-xl-last order-first lead">
                     <div class="display-4">Secure</div>
-                    Forced SSL, and user tracking via cookies, we can ensure to keep your presenese secure. We also utilize email verification on account creation to make sure you are who you are!
+                    Through forced SSL and user tracking via cookies, we can ensure your presence remains secure. We also utilize email verification on account creation to make sure you are who you are!
                 </div>
             </div><br /><br />
             <div class="row mx-1">
                 <div class="col-sm-12 col-md-7 col-first lead">
                     <div class="display-4">Latest and Greatest</div>
-                    Built using the latest web components such as HTML5, CSS3 and JavaScript all the while we have a backend using ASP.NET where all of our logic employs C# and MySQL for ease of future upgrades.
+                    Utilizing HTML5, CSS3, and JavaScript up front, and ASP.Net's C# and MySQL in the back, Karbon Management is implemented with future upgrades in mind.
                 </div>
                 <div class="col-1">
                     <br />
