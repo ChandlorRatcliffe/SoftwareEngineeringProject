@@ -94,10 +94,6 @@
                 <div class="col">
                     <!--Intentionally left blank to save my sanity, had issue centering buttons-->
                 </div>
-                <div class="col">
-                    <!--This should take the user to the create note page-->
-                    <button type="button" class="btn btn-primary">New Note</button>
-                </div>
             </div>
             <br />
             <div class="row align-items-center">

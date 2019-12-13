@@ -2,17 +2,49 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
-        <div class="jumbotron jumbotron-fluid jumbomod">
+        <div class="jumbotron jumbotron-fluid jumbomod shadow">
             <div class="row" style="min-height: 50vh; display: flex; align-items: center;">
                 <div class="col-1 order-first"></div>
-                <div class="shadow container rounded col-10" style="background-color: rgba(255, 255, 255,.3); align-content: center; height: 75%; width: 80%">
+                <div class="shadow container rounded col-10" style="background-color: rgba(255, 255, 255,.5); align-content: center; height: 75%; width: 80%">
                     <div class="row">
                         <div class="col-1 order-first"></div>
                         <div class="col-10">
-                            <h1 class="text-dark">Take the Karbon out of management</h1>
                             <br />
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <button class="btn btn-outline-light" type="button" onclick="location.href='/Views/Accounts/Create'">Sign Up!</button><br />
+                            <h1 class="display-4 text-dark">Take the Karbon out of management</h1>
+                            <br />
+                            <p class="h2 lead">
+                                Organize and manage all your projects from your computer, tablet or smartphone!
+                                <br />
+                                Karbon Management makes it simple and easy to manage and organize your large project across any device, anywhere.
+                            </p>
+                            <br />
+
+                                                        <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-outline-dark my-2" data-toggle="modal" data-target="#exampleModal">
+                                Register Your Organization!
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Email Us!</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    Email us at solutions@karbonManagement
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                             -OR- 
+                            <button class="btn btn-outline-dark" type="button" onclick="location.href='/Views/Accounts/Create'">Sign Up!</button><br />
                             <br />
                         </div>
                         <div class="col-1 order-last"></div>
@@ -22,28 +54,52 @@
             </div>
         </div>
 
-        <div class="card-deck">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
+        <div class="container-fluid border rounded"><br />
+            <div class="row mx-1 lead border-bottom d-sm-block d-md-none" style="font-size:4vw">
+                Karbon Management is built as a project management solution to help businesses walk away from the hassle of managing people and their given task and focus more on completing that given task.
+                Take the karbon out of management and accomplish what you set out to do!<br /><br />
             </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <div class="row mx-1 lead border-bottom d-none d-md-block" style="font-size:2vw">
+                Karbon Management is built as a project management solution to help businesses walk away from the hassle of managing people and their given task and focus more on completing that given task.
+                Take the karbon out of management and accomplish what you set out to do!<br /><br />
+            </div><br /><br />
+            <div class="row mx-1">
+                <div class="col-sm-12 col-md-7 col-first lead">
+                    <div class="display-4">Scalable</div>
+                    Designed with teams big and small in mind - with our use of Azure App Serivce and Databases, we can scale at a moments notice to meet your requirement and still maintain fair pricing!
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <div class="col-1">
+                    <br />
                 </div>
-            </div>
+                <div class="col-sm-12 col-md-4 col-last">
+                    <asp:Image runat="server" ImageUrl="~/Views/Home/server_room.jpg" Width="100%" />
+                </div>
+            </div><br /><br />
+            <div class="row mx-1">
+                <div class="col-md-4 col-sm-12 order-xl-first order-last">
+                    <asp:Image runat="server" ImageUrl="~/Views/Home/security.jpg" Width="100%" />
+                </div>
+                <div class="col-1">
+                    <br />
+                </div>
+                <div class="col-md-7 col-sm-12 order-xl-last order-first lead">
+                    <div class="display-4">Secure</div>
+                    Through forced SSL and user tracking via cookies, we can ensure your presence remains secure. We also utilize email verification on account creation to make sure you are who you are!
+                </div>
+            </div><br /><br />
+            <div class="row mx-1">
+                <div class="col-sm-12 col-md-7 col-first lead">
+                    <div class="display-4">Latest and Greatest</div>
+                    Utilizing HTML5, CSS3, and JavaScript up front, and ASP.Net's C# and MySQL in the back, Karbon Management is implemented with future upgrades in mind.
+                </div>
+                <div class="col-1">
+                    <br />
+                </div>
+                <div class="col-sm-12 col-md-4 col-last">
+                    <asp:Image runat="server" ImageUrl="~/Views/Home/code.jpg" Width="100%" />
+                </div>
+            </div><br /><br />
         </div>
+
     </div>
 </asp:Content>
